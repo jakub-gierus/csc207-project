@@ -21,16 +21,18 @@ public abstract class User {
     }
 
     /**
-     * Returns ture if new password is not the same as current password and changes password to newPassword
+     * Returns ture if new password is not the same as current password and changes password to newPassword. Records
+     * this change in this user's passwordEvents
      * @param newPassword a new password to replace current password
      * @return true if password change was successful, false otherwise.
+     * @see ChangePasswordEvent
      */
     public boolean setPassword(String newPassword) {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
 
             ChangePasswordEvent event = ChangePasswordEvent(LocalDate.now(), LocalTime.now(), "Password Updated");
-            this.events.add(event);
+            this.passwordEvents.add(event);
 
             return true;
         }
@@ -54,6 +56,12 @@ public abstract class User {
         return this.loginEvent;
     }
 
+    /**
+     * Returns true if username change is successful. Change is successful if newUsername is not already a User.
+     * @param newUsername new username to replace current username
+     * @return true if username change was successful
+     * @see UserManager
+     */
     public boolean setUsername(String newUsername) {
         if (!UserManager.getUsernames().contains(newUsername)) {
             this.username = newUsername;
