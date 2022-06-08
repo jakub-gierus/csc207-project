@@ -11,6 +11,12 @@ public abstract class User {
     private List<ChangePasswordEvent> passwordEvents;
     private List<LoginEvent> loginEvent;
 
+    /**
+     * Creates a new User with username, and password. Stores this User in UserManager.
+     * @param username username of this User
+     * @param password password used by this User to login
+     * @param isAdmin if true, then this User is an admin user, otherwise this user is a basic user.
+     */
     public User(String username, String password, boolean isAdmin) {
 
         this.password = password;
@@ -18,6 +24,9 @@ public abstract class User {
         this.username = username;
         this.passwordEvents = new ArrayList<>();
         this.loginEvent = new ArrayList<>();
+
+        // Add this method in UserManager
+        UserManager.addUser(this);
     }
 
     /**
@@ -31,6 +40,7 @@ public abstract class User {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
 
+            // Create a constructor for ChangePasswordEvent class
             ChangePasswordEvent event = ChangePasswordEvent(LocalDate.now(), LocalTime.now(), "Password Updated");
             this.passwordEvents.add(event);
 
@@ -63,6 +73,7 @@ public abstract class User {
      * @see UserManager
      */
     public boolean setUsername(String newUsername) {
+        // Add this method to UserManager
         if (!UserManager.getUsernames().contains(newUsername)) {
             this.username = newUsername;
             return true;
