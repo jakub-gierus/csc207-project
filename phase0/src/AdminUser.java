@@ -16,9 +16,9 @@ public class AdminUser extends User{
     public boolean createUser(String username, String password, boolean isAdmin){
         boolean creationSuccess;
         if (isAdmin){
-            creationSuccess = UserManager.addUser(new AdminUser(username, password));
+            creationSuccess = UserManager.addAdminUser(username, password);
         } else {
-            creationSuccess = UserManager.addUser(new BasicUser(username, password));
+            creationSuccess = UserManager.addBasicUser(username, password);
         }
         return creationSuccess;
     }
