@@ -27,7 +27,7 @@ public class AdminUser extends User{
      * @param user user to ban
      */
     public boolean banUser(BasicUser user){
-        user.isBanned = true;
+        user.setBanned();
         return true;
     }
     /**

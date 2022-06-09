@@ -10,6 +10,7 @@ public abstract class User {
     private List<LoginEvent> loginEvent;
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
+    private boolean isBanned = false;
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
@@ -98,6 +99,15 @@ public abstract class User {
     public boolean getLogin() {
         return this.isLoggedIn;
     }
+
+    public boolean getBanned() {
+        return this.isBanned;
+    }
+    public void setBanned() {
+        this.isBanned = true;
+    }
+
+
 
 
 
