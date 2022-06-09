@@ -22,9 +22,6 @@ public abstract class User {
         this.passwordEvents = new ArrayList<>();
         this.loginEvent = new ArrayList<>();
         this.isAdmin = isAdmin;
-
-        // TODO: Add this method in UserManager
-        UserManager.addUser(this);
     }
 
     /**
@@ -53,8 +50,12 @@ public abstract class User {
     public boolean isAdmin(){return this.isAdmin;};
 
     public boolean login(String username, String password){
-        // TODO: implement this logic
-        return true;
+        List<String> usernames = UserManager.getUsernames();
+
+        if (usernames.contains(username)) {
+            return UserManager.getUser(username).password == password;
+        }
+        return false;
     };
 
     /**
@@ -73,7 +74,6 @@ public abstract class User {
      */
     public boolean setUsername(String newUsername) {
 
-        // TODO: Add this method to UserManager
         if (!UserManager.getUsernames().contains(newUsername)) {
             this.username = newUsername;
             return true;
