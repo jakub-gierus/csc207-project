@@ -4,23 +4,24 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public abstract class User {
-
     private String password;
     private String username;
     private List<ChangePasswordEvent> passwordEvents;
     private List<LoginEvent> loginEvent;
+    private final boolean isAdmin;
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
      * @param username username of this User
      * @param password password used by this User to login
      */
-    public User(String username, String password) {
+    public User(String username, String password, boolean isAdmin) {
 
         this.password = password;
         this.username = username;
         this.passwordEvents = new ArrayList<>();
         this.loginEvent = new ArrayList<>();
+        this.isAdmin = isAdmin;
 
         // TODO: Add this method in UserManager
         UserManager.addUser(this);
@@ -49,9 +50,12 @@ public abstract class User {
     /**
      * @return Whether this User is an admin
      */
-    abstract boolean getIsAdmin();
+    public boolean isAdmin(){return this.isAdmin;};
 
-    abstract boolean login(String username, String password);
+    public boolean login(String username, String password){
+        // TODO: implement this logic
+        return true;
+    };
 
     /**
      * @return this User's login event
