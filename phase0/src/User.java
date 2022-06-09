@@ -9,6 +9,7 @@ public abstract class User {
     private List<ChangePasswordEvent> passwordEvents;
     private List<LoginEvent> loginEvent;
     private final boolean isAdmin;
+    private boolean isLoggedIn = false;
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
@@ -49,11 +50,24 @@ public abstract class User {
      */
     public boolean isAdmin(){return this.isAdmin;};
 
+    /**
+     *
+     * @param username the username to login in with
+     * @param password password given to login
+     * @return if User with username exists and password is correct, then returns true
+     * @see UserManager
+     * @see LoginEvent
+     */
     public boolean login(String username, String password){
         List<String> usernames = UserManager.getUsernames();
 
         if (usernames.contains(username)) {
-            return UserManager.getUser(username).password == password;
+            if (UserManager.getUser(username).password == password) {
+                this.isLoggedIn = true;
+                LoginEvent event = LoginEvent(LocalDate.now(), LocalTime.now(), "Login")
+                this.loginEvent.add(event);
+                return true;
+            }
         }
         return false;
     };
@@ -79,6 +93,10 @@ public abstract class User {
             return true;
         }
         return false;
+    }
+
+    public boolean getLogin() {
+        return this.isLoggedIn;
     }
 
 
