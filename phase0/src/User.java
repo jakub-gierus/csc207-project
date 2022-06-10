@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDateTime;
 
 public abstract class User {
     private String password;
@@ -37,7 +36,7 @@ public abstract class User {
             this.password = newPassword;
 
             // TODO: Create a constructor for ChangePasswordEvent class
-            ChangePasswordEvent event = ChangePasswordEvent(LocalDateTime.now(), "Password Updated");
+            ChangePasswordEvent event = ChangePasswordEvent(this, "Password Updated");
             this.passwordEvents.add(event);
 
             return true;
@@ -63,13 +62,13 @@ public abstract class User {
     public boolean validate(String pass) {
         return this.password.equals(pass);
     }
-    public boolean getLogin() {
+    public boolean getIsLoggedIn() {
         return this.isLoggedIn;
     }
     public void setLogin() {
         this.isLoggedIn = true;
     }
-    public boolean getBanned() {
+    public boolean getIsBanned() {
         return this.isBanned;
     }
     public void setBanned() {

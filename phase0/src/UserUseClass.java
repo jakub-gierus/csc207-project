@@ -4,12 +4,12 @@ import java.util.List;
 public class UserUseClass {
 
     /**
-     *
      * @param username the username to login in with
      * @param password password given to login
      * @return if User with username exists and password is correct, then returns true
      * @see UserManager
      * @see LoginEvent
+     * @see User
      */
     public boolean login(String username, String password){
 
@@ -21,7 +21,7 @@ public class UserUseClass {
 
             if (user.validate(password)) {
                 user.setLogin();
-                LoginEvent event = LoginEvent(LocalDateTime.now(), "Login")
+                LoginEvent event = LoginEvent(user, "Login");
                 user.addLoginEvent(event);
                 return true;
             }
