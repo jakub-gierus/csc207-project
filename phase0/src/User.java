@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public abstract class User {
     private String password;
@@ -38,47 +37,12 @@ public abstract class User {
             this.password = newPassword;
 
             // TODO: Create a constructor for ChangePasswordEvent class
-            ChangePasswordEvent event = ChangePasswordEvent(LocalDate.now(), LocalTime.now(), "Password Updated");
+            ChangePasswordEvent event = ChangePasswordEvent(LocalDateTime.now(), "Password Updated");
             this.passwordEvents.add(event);
 
             return true;
         }
         return false;
-    }
-
-    /**
-     * @return Whether this User is an admin
-     */
-    public boolean isAdmin(){return this.isAdmin;};
-
-    /**
-     *
-     * @param username the username to login in with
-     * @param password password given to login
-     * @return if User with username exists and password is correct, then returns true
-     * @see UserManager
-     * @see LoginEvent
-     */
-    public boolean login(String username, String password){
-        List<String> usernames = UserManager.getUsernames();
-
-        if (usernames.contains(username)) {
-            if (UserManager.getUser(username).password == password) {
-                this.isLoggedIn = true;
-                LoginEvent event = LoginEvent(LocalDate.now(), LocalTime.now(), "Login")
-                this.loginEvent.add(event);
-                return true;
-            }
-        }
-        return false;
-    };
-
-    /**
-     * @return this User's login event
-     * @see LoginEvent
-     */
-    public List<LoginEvent> getLoginEvent() {
-        return this.loginEvent;
     }
 
     /**
@@ -96,15 +60,29 @@ public abstract class User {
         return false;
     }
 
+    public boolean validate(String pass) {
+        return this.password.equals(pass);
+    }
     public boolean getLogin() {
         return this.isLoggedIn;
     }
-
+    public void setLogin() {
+        this.isLoggedIn = true;
+    }
     public boolean getBanned() {
         return this.isBanned;
     }
     public void setBanned() {
         this.isBanned = true;
+    }
+    public boolean isAdmin(){
+        return this.isAdmin;
+    }
+    public List<LoginEvent> getLoginEvent() {
+        return this.loginEvent;
+    }
+    public void addLoginEvent(LoginEvent e) {
+        this.loginEvent.add(e);
     }
 
 
