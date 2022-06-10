@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class User {
+public class User {
     private String password;
     private String username;
     private List<ChangePasswordEvent> passwordEvents;
@@ -35,10 +35,8 @@ public abstract class User {
     public boolean setPassword(String newPassword) {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
-
             ChangePasswordEvent event = ChangePasswordEvent("Password Updated");
             this.passwordEvents.add(event);
-
             return true;
         }
         return false;

@@ -15,7 +15,7 @@ public class UserUseClass {
         List<String> usernames = UserManager.getUsernames();
         if (usernames.contains(username)) {
             User user = UserManager.getUser(username);
-            if (user.validate(password)) {
+            if (user.validate(password) && !user.getIsBanned()) {
                 user.setLoggedIn();
                 LoginEvent event = LoginEvent("Login");
                 user.addLoginEvent(event);
@@ -28,8 +28,8 @@ public class UserUseClass {
     /**
      * Returns true if username change is successful. Change is successful if newUsername is not already a User.
      * @param newUsername new username to replace current username
-     * @return true if username change was successful
      * @see UserManager
+     * @see User
      */
     public void setUsername(String newUsername, User user) {
         if (!UserManager.getUsernames().contains(newUsername)) {
