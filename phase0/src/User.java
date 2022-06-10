@@ -45,21 +45,6 @@ public abstract class User {
     }
 
     /**
-     * Returns true if username change is successful. Change is successful if newUsername is not already a User.
-     * @param newUsername new username to replace current username
-     * @return true if username change was successful
-     * @see UserManager
-     */
-    public boolean setUsername(String newUsername) {
-
-        if (!UserManager.getUsernames().contains(newUsername)) {
-            this.username = newUsername;
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Used by UserUseClass to validate if provided password is correct
      * @param password provided password
      * @return true if this user's password is equal to provided password
@@ -119,5 +104,13 @@ public abstract class User {
      */
     public void addLoginEvent(LoginEvent e) {
         this.loginEvent.add(e);
+    }
+
+    /**
+     * UserUseClass checks if provided username is unique, and this method changes the username
+     * @param newUsername new username to be changed to
+     */
+    public void setUsername(String newUsername) {
+        this.username = newUsername;
     }
 }

@@ -24,4 +24,16 @@ public class UserUseClass {
         }
         return false;
     }
+
+    /**
+     * Returns true if username change is successful. Change is successful if newUsername is not already a User.
+     * @param newUsername new username to replace current username
+     * @return true if username change was successful
+     * @see UserManager
+     */
+    public void setUsername(String newUsername, User user) {
+        if (!UserManager.getUsernames().contains(newUsername)) {
+            user.setUsername(newUsername);
+        }
+    }
 }
