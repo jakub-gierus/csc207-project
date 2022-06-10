@@ -36,7 +36,7 @@ public abstract class User {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
 
-            ChangePasswordEvent event = ChangePasswordEvent(this, "Password Updated");
+            ChangePasswordEvent event = ChangePasswordEvent("Password Updated");
             this.passwordEvents.add(event);
 
             return true;

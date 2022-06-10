@@ -17,7 +17,7 @@ public class UserUseClass {
             User user = UserManager.getUser(username);
             if (user.validate(password)) {
                 user.setLoggedIn();
-                LoginEvent event = LoginEvent(user, "Login");
+                LoginEvent event = LoginEvent("Login");
                 user.addLoginEvent(event);
                 return true;
             }
