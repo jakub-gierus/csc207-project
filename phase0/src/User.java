@@ -14,6 +14,7 @@ public abstract class User {
      * Creates a new User with username, and password. Stores this User in UserManager.
      * @param username username of this User
      * @param password password used by this User to login
+     * @param isAdmin true if user is an admin user, false if basic user
      */
     public User(String username, String password, boolean isAdmin) {
 
@@ -35,7 +36,6 @@ public abstract class User {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
 
-            // TODO: Create a constructor for ChangePasswordEvent class
             ChangePasswordEvent event = ChangePasswordEvent(this, "Password Updated");
             this.passwordEvents.add(event);
 
@@ -59,33 +59,65 @@ public abstract class User {
         return false;
     }
 
-    public boolean validate(String pass) {
-        return this.password.equals(pass);
+    /**
+     * Used by UserUseClass to validate if provided password is correct
+     * @param password provided password
+     * @return true if this user's password is equal to provided password
+     */
+    public boolean validate(String password) {
+        return this.password.equals(password);
     }
+
+    /**
+     * Getter for isLoggedIn
+     * @return true if User is logged in
+     */
     public boolean getIsLoggedIn() {
         return this.isLoggedIn;
     }
-    public void setLogin() {
+    /**
+     * Setter for isLoggedIn
+     */
+    public void setLoggedIn() {
         this.isLoggedIn = true;
     }
+
+    /**
+     * Getter for isBanned
+     * @return true if user is banned
+     */
     public boolean getIsBanned() {
         return this.isBanned;
     }
+
+    /**
+     * Setter for isBanned
+     */
     public void setBanned() {
         this.isBanned = true;
     }
-    public boolean isAdmin(){
+
+    /**
+     * Getter for isAdmin
+     * @return true if this user is an admin, false if user is basic
+     */
+    public boolean getIsAdmin(){
         return this.isAdmin;
     }
+
+    /**
+     * Getter for this user's login events
+     * @return this user's loginEvent
+     */
     public List<LoginEvent> getLoginEvent() {
         return this.loginEvent;
     }
+
+    /**
+     * Add's a login event to this user's LoginEvent
+     * @param e LoginEvent representing the event
+     */
     public void addLoginEvent(LoginEvent e) {
         this.loginEvent.add(e);
     }
-
-
-
-
-
 }

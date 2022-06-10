@@ -12,15 +12,11 @@ public class UserUseClass {
      * @see User
      */
     public boolean login(String username, String password){
-
         List<String> usernames = UserManager.getUsernames();
-
         if (usernames.contains(username)) {
-
             User user = UserManager.getUser(username);
-
             if (user.validate(password)) {
-                user.setLogin();
+                user.setLoggedIn();
                 LoginEvent event = LoginEvent(user, "Login");
                 user.addLoginEvent(event);
                 return true;
