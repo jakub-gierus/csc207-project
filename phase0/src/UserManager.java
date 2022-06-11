@@ -55,4 +55,16 @@ public class UserManager {
         return new ArrayList<>(users.values());
     }
 
+    /**
+     * ban the given user
+     * @return true
+     */
+    public static boolean banUser(BasicUser user, User caller){
+        if(!caller.isAdmin()){
+            return false;
+        }
+        user.setBanned();
+        return true;
+    }
+
 }

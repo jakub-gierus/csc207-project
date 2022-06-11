@@ -49,7 +49,7 @@ public abstract class User {
     /**
      * @return Whether this User is an admin
      */
-    public boolean isAdmin(){return this.isAdmin;};
+    public boolean isAdmin(){return this.isAdmin;}
 
     /**
      *
