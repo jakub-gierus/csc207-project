@@ -97,7 +97,7 @@ public class User {
     }
 
     /**
-     * Add's a login event to this user's LoginEvent
+     * Adds a login event to this user's LoginEvent
      * @param e LoginEvent representing the event
      */
     public void addLoginEvent(LoginEvent e) {
