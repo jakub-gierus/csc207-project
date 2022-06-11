@@ -60,7 +60,7 @@ public class UserManager {
      * @return true
      */
     public static boolean banUser(BasicUser user, User caller){
-        if(!caller.isAdmin()){
+        if(!caller.getIsAdmin()){
             return false;
         }
         user.setBanned();
