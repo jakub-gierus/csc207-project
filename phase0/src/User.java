@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
-public abstract class User {
+public class User {
     private String password;
     private String username;
     private List<ChangePasswordEvent> passwordEvents;
@@ -16,6 +14,7 @@ public abstract class User {
      * Creates a new User with username, and password. Stores this User in UserManager.
      * @param username username of this User
      * @param password password used by this User to login
+     * @param isAdmin true if user is an admin user, false if basic user
      */
     public User(String username, String password, boolean isAdmin) {
 
@@ -36,79 +35,80 @@ public abstract class User {
     public boolean setPassword(String newPassword) {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
-
-            // TODO: Create a constructor for ChangePasswordEvent class
-            ChangePasswordEvent event = ChangePasswordEvent(LocalDate.now(), LocalTime.now(), "Password Updated");
+            ChangePasswordEvent event = ChangePasswordEvent("Password Updated");
             this.passwordEvents.add(event);
-
             return true;
         }
         return false;
     }
 
     /**
-     * @return Whether this User is an admin
+     * Used by UserUseClass to validate if provided password is correct
+     * @param password provided password
+     * @return true if this user's password is equal to provided password
      */
-    public boolean isAdmin(){return this.isAdmin;}
+    public boolean validate(String password) {
+        return this.password.equals(password);
+    }
 
     /**
-     *
-     * @param username the username to login in with
-     * @param password password given to login
-     * @return if User with username exists and password is correct, then returns true
-     * @see UserManager
-     * @see LoginEvent
+     * Getter for isLoggedIn
+     * @return true if User is logged in
      */
-    public boolean login(String username, String password){
-        List<String> usernames = UserManager.getUsernames();
-
-        if (usernames.contains(username)) {
-            if (UserManager.getUser(username).password == password) {
-                this.isLoggedIn = true;
-                LoginEvent event = LoginEvent(LocalDate.now(), LocalTime.now(), "Login")
-                this.loginEvent.add(event);
-                return true;
-            }
-        }
-        return false;
-    };
+    public boolean getIsLoggedIn() {
+        return this.isLoggedIn;
+    }
+    /**
+     * Setter for isLoggedIn
+     */
+    public void setLoggedIn() {
+        this.isLoggedIn = true;
+    }
 
     /**
-     * @return this User's login event
-     * @see LoginEvent
+     * Getter for isBanned
+     * @return true if user is banned
+     */
+    public boolean getIsBanned() {
+        return this.isBanned;
+    }
+
+    /**
+     * Setter for isBanned
+     */
+    public void setBanned() {
+        this.isBanned = true;
+    }
+
+    /**
+     * Getter for isAdmin
+     * @return true if this user is an admin, false if user is basic
+     */
+    public boolean getIsAdmin(){
+        return this.isAdmin;
+    }
+
+    /**
+     * Getter for this user's login events
+     * @return this user's loginEvent
      */
     public List<LoginEvent> getLoginEvent() {
         return this.loginEvent;
     }
 
     /**
-     * Returns true if username change is successful. Change is successful if newUsername is not already a User.
-     * @param newUsername new username to replace current username
-     * @return true if username change was successful
-     * @see UserManager
+     * Adds a login event to this user's LoginEvent
+     * @param e LoginEvent representing the event
      */
-    public boolean setUsername(String newUsername) {
-
-        if (!UserManager.getUsernames().contains(newUsername)) {
-            this.username = newUsername;
-            return true;
-        }
-        return false;
+    public void addLoginEvent(LoginEvent e) {
+        this.loginEvent.add(e);
     }
 
-    public boolean getLogin() {
-        return this.isLoggedIn;
+    /**
+     * UserUseClass checks if provided username is unique, and this method changes the username
+     * @param newUsername new username to be changed to
+     */
+    public void setUsername(String newUsername) {
+        this.username = newUsername;
     }
-
-    public boolean getBanned() {
-        return this.isBanned;
-    }
-    public void setBanned() {
-        this.isBanned = true;
-    }
-
-
-
-
-
 }

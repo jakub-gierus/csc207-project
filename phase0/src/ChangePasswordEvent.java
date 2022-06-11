@@ -1,3 +1,12 @@
-public class ChangePasswordEvent extends Event{
+import java.util.ArrayList;
 
+public class ChangePasswordEvent extends Event{
+    public ChnagePasswordEvent(){}
+    /**
+     * Creates a new Event with the current date and time, and a message.
+     * @param message message of event
+     */
+    public ChangePasswordEvent(String message) {
+        super(message);
+    }
 }

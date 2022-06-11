@@ -5,6 +5,7 @@ Chaitanya Kumar Mahajan
     - Email: chait.mahajan@mail.utoronto.ca
     - Discord: Chait#1022
     - IG: chait_m_2003
+    UtorID: mahaj110
 
 Kiran Sureshan
     - Email: kiran.sureshan@mail.utoronto.ca
@@ -16,6 +17,7 @@ Andrew Hu
     - Discord: AH6166#8571
     - IG: hu7501
     - Wechat: Hu7212003721
+    UtorID: huandre7
 
 Amane Takeuchi
     - Email: amane.takeuchi@mail.utoronto.ca
@@ -27,6 +29,7 @@ Matthew Liu
     - Email: mz.liu@mail.utoronto.ca
     - IG: vyknight_
     - Discord: VYKnight#2199
+    - UtorID: liuzeku4
     
 Jakub Gierus
     - Email: jakub.gierus@mail.utoronto.ca
@@ -37,4 +40,6 @@ Krishna Gupta
     - Email: krish.gupta@mail.utoronto.ca
     - IG: krishna_13702
     - Discord: Krishna Gupta#8799
+    - utorid : guptakr8
+    - preferred name : krishna
     
