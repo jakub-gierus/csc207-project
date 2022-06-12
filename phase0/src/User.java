@@ -61,16 +61,10 @@ public class User {
     /**
      * Setter for isLoggedIn = true
      */
-    public void setLoggedIn() {
-        this.isLoggedIn = true;
+    public void setLogInOut(boolean bool) {
+        this.isLoggedIn = bool;
     }
 
-    /**
-     * Setter for isLoggedIn = false
-     */
-    public void setLoggedOut() {
-        this.isLoggedIn = false;
-    }
 
     /**
      * Getter for isBanned

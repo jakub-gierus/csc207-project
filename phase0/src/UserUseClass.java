@@ -16,7 +16,7 @@ public class UserUseClass {
         if (usernames.contains(username)) {
             User user = UserManager.getUser(username);
             if (user.validate(password) && !user.getIsBanned()) {
-                user.setLoggedIn();
+                user.setLogInOut(true);
                 LoginEvent event = LoginEvent("Login");
                 user.addLoginEvent(event);
                 return true;
@@ -42,13 +42,16 @@ public class UserUseClass {
      * @param username username to be logged out
      * @return true if log out is successful
      * @see UserManager
+     * @see User
      */
     public boolean logOut(String username) {
         List<String> userList = UserManager.getUsernames();
         if (userList.contains(username)) {
             User user = UserManager.getUser(username);
             if (user.getIsLoggedIn()) {
-                user.setLoggedOut();
+                user.setLogInOut(false);
+                LoginEvent event = LoginEvent("Logged Out");
+                user.addLoginEvent(event);
                 return true;
             }
         }
