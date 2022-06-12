@@ -36,4 +36,22 @@ public class UserUseClass {
             user.setUsername(newUsername);
         }
     }
+
+    /**
+     * Logs out provided user
+     * @param username username to be logged out
+     * @return true if log out is successful
+     * @see UserManager
+     */
+    public boolean logOut(String username) {
+        List<String> userList = UserManager.getUsernames();
+        if (userList.contains(username)) {
+            User user = UserManager.getUser(username);
+            if (user.getIsLoggedIn()) {
+                user.setLoggedOut();
+                return true;
+            }
+        }
+        return false;
+    }
 }

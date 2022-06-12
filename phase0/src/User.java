@@ -59,10 +59,17 @@ public class User {
         return this.isLoggedIn;
     }
     /**
-     * Setter for isLoggedIn
+     * Setter for isLoggedIn = true
      */
     public void setLoggedIn() {
         this.isLoggedIn = true;
+    }
+
+    /**
+     * Setter for isLoggedIn = false
+     */
+    public void setLoggedOut() {
+        this.isLoggedIn = false;
     }
 
     /**
