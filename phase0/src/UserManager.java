@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 
 public class UserManager {
-    private static final HashMap<User, String> users = new HashMap<>();
+    private static final HashMap<String, User> users = new HashMap<>();
 
     // using default constructor for now because everything is static
 
@@ -16,13 +16,13 @@ public class UserManager {
      * @return true if user creation was successful, false otherwise
      */
     public static boolean addBasicUser(String username, String password){
-        if(users.containsValue(username)){
+        if(users.containsKey(username)){
             // username already exists !
             return false;
         }
         else{
             BasicUser u = new BasicUser(username, password);
-            users.put(u, username);
+            users.put(username, u);
             return true;
         }
     }
@@ -35,13 +35,13 @@ public class UserManager {
      * @return true if user creation was successful, false otherwise
      */
     public static boolean addAdminUser(String username, String password){
-        if(users.containsValue(username)){
+        if(users.containsKey(username)){
             // username already exists !
             return false;
         }
         else{
             AdminUser u = new AdminUser(username, password);
-            users.put(u, username);
+            users.put(username, u);
             return true;
         }
     }
@@ -52,7 +52,7 @@ public class UserManager {
      * @return ArrayList<String> of usernames
      */
     public static List<String> getUsernames(){
-        return new ArrayList<>(users.values());
+        return new ArrayList<>(users.keySet()); // verify that this actually returns a list of strings
     }
 
     /**
@@ -67,4 +67,17 @@ public class UserManager {
         return true;
     }
 
+    // This is passing in an user object, shouldn't it be a username string?
+    public static boolean deleteUser(User user){
+        String username = user.getUsername();
+        if(users.containsKey(username)){
+            users.remove(username);
+            return true;
+        }
+        return false;
+    }
+
+    public static User getUser(String username){
+        return users.get(username);
+    }
 }

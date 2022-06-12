@@ -111,4 +111,6 @@ public class User {
     public void setUsername(String newUsername) {
         this.username = newUsername;
     }
+
+    public String getUsername() { return username; }
 }
