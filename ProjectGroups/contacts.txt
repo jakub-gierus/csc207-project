@@ -35,7 +35,9 @@ Matthew Liu
 Jakub Gierus
     - Email: jakub.gierus@mail.utoronto.ca
     - IG: jakub.gierus
+    - utorid: gierusja
     - Discord: OozeMagooze#1458
+    - Preferred Name: Jakub
 
 Krishna Gupta
     - Email: krish.gupta@mail.utoronto.ca
