@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDateTime;
+
 
 public class User {
     private String password;
@@ -10,8 +10,7 @@ public class User {
     private boolean isAdmin;
     private boolean isLoggedIn = false;
     private boolean isBanned = false;
-    private boolean tempBan = false;
-    private LocalDateTime tempBanTime;
+
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
@@ -110,25 +109,4 @@ public class User {
      */
     public String getUsername() { return this.username; }
 
-    /**
-     * @return if this user is temporarily banned
-     */
-    public boolean getIsTempBan () { return this.tempBan; }
-
-    /**
-     * Sets this user to be temporarily banned, and records the time of temp ban.
-     */
-    public void setIsTempBan () {
-        this.tempBan = true;
-        this.tempBanTime = LocalDateTime.now();
-    }
-
-    /**
-     * Checks if 10 minutes has passed since time of ban. If time has passed then sets tempBan to false.
-     */
-    public void unTempBan() {
-        if (LocalDateTime.now().isAfter(this.tempBanTime.plusMinutes(10))) {
-            this.tempBan = false;
-        }
-    }
 }

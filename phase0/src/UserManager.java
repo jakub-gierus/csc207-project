@@ -108,7 +108,7 @@ public class UserManager {
 
     public static boolean tempBanUser(String username) {
         if (users.containsKey(username)) {
-            User user = getUser(username);
+            BasicUser user = getUser(username);
             user.setIsTempBan();
             return true;
         }
