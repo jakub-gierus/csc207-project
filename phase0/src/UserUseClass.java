@@ -15,6 +15,7 @@ public class UserUseClass {
         if (usernames.contains(username)) {
             User user = UserManager.getUser(username);
             if (user.validate(password) && !user.getIsBanned()) {
+                if ()
                 user.setLogInOut(true);
                 LoginEvent event = new LoginEvent("Login");
                 user.addLoginEvent(event);

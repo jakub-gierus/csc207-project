@@ -109,9 +109,11 @@ public class UserManager {
     public static boolean tempBanUser(String username) {
         if (users.containsKey(username)) {
             User user = getUser(username);
-            if (user.getIsAdmin()){return false;} // admins can't get banned
-            user.setTempBan(); // modify this however temp ban is implemented
-            return true;
+            if (!user.getIsAdmin()) {
+                BasicUser bc = (BasicUser) user;
+                bc.setIsTempBan();
+                return true;
+            }
         }
         return false;
     }

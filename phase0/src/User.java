@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class User {
+public abstract class User {
     private String password;
     private String username;
     private final List<ChangePasswordEvent> passwordEvents;
@@ -108,5 +108,9 @@ public class User {
      * @return this user's username
      */
     public String getUsername() { return this.username; }
+
+    abstract void setIsTempBan();
+
+    abstract void unTempBan();
 
 }
