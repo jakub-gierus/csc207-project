@@ -6,9 +6,11 @@ public class User {
     private String username;
     private final List<ChangePasswordEvent> passwordEvents;
     private final List<LoginEvent> loginEvent;
-    private final boolean isAdmin;
+    private boolean isAdmin;
     private boolean isLoggedIn = false;
     private boolean isBanned = false;
+
+    private boolean tempBan = false;
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
@@ -101,5 +103,19 @@ public class User {
      */
     public void setUsername(String newUsername) { this.username = newUsername; }
 
-    public String getUsername() { return username; }
+    /**
+     * Getter for this user's username
+     * @return this user's username
+     */
+    public String getUsername() { return this.username; }
+
+    /**
+     * @return if this user is temporarily banned
+     */
+    public boolean getIsTempBan () { return this.tempBan; }
+
+    /**
+     * Sets this user to be temporarily banned. ()
+     */
+    public void setIsTempBan () { this.tempBan = true; }
 }

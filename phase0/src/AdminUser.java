@@ -24,16 +24,24 @@ public class AdminUser extends User{
     }
     /**
      * Bans the given user.
-     * @param user user to ban
+     * @param username user to ban
      */
-    public boolean banUser(BasicUser user){
-        return UserManager.banUser(user, this);
+    public boolean banUser(String username){
+        return UserManager.banUser(username);
     }
     /**
      * Deletes the given user.
-     * @param user user to delete
+     * @param username user to delete
      */
-    public boolean deleteUser(BasicUser user){
-        return UserManager.deleteUser(user);
+    public boolean deleteUser(String username){
+        return UserManager.deleteUser(username);
+    }
+
+    /**
+     * Temporally bans the given user.
+     * @param username user to ban
+     */
+    public boolean tempBanUser(String username){
+        return UserManager.tempBanUser(username);
     }
 }

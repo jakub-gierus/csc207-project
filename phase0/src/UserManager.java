@@ -105,4 +105,13 @@ public class UserManager {
     public static User getUser(String username){
         return users.get(username);
     }
+
+    public static boolean tempBanUser(String username) {
+        if (users.containsKey(username)) {
+            User user = getUser(username);
+            user.setIsTempBan();
+            return true;
+        }
+        return false;
+    }
 }
