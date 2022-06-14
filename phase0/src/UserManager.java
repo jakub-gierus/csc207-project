@@ -57,7 +57,7 @@ public class UserManager {
 
     /**
      * ban the given user
-     * @return true
+     * @return true or false if the operation succeeds
      */
     public static boolean banUser(BasicUser user, User caller){
         if(!caller.getIsAdmin()){
@@ -67,7 +67,22 @@ public class UserManager {
         return true;
     }
 
-    // This is passing in an user object, shouldn't it be a username string?
+    // overloading method with a version that accepts username
+    // assumes that only admin users can call it
+    public static boolean banUser(String username){
+        if (!users.containsKey(username)){
+            return false; // user does not exist
+        }
+        User target = users.get(username);
+        target.setBanned();
+        return true;
+    }
+
+    /**
+     *
+     * @param user is the user to be deleted
+     * @return true or false if the operation succeeds
+     */
     public static boolean deleteUser(User user){
         String username = user.getUsername();
         if(users.containsKey(username)){
@@ -75,6 +90,16 @@ public class UserManager {
             return true;
         }
         return false;
+    }
+
+    // overloading method to accept username string instead of user object
+
+    public static boolean deleteUser(String username){
+        if (!users.containsKey(username)){
+            return false;
+        }
+        users.remove(username);
+        return true;
     }
 
     public static User getUser(String username){
