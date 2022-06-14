@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class BasicUser extends User{
+public class BasicUser extends User implements TemporaryBanable{
 
     private boolean tempBan = false;
     private LocalDateTime tempBanTime;

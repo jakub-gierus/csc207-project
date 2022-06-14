@@ -9,6 +9,7 @@ public class UserUseClass {
      * @see UserManager
      * @see LoginEvent
      * @see User
+     * @see BasicUser
      */
     public boolean login(String username, String password){
         List<String> usernames = UserManager.getUsernames();

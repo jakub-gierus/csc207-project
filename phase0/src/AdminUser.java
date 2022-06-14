@@ -44,11 +44,4 @@ public class AdminUser extends User{
     public boolean tempBanUser(String username){
         return UserManager.tempBanUser(username);
     }
-
-    // These methods should not be called
-    @Override
-    void setIsTempBan() {}
-
-    @Override
-    void unTempBan() {}
 }

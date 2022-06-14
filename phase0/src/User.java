@@ -109,8 +109,4 @@ public abstract class User {
      */
     public String getUsername() { return this.username; }
 
-    abstract void setIsTempBan();
-
-    abstract void unTempBan();
-
 }
