@@ -8,7 +8,7 @@ public class ChangePasswordEvent extends Event{
      * Creates a new Event with the current date and time, and a message.
      * @param message message of event
      */
-    public ChnagePasswordEvent(List<User> assciatedUsers, String message){
+    public ChangePasswordEvent(List<User> assciatedUsers, String message){
         super(assciatedUsers, message);
     }
 }
