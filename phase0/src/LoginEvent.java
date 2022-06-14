@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class LoginEvent extends Event{
     /**
      * Creates a new Event with the current date and time, and a message.
