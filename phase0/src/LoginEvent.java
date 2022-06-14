@@ -6,7 +6,8 @@ public class LoginEvent extends Event {
      *
      * @param message message of event
      */
-    public LoginEvent(List<User> assciatedUsers, String message) {
-        super(assciatedUsers, message);
+    public LoginEvent(String message) {
+        super(message);
     }
-]
+
+}
