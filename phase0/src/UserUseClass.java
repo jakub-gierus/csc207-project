@@ -17,7 +17,7 @@ public class UserUseClass {
             User user = UserManager.getUser(username);
             if (user.validate(password) && !user.getIsBanned()) {
                 user.setLogInOut(true);
-                LoginEvent event = LoginEvent("Login");
+                LoginEvent event = new LoginEvent("Login");
                 user.addLoginEvent(event);
                 return true;
             }
@@ -50,7 +50,7 @@ public class UserUseClass {
             User user = UserManager.getUser(username);
             if (user.getIsLoggedIn()) {
                 user.setLogInOut(false);
-                LoginEvent event = LoginEvent("Logged Out");
+                LoginEvent event = new LoginEvent("Logged Out");
                 user.addLoginEvent(event);
                 return true;
             }
