@@ -29,4 +29,8 @@ public class BasicUser extends User{
             this.tempBan = false;
         }
     }
+
+    private boolean getTempBan() {
+        return this.tempBan;
+    }
 }
