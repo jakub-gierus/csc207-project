@@ -1,4 +1,5 @@
 class EventTest {
+    @BeforeEach
     void setup() {
     }
 
