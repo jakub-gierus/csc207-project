@@ -38,7 +38,7 @@ public class AdminUser extends User{
     }
 
     /**
-     * Temporally bans the given user.
+     * Temporarily bans the given user.
      * @param username user to ban
      */
     public boolean tempBanUser(String username){
