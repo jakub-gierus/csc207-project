@@ -1,12 +1,14 @@
 class EventTest {
-    void setup(){
+    void setup() {
     }
+
     @Test
-    void testEvent(){
+    void testEvent() {
         assertTrue(True)
     }
+
     @Test
-    void testEventCreate(){
+    void testEventCreate() {
         // assertTrue()
         // assertFalse()
         // assertEquals()

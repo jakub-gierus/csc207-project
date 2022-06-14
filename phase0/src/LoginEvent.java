@@ -9,4 +9,4 @@ public class LoginEvent extends Event {
     public LoginEvent(List<User> assciatedUsers, String message) {
         super(assciatedUsers, message);
     }
-}
+]
