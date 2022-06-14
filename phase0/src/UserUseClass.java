@@ -14,14 +14,33 @@ public class UserUseClass {
         List<String> usernames = UserManager.getUsernames();
         if (usernames.contains(username)) {
             User user = UserManager.getUser(username);
+
             if (user.validate(password) && !user.getIsBanned()) {
-                user.setLogInOut(true);
-                LoginEvent event = new LoginEvent("Login");
-                user.addLoginEvent(event);
-                return true;
+                if (!user.getIsAdmin()) {
+
+                    BasicUser bc = (BasicUser) user;
+
+                    if (!bc.getIsTempBan()) {
+                        return loginHelper(user);
+                    } else {
+                        bc.unTempBan();
+                        if (!bc.getIsTempBan()) {
+                            return loginHelper(user);
+                        }
+                    }
+                } else {
+                    return loginHelper(user);
+                }
             }
         }
         return false;
+    }
+
+    private boolean loginHelper(User user) {
+        user.setLogInOut(true);
+        LoginEvent event = new LoginEvent("Login");
+        user.addLoginEvent(event);
+        return true;
     }
 
     /**
