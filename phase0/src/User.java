@@ -4,8 +4,8 @@ import java.util.List;
 public class User {
     private String password;
     private String username;
-    private List<ChangePasswordEvent> passwordEvents;
-    private List<LoginEvent> loginEvent;
+    private final List<ChangePasswordEvent> passwordEvents;
+    private final List<LoginEvent> loginEvent;
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
     private boolean isBanned = false;
@@ -35,7 +35,7 @@ public class User {
     public boolean setPassword(String newPassword) {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
-            ChangePasswordEvent event = ChangePasswordEvent("Password Updated");
+            ChangePasswordEvent event = new ChangePasswordEvent("Password Updated");
             this.passwordEvents.add(event);
             return true;
         }
@@ -95,6 +95,14 @@ public class User {
      */
     public List<LoginEvent> getLoginEvent() {
         return this.loginEvent;
+    }
+
+    /**
+     * Getter for this user's change password events
+     * @return this user's ChangePasswordEvents
+     */
+    public List<ChangePasswordEvent> getPasswordEvents() {
+        return this.passwordEvents;
     }
 
     /**
