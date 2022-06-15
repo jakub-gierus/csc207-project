@@ -79,6 +79,15 @@ public class UserManager {
         return true;
     }
 
+    public static boolean unBanUser(String username) {
+        if (!users.containsKey(username)){
+            return false; // user does not exist
+        }
+        User target = users.get(username);
+        target.setUnBanned();
+        return true;
+    }
+
     /**
      *
      * @param user is the user to be deleted
@@ -114,6 +123,17 @@ public class UserManager {
                 BasicUser bc = (BasicUser) user;
                 bc.setIsTempBan();
                 bc.setLogInOut(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean unTempBanUser(String username) {
+        if (users.containsKey(username)) {
+            BasicUser bc = (BasicUser) getUser(username);
+            if (bc.getIsTempBan()) {
+                bc.adminUnTempBan();
                 return true;
             }
         }

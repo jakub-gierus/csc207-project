@@ -74,6 +74,11 @@ public class User {
     public void setBanned() { this.isBanned = true; }
 
     /**
+     * Setter for isBanned
+     */
+    public void setUnBanned() { this.isBanned = false; }
+
+    /**
      * Getter for isAdmin
      * @return true if this user is an admin, false if user is basic
      */

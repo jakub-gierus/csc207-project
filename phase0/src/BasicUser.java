@@ -31,7 +31,11 @@ public class BasicUser extends User implements TemporaryBanable{
         }
     }
 
-    private boolean getTempBan() {
+    public boolean getTempBan() {
         return this.tempBan;
+    }
+
+    public void adminUnTempBan() {
+        this.tempBan = false;
     }
 }

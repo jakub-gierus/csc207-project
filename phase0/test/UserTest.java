@@ -41,7 +41,7 @@ public class UserTest {
             assertTrue(u2.getIsLoggedIn());
 
             assertTrue(uuc.logOut("Admin1"));
-            assertTrue(uuc.logOut("Admin1"));
+            assertTrue(uuc.logOut("Basic1"));
             assertFalse(u1.getIsLoggedIn());
             assertFalse(u2.getIsLoggedIn());
 
@@ -62,6 +62,31 @@ public class UserTest {
             assertTrue(u1.banUser("Basic1"));
             assertFalse(u2.getIsLoggedIn());
             assertTrue(u2.getIsBanned());
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testUnBan() {
+        AdminUser u1 = (AdminUser) UserManager.getUser("Admin1");
+        BasicUser u2 = (BasicUser) UserManager.getUser("Basic1");
+        try {
+            UserUseClass uuc = new UserUseClass();
+            assertTrue(uuc.login("Admin1", "Admin1"));
+            assertTrue(uuc.login("Basic1", "Basic1"));
+
+            assertTrue(u1.banUser("Basic1"));
+            assertFalse(u2.getIsLoggedIn());
+            assertTrue(u2.getIsBanned());
+
+            assertTrue(u1.unBanUser("Basic1"));
+            assertFalse(u2.getIsLoggedIn());
+            assertFalse(u2.getIsBanned());
+            assertTrue(uuc.login("Basic1", "Basic1"));
+            assertTrue(u2.getIsLoggedIn());
 
 
         } catch (Exception e) {

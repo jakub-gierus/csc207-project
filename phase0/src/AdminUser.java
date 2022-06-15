@@ -30,6 +30,13 @@ public class AdminUser extends User{
         return UserManager.banUser(username);
     }
     /**
+     * Unbans the given user.
+     * @param username user to unban
+     */
+    public boolean unBanUser(String username){
+        return UserManager.unBanUser(username);
+    }
+    /**
      * Deletes the given user.
      * @param username user to delete
      */
@@ -43,5 +50,13 @@ public class AdminUser extends User{
      */
     public boolean tempBanUser(String username){
         return UserManager.tempBanUser(username);
+    }
+
+    /**
+     * Undo temporary bans for given user.
+     * @param username user to ban
+     */
+    public boolean unTempBanUser(String username){
+        return UserManager.unTempBanUser(username);
     }
 }
