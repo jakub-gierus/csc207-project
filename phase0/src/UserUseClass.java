@@ -47,13 +47,33 @@ public class UserUseClass {
     /**
      * Returns true if username change is successful. Change is successful if newUsername is not already a User.
      * @param newUsername new username to replace current username
+     * @param  oldUsername current username of this user
+     * @return true if username change successful
      * @see UserManager
      * @see User
      */
-    public void setUsername(String newUsername, User user) {
+    public boolean setUsername(String newUsername, String oldUsername) {
+        if (!UserManager.getUsernames().contains(newUsername)) {
+            User user = UserManager.getUser(oldUsername);
+            user.setUsername(newUsername);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if username change is successful. Change is successful if newUsername is not already a User.
+     * @param newUsername new username to replace current username
+     * @return true if username change successful
+     * @see UserManager
+     * @see User
+     */
+    public boolean setUsername(String newUsername, User user) {
         if (!UserManager.getUsernames().contains(newUsername)) {
             user.setUsername(newUsername);
+            return true;
         }
+        return false;
     }
 
     /**

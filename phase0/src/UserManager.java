@@ -75,6 +75,7 @@ public class UserManager {
         }
         User target = users.get(username);
         target.setBanned();
+        target.setLogInOut(false);
         return true;
     }
 
