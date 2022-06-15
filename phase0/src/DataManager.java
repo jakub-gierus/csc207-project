@@ -1,9 +1,8 @@
 import java.util.*;
-import java.io.*;
 
-public class dataManager {
+public class DataManager {
 
-    public dataManager (String location, String filename){
+    public DataManager(String location, String filename){
 
     }
 
