@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class User {
+public class User {
     private String password;
     private String username;
     private final List<ChangePasswordEvent> passwordEvents;
     private final List<LoginEvent> loginEvent;
-    private boolean isAdmin;
+    private final boolean isAdmin;
     private boolean isLoggedIn = false;
     private boolean isBanned = false;
 

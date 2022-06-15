@@ -112,6 +112,7 @@ public class UserManager {
             if (!user.getIsAdmin()) {
                 BasicUser bc = (BasicUser) user;
                 bc.setIsTempBan();
+                bc.setLogInOut(false);
                 return true;
             }
         }
