@@ -72,6 +72,7 @@ public class UserUseClass {
     public boolean setUsername(String newUsername, User user) {
         if (!UserManager.getUsernames().contains(newUsername)) {
             user.setUsername(newUsername);
+            UserManager.updateUsernames(user.getUsername(), newUsername);
             return true;
         }
         return false;

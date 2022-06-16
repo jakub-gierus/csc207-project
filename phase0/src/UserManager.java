@@ -46,7 +46,6 @@ public class UserManager {
         }
     }
 
-
     /**
      * return a string list of all the usernames stored in the user manager
      * @return ArrayList<String> of usernames
@@ -69,6 +68,11 @@ public class UserManager {
 
     // overloading method with a version that accepts username
     // assumes that only admin users can call it
+    /**
+     * ban the given user
+     * @param username username of user to ban
+     * @return true or false if the operation succeeds
+     */
     public static boolean banUser(String username){
         if (!users.containsKey(username)){
             return false; // user does not exist
@@ -79,6 +83,11 @@ public class UserManager {
         return true;
     }
 
+    /**
+     * Unban's given user
+     * @param username username of user to unban
+     * @return true if user is successfully unbanned and, false if user does not exist
+     */
     public static boolean unBanUser(String username) {
         if (!users.containsKey(username)){
             return false; // user does not exist
@@ -89,7 +98,7 @@ public class UserManager {
     }
 
     /**
-     *
+     * Removes given user from UserManager's usernames list
      * @param user is the user to be deleted
      * @return true or false if the operation succeeds
      */
@@ -103,7 +112,11 @@ public class UserManager {
     }
 
     // overloading method to accept username string instead of user object
-
+    /**
+     * Removes given user from UserManager's usernames list
+     * @param username is the user to be deleted
+     * @return true or false if the operation succeeds
+     */
     public static boolean deleteUser(String username){
         if (!users.containsKey(username)){
             return false;
@@ -112,10 +125,19 @@ public class UserManager {
         return true;
     }
 
+    /**
+     * @param username username of user to return
+     * @return User whose username is username
+     */
     public static User getUser(String username){
         return users.get(username);
     }
 
+    /**
+     * Temporarily bans given user
+     * @param username username of user to temp ban
+     * @return true if successful, false if user does not exist
+     */
     public static boolean tempBanUser(String username) {
         if (users.containsKey(username)) {
             User user = getUser(username);
@@ -129,6 +151,11 @@ public class UserManager {
         return false;
     }
 
+    /**
+     * Un-temp bans given user
+     * @param username username of user to un-temp ban
+     * @return true if successful, false if user does not exist
+     */
     public static boolean unTempBanUser(String username) {
         if (users.containsKey(username)) {
             BasicUser bc = (BasicUser) getUser(username);
@@ -140,6 +167,11 @@ public class UserManager {
         return false;
     }
 
+    /**
+     * Updates UserManager's stored users when user changes their username
+     * @param oldUsername old username of user
+     * @param newUsername new username of user
+     */
     public static void updateUsernames(String oldUsername, String newUsername) {
         User u = users.get(oldUsername);
         users.remove(oldUsername);
