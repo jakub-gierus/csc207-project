@@ -1,6 +1,10 @@
 import java.time.LocalDateTime;
 
+/**
+ * Interface for any bannable user.
+ */
 public interface IBannableUser {
-
-    abstract void setTempBannedUntil(LocalDateTime bannedUntil);
+    boolean getIsTempBanned();
+    LocalDateTime getTempBannedUntil();
+    void setTempBannedUntil(LocalDateTime bannedUntil);
 }

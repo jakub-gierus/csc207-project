@@ -11,6 +11,15 @@ public class DataSaver {
     private final String adminUsersFilename;
     private final String eventsFilename;
     private final UserRepository userRepository;
+
+    /**
+     * Class that saves all user and event data to CSVs.
+     * @param userRepository the storage class for all users.
+     * @param filePath root file path for all storage CSVs.
+     * @param basicUsersFilename filename for csv storing basic user data.
+     * @param adminUsersFilename filename for csv storing admin user data.
+     * @param eventsFilename filename for csv storing event user data.
+     */
     public DataSaver(final UserRepository userRepository, String filePath, String basicUsersFilename, String adminUsersFilename, String eventsFilename) {
         this.userRepository = userRepository;
         this.filePath = filePath;
@@ -19,6 +28,11 @@ public class DataSaver {
         this.eventsFilename = eventsFilename;
     }
 
+    /**
+     * Write all the data from basic users, admin users and events into separate csv files, for use in subsequent app
+     * sessions.
+     * @throws IOException if storage files are not found.
+     */
     public void saveAllUserData() throws IOException {
         FileWriter basicUsersWriter = new FileWriter(this.filePath + this.basicUsersFilename, false);
         for (User basicUser: this.userRepository.getAllUsersByType(false)) {

@@ -8,6 +8,14 @@ public class DataRetriever {
     private final String basicUsersFilename;
     private final String adminUsersFilename;
     private final String eventsFilename;
+
+    /**
+     * Class that retrieves user data from CSVs,
+     * @param filePath root file path for all storage CSVs.
+     * @param basicUsersFilename filename for csv storing basic user data.
+     * @param adminUsersFilename filename for csv storing admin user data.
+     * @param eventsFilename filename for csv storing event user data.
+     */
     public DataRetriever(String filePath, String basicUsersFilename, String adminUsersFilename, String eventsFilename){
         this.filePath = filePath;
         this.basicUsersFilename = basicUsersFilename;

@@ -10,6 +10,14 @@ public class CLIControllerPresenter {
     private final Scanner userInput = new Scanner(System.in);
     private Optional<UserFacade> activeUser;
     private final LogInUseCase logInner;
+
+    /**
+     * Controller and Presenter class of the application for a command line interface (CLI) UI. The purpose of this
+     * class is to write to the terminal for users, and to receive input from users and send the input to
+     * various use-cases.
+     *
+     * activeUser is the user currently using the application. If no users are logged in, activeUser should be null.
+     */
     public CLIControllerPresenter() {
         this.dataRetriever = new DataRetriever("./storage/",
                 "basicUsers.csv",
@@ -25,8 +33,14 @@ public class CLIControllerPresenter {
                 "events.csv");
     }
 
+    /**
+     * Start-up the application. Involves loading historical user and event data from stored csv files.
+     * @return boolean for successful application startup.
+     * @throws IOException if storage files are not found.
+     * @see DataRetriever
+     */
     public boolean startApplication () throws IOException {
-        System.out.println("Loading Application...");
+        System.out.println("Loading Data...");
         this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
                 this.dataRetriever.readBasicUserData(),
                 this.dataRetriever.readEventData());
@@ -34,6 +48,14 @@ public class CLIControllerPresenter {
         return true;
     }
 
+    /**
+     * Main loop of the application. Will first try to start up the application, and once that is successful,
+     * will go through the following loop:
+     *      - Check if user is logged in. If not => Go to log in screen.
+     *                                    If they are => Let them perform actions appropriate to their permission level.
+     * If start up is not successful, exit the application immediately.
+     * @throws IOException if storage files are not found.
+     */
     public void mainLoop () throws IOException {
         boolean startUpSuccess = this.startApplication();
         if (startUpSuccess) {
@@ -51,6 +73,12 @@ public class CLIControllerPresenter {
         }
     }
 
+    /**
+     * Presenter and controller for logging-in. First, checks if the user is currently logged in, continue if they are,
+     * otherwise ask for a username and password, then validate the log in using a LogInUseCase. Once the login is
+     * successful, construct a corresponding user facade as the active user.
+     * @return is log in successful and/or is the user already login?
+     */
     public boolean checkLogIn () {
         if (!this.activeUser.isPresent()) {
             System.out.println("LOG IN");
@@ -77,7 +105,12 @@ public class CLIControllerPresenter {
         return true;
     }
 
-
+    /**
+     * Get all the actions available to a certain user, returning them as a map of
+     * action IDs (integers) -> (Verbose Name of Action -> Actual Action Method (runnable function))
+     * e.g 0 -> ("View all Users" -> this::viewAllUser())
+     * @return action map
+     */
     public Map<Integer, Map.Entry<String, Runnable>> getAvailableActions () {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionId = 0;
@@ -96,12 +129,23 @@ public class CLIControllerPresenter {
         return actions;
     }
 
+    /**
+     * Controller/presenter method for logging the active user out. Once the user is logged out, the active user is set
+     * to null.
+     * @see UserFacade
+     */
     public void performLogOut() {
         this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")).logOut();
         this.activeUser = Optional.empty();
         System.out.println("Successfully logged out.");
     }
 
+    /**
+     * Controller/presenter method for changing the user's password. The user is first asked for their old password, and
+     * once they input a password that matches their old password, they are able to successfully change their password
+     * to a new password, provided the new password is not exactly the same as the old password.
+     * @see ChangeUserUseCase
+     */
     public void performChangePassword() {
         System.out.println("------------------------------");
         System.out.println("Confirm your old password?");
@@ -117,6 +161,12 @@ public class CLIControllerPresenter {
         }
         System.out.println("Successfully changed password");
     }
+
+    /**
+     * Controller/presenter method for showing all historical events related to the user.
+     * TODO: Add options/methods for being able to filter events by type/date.
+     * @see UserFacade
+     */
     public void performShowEvents() {
         List<Map.Entry<LocalDateTime, String>> events = this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")).getAllEvents();
         for (Map.Entry<LocalDateTime, String> event : events) {
@@ -126,6 +176,11 @@ public class CLIControllerPresenter {
         }
     }
 
+    /**
+     * Controller/presenter method for deleting a user. Asks an input of a username of user intended for deletion.
+     * Then try to delete the user. If the user is trying to delete itself, set the active user to null.
+     * @see CreateUserUseCase
+     */
     public void performDeleteUser() {
         this.presentAllUsers();
         System.out.println("------------------------------");
@@ -149,6 +204,10 @@ public class CLIControllerPresenter {
         System.out.printf("%s successfully deleted%n", inputUsername);
     }
 
+    /**
+     * Presenter method for showing all users currently stored in the application.
+     * @see UserRepository
+     */
     public void presentAllUsers() {
         System.out.println("------------------------------");
         System.out.println("ALL USERS IN SYSTEM");
@@ -156,6 +215,12 @@ public class CLIControllerPresenter {
             System.out.println(user.getUsername());
         }
     }
+
+    /**
+     * Controller/presenter method for creating a user. The arguments taken for creating the user are their username
+     * password, and whether they are an admin user.
+     * @see CreateUserUseCase
+     */
     public void performCreateUser() {
         AdminFacade activeAdminUser = ((AdminFacade) this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")));
         System.out.println("------------------------------");
@@ -180,6 +245,11 @@ public class CLIControllerPresenter {
         System.out.printf("User %s successfully created!%n", username);
     }
 
+    /**
+     * Controller/presenter method for banning a user. The inputs taken are the username of the user intended for
+     * banning, and the intended ban length in an integer amount of minutes.
+     * @see BanUserUseCase
+     */
     public void performBanUser() {
         AdminFacade activeAdminUser = ((AdminFacade) this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")));
         this.presentAllUsers();
@@ -214,6 +284,12 @@ public class CLIControllerPresenter {
         System.out.printf("%s successfully banned until %s%n", inputUsername, formatDateTime);
     }
 
+    /**
+     * Controller/presenter method for unbanning a user. The inputs taken are the username of the user intended for
+     * banning, then the user is banned until now, meaning that they will no longer be banned when trying to log in, as
+     * in the future now will be past.
+     * @see BanUserUseCase
+     */
     public void performUnbanUser() {
         AdminFacade activeAdminUser = ((AdminFacade) this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")));
         this.presentAllUsers();
@@ -238,6 +314,13 @@ public class CLIControllerPresenter {
         }
         System.out.printf("%s successfully unbanned%n", inputUsername);
     }
+
+    /**
+     * View for performing actions. A list of all available actions are presented to the user, with corresponding
+     * ids for the actions. Then, the user is asked for an integer, and the action is performed.
+     *
+     * If the user tries to input anything that is not one of the available action ID integers, an exception is thrown.
+     */
     public void performActions() {
         Map<Integer, Map.Entry<String, Runnable>> actions = this.getAvailableActions();
         for (Integer actionID : actions.keySet()) {
@@ -258,6 +341,11 @@ public class CLIControllerPresenter {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * First, all the user and event data is saved to corresponding csv files. The application is exit, by system exit.
+     * @see DataSaver
+     */
     public void exitApplication() {
         System.out.println("Saving data...");
         try {
