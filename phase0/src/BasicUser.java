@@ -9,6 +9,11 @@ public class BasicUser extends User implements IBannableUser {
         this.tempBannedUntil = LocalDateTime.now();
     }
 
+    public BasicUser(String username, String password, LocalDateTime bannedUntil) {
+        super(username, password, false);
+        this.tempBannedUntil = bannedUntil;
+    }
+
     /**
      * @return if this user is temporarily banned
      */
@@ -16,11 +21,19 @@ public class BasicUser extends User implements IBannableUser {
         return LocalDateTime.now().isBefore(this.tempBannedUntil);
     }
 
+
+    /**
+     * @return if this user is temporarily banned
+     */
+    public LocalDateTime getTempBannedUntil () {
+        return this.tempBannedUntil;
+    }
+
     /**
      * Sets this user to be temporarily banned, and records the time of temp ban.
      */
     public void setTempBannedUntil (LocalDateTime bannedUntil) {
         this.tempBannedUntil = bannedUntil;
-        this.logEvent("Banned");
+        this.logEvent("Ban Event");
     }
 }

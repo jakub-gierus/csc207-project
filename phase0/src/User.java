@@ -43,6 +43,9 @@ public class User {
         return false;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
     /**
      * Used by UserUseClass to validate if provided password is correct
      * @param password provided password
@@ -81,7 +84,7 @@ public class User {
      * @return all events with the value of eventType for this user.
      */
     public List<Entry<LocalDateTime, String>> getEvents(String eventType) {
-        Predicate<Entry<LocalDateTime, String>> typeFilter = item -> item.getValue() == eventType;
+        Predicate<Entry<LocalDateTime, String>> typeFilter = item -> item.getValue().equals(eventType);
 
         return this.events.stream().filter(typeFilter).collect(Collectors.toList());
     }
@@ -104,6 +107,11 @@ public class User {
      */
     public void logEvent(String typeOfEvent) {
         Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(LocalDateTime.now(), typeOfEvent);
+        this.events.add(newEvent);
+    }
+
+    public void logEvent(String typeOfEvent, LocalDateTime timeOfEvent) {
+        Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(timeOfEvent, typeOfEvent);
         this.events.add(newEvent);
     }
 
