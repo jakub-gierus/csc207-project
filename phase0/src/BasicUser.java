@@ -1,41 +1,26 @@
 import java.time.LocalDateTime;
+import java.util.Optional;
 
-public class BasicUser extends User implements TemporaryBanable{
+public class BasicUser extends User implements IBannableUser {
 
-    private boolean tempBan = false;
-    private LocalDateTime tempBanTime;
-    int TEMP_BAN_TIME_IN_MIN = 10;
+    private LocalDateTime tempBannedUntil;
     public BasicUser(String username, String password){
         super(username, password, false);
+        this.tempBannedUntil = LocalDateTime.now();
     }
 
     /**
      * @return if this user is temporarily banned
      */
-    public boolean getIsTempBan () { return this.tempBan; }
+    public boolean getIsTempBanned () {
+        return LocalDateTime.now().isBefore(this.tempBannedUntil);
+    }
 
     /**
      * Sets this user to be temporarily banned, and records the time of temp ban.
      */
-    public void setIsTempBan () {
-        this.tempBan = true;
-        this.tempBanTime = LocalDateTime.now();
-    }
-
-    /**
-     * Checks if 10 minutes has passed since time of ban. If time has passed then sets tempBan to false.
-     */
-    public void unTempBan() {
-        if (LocalDateTime.now().isAfter(this.tempBanTime.plusMinutes(TEMP_BAN_TIME_IN_MIN))) {
-            this.tempBan = false;
-        }
-    }
-
-    public boolean getTempBan() {
-        return this.tempBan;
-    }
-
-    public void adminUnTempBan() {
-        this.tempBan = false;
+    public void setTempBannedUntil (LocalDateTime bannedUntil) {
+        this.tempBannedUntil = bannedUntil;
+        this.logEvent("Banned");
     }
 }

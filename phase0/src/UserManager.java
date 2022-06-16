@@ -75,7 +75,7 @@ public class UserManager {
         }
         User target = users.get(username);
         target.setBanned();
-        target.setLogInOut(false);
+        target.setLoggedIn(false);
         return true;
     }
 
@@ -122,7 +122,7 @@ public class UserManager {
             if (!user.getIsAdmin()) {
                 BasicUser bc = (BasicUser) user;
                 bc.setIsTempBan();
-                bc.setLogInOut(false);
+                bc.setLoggedIn(false);
                 return true;
             }
         }
