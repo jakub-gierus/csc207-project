@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class User {
     private String password;
     private String username;
@@ -9,6 +10,7 @@ public class User {
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
     private boolean isBanned = false;
+
 
     /**
      * Creates a new User with username, and password. Stores this User in UserManager.
@@ -72,6 +74,11 @@ public class User {
     public void setBanned() { this.isBanned = true; }
 
     /**
+     * Setter for isBanned
+     */
+    public void setUnBanned() { this.isBanned = false; }
+
+    /**
      * Getter for isAdmin
      * @return true if this user is an admin, false if user is basic
      */
@@ -101,5 +108,10 @@ public class User {
      */
     public void setUsername(String newUsername) { this.username = newUsername; }
 
-    public String getUsername() { return username; }
+    /**
+     * Getter for this user's username
+     * @return this user's username
+     */
+    public String getUsername() { return this.username; }
+
 }
