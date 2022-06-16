@@ -139,4 +139,10 @@ public class UserManager {
         }
         return false;
     }
+
+    public static void updateUsernames(String oldUsername, String newUsername) {
+        User u = users.get(oldUsername);
+        users.remove(oldUsername);
+        users.put(newUsername, u);
+    }
 }

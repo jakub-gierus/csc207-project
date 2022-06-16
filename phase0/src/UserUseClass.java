@@ -56,6 +56,7 @@ public class UserUseClass {
         if (!UserManager.getUsernames().contains(newUsername)) {
             User user = UserManager.getUser(oldUsername);
             user.setUsername(newUsername);
+            UserManager.updateUsernames(oldUsername, newUsername);
             return true;
         }
         return false;
