@@ -35,4 +35,9 @@ public abstract class Event {
     public void setMessage(String newMessage) {
         this.message = newMessage;
     }
+
+    @Override
+    public String toString(){
+        return this.eventCreated.toString();
+    }
 }

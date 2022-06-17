@@ -9,9 +9,9 @@ public class DataManager {
     /**
      * returns a hashmap in the following format: (String username, User user_objects)
      */
-    public HashMap loadUsers(){
-
-    }
+//    public void HashMap void loadUsers(){
+//
+//    }
 
     /**
      * rewrite the file
