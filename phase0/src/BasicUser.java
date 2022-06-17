@@ -23,7 +23,8 @@ public class BasicUser extends User implements TemporaryBanable{
     }
 
     /**
-     * Checks if 10 minutes has passed since time of ban. If time has passed then sets tempBan to false.
+     * Checks if TEMP_BAN_TIME_IN_MIN minutes has passed since time of ban.
+     * If time has passed then sets tempBan to false.
      */
     public void unTempBan() {
         if (LocalDateTime.now().isAfter(this.tempBanTime.plusMinutes(TEMP_BAN_TIME_IN_MIN))) {
@@ -31,10 +32,9 @@ public class BasicUser extends User implements TemporaryBanable{
         }
     }
 
-    public boolean getTempBan() {
-        return this.tempBan;
-    }
-
+    /**
+     * Setter for tempban attribute
+     */
     public void adminUnTempBan() {
         this.tempBan = false;
     }
