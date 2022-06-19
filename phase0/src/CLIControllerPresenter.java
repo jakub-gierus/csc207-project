@@ -1,3 +1,5 @@
+import Exceptions.*;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -155,7 +157,7 @@ public class CLIControllerPresenter {
         try {
             this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")).changePassword(oldPassword, newPassword);
         }
-        catch (NewPasswordIsTheSameAsOldPasswordException | PasswordsDontMatchException  e) {
+        catch (NewPasswordIsTheSameAsOldPasswordException | PasswordsDontMatchException e) {
             System.out.println(e.getMessage());
             return;
         }

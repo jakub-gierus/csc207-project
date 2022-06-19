@@ -1,3 +1,6 @@
+import Exceptions.UserDoesNotExistException;
+import Exceptions.UsernameAlreadyExistsException;
+
 public class CreateUserUseCase {
     private final UserRepository userRepository;
 

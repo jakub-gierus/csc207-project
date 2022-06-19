@@ -1,3 +1,6 @@
+import Exceptions.IncorrectUserNameOrPasswordException;
+import Exceptions.UserIsBannedException;
+
 public class LogInUseCase {
 
     private final UserRepository userRepository;

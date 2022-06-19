@@ -1,3 +1,6 @@
+import Exceptions.UserDoesNotExistException;
+import Exceptions.UserIsNotBannableException;
+
 import java.time.LocalDateTime;
 
 public class BanUserUseCase {

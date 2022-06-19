@@ -1,3 +1,6 @@
+import Exceptions.NewPasswordIsTheSameAsOldPasswordException;
+import Exceptions.PasswordsDontMatchException;
+
 public class ChangeUserUseCase {
 
     private final User user;
