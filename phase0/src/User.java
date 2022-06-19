@@ -47,7 +47,7 @@ public class User {
         return this.password;
     }
     /**
-     * Used by UserUseClass to validate if provided password is correct
+     * Used by LogInUseCase to validate if provided password is correct
      * @param password provided password
      * @return true if this user's password is equal to provided password
      */

@@ -24,5 +24,6 @@ public class BanUserUseCase {
             throw new UserIsNotBannableException(username);
         }
         ((BasicUser) bannedUser).setTempBannedUntil(banUntil);
+        ((BasicUser) bannedUser).setLoggedIn(false);
     }
 }
