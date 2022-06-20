@@ -29,8 +29,8 @@ public class DataSaver {
     }
 
     /**
-     * Write all the data from basic users, admin users and events into separate csv files, for use in subsequent app
-     * sessions.
+     * Write all the data from basic users, admin users and events into separate csv files, for use in subsequent
+     * application sessions.
      * @throws IOException if storage files are not found.
      */
     public void saveAllUserData() throws IOException {

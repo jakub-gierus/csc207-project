@@ -345,7 +345,8 @@ public class CLIControllerPresenter {
     }
 
     /**
-     * First, all the user and event data is saved to corresponding csv files. The application is exit, by system exit.
+     * First, all the user and event data is saved to corresponding csv files. The application is then exited
+     * via system exit.
      * @see DataSaver
      */
     public void exitApplication() {

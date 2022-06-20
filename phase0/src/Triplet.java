@@ -1,5 +1,5 @@
 /*
-    Triplet class inspired by this StackOverflow answer: https://stackoverflow.com/a/6010861
+    Utility triple value tuple class inspired by this StackOverflow answer: https://stackoverflow.com/a/6010861
     Used for the purposes of loading user data from CSVs.
  */
 public class Triplet<T, U, V> {

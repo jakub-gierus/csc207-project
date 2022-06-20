@@ -23,6 +23,12 @@ public class DataRetriever {
         this.eventsFilename = eventsFilename;
     }
 
+    /**
+     * Reads basic user data from csv storage file.
+     * @return a list of tuples of three elements, corresponding to the username, password, and banUntil properties
+     *         of the read user.
+     * @throws IOException when storage file paths are not found.
+     */
     public List<Triplet<String, String, LocalDateTime>> readBasicUserData() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.basicUsersFilename));
         String line;
@@ -37,6 +43,11 @@ public class DataRetriever {
         return basicUserData;
     }
 
+    /**
+     * Reads admin user data from csv storage file.
+     * @return a list of key-value entries, each one corresponding to the username and password of the admin user.
+     * @throws IOException when storage file paths are not found.
+     */
     public List<Map.Entry<String, String>> readAdminUserData() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.adminUsersFilename));
         String line;
@@ -48,6 +59,12 @@ public class DataRetriever {
         return adminUserData;
     }
 
+    /**
+     * Read event data from csv storage file.
+     * @return a list of three value tuples, each one corresponding to the user, date-time, and type of each event,
+     *         respectively.
+     * @throws IOException when storage file paths are not found.
+     */
     public List<Triplet<String, LocalDateTime, String>> readEventData() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.eventsFilename));
         String line;

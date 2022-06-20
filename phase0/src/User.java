@@ -15,7 +15,7 @@ public class User {
 
 
     /**
-     * Creates a new User with username, and password. Stores this User in UserManager.
+     * User entity class. Creates a new User with username, and password, and an empty list of events.
      * @param username username of this User
      * @param password password used by this User to login
      * @param isAdmin true if user is an admin user, false if basic user
@@ -29,7 +29,7 @@ public class User {
     }
 
     /**
-     * Returns ture if new password is not the same as current password and changes password to newPassword. Records
+     * Returns true if new password is not the same as current password and changes password to newPassword. Records
      * this change in this user's passwordEvents
      * @param newPassword a new password to replace current password
      * @return true if password change was successful, false otherwise.
@@ -110,6 +110,11 @@ public class User {
         this.events.add(newEvent);
     }
 
+    /**
+     * Log an event occuring for this user at a specified time (usually not the current time).
+     * @param typeOfEvent the type of event that occured.
+     * @param timeOfEvent the specified date-time of the event.
+     */
     public void logEvent(String typeOfEvent, LocalDateTime timeOfEvent) {
         Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(timeOfEvent, typeOfEvent);
         this.events.add(newEvent);

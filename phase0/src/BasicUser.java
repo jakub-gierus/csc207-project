@@ -18,7 +18,7 @@ public class BasicUser extends User implements IBannableUser {
     }
 
     /**
-     * Overloaded constructor to construct a BasicUser with an initial custom ban date-time.
+     * Overloaded constructor to construct a BasicUser with a custom initial ban date-time.
      * @param bannedUntil date-time the user is banned until.
      */
     public BasicUser(String username, String password, LocalDateTime bannedUntil) {
