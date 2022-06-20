@@ -8,5 +8,5 @@
 
 ## Other Files
 
-- Phase0 CRC cards are in `CRC_Phase0.pdf`
-- Phase1 Domain and Specifications and tentative CRC is in `Task 4 - Phase1 Specification_CRC.pdf`
+- Phase0 CRC cards are in `CRCFiles/CRC_Phase0.pdf`
+- Phase1 Domain and Specifications and tentative CRC is in `CRCFiles/Task 4 - Phase1 Specification_CRC.pdf`
