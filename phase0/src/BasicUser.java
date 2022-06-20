@@ -1,41 +1,53 @@
 import java.time.LocalDateTime;
+import java.util.Optional;
 
-public class BasicUser extends User implements TemporaryBanable{
+public class BasicUser extends User implements IBannableUser {
 
-    private boolean tempBan = false;
-    private LocalDateTime tempBanTime;
-    int TEMP_BAN_TIME_IN_MIN = 10;
+    private LocalDateTime tempBannedUntil;
+
+    /**
+     * An entity-level class for users that are not admins. This user can be banned, but starts out unbanned.
+     * @param username username of user.
+     * @param password password of user.
+     * @see User
+     * @see IBannableUser
+     */
     public BasicUser(String username, String password){
         super(username, password, false);
+        this.tempBannedUntil = LocalDateTime.now();
     }
 
     /**
+     * Overloaded constructor to construct a BasicUser with a custom initial ban date-time.
+     * @param bannedUntil date-time the user is banned until.
+     */
+    public BasicUser(String username, String password, LocalDateTime bannedUntil) {
+        super(username, password, false);
+        this.tempBannedUntil = bannedUntil;
+    }
+
+    /**
+     * Check if the tempBannedUntil attribute is still in the future. If it is, the user is still banned.
      * @return if this user is temporarily banned
      */
-    public boolean getIsTempBan () { return this.tempBan; }
+    public boolean getIsTempBanned () {
+        return LocalDateTime.now().isBefore(this.tempBannedUntil);
+    }
+
 
     /**
-     * Sets this user to be temporarily banned, and records the time of temp ban.
+     * @return date-time of when the user is banned until.
      */
-    public void setIsTempBan () {
-        this.tempBan = true;
-        this.tempBanTime = LocalDateTime.now();
+    public LocalDateTime getTempBannedUntil () {
+        return this.tempBannedUntil;
     }
 
     /**
-     * Checks if TEMP_BAN_TIME_IN_MIN minutes has passed since time of ban.
-     * If time has passed then sets tempBan to false.
+     * Ban the user until a specified date-time, and log the ban event.
+     * @param bannedUntil date-time of when to ban the user until
      */
-    public void unTempBan() {
-        if (LocalDateTime.now().isAfter(this.tempBanTime.plusMinutes(TEMP_BAN_TIME_IN_MIN))) {
-            this.tempBan = false;
-        }
-    }
-
-    /**
-     * Setter for tempban attribute
-     */
-    public void adminUnTempBan() {
-        this.tempBan = false;
+    public void setTempBannedUntil (LocalDateTime bannedUntil) {
+        this.tempBannedUntil = bannedUntil;
+        this.logEvent("Ban Event");
     }
 }

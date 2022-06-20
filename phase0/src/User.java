@@ -1,19 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
-
+import java.time.LocalDateTime;
+import java.util.Map.Entry;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class User {
     private String password;
     private String username;
-    private final List<ChangePasswordEvent> passwordEvents;
-    private final List<LoginEvent> loginEvent;
+    private final List<Entry<LocalDateTime, String>> events;
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
-    private boolean isBanned = false;
 
 
     /**
-     * Creates a new User with username, and password. Stores this User in UserManager.
+     * User entity class. Creates a new User with username, and password, and an empty list of events.
      * @param username username of this User
      * @param password password used by this User to login
      * @param isAdmin true if user is an admin user, false if basic user
@@ -22,30 +24,30 @@ public class User {
 
         this.password = password;
         this.username = username;
-        this.passwordEvents = new ArrayList<>();
-        this.loginEvent = new ArrayList<>();
+        this.events = new ArrayList<>();
         this.isAdmin = isAdmin;
     }
 
     /**
-     * Returns ture if new password is not the same as current password and changes password to newPassword. Records
+     * Returns true if new password is not the same as current password and changes password to newPassword. Records
      * this change in this user's passwordEvents
      * @param newPassword a new password to replace current password
      * @return true if password change was successful, false otherwise.
-     * @see ChangePasswordEvent
      */
     public boolean setPassword(String newPassword) {
         if (!this.password.equals(newPassword)) {
             this.password = newPassword;
-            ChangePasswordEvent event = new ChangePasswordEvent("Password Updated");
-            this.passwordEvents.add(event);
+            this.logEvent("Password Change");
             return true;
         }
         return false;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
     /**
-     * Used by UserUseClass to validate if provided password is correct
+     * Used by LogInUseCase to validate if provided password is correct
      * @param password provided password
      * @return true if this user's password is equal to provided password
      */
@@ -60,23 +62,7 @@ public class User {
     /**
      * Setter for isLoggedIn = true
      */
-    public void setLogInOut(boolean bool) { this.isLoggedIn = bool; }
-
-    /**
-     * Getter for isBanned
-     * @return true if user is banned
-     */
-    public boolean getIsBanned() { return this.isBanned; }
-
-    /**
-     * Setter for isBanned
-     */
-    public void setBanned() { this.isBanned = true; }
-
-    /**
-     * Setter for isBanned
-     */
-    public void setUnBanned() { this.isBanned = false; }
+    public void setLoggedIn(boolean bool) { this.isLoggedIn = bool; }
 
     /**
      * Getter for isAdmin
@@ -85,22 +71,54 @@ public class User {
     public boolean getIsAdmin(){ return this.isAdmin; }
 
     /**
-     * Getter for this user's login events
-     * @return this user's loginEvent
+     * Getter all events for this user.
+     * @return all events related to the user.
      */
-    public List<LoginEvent> getLoginEvent() { return this.loginEvent; }
+    public List<Entry<LocalDateTime, String>> getEvents() {
+        return this.events;
+    }
 
     /**
-     * Getter for this user's change password events
-     * @return this user's ChangePasswordEvents
+     * Getter for all events of a certain type for this user.
+     * @param eventType the desired type of event
+     * @return all events with the value of eventType for this user.
      */
-    public List<ChangePasswordEvent> getPasswordEvents() { return this.passwordEvents; }
+    public List<Entry<LocalDateTime, String>> getEvents(String eventType) {
+        Predicate<Entry<LocalDateTime, String>> typeFilter = item -> item.getValue().equals(eventType);
+
+        return this.events.stream().filter(typeFilter).collect(Collectors.toList());
+    }
 
     /**
-     * Adds a login event to this user's LoginEvent
-     * @param e LoginEvent representing the event
+     * Getter for all events within a certain datetime range for this user.
+     * @param startDateTime the start of the desired datetime range
+     * @param endDateTime the end of the desired datetime range
+     * @return all events with a datetime key after startDateTime and before endDateTime for this user.
      */
-    public void addLoginEvent(LoginEvent e) { this.loginEvent.add(e); }
+    public List<Entry<LocalDateTime, String>> getEvents(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        Predicate<Entry<LocalDateTime, String>> betweenDateTimeFilter = item -> item.getKey().isAfter(startDateTime) && item.getKey().isBefore(endDateTime);
+
+        return this.events.stream().filter(betweenDateTimeFilter).collect(Collectors.toList());
+    }
+
+    /**
+     * Log an event occurring for this user at the current time.
+     * @param typeOfEvent the type of event that occurred.
+     */
+    public void logEvent(String typeOfEvent) {
+        Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(LocalDateTime.now(), typeOfEvent);
+        this.events.add(newEvent);
+    }
+
+    /**
+     * Log an event occuring for this user at a specified time (usually not the current time).
+     * @param typeOfEvent the type of event that occured.
+     * @param timeOfEvent the specified date-time of the event.
+     */
+    public void logEvent(String typeOfEvent, LocalDateTime timeOfEvent) {
+        Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(timeOfEvent, typeOfEvent);
+        this.events.add(newEvent);
+    }
 
     /**
      * UserUseClass checks if provided username is unique, and this method changes the username
