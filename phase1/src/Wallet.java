@@ -2,12 +2,17 @@ import java.util.HashMap;
 
 public class Wallet {
     private final HashMap<String, Art> arts = new HashMap<>();
-    private float currency = 0;
+    private double currency = 0;
     private boolean publicAccess;
     private User owner;
-    private float netWorth = 0;
+    private double netWorth = 0;
     private String walletName;
 
+    public Wallet(User owner, String walletName){
+        this.owner = owner;
+        this.walletName = walletName;
+        this.publicAccess = false;
+    }
     public Wallet(User owner, String walletName, boolean publicAccess){
         this.owner = owner;
         this.walletName = walletName;
@@ -42,20 +47,20 @@ public class Wallet {
         return arts;
     }
 
-    public float getCurrency() {
+    public double getCurrency() {
         return currency;
     }
 
-    public float getNetWorth() {
+    public double getNetWorth() {
         return netWorth;
     }
 
-    public void addCurrency(float newCurrency){
+    public void addCurrency(double newCurrency){
         // calling this should incur a call to calcNetWorth
         currency += newCurrency;
     }
 
-    public void removeCurrency(float spentCurrency){
+    public void removeCurrency(double spentCurrency){
         // calling this should incur a call to calcNetWorth
         currency -= spentCurrency;
     }
