@@ -1,18 +1,18 @@
 import Exceptions.NewPasswordIsTheSameAsOldPasswordException;
 import Exceptions.PasswordsDontMatchException;
+import Exceptions.UsernameAlreadyExistsException;
 
 public class ChangeUserUseCase {
 
-    private final User user;
+    private final UserRepository userRepository;
 
     /**
      * Use-case class for changing users. Users can be changed in the following ways:
      *      - Changing the user's password
      *      - TODO: Changing the user's username.
-     * @param user User entity related to this use-case
      */
-    public ChangeUserUseCase(User user) {
-        this.user = user;
+    public ChangeUserUseCase() {
+        userRepository = UserRepository.getInstance();
     }
 
     /**
@@ -21,9 +21,9 @@ public class ChangeUserUseCase {
      * @param oldPassword confirm password that is supposed to match the user's password.
      * @param newPassword new password for user.
      */
-    public void changePassword(String oldPassword, String newPassword) {
-        if (oldPassword.equals(this.user.getPassword())) {
-            boolean setPasswordSuccess = this.user.setPassword(newPassword);
+    public void changePassword(User user, String oldPassword, String newPassword) {
+        if (oldPassword.equals(user.getPassword())) {
+            boolean setPasswordSuccess = user.setPassword(newPassword);
             if (!setPasswordSuccess) {
                 throw new NewPasswordIsTheSameAsOldPasswordException();
             }
@@ -31,5 +31,14 @@ public class ChangeUserUseCase {
         else {
             throw new PasswordsDontMatchException();
         }
+    }
+
+    public void changeUsername(User user, String newUsername) {
+        if (userRepository.getByUsername(newUsername).isPresent()) {
+            throw new UsernameAlreadyExistsException(newUsername);
+        }
+        user.setUsername(newUsername);
+        userRepository.removeUser(user);
+        userRepository.createUser(user);
     }
 }

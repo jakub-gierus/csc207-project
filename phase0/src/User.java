@@ -13,6 +13,8 @@ public class User {
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
 
+    private List<Wallet> wallets;
+
 
     /**
      * User entity class. Creates a new User with username, and password, and an empty list of events.
@@ -132,4 +134,11 @@ public class User {
      */
     public String getUsername() { return this.username; }
 
+    public Wallet getFirstWallet() {
+        return wallets.get(0);
+    }
+
+    public void save() {
+
+    }
 }

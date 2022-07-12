@@ -1,17 +1,18 @@
 import Exceptions.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class CLIControllerPresenter {
-    private final DataRetriever dataRetriever;
+    // private final DataRetriever dataRetriever;
     private final DataSaver dataSaver;
-    private final UserRepository userRepository;
+    // private final UserRepository userRepository;
     private final Scanner userInput = new Scanner(System.in);
     private Optional<UserFacade> activeUser;
-    private final LogInUseCase logInner;
+    // private final LogInUseCase logInner;
 
     /**
      * Controller and Presenter class of the application for a command line interface (CLI) UI. The purpose of this
@@ -20,19 +21,15 @@ public class CLIControllerPresenter {
      *
      * activeUser is the user currently using the application. If no users are logged in, activeUser should be null.
      */
-    public CLIControllerPresenter() {
-        this.dataRetriever = new DataRetriever("./storage/",
-                "basicUsers.csv",
-                "adminUsers.csv",
-                "events.csv");
-        this.userRepository = new UserRepository();
+    public CLIControllerPresenter(DataSaver dataSaver) {
+        // this.dataRetriever = new DataRetriever("./storage/",
+        // "basicUsers.csv",
+        // "adminUsers.csv",
+        // "events.csv");
+        // this.userRepository = new UserRepository();
         this.activeUser = Optional.empty();
-        this.logInner = new LogInUseCase(this.userRepository);
-        this.dataSaver = new DataSaver(this.userRepository,
-                "./storage/",
-                "basicUsers.csv",
-                "adminUsers.csv",
-                "events.csv");
+        // this.logInner = new LogInUseCase(this.userRepository);
+        this.dataSaver = dataSaver;
     }
 
     /**
@@ -42,10 +39,7 @@ public class CLIControllerPresenter {
      * @see DataRetriever
      */
     public boolean startApplication () throws IOException {
-        System.out.println("Loading Data...");
-        this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
-                this.dataRetriever.readBasicUserData(),
-                this.dataRetriever.readEventData());
+
         System.out.println("Application started!");
         return true;
     }
@@ -67,7 +61,6 @@ public class CLIControllerPresenter {
                     this.performActions();
                 }
                 System.out.println("------------------------------");
-
             }
         }
         else {
@@ -89,12 +82,14 @@ public class CLIControllerPresenter {
             System.out.println("Enter password:");
             String password = userInput.nextLine();
             try {
-                User user = this.logInner.logIn(username, password);
-                if (user.getIsAdmin()) {
-                    this.activeUser = Optional.of(new AdminFacade(this.userRepository, (AdminUser) user));
+                // User user = this.logInner.logIn(username, password);
+                UserFacade userFacade = new UserFacade(null);
+                userFacade.login(username, password);
+                if (userFacade.getIsAdmin()) {
+                    this.activeUser = Optional.of(userFacade.createAdminFacade());
                 }
                 else {
-                    this.activeUser = Optional.of(new UserFacade(this.userRepository,user));
+                    this.activeUser = Optional.of(userFacade);
                 }
                 System.out.println("Successfully Logged In!");
             }
@@ -124,6 +119,7 @@ public class CLIControllerPresenter {
             actions.put(++actionId, new AbstractMap.SimpleEntry<>("Unban User", this::performUnbanUser));
         }
         actions.put(++actionId, new AbstractMap.SimpleEntry<>("View Your Events", this::performShowEvents));
+        actions.put(++actionId, new AbstractMap.SimpleEntry<>("Change Username", this::performChangeUsername));
         actions.put(++actionId, new AbstractMap.SimpleEntry<>("Change Password", this::performChangePassword));
         actions.put(++actionId, new AbstractMap.SimpleEntry<>("Log Out", this::performLogOut));
         actions.put(++actionId, new AbstractMap.SimpleEntry<>("Exit Application", this::exitApplication));
@@ -158,6 +154,20 @@ public class CLIControllerPresenter {
             this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")).changePassword(oldPassword, newPassword);
         }
         catch (NewPasswordIsTheSameAsOldPasswordException | PasswordsDontMatchException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        System.out.println("Successfully changed password");
+    }
+
+    public void performChangeUsername() {
+        System.out.println("------------------------------");
+        System.out.println("Enter your new username:");
+        String newUsername = userInput.nextLine();
+        try {
+            this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown")).changeUsername(newUsername);
+        }
+        catch (UsernameAlreadyExistsException e) {
             System.out.println(e.getMessage());
             return;
         }
@@ -213,8 +223,12 @@ public class CLIControllerPresenter {
     public void presentAllUsers() {
         System.out.println("------------------------------");
         System.out.println("ALL USERS IN SYSTEM");
-        for (User user: this.userRepository.getAllUsers()) {
-            System.out.println(user.getUsername());
+        // for (User user: this.userRepository.getAllUsers()) {
+        //     System.out.println(user.getUsername());
+        // }
+        AdminFacade adminFacade = (AdminFacade) this.activeUser.orElseThrow(() -> new UserDoesNotExistException("unknown"));
+        for (UserFacade userF: adminFacade.getAllUsers()) {
+            System.out.println(userF.getUsername());
         }
     }
 

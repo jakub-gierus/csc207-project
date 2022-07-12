@@ -9,8 +9,8 @@ public class CreateUserUseCase {
      * @param userRepository the storage class for all users. Used for accessing users to be deleted and adding
      *                       users when created.
      */
-    public CreateUserUseCase(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public CreateUserUseCase() {
+        this.userRepository = UserRepository.getInstance();
     }
 
     /**

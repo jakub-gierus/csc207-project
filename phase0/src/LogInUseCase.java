@@ -10,8 +10,8 @@ public class LogInUseCase {
      * @param userRepository the storage class for all users. Used for accessing users to be deleted and adding
      *                       users when created.
      */
-    public LogInUseCase(final UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public LogInUseCase() {
+        this.userRepository = UserRepository.getInstance();
     }
 
     /**

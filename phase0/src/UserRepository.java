@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class UserRepository {
     private final static HashMap<String, User> users = new HashMap<>();
+    private final static UserRepository instance = new UserRepository();
 
     /**
      * Stand-in class for a database of users that would be used by actual applications. Implements all needed database
@@ -18,6 +19,9 @@ public class UserRepository {
      * deleting data.
      */
     public UserRepository() {}
+    public static UserRepository getInstance() {
+        return instance;
+    }
 
     /**
      * Given lists of user and event data, populate the empty user HashMap with users, and events related with

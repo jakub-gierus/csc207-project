@@ -11,8 +11,8 @@ public class BanUserUseCase {
      * Use-cass class for banning users.
      * @param userRepository the storage class for all users. Used for accessing users for banning.
      */
-    public BanUserUseCase(final UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public BanUserUseCase() {
+        this.userRepository = UserRepository.getInstance();
     }
 
     /**

@@ -1,14 +1,22 @@
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class AdminFacade extends UserFacade {
+
+    private final BanUserUseCase userBanner;
+    private final FindUserUseCase userFinder;
+    private final CreateUserUseCase userCreater;
     /**
      * An umbrella/facade use-case class for an admin user. Primarily, it is used
      * as a skeleton for other use-cases related to admin user actions.
      * @param userRepository the storage class for all users.
      * @param user AdminUser entity methods and use-cases will interact with.
      */
-    public AdminFacade(final UserRepository userRepository, final AdminUser user) {
-        super(userRepository, user);
+    public AdminFacade(AdminUser user) {
+        super(user);
+        userBanner = new BanUserUseCase();
+        userFinder = new FindUserUseCase();
+        userCreater = new CreateUserUseCase();
     }
 
     /**
@@ -18,7 +26,6 @@ public class AdminFacade extends UserFacade {
      * @see BanUserUseCase
      */
     public void banUser(final String username, LocalDateTime banUntil) {
-        BanUserUseCase userBanner = new BanUserUseCase(this.getUserRepository());
         userBanner.banUser(username, banUntil);
     }
 
@@ -30,7 +37,6 @@ public class AdminFacade extends UserFacade {
      * @see CreateUserUseCase
      */
     public void createUser(final String username, final String password, final boolean isAdmin) {
-        CreateUserUseCase userCreator = new CreateUserUseCase(this.getUserRepository());
         userCreator.createUser(username, password, isAdmin);
     }
 
@@ -40,7 +46,10 @@ public class AdminFacade extends UserFacade {
      * @see CreateUserUseCase
      */
     public void deleteUser(final String username) {
-        CreateUserUseCase userCreator = new CreateUserUseCase(this.getUserRepository());
         userCreator.deleteUser(username);
+    }
+
+    public List<UserFacade> getAllUsers() {
+        return userFinder.getAllUsers();
     }
 }
