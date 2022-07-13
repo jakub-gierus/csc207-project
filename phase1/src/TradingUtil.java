@@ -1,5 +1,5 @@
-import Entity.Art;
-import Entity.Wallet;
+import entity.Art;
+import entity.Wallet;
 
 public class TradingUtil {
 

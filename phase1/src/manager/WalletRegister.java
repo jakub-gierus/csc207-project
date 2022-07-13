@@ -1,5 +1,7 @@
-import Entity.User;
-import Entity.Wallet;
+package manager;
+
+import entity.User;
+import entity.Wallet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
