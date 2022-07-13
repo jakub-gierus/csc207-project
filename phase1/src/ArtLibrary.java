@@ -1,3 +1,5 @@
+import Entity.Art;
+
 import java.util.HashMap;
 
 public class ArtLibrary {

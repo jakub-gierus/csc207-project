@@ -1,3 +1,7 @@
+package Entity;
+
+import Entity.Art;
+
 import java.util.HashMap;
 
 public class Wallet {
@@ -19,9 +23,14 @@ public class Wallet {
         this.publicAccess = publicAccess;
     }
 
-    private void calcNetWorth(){
+    private void calcNetWorth() {
         // when called add up the value of the currency and the last value of the art pieces and auto set the net worth
-        netWorth = netWorth;
+        double artWorth = 0;
+
+        for (Art a: arts.values()) {
+            artWorth += a.getPrice();
+        }
+        netWorth = netWorth + artWorth;
     }
 
     public boolean isEmpty(){
@@ -32,6 +41,10 @@ public class Wallet {
     public void addArt(Art newArt){
         String name = newArt.getTitle();
         arts.put(name, newArt);
+    }
+
+    public void removeArt(Art artName) {
+        arts.remove(artName.getTitle());
     }
 
     public boolean containArt(String title){

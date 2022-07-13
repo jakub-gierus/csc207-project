@@ -1,3 +1,5 @@
+package Entity;
+
 public class Art {
     final private String asciiString;
     private String title;

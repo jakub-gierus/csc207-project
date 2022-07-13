@@ -1,3 +1,7 @@
+package Entity;
+
+import Entity.Wallet;
+
 import java.util.ArrayList;
 import java.util.List;
 
