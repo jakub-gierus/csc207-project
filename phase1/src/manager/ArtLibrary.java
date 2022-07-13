@@ -1,4 +1,6 @@
-import Entity.Art;
+package manager;
+
+import entity.Art;
 
 import java.util.HashMap;
 
