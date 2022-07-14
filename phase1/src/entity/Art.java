@@ -53,6 +53,9 @@ public class Art {
     public void setisTradable(boolean bool) {
         this.isTradable = bool;
     }
+    /**
+     * getter for isTradable
+     */
 
     public boolean getisTradable() {
         return isTradable;
