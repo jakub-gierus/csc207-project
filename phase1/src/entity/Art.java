@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.UUID;
+
 public class Art {
     final private String asciiString;
     private String title;
@@ -7,16 +9,20 @@ public class Art {
     private Wallet wallet;
     private boolean isTradable = false; // this will be initially false. It depends on the user if he wants to make this art
     //tradable
+    final public UUID id;
 
     public Art(String title, String asciiValue){
         asciiString = asciiValue;
         this.title = title;
         price = -1;
+        id = UUID.randomUUID();
     }
 
     public String getArt(){
         return asciiString;
     }
+
+    public UUID getId(){return id;}
 
     public boolean changeTitle(String newTitle){
         title = newTitle;
