@@ -5,7 +5,6 @@ public class Art {
     private String title;
     private float price; // this will store the last price the piece was sold for
     private Wallet wallet;
-
     private boolean isTradable = false; // this will be initially false. It depends on the user if he wants to make this art
     //tradable
 
@@ -13,7 +12,6 @@ public class Art {
         asciiString = asciiValue;
         this.title = title;
         price = -1;
-
     }
 
     public String getArt(){
@@ -48,7 +46,7 @@ public class Art {
     }
 
     /**
-     * Setter for isTradable = true
+     * Setter for isTradable
      */
     public void setisTradable(boolean bool) {
         this.isTradable = bool;
