@@ -1,8 +1,9 @@
 package entity;
 
 import java.util.HashMap;
+import interfaces.Merchandise;
 
-public class Wallet {
+public class Wallet implements Merchandise{
     private final HashMap<String, Art> arts = new HashMap<>();
     private double currency = 0;
     private boolean publicAccess;
@@ -15,11 +16,11 @@ public class Wallet {
         this.walletName = walletName;
         this.publicAccess = false;
     }
-    public Wallet(User owner, String walletName, boolean publicAccess){
-        this.owner = owner;
-        this.walletName = walletName;
-        this.publicAccess = publicAccess;
-    }
+//    public Wallet(User owner, String walletName, boolean publicAccess){
+//        this.owner = owner;
+//        this.walletName = walletName;
+//        this.publicAccess = publicAccess;
+//    }
 
     private void calcNetWorth() {
         // when called add up the value of the currency and the last value of the art pieces and auto set the net worth

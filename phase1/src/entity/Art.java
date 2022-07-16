@@ -1,8 +1,8 @@
 package entity;
 
 import java.util.UUID;
-
-public class Art {
+import interfaces.Merchandise;
+public class Art implements Merchandise{
     final private String asciiString;
     private String title;
     private float price; // this will store the last price the piece was sold for
@@ -60,5 +60,9 @@ public class Art {
 
     public boolean getisTradable() {
         return isTradable;
+    }
+
+    public User getOwner(){
+        return wallet.getOwner();
     }
 }
