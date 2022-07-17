@@ -19,5 +19,9 @@ public class User {
         wallets.add(wallet);
     }
 
+    public List<Wallet> getWallets(){
+        return wallets;
+    }
+
 
 }
