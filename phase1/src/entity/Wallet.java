@@ -2,6 +2,7 @@ package entity;
 
 import java.util.HashMap;
 import interfaces.Merchandise;
+import java.util.UUID;
 
 public class Wallet implements Merchandise{
     private final HashMap<String, Art> arts = new HashMap<>();
@@ -10,11 +11,13 @@ public class Wallet implements Merchandise{
     private User owner;
     private double netWorth = 0;
     private String walletName;
+    private final UUID id;
 
     public Wallet(User owner, String walletName){
         this.owner = owner;
         this.walletName = walletName;
         this.publicAccess = false;
+        id = UUID.randomUUID();
     }
 //    public Wallet(User owner, String walletName, boolean publicAccess){
 //        this.owner = owner;
@@ -35,6 +38,10 @@ public class Wallet implements Merchandise{
     public boolean isEmpty(){
         // there can be free art, so 0 net worth != empty
         return arts.isEmpty() && currency == 0;
+    }
+
+    public UUID getId(){
+        return id;
     }
 
     public void addArt(Art newArt){

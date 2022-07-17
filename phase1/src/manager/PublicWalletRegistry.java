@@ -3,9 +3,11 @@ import entity.Wallet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class PublicWalletRegistry {
     // keeps track of all the public wallets to display
+    // should this class have the wallets or just their IDs ?
     private final List<Wallet> wallets = new ArrayList<>();
 
     // the constructor should load all the public wallets saved to a file
@@ -23,8 +25,12 @@ public class PublicWalletRegistry {
         wallets.remove(wallet);
     }
 
-    public List<Wallet> showPublicWallets(){
-        return wallets;
+    public List<UUID> showPublicWalletIDs(){
+        List<UUID> ids = new ArrayList<>();
+        for(Wallet w: wallets){
+            ids.add(w.getId());
+        }
+        return ids;
     }
 
     public boolean isWalletPublic(Wallet wallet){

@@ -2,9 +2,12 @@ package manager;
 
 import entity.User;
 import entity.Wallet;
+import exceptions.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 
 public class WalletManager {
@@ -34,19 +37,38 @@ public class WalletManager {
         registry.makeWalletPublic(wallet);
     }
 
-    public List<Wallet> retrievePublicWallets(){
-        return registry.showPublicWallets();
+    public List<UUID> retrievePublicWallets(){
+        return registry.showPublicWalletIDs();
     }
 
     public User getWalletOwner(Wallet wallet){
         return wallet.getOwner();
     }
 
-    public List<Wallet> getUserWallet(User user){
+    private List<Wallet> getUserWallets(User user){
         // this is illegal
         // fix this when the user manager is set up
 
         return user.getWallets();
+    }
+
+    public Wallet getUserWalletByID(User user, UUID id) throws WalletNotFoundException {
+        List<Wallet> userWallets = getUserWallets(user);
+        for(Wallet w: userWallets){
+            if(w.getId() == id){
+                return w;
+            }
+        }
+        throw new WalletNotFoundException("User does not have this wallet");
+    }
+
+    public List<UUID> getUserWalletIDs(User user){
+        List<UUID> ids = new ArrayList<>();
+        List<Wallet> userWallets = getUserWallets(user);
+        for(Wallet w: userWallets){
+            ids.add(w.getId());
+        }
+        return ids;
     }
 
     public void transferWallet(User receiver, Wallet wallet){
