@@ -19,11 +19,6 @@ public class Wallet implements Merchandise{
         this.publicAccess = false;
         id = UUID.randomUUID();
     }
-//    public Wallet(User owner, String walletName, boolean publicAccess){
-//        this.owner = owner;
-//        this.walletName = walletName;
-//        this.publicAccess = publicAccess;
-//    }
 
     private void calcNetWorth() {
         // when called add up the value of the currency and the last value of the art pieces and auto set the net worth
@@ -92,11 +87,17 @@ public class Wallet implements Merchandise{
         return walletName;
     }
 
-    public User getOwner() {
+    public String getOwner() {
+        return owner.getName();
+    }
+
+    private User getOwnerObj(){
         return owner;
     }
 
     public void changeOwner(User newOwner){
+        // should be using user name strings
+        // awaiting user manager
         owner = newOwner;
     }
 
@@ -104,7 +105,7 @@ public class Wallet implements Merchandise{
         return publicAccess;
     }
 
-    public void setAccess(boolean newAccess){
+    public void setPublic(boolean newAccess){
         publicAccess = newAccess;
     }
 }
