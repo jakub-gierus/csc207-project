@@ -101,7 +101,7 @@ public class Wallet implements Merchandise{
         owner = newOwner;
     }
 
-    public boolean getAccess(){
+    public boolean getisTradable(){
         return publicAccess;
     }
 
