@@ -1,6 +1,8 @@
 package interfaces;
 import entity.*;
+import java.util.UUID;
 
 public interface Merchandise {
-    public User getOwner();
+    public String getOwner();
+    public UUID getId();
 }

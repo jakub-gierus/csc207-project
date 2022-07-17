@@ -65,7 +65,7 @@ public class Art implements Merchandise{
         return isTradable;
     }
 
-    public User getOwner(){
+    public String getOwner(){
         return wallet.getOwner();
     }
 }

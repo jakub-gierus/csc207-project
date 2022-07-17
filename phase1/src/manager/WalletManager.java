@@ -13,7 +13,6 @@ import java.util.UUID;
 public class WalletManager {
     // this should be a singleton
     double DEFAULT_INIT_CURRENCY = 100.00;
-//    private final HashMap<Wallet, User> registry = new HashMap<>();
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
 
     public void createWallet(User owner){
@@ -41,7 +40,7 @@ public class WalletManager {
         return registry.showPublicWalletIDs();
     }
 
-    public User getWalletOwner(Wallet wallet){
+    public String getWalletOwner(Wallet wallet){
         return wallet.getOwner();
     }
 
@@ -71,9 +70,14 @@ public class WalletManager {
         return ids;
     }
 
-    public void transferWallet(User receiver, Wallet wallet){
+    public void transferWallet(User sender, User receiver, UUID walletID){
         // this should become more sophisticated, should grab the wallet object itself based on a name or id
-        wallet.changeOwner(receiver);
+        try{
+            Wallet w = getUserWalletByID(sender, walletID);
+            w.changeOwner(receiver);
+        } catch (WalletNotFoundException e) {
+            System.out.println("Wallet Not Found!"); // something to be handled by the presenter/controller
+        }
     }
 
 
