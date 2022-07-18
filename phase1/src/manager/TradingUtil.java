@@ -23,7 +23,7 @@ public class TradingUtil {
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Money(Art artName) {
-        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getIsTradeable()) {
+        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getisTradable()) {
             // Money Transfer
             tradingTo.removeCurrency(artName.getPrice());
             tradingFrom.addCurrency(artName.getPrice());
@@ -70,6 +70,22 @@ public class TradingUtil {
     }
 
     public boolean makeTrade_Wallet_Wallet() {
-        return true;
+        // Getting Users
+        String str1 = tradingFrom.getOwner();
+        String str2 = tradingTo.getOwner();
+        User u1 = UserRepository.getByUsername(str1);
+        User u2 = UserRepository.getByUsername(str2);
+
+        // Wallet Trade
+        u1.addWallet(tradingTo);
+        u2.addWallet(tradingFrom);
+
+        // Remove Original Wallet
+        u1.removeWallet(tradingTo.getWalletName());
+        u2.removeWallet(tradingFrom.getWalletName());
+
+        // Change Owner in Wallet
+        tradingFrom.changeOwner(u2);
+        tradingTo.changeOwner(u1);
     }
 }
