@@ -37,4 +37,7 @@ public class PublicWalletRegistry {
         return wallets.contains(wallet);
     }
 
+    public List<Wallet> getWallets() {
+        return wallets;
+    }
 }

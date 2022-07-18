@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import entity.*;
+import exceptions.WalletNotFoundException;
 import interfaces.Merchandise;
 import java.util.UUID;
 public class Market {
@@ -11,16 +12,49 @@ public class Market {
     // which is not allowed
     // the proper implementation should make and return lists/mappings of the IDENTIFIERS for the entities
     // which are then passed to the managers to pull up the actual objects
-    List<Merchandise> itemsForSale;
-    HashMap<UUID, String> listings = new HashMap<>(); // <id of merchandise, name of user>
+    List<Merchandise> itemsForSale = new ArrayList<>(); //All items being sold
+    private HashMap<UUID, String> listings = new HashMap<>(); // All wallets being sold or the art <id of merchandise, name of user>
+    private final PublicWalletRegistry registry = new PublicWalletRegistry();
+    private ArtLibrary artLibrary = new ArtLibrary();
 
-    public Market(List<Merchandise> merchandise){
-        itemsForSale = new ArrayList<>(merchandise);
-        for(Merchandise m: itemsForSale){
-            listings.put(m.getId(), m.getOwner());
-            // CURRENTLY THIS IMPLEMENTATION IS ILLEGAL AS IT DIRECTLY ACCESSES THE ENTITY
-            // WE NEED TO MANAGERS / USECASE LEVEL CLASSES TO HANDLE GET OWNER
+    public Market() {
+
+        List<Wallet> wallets = registry.getWallets();
+        for (Merchandise merchandise : wallets) {
+            if (merchandise.getisTradable()) {
+                listings.put(merchandise.getId(), merchandise.getOwner());
+                itemsForSale.add(merchandise);
+            }
+        }
+
+        // Below need to change the style of implementation after ArtManager is complete
+        // Currently is using "brute force" to implement it
+        HashMap<UUID, Art> library = artLibrary.getLibrary();
+        for (Merchandise art: library.values()){
+            if (art.getisTradable()){
+                listings.put(art.getId(), art.getOwner());
+                itemsForSale.add(art);
+            }
         }
     }
 
+    public boolean checkitem(Merchandise merchandise){
+        return itemsForSale.contains(merchandise);
+    }
+
+    public List<Merchandise> getitemforsale() {
+        return itemsForSale;
+    }
+
+    public PublicWalletRegistry getRegistry() {
+        return registry;
+    }
+
+    public ArtLibrary getArtLibrary() {
+        return artLibrary;
+    }
+
+    public List<Merchandise> getItemsForSale() {
+        return getitemforsale();
+    }
 }

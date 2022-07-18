@@ -46,7 +46,11 @@ public class ArtLibrary {
     }
 
 
-
-
-
+    /**
+     * Created the method as ArtManager is not completed, will delete after ArtManager is complete.
+     * @return all Arts in the system
+     */
+    public HashMap<UUID, Art> getLibrary(){
+        return library;
+    }
 }
