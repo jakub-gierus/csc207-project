@@ -5,7 +5,6 @@ import java.util.Map;
 public class UserFacade {
     protected final UserRepository userRepository;
     private User user;
-
     protected final ChangeUserUseCase userChanger;
     protected final LogInUseCase logInner;
     protected final CreateUserUseCase userCreator;

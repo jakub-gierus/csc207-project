@@ -12,7 +12,6 @@ public class User {
     private final List<Entry<LocalDateTime, String>> events;
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
-
     private List<Wallet> wallets;
 
 
