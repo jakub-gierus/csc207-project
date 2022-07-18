@@ -1,6 +1,7 @@
 package manager;
 
 import entity.Art;
+import entity.User;
 import entity.Wallet;
 
 public class TradingUtil {
@@ -70,6 +71,22 @@ public class TradingUtil {
     }
 
     public boolean makeTrade_Wallet_Wallet() {
-        return true;
+        // Getting Users
+        String str1 = tradingFrom.getOwner();
+        String str2 = tradingTo.getOwner();
+        User u1 = UserRepository.getByUsername(str1);
+        User u2 = UserRepository.getByUsername(str2);
+
+        // Wallet Trade
+        u1.addWallet(tradingTo);
+        u2.addWallet(tradingFrom);
+
+        // Remove Original Wallet
+        u1.removeWallet(tradingTo.getWalletName());
+        u2.removeWallet(tradingFrom.getWalletName());
+
+        // Change Owner in Wallet
+        tradingFrom.changeOwner(u2);
+        tradingTo.changeOwner(u1);
     }
 }
