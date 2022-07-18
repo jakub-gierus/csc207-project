@@ -1,5 +1,5 @@
 package manager;
-import entity.Wallet;
+import entity.markets.Wallet;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,15 @@
-import Exceptions.*;
-
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class CLIControllerPresenter {
-    // private final DataRetriever dataRetriever;
+    // private final databases.DataRetriever dataRetriever;
     private final DataSaver dataSaver;
-    // private final UserRepository userRepository;
+    // private final databases.UserRepository userRepository;
     private final Scanner userInput = new Scanner(System.in);
     private Optional<UserFacade> activeUser;
-    // private final LogInUseCase logInner;
+    // private final usecases.user.LogInUseCase logInner;
 
     /**
      * Controller and Presenter class of the application for a command line interface (CLI) UI. The purpose of this
@@ -22,13 +19,13 @@ public class CLIControllerPresenter {
      * activeUser is the user currently using the application. If no users are logged in, activeUser should be null.
      */
     public CLIControllerPresenter(DataSaver dataSaver) {
-        // this.dataRetriever = new DataRetriever("./storage/",
+        // this.dataRetriever = new databases.DataRetriever("./storage/",
         // "basicUsers.csv",
         // "adminUsers.csv",
         // "events.csv");
-        // this.userRepository = new UserRepository();
+        // this.userRepository = new databases.UserRepository();
         this.activeUser = Optional.empty();
-        // this.logInner = new LogInUseCase(this.userRepository);
+        // this.logInner = new usecases.user.LogInUseCase(this.userRepository);
         this.dataSaver = dataSaver;
     }
 
@@ -70,7 +67,7 @@ public class CLIControllerPresenter {
 
     /**
      * Presenter and controller for logging-in. First, checks if the user is currently logged in, continue if they are,
-     * otherwise ask for a username and password, then validate the log in using a LogInUseCase. Once the login is
+     * otherwise ask for a username and password, then validate the log in using a usecases.user.LogInUseCase. Once the login is
      * successful, construct a corresponding user facade as the active user.
      * @return is log in successful and/or is the user already login?
      */

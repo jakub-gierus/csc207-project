@@ -74,7 +74,7 @@ public class UserTest {
     /*@Test
     public void testUsernameChange() {
         try {
-            LogInUseCase uuc = new LogInUseCase();
+            usecases.user.LogInUseCase uuc = new usecases.user.LogInUseCase();
             assertFalse(uuc.setUsername("Admin1", "Basic1"));
             assertTrue(uuc.setUsername("admin1", "Admin1"));
             List<String> lst = new ArrayList<>();
@@ -90,10 +90,10 @@ public class UserTest {
 
     /*@Test
     public void testLogin_After_Username_Change() {
-        AdminUser u1 = (AdminUser) UserManager.getUser("Admin1");
-        BasicUser u2 = (BasicUser) UserManager.getUser("Basic1");
+        entity.user.AdminUser u1 = (entity.user.AdminUser) UserManager.getUser("Admin1");
+        entity.user.BasicUser u2 = (entity.user.BasicUser) UserManager.getUser("Basic1");
         try {
-            LogInUseCase uuc = new LogInUseCase();
+            usecases.user.LogInUseCase uuc = new usecases.user.LogInUseCase();
             assertTrue(uuc.logIn("Admin1", "Admin1"));
             assertTrue(uuc.logIn("Basic1", "Basic1"));
             assertTrue(u1.getIsLoggedIn());

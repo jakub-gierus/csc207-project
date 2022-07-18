@@ -1,19 +1,22 @@
+package entity.user;
+
+import entity.markets.Wallet;
+
+import java.time.LocalDateTime;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDateTime;
-import java.util.Map.Entry;
-import java.util.AbstractMap.SimpleEntry;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class User {
     private String password;
     private String username;
-    private final List<Entry<LocalDateTime, String>> events;
+    private final List<Map.Entry<LocalDateTime, String>> events;
     private final boolean isAdmin;
     private boolean isLoggedIn = false;
-
-    private List<Wallet> wallets;
+    private final List<Wallet> wallets = new ArrayList<>();
 
 
     /**
@@ -28,6 +31,15 @@ public class User {
         this.username = username;
         this.events = new ArrayList<>();
         this.isAdmin = isAdmin;
+    }
+
+
+    public void addWallet(Wallet wallet){
+        wallets.add(wallet);
+    }
+
+    public List<Wallet> getWallets(){
+        return wallets;
     }
 
     /**
@@ -76,7 +88,7 @@ public class User {
      * Getter all events for this user.
      * @return all events related to the user.
      */
-    public List<Entry<LocalDateTime, String>> getEvents() {
+    public List<Map.Entry<LocalDateTime, String>> getEvents() {
         return this.events;
     }
 
@@ -85,8 +97,8 @@ public class User {
      * @param eventType the desired type of event
      * @return all events with the value of eventType for this user.
      */
-    public List<Entry<LocalDateTime, String>> getEvents(String eventType) {
-        Predicate<Entry<LocalDateTime, String>> typeFilter = item -> item.getValue().equals(eventType);
+    public List<Map.Entry<LocalDateTime, String>> getEvents(String eventType) {
+        Predicate<Map.Entry<LocalDateTime, String>> typeFilter = item -> item.getValue().equals(eventType);
 
         return this.events.stream().filter(typeFilter).collect(Collectors.toList());
     }
@@ -97,8 +109,8 @@ public class User {
      * @param endDateTime the end of the desired datetime range
      * @return all events with a datetime key after startDateTime and before endDateTime for this user.
      */
-    public List<Entry<LocalDateTime, String>> getEvents(LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        Predicate<Entry<LocalDateTime, String>> betweenDateTimeFilter = item -> item.getKey().isAfter(startDateTime) && item.getKey().isBefore(endDateTime);
+    public List<Map.Entry<LocalDateTime, String>> getEvents(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        Predicate<Map.Entry<LocalDateTime, String>> betweenDateTimeFilter = item -> item.getKey().isAfter(startDateTime) && item.getKey().isBefore(endDateTime);
 
         return this.events.stream().filter(betweenDateTimeFilter).collect(Collectors.toList());
     }
@@ -108,7 +120,7 @@ public class User {
      * @param typeOfEvent the type of event that occurred.
      */
     public void logEvent(String typeOfEvent) {
-        Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(LocalDateTime.now(), typeOfEvent);
+        Map.Entry<LocalDateTime, String> newEvent = new AbstractMap.SimpleEntry<>(LocalDateTime.now(), typeOfEvent);
         this.events.add(newEvent);
     }
 
@@ -118,7 +130,7 @@ public class User {
      * @param timeOfEvent the specified date-time of the event.
      */
     public void logEvent(String typeOfEvent, LocalDateTime timeOfEvent) {
-        Entry<LocalDateTime, String> newEvent = new SimpleEntry<>(timeOfEvent, typeOfEvent);
+        Map.Entry<LocalDateTime, String> newEvent = new AbstractMap.SimpleEntry<>(timeOfEvent, typeOfEvent);
         this.events.add(newEvent);
     }
 

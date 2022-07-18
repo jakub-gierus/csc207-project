@@ -1,7 +1,7 @@
 package manager;
 
-import entity.Art;
-import entity.Wallet;
+import entity.art.Art;
+import entity.markets.Wallet;
 
 public class TradingUtil {
 
@@ -23,7 +23,7 @@ public class TradingUtil {
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Money(Art artName) {
-        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getisTradable()) {
+        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getIsTradeable()) {
             // Money Transfer
             tradingTo.removeCurrency(artName.getPrice());
             tradingFrom.addCurrency(artName.getPrice());
@@ -51,7 +51,7 @@ public class TradingUtil {
         Wallet senderWallet = art1.getWallet();
         Wallet receiverWallet = art2.getWallet();
 
-        if (art1.getisTradable() && art2.getisTradable()) {
+        if (art1.getIsTradeable() && art2.getIsTradeable()) {
             // Change Art Ownership
             art1.setWallet(receiverWallet);
             art2.setWallet(senderWallet);
