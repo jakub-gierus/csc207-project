@@ -5,6 +5,7 @@ import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
+import exceptions.user.UsernameException;
 
 import java.util.Optional;
 
@@ -76,26 +77,36 @@ public class TradingUtil {
         return false;
     }
 
+    /**
+     * Trades wallet <tradingFrom> for <tradingTo> between their respective owners
+     * @return True if trade is successful, false otherwise
+     */
     public boolean makeTrade_Wallet_Wallet() {
-        // Getting Users
+        // Getting Username and Optional<User> Object
         String str1 = tradingFrom.getOwner();
         String str2 = tradingTo.getOwner();
-        Optional<User> u1 = userRepository.getByUsername(str1);
-        Optional<User> u2 = userRepository.getByUsername(str2);
+        Optional<User> obj1 = userRepository.getByUsername(str1);
+        Optional<User> obj2 = userRepository.getByUsername(str2);
 
-        if()
-        // Wallet Trade
-        u1.addWallet(tradingTo);
-        u2.addWallet(tradingFrom);
+        if(obj1.isPresent() && obj2.isPresent()) {
+            // Defining Users
+            User u1 = obj1.get();
+            User u2 = obj2.get();
 
-        // Remove Original Wallet
-        u1.removeWallet(tradingTo);
-        u2.removeWallet(tradingFrom);
+            // Wallet Trade
+            u1.addWallet(tradingTo);
+            u2.addWallet(tradingFrom);
 
-        // Change Owner in Wallet
-        tradingFrom.changeOwner(u2);
-        tradingTo.changeOwner(u1);
+            // Remove Original Wallet
+            u1.removeWallet(tradingTo);
+            u2.removeWallet(tradingFrom);
 
-        return true;
+            // Change Owner in Wallet
+            tradingFrom.changeOwner(u2);
+            tradingTo.changeOwner(u1);
+
+            return true;
+        }
+        return false;
     }
 }
