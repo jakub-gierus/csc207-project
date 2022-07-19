@@ -1,4 +1,4 @@
-package manager;
+package usecases.art;
 
 import entity.art.Art;
 

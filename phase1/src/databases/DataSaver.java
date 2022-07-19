@@ -2,6 +2,7 @@ package databases;
 
 import entity.user.BasicUser;
 import entity.user.User;
+import utils.Config;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,17 +19,13 @@ public class DataSaver {
 
     /**
      * Class that saves all user and event data to CSVs.
-     * @param filePath root file path for all storage CSVs.
-     * @param basicUsersFilename filename for csv storing basic user data.
-     * @param adminUsersFilename filename for csv storing admin user data.
-     * @param eventsFilename filename for csv storing event user data.
      */
-    public DataSaver(String filePath, String basicUsersFilename, String adminUsersFilename, String eventsFilename) {
+    public DataSaver(Config config) {
         this.userRepository = UserRepository.getInstance();
-        this.filePath = filePath;
-        this.basicUsersFilename = basicUsersFilename;
-        this.adminUsersFilename = adminUsersFilename;
-        this.eventsFilename = eventsFilename;
+        this.filePath = config.getRootDirectory();
+        this.basicUsersFilename = config.getBasicUserFilePath();
+        this.adminUsersFilename = config.getAdminUserFilePath();
+        this.eventsFilename = config.getEventFilePath();
     }
 
     /**

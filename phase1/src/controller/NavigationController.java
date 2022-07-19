@@ -1,5 +1,6 @@
 package controller;
 
+import entity.markets.Wallet;
 import exceptions.user.ActionDoesNotExistException;
 import view.ActionView;
 
@@ -46,7 +47,7 @@ public class NavigationController {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         actions.put(++actionID, this.createActionEntry("Go to Market", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
-        actions.put(++actionID, this.createActionEntry("Go to Wallets", () -> this.frontController.dispatchRequest("GET GALLERY ACTIONS")));
+        actions.put(++actionID, this.createActionEntry("Go to Wallets", () -> this.frontController.dispatchRequest("SELECT WALLET")));
         actions.put(++actionID, this.createActionEntry("Profile", () -> this.frontController.dispatchRequest("GET PROFILE ACTIONS")));
         if (this.frontController.getActiveUser().get().getIsAdmin()) {
             actions.put(++actionID, this.createActionEntry("Admin Actions", () -> this.frontController.dispatchRequest("GET ADMIN ACTIONS")));
@@ -75,10 +76,29 @@ public class NavigationController {
         actions.put(++actionID, this.createActionEntry("View Profile", () -> this.frontController.dispatchRequest("VIEW PROFILE")));
         actions.put(++actionID, this.createActionEntry("Update Username", () -> this.frontController.dispatchRequest("UPDATE USERNAME")));
         actions.put(++actionID, this.createActionEntry("Update Password", () -> this.frontController.dispatchRequest("UPDATE PASSWORD")));
-        actions.put(++actionID, this.createActionEntry("Update Wallets", () -> this.frontController.dispatchRequest("UPDATE WALLETS")));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
         this.genericActionSelect(actions);
     }
 
+    public void walletSelect() {
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
+            actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("VIEW WALLET", wallet.getId())));
+        }
+        actions.put(++actionID, this.createActionEntry("Create New Wallet", () -> this.frontController.dispatchRequest("CREATE NEW WALLET")));
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
+        this.genericActionSelect(actions);
+    }
 
+    public void walletActionSelect(UUID walletID) {
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        actions.put(++actionID, this.createActionEntry("View Liquidity", () -> this.frontController.dispatchRequest("VIEW CASH", walletID)));
+        actions.put(++actionID, this.createActionEntry("View Art Pieces", () -> this.frontController.dispatchRequest("VIEW ART", walletID)));
+        actions.put(++actionID, this.createActionEntry("View Wallet Worth", () -> this.frontController.dispatchRequest("VIEW NET WORTH", walletID)));
+        actions.put(++actionID, this.createActionEntry("Mint New Art", () -> this.frontController.dispatchRequest("MINT NEW ART", walletID)));
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("SELECT WALLET")));
+        this.genericActionSelect(actions);
+    }
 }

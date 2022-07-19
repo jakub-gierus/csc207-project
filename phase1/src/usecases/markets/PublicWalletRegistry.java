@@ -1,4 +1,4 @@
-package manager;
+package usecases.markets;
 import entity.markets.Wallet;
 
 import java.util.ArrayList;

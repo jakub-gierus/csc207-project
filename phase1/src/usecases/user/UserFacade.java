@@ -75,11 +75,11 @@ public class UserFacade {
     }
 
     /**
-     * Getter for the user repository for the facade.
-     * @return the user repository.
+     * Getter for all events of a certain type related to a user.
+     * @return a list of key-value pairs for each event's time and type, respectively, of a certain type for this user.
      */
-    public UserRepository getUserRepository() {
-        return this.userRepository;
+    public List<Map.Entry<LocalDateTime, String>> getEventsByType(String type) {
+        return user.getEvents(type);
     }
 
     /**

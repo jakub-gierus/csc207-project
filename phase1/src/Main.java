@@ -1,8 +1,14 @@
 import controller.FrontController;
+import utils.Config;
 
 public class Main {
     public static void main(String[] args) {
-        FrontController controller = new FrontController();
+        Config config = new Config("./storage/",
+                                   "basicUsers.csv",
+                                   "adminUsers.csv",
+                                   "events.csv");
+        FrontController controller = new FrontController(config);
+
         controller.dispatchRequest("LOGIN");
 
     }

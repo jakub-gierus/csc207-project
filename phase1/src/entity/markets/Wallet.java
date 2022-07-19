@@ -84,27 +84,26 @@ public class Wallet implements Merchandise{
         this.calcNetWorth();
     }
 
-    public void changeWalletName(String newName){
-        walletName = newName;
+    public void setWalletName(String newName){
+        this.walletName = newName;
     }
 
     public String getName() {
-        return walletName;
+        return this.walletName;
     }
 
     public String getOwner() {
-        return owner.getUsername();
+        return this.owner.getUsername();
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     private User getOwnerObj(){
         return owner;
     }
 
-    public void changeOwner(User newOwner){
-        // should be using user name strings
-        // awaiting user manager
-        owner = newOwner;
-    }
 
     public boolean getIsTradeable(){
         return publicAccess;

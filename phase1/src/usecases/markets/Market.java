@@ -1,4 +1,4 @@
-package manager;
+package usecases.markets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -6,6 +6,8 @@ import java.util.HashMap;
 import entity.art.Art;
 import entity.markets.Wallet;
 import interfaces.Merchandise;
+import usecases.art.ArtLibrary;
+
 import java.util.UUID;
 public class Market {
     // this implementation allows for the viewer to see both the wallets being sold or the art being sold

@@ -4,12 +4,13 @@ import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
 import usecases.user.UserFacade;
+import utils.Config;
 import view.GenericView;
 
 import java.io.IOException;
-import java.security.CodeSigner;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class FrontController {
 
@@ -24,18 +25,12 @@ public class FrontController {
     private DataSaver dataSaver;
     private GenericView view;
 
-    public FrontController() {
+    public FrontController(Config config) {
         this.activeUser = Optional.empty();
         this.dispatcher = new Dispatcher(this);
         this.userRepository = UserRepository.getInstance();
-        this.dataRetriever = new DataRetriever("./storage/",
-                                               "basicUsers.csv",
-                                               "adminUsers.csv",
-                                               "events.csv");
-        this.dataSaver = new DataSaver("./storage/",
-                                       "basicUsers.csv",
-                                       "adminUsers.csv",
-                                       "events.csv");
+        this.dataRetriever = new DataRetriever(config);
+        this.dataSaver = new DataSaver(config);
         this.view = new GenericView();
         this.loadDatabase();
     }
@@ -44,9 +39,13 @@ public class FrontController {
         return this.activeUser.isPresent();
     }
 
-    public void dispatchRequest(String request) {
+    public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
-            dispatcher.dispatch(request);
+            if (ids.length > 0) {
+                dispatcher.dispatch(request, ids[0]);
+            } else {
+                dispatcher.dispatch(request);
+            }
         }
         else {
             dispatcher.dispatch("LOGIN");

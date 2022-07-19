@@ -1,19 +1,24 @@
-package manager;
+package usecases.markets;
 
+import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
+import entity.user.User;
 
 public class TradingUtil {
 
     private final Wallet tradingTo;
     private final Wallet tradingFrom;
 
+    private final UserRepository userRepository;
+
     /**
-     * Initializes a manager.TradingUtil object for each trade
+     * Initializes a usecases.markets.TradingUtil object for each trade
      * @param tradingTo Wallet that <artName> is going to
      * @param tradingFrom Wallet where <artName> originally comes from
      */
     public TradingUtil(Wallet tradingTo, Wallet tradingFrom) {
+        this.userRepository = UserRepository.getInstance();
         this.tradingFrom = tradingFrom;
         this.tradingTo = tradingTo;
     }
@@ -23,7 +28,7 @@ public class TradingUtil {
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Money(Art artName) {
-        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getisTradable()) {
+        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getIsTradeable()) {
             // Money Transfer
             tradingTo.removeCurrency(artName.getPrice());
             tradingFrom.addCurrency(artName.getPrice());
@@ -73,19 +78,20 @@ public class TradingUtil {
         // Getting Users
         String str1 = tradingFrom.getOwner();
         String str2 = tradingTo.getOwner();
-        User u1 = UserRepository.getByUsername(str1);
-        User u2 = UserRepository.getByUsername(str2);
+        User u1 = this.userRepository.getByUsername(str1).get();
+        User u2 = this.userRepository.getByUsername(str2).get();
 
         // Wallet Trade
         u1.addWallet(tradingTo);
         u2.addWallet(tradingFrom);
 
         // Remove Original Wallet
-        u1.removeWallet(tradingTo.getWalletName());
-        u2.removeWallet(tradingFrom.getWalletName());
+//        u1.removeWallet(tradingTo.getWalletName());
+//        u2.removeWallet(tradingFrom.getWalletName());
 
         // Change Owner in Wallet
-        tradingFrom.changeOwner(u2);
-        tradingTo.changeOwner(u1);
+//        tradingFrom.changeOwner(u2);
+//        tradingTo.changeOwner(u1);
+        return true;
     }
 }
