@@ -1,4 +1,4 @@
-package manager;
+package usecases.markets;
 
 import databases.UserRepository;
 import entity.art.Art;
