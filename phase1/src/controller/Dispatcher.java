@@ -1,5 +1,7 @@
 package controller;
 
+import usecases.markets.WalletManager;
+
 import java.util.UUID;
 
 public class Dispatcher {
@@ -8,6 +10,7 @@ public class Dispatcher {
     private final AdminController adminController;
     private final NavigationController navigationController;
 
+    private final WalletController walletController;
     private final ProfileController profileController;
     public Dispatcher(FrontController frontController) {
         this.frontController = frontController;
@@ -15,6 +18,7 @@ public class Dispatcher {
         this.navigationController = new NavigationController(this.frontController);
         this.adminController = new AdminController(this.frontController);
         this.profileController = new ProfileController(this.frontController);
+        this.walletController = new WalletController(this.frontController);
     }
 
     public void dispatch(String request) {
@@ -44,12 +48,16 @@ public class Dispatcher {
             this.profileController.viewProfile();
         } else if (request.equalsIgnoreCase("SELECT WALLET")) {
             this.navigationController.walletSelect();
+        } else if (request.equalsIgnoreCase("CREATE WALLET")) {
+            this.walletController.createWallet();
         }
     }
 
     public void dispatch(String request, UUID id) {
-        if (request.equalsIgnoreCase("VIEW WALLET")) {
+        if (request.equalsIgnoreCase("GET WALLET ACTIONS")) {
             this.navigationController.walletActionSelect(id);
+        } else if (request.equalsIgnoreCase("VIEW LIQUIDITY")) {
+            this.walletController.viewLiquidity(id);
         }
     }
 }

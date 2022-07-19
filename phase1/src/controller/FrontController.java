@@ -62,10 +62,11 @@ public class FrontController {
         try {
             this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
                                               this.dataRetriever.readBasicUserData(),
-                                              this.dataRetriever.readEventData());
+                                              this.dataRetriever.readEventData(),
+                                              this.dataRetriever.readWalletData());
         }
         catch (IOException e) {
-            this.view.showErrorMessage("Database files not found\n");
+            this.view.showErrorMessage("Database files not found.\n");
         }
     }
 

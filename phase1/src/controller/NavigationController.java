@@ -84,9 +84,9 @@ public class NavigationController {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
-            actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("VIEW WALLET", wallet.getId())));
+            actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("GET WALLET ACTIONS", wallet.getId())));
         }
-        actions.put(++actionID, this.createActionEntry("Create New Wallet", () -> this.frontController.dispatchRequest("CREATE NEW WALLET")));
+        actions.put(++actionID, this.createActionEntry("Create New Wallet", () -> this.frontController.dispatchRequest("CREATE WALLET")));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
         this.genericActionSelect(actions);
     }
@@ -94,7 +94,7 @@ public class NavigationController {
     public void walletActionSelect(UUID walletID) {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
-        actions.put(++actionID, this.createActionEntry("View Liquidity", () -> this.frontController.dispatchRequest("VIEW CASH", walletID)));
+        actions.put(++actionID, this.createActionEntry("View Liquidity", () -> this.frontController.dispatchRequest("VIEW LIQUIDITY", walletID)));
         actions.put(++actionID, this.createActionEntry("View Art Pieces", () -> this.frontController.dispatchRequest("VIEW ART", walletID)));
         actions.put(++actionID, this.createActionEntry("View Wallet Worth", () -> this.frontController.dispatchRequest("VIEW NET WORTH", walletID)));
         actions.put(++actionID, this.createActionEntry("Mint New Art", () -> this.frontController.dispatchRequest("MINT NEW ART", walletID)));

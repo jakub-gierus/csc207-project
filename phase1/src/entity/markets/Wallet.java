@@ -23,6 +23,14 @@ public class Wallet implements Merchandise{
         id = UUID.randomUUID();
     }
 
+    public Wallet(User owner, String walletName, UUID walletID, double netWorth, boolean publicAccess) {
+        this.owner = owner;
+        this.walletName = walletName;
+        this.publicAccess = publicAccess;
+        this.id = walletID;
+        this.netWorth = netWorth;
+    }
+
     private void calcNetWorth() {
         // when called add up the value of the currency and the last value of the art pieces and auto set the net worth
         double artWorth = 0;
@@ -90,6 +98,14 @@ public class Wallet implements Merchandise{
 
     public String getName() {
         return this.walletName;
+    }
+
+    public boolean isPublicAccess() {
+        return publicAccess;
+    }
+
+    public HashMap<String, Art> getArts() {
+        return arts;
     }
 
     public String getOwner() {

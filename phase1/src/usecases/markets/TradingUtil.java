@@ -1,4 +1,4 @@
-package manager;
+package usecases.markets;
 
 import databases.UserRepository;
 import entity.art.Art;
@@ -76,21 +76,22 @@ public class TradingUtil {
 
     public boolean makeTrade_Wallet_Wallet() {
         // Getting Users
-        String str1 = tradingFrom.getOwner();
-        String str2 = tradingTo.getOwner();
-        User u1 = UserRepository.getByUsername(str1);
-        User u2 = UserRepository.getByUsername(str2);
-
-        // Wallet Trade
-        u1.addWallet(tradingTo);
-        u2.addWallet(tradingFrom);
-
-        // Remove Original Wallet
-        u1.removeWallet(tradingTo.getWalletName());
-        u2.removeWallet(tradingFrom.getWalletName());
-
-        // Change Owner in Wallet
-        tradingFrom.changeOwner(u2);
-        tradingTo.changeOwner(u1);
+//        String str1 = tradingFrom.getOwner();
+//        String str2 = tradingTo.getOwner();
+//        User u1 = UserRepository.getByUsername(str1);
+//        User u2 = UserRepository.getByUsername(str2);
+//
+//        // Wallet Trade
+//        u1.addWallet(tradingTo);
+//        u2.addWallet(tradingFrom);
+//
+//        // Remove Original Wallet
+//        u1.removeWallet(tradingTo.getWalletName());
+//        u2.removeWallet(tradingFrom.getWalletName());
+//
+//        // Change Owner in Wallet
+//        tradingFrom.changeOwner(u2);
+//        tradingTo.changeOwner(u1);
+        return true;
     }
 }
