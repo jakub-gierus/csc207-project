@@ -1,19 +1,32 @@
 package usecases.art;
 
 import entity.art.Art;
+import usecases.markets.WalletManager;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * SINGLETON class
  * Keeps track of every piece of art
  **/
-public class ArtLibrary {
+public class ArtManager {
     // Set containing all the art contained in the system/app
     // unique id : Art object
     final private HashMap<UUID, Art> library = new HashMap<>();
 
+    private static ArtManager ARTMANAGER;
+    public static ArtManager getInstance() {
+        if (ARTMANAGER == null) {
+            ARTMANAGER = new ArtManager();
+        }
+        return ARTMANAGER;
+
+    }
     /**
      * Returns true if an art piece exists in the library, false otherwise
      * @param art piece to check
@@ -43,6 +56,11 @@ public class ArtLibrary {
         return true;
     }
 
+    public Map<UUID, Art> getArtByWallet(UUID walletId) {
+        Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
+
+        return this.library.entrySet().stream().filter(typeFilter).collect(Collectors.toMap(Map.Entry<UUID, Art>::getKey, Map.Entry<UUID, Art>::getValue));
+    }
 
     /**
      * Created the method as ArtManager is not completed, will delete after ArtManager is complete.

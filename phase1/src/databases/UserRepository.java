@@ -5,6 +5,7 @@ import entity.user.AdminUser;
 import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
+import usecases.markets.WalletManager;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -57,7 +58,10 @@ public class UserRepository {
 
         for (SerializedWallet walletDatum: walletData) {
             User user = this.getByUsername(walletDatum.getOwnerUsername()).orElseThrow(() -> new UserDoesNotExistException(walletDatum.getOwnerUsername()));
-            Wallet wallet = new Wallet(user, walletDatum.getWalletName(), walletDatum.getWalletID(), walletDatum.getCurrency(), walletDatum.isTradeable());
+            Wallet wallet = new Wallet(user, walletDatum.getWalletName(), walletDatum.getWalletID(), walletDatum.getCurrency());
+            if (walletDatum.isTradeable()) {
+                WalletManager.getInstance().makeWalletPublic(wallet);
+            }
             user.addWallet(wallet);
         }
 

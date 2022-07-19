@@ -23,10 +23,10 @@ public class Wallet implements Merchandise{
         id = UUID.randomUUID();
     }
 
-    public Wallet(User owner, String walletName, UUID walletID, double netWorth, boolean publicAccess) {
+    public Wallet(User owner, String walletName, UUID walletID, double netWorth) {
         this.owner = owner;
         this.walletName = walletName;
-        this.publicAccess = publicAccess;
+        this.publicAccess = false;
         this.id = walletID;
         this.netWorth = netWorth;
     }

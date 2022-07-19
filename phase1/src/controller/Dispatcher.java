@@ -58,6 +58,10 @@ public class Dispatcher {
             this.navigationController.walletActionSelect(id);
         } else if (request.equalsIgnoreCase("VIEW LIQUIDITY")) {
             this.walletController.viewLiquidity(id);
+        } else if (request.equalsIgnoreCase("VIEW NET WORTH")) {
+            this.walletController.viewWalletWorth(id);
+        } else if (request.equalsIgnoreCase("VIEW WALLET ART")) {
+//            this.walletController.
         }
     }
 }

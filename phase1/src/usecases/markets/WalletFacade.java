@@ -1,8 +1,10 @@
 package usecases.markets;
 
+import entity.art.Art;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class WalletFacade {
@@ -21,6 +23,10 @@ public class WalletFacade {
     }
 
     public double getCurrency () { return this.wallet.getCurrency(); }
+
+    public HashMap<String, Art> getAllWalletArt () {
+        return this.wallet.getAllArt();
+    }
 
     public void initializeWalletByID (String username, UUID walletID) throws WalletNotFoundException {
         this.wallet = this.walletManager.getUserWalletByID(username,  walletID);

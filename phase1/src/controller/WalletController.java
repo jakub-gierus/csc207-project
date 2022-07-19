@@ -1,12 +1,10 @@
 package controller;
 
-import entity.markets.Wallet;
+import entity.art.Art;
 import exceptions.market.WalletNotFoundException;
-import exceptions.user.UsernameAlreadyExistsException;
-import usecases.markets.PublicWalletRegistry;
+import usecases.art.ArtManager;
 import usecases.markets.WalletFacade;
 import usecases.markets.WalletManager;
-import usecases.user.AdminFacade;
 import view.WalletView;
 
 import java.util.UUID;
@@ -21,9 +19,12 @@ public class WalletController {
 
     private WalletView view;
 
+    private ArtManager artManager;
+
     public WalletController(FrontController frontController) {
         this.frontController = frontController;
         this.walletManager = WalletManager.getInstance();
+        this.artManager = ArtManager.getInstance();
         this.view = new WalletView();
     }
 
@@ -39,6 +40,18 @@ public class WalletController {
     public void viewLiquidity(UUID walletID) {
         this.retrieveWallet(walletID);
         this.view.showLiquidity(wallet.getCurrency());
+        this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
+    }
+
+    public void viewWalletWorth(UUID walletID) {
+        this.retrieveWallet(walletID);
+        this.view.showWalletWorth(wallet.getNetWorth());
+        this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
+    }
+
+    public void viewWalletArt(UUID walletID) {
+        this.retrieveWallet(walletID);
+//        this.view.showWalletGallery(this.artManager.getArtByWallet() .getAllWalletArt());
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
 

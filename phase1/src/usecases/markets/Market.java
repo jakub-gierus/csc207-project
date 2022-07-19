@@ -6,7 +6,7 @@ import java.util.HashMap;
 import entity.art.Art;
 import entity.markets.Wallet;
 import interfaces.Merchandise;
-import usecases.art.ArtLibrary;
+import usecases.art.ArtManager;
 
 import java.util.UUID;
 public class Market {
@@ -18,7 +18,7 @@ public class Market {
     List<Merchandise> itemsForSale = new ArrayList<>(); //All items being sold
     private HashMap<UUID, String> listings = new HashMap<>(); // All wallets being sold or the art <id of merchandise, name of user>
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
-    private ArtLibrary artLibrary = new ArtLibrary();
+    private ArtManager artLibrary = new ArtManager();
 
     public Market() {
 
@@ -53,7 +53,7 @@ public class Market {
         return registry;
     }
 
-    public ArtLibrary getArtLibrary() {
+    public ArtManager getArtLibrary() {
         return artLibrary;
     }
 

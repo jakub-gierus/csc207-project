@@ -12,6 +12,8 @@ public class PublicWalletRegistry {
 
     // the constructor should load all the public wallets saved to a file
 
+
+
     public void makeWalletPublic(Wallet wallet){
         wallet.setPublic(true);
         wallets.add(wallet);
