@@ -34,6 +34,10 @@ public class User {
     }
 
 
+    /**
+     * Method to add a wallet to this user
+     * @param wallet the Wallet object that's to be added
+     */
     public void addWallet(Wallet wallet){
         wallets.add(wallet);
     }
@@ -57,9 +61,14 @@ public class User {
         return false;
     }
 
+    /**
+     * get the user's password
+     * @return a String of the password
+     */
     public String getPassword() {
         return this.password;
     }
+
     /**
      * Used by usecases.user.LogInUseCase to validate if provided password is correct
      * @param password provided password
@@ -75,6 +84,7 @@ public class User {
 
     /**
      * Setter for isLoggedIn = true
+     * @param bool whether the user is logged in
      */
     public void setLoggedIn(boolean bool) { this.isLoggedIn = bool; }
 

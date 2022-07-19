@@ -11,11 +11,18 @@ public class ProfileController {
     private ProfileView view;
     private FrontController frontController;
 
+    /**
+     * A controller used for actions pertaining to the user's profile
+     * @param frontController the FrontController instance used by this class
+     */
     public ProfileController(FrontController frontController) {
         this.frontController = frontController;
         this.view = new ProfileView();
     }
 
+    /**
+     * Shows the user's profile and sends a request to get profile actions
+     */
     public void viewProfile() {
         String username = this.frontController.getActiveUser().get().getUsername();
         int walletCount = this.frontController.getActiveUser().get().getNumberOfWallets();

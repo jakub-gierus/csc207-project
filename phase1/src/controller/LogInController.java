@@ -12,11 +12,18 @@ public class LogInController {
     private FrontController frontController;
     private LogInView view;
 
+    /**
+     * The controller responsible for logging a user in and out
+     * @param frontController the FrontController instance that will be used
+     */
     public LogInController (FrontController frontController) {
         this.frontController = frontController;
         this.view = new LogInView();
     }
 
+    /**
+     * logs the user in
+     */
     public void login() {
         this.view.showUsernamePrompt();
         String username = this.frontController.userInput.nextLine();
@@ -41,6 +48,9 @@ public class LogInController {
 
     }
 
+    /**
+     * logs the user out
+     */
     public void logout () {
         this.frontController.getActiveUser().get().logOut();
         this.frontController.setActiveUser(Optional.empty());
