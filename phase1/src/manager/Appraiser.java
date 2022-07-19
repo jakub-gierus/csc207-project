@@ -1,6 +1,6 @@
 package manager;
 
-import entity.Art;
+import entity.art.Art;
 
 /**
  * SINGLETON class

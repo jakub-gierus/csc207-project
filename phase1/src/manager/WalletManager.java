@@ -1,11 +1,10 @@
 package manager;
 
-import entity.User;
-import entity.Wallet;
-import exceptions.*;
+import entity.user.User;
+import entity.markets.Wallet;
+import exceptions.market.WalletNotFoundException;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,7 +16,7 @@ public class WalletManager {
 
     public void createWallet(User owner){
         // default wallet for new users
-        Wallet wallet = new Wallet(owner, owner.getName() + "'s wallet");
+        Wallet wallet = new Wallet(owner, owner.getUsername() + "'s wallet");
         wallet.addCurrency(DEFAULT_INIT_CURRENCY);
         owner.addWallet(wallet);
     }

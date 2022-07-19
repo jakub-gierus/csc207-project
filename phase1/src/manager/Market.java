@@ -2,8 +2,9 @@ package manager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-import entity.*;
-import exceptions.WalletNotFoundException;
+
+import entity.art.Art;
+import entity.markets.Wallet;
 import interfaces.Merchandise;
 import java.util.UUID;
 public class Market {
@@ -21,7 +22,7 @@ public class Market {
 
         List<Wallet> wallets = registry.getWallets();
         for (Merchandise merchandise : wallets) {
-            if (merchandise.getisTradable()) {
+            if (merchandise.getIsTradeable()) {
                 listings.put(merchandise.getId(), merchandise.getOwner());
                 itemsForSale.add(merchandise);
             }
@@ -31,7 +32,7 @@ public class Market {
         // Currently is using "brute force" to implement it
         HashMap<UUID, Art> library = artLibrary.getLibrary();
         for (Merchandise art: library.values()){
-            if (art.getisTradable()){
+            if (art.getIsTradeable()){
                 listings.put(art.getId(), art.getOwner());
                 itemsForSale.add(art);
             }

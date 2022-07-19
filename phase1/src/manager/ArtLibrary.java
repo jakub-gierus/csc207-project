@@ -1,10 +1,8 @@
 package manager;
 
-import entity.Art;
+import entity.art.Art;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
