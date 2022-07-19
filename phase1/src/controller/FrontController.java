@@ -28,11 +28,11 @@ public class FrontController {
         this.activeUser = Optional.empty();
         this.dispatcher = new Dispatcher(this);
         this.userRepository = UserRepository.getInstance();
-        this.dataRetriever = new DataRetriever("./phase1/storage/",
+        this.dataRetriever = new DataRetriever("./storage/",
                                                "basicUsers.csv",
                                                "adminUsers.csv",
                                                "events.csv");
-        this.dataSaver = new DataSaver("./phase1/storage/",
+        this.dataSaver = new DataSaver("./storage/",
                                        "basicUsers.csv",
                                        "adminUsers.csv",
                                        "events.csv");
