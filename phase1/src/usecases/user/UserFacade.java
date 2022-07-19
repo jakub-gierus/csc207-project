@@ -33,8 +33,8 @@ public class UserFacade {
 
     /**
      * Login to a new user
-     * @param username
-     * @param password
+     * @param username username of user
+     * @param password provided password to login
      * @return true if logged in successfully
      */
     public boolean login(String username, String password) {

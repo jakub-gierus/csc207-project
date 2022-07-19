@@ -4,8 +4,6 @@ import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
-import exceptions.user.UserDoesNotExistException;
-import exceptions.user.UsernameException;
 
 import java.util.Optional;
 

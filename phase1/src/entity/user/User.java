@@ -150,10 +150,6 @@ public class User {
         return wallets.get(0);
     }
 
-    public void save() {
-
-    }
-
     public boolean removeWallet(Wallet walletName) {
         wallets.remove(walletName);
         return true;
