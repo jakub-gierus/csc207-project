@@ -1,12 +1,18 @@
 package manager;
 
+import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
+import entity.user.User;
+import exceptions.user.UserDoesNotExistException;
+
+import java.util.Optional;
 
 public class TradingUtil {
 
     private final Wallet tradingTo;
     private final Wallet tradingFrom;
+    private final UserRepository userRepository;
 
     /**
      * Initializes a manager.TradingUtil object for each trade
@@ -16,6 +22,7 @@ public class TradingUtil {
     public TradingUtil(Wallet tradingTo, Wallet tradingFrom) {
         this.tradingFrom = tradingFrom;
         this.tradingTo = tradingTo;
+        userRepository = UserRepository.getInstance();
     }
 
     /**
@@ -23,7 +30,7 @@ public class TradingUtil {
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Money(Art artName) {
-        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getisTradable()) {
+        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getIsTradeable()) {
             // Money Transfer
             tradingTo.removeCurrency(artName.getPrice());
             tradingFrom.addCurrency(artName.getPrice());
@@ -73,19 +80,22 @@ public class TradingUtil {
         // Getting Users
         String str1 = tradingFrom.getOwner();
         String str2 = tradingTo.getOwner();
-        User u1 = UserRepository.getByUsername(str1);
-        User u2 = UserRepository.getByUsername(str2);
+        Optional<User> u1 = userRepository.getByUsername(str1);
+        Optional<User> u2 = userRepository.getByUsername(str2);
 
+        if()
         // Wallet Trade
         u1.addWallet(tradingTo);
         u2.addWallet(tradingFrom);
 
         // Remove Original Wallet
-        u1.removeWallet(tradingTo.getWalletName());
-        u2.removeWallet(tradingFrom.getWalletName());
+        u1.removeWallet(tradingTo);
+        u2.removeWallet(tradingFrom);
 
         // Change Owner in Wallet
         tradingFrom.changeOwner(u2);
         tradingTo.changeOwner(u1);
+
+        return true;
     }
 }

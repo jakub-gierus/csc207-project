@@ -153,4 +153,9 @@ public class User {
     public void save() {
 
     }
+
+    public boolean removeWallet(Wallet walletName) {
+        wallets.remove(walletName);
+        return true;
+    }
 }
