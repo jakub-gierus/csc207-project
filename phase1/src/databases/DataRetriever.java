@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import utils.Config;
-import utils.Triplet;
 
 public class DataRetriever {
     private final String filePath;
@@ -14,6 +13,7 @@ public class DataRetriever {
     private final String adminUsersFilename;
     private final String eventsFilename;
 
+    private final String walletsFilename;
     /**
      * Class that retrieves user data from CSVs,
      */
@@ -22,6 +22,7 @@ public class DataRetriever {
         this.basicUsersFilename = config.getBasicUserFilePath();
         this.adminUsersFilename = config.getAdminUserFilePath();
         this.eventsFilename = config.getEventFilePath();
+        this.walletsFilename = config.getWalletFilePath();
     }
 
     /**
@@ -80,5 +81,18 @@ public class DataRetriever {
         return eventData;
     }
 
-
+    public List<SerializedWallet> readWalletData() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.walletsFilename));
+        String line;
+        List<SerializedWallet> walletData = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            String[] rawWalletDatum = line.split(",");
+            walletData.add(new SerializedWallet(rawWalletDatum[0],
+                                                rawWalletDatum[1],
+                                                rawWalletDatum[2],
+                                                rawWalletDatum[3],
+                                                rawWalletDatum[4]));
+        }
+        return walletData;
+    }
 }

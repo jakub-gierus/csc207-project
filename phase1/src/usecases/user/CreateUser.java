@@ -1,20 +1,26 @@
 package usecases.user;
 
 import databases.UserRepository;
+import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UsernameAlreadyExistsException;
+import usecases.markets.WalletManager;
 
 public class CreateUser {
     private final UserRepository userRepository;
+
+    private final WalletManager walletManager;
 
     /**
      * Use-case class for creating and deleting users
      */
     public CreateUser() {
+
         this.userRepository = UserRepository.getInstance();
+        this.walletManager = WalletManager.getInstance();
     }
 
     /**
@@ -28,15 +34,18 @@ public class CreateUser {
         if (userRepository.getByUsername(username).isPresent()) {
             throw new UsernameAlreadyExistsException(username);
         }
-
+        User newUser;
         if (isAdmin) {
-            AdminUser newUser = new AdminUser(username, password);
-            userRepository.createUser(newUser);
+            newUser = new AdminUser(username, password);
         }
         else {
-            BasicUser newUser = new BasicUser(username, password);
-            userRepository.createUser(newUser);
+            newUser = new BasicUser(username, password);
         }
+        Wallet defaultWallet = walletManager.createWallet(newUser);
+        newUser.addWallet(defaultWallet);
+
+        userRepository.createUser(newUser);
+
     }
 
     /**

@@ -1,4 +1,4 @@
-package utils;
+package databases;
 
 /*
     Utility triple value tuple class inspired by this StackOverflow answer: https://stackoverflow.com/a/6010861

@@ -1,5 +1,6 @@
 package databases;
 
+import entity.markets.Wallet;
 import entity.user.BasicUser;
 import entity.user.User;
 import utils.Config;
@@ -15,6 +16,8 @@ public class DataSaver {
     private final String basicUsersFilename;
     private final String adminUsersFilename;
     private final String eventsFilename;
+
+    private final String walletsFilename;
     private final UserRepository userRepository;
 
     /**
@@ -26,6 +29,7 @@ public class DataSaver {
         this.basicUsersFilename = config.getBasicUserFilePath();
         this.adminUsersFilename = config.getAdminUserFilePath();
         this.eventsFilename = config.getEventFilePath();
+        this.walletsFilename = config.getWalletFilePath();
     }
 
     /**
@@ -58,6 +62,17 @@ public class DataSaver {
             }
         }
         eventWriter.close();
+        this.saveAllWalletData();
+    }
+
+    public void saveAllWalletData() throws IOException {
+        FileWriter walletWriter = new FileWriter(this.filePath + this.walletsFilename, false);
+        for (User user: this.userRepository.getAllUsers()) {
+            for (Wallet wallet : user.getWallets()) {
+                walletWriter.write(user.getUsername() + "," + wallet.getId() + "," + wallet.getName() + "," + wallet.getCurrency() + "," + wallet.getIsTradeable() + "\n");
+            }
+        }
+        walletWriter.close();
     }
 
 }

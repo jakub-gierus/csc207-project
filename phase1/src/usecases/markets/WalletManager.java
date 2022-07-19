@@ -30,17 +30,18 @@ public class WalletManager {
         return WALLETMANAGER;
 
     }
-    public void createWallet(User owner){
+    public Wallet createWallet(User owner){
         // default wallet for new users
         Wallet wallet = new Wallet(owner, owner.getUsername() + "'s wallet");
         wallet.addCurrency(DEFAULT_INIT_CURRENCY);
-        owner.addWallet(wallet);
+        return wallet;
     }
-    public void createWallet(User owner, String walletName, boolean access){
+    public Wallet createWallet(User owner, String walletName, boolean access){
         Wallet wallet = new Wallet(owner, walletName);
         if(access){
             registry.makeWalletPublic(wallet);
         }
+        return wallet;
     }
 
     public void makeWalletPrivate(Wallet wallet){
@@ -95,6 +96,7 @@ public class WalletManager {
         Wallet wallet = getUserWalletByID(sender, walletID);
         this.changeOwner(wallet, receiver);
     }
+
 
 
 

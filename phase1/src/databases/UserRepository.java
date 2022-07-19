@@ -1,10 +1,10 @@
 package databases;
 
+import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
-import utils.Triplet;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -38,7 +38,8 @@ public class UserRepository {
      */
     public void resetUserData(List<Entry<String, String>> adminUserData,
                               List<Triplet<String, String, LocalDateTime>> basicUserData,
-                              List<Triplet<String, LocalDateTime, String>> eventData) {
+                              List<Triplet<String, LocalDateTime, String>> eventData,
+                              List<SerializedWallet> walletData) {
         HashMap<String, User> users = new HashMap<>();
         for (Entry<String, String> userDatum : adminUserData) {
             UserRepository.users.put(userDatum.getKey(),
@@ -53,6 +54,13 @@ public class UserRepository {
             User user = this.getByUsername(eventDatum.getFirst()).orElseThrow(() -> new UserDoesNotExistException(eventDatum.getFirst()));
             user.logEvent(eventDatum.getThird(), eventDatum.getSecond());
         }
+
+        for (SerializedWallet walletDatum: walletData) {
+            User user = this.getByUsername(walletDatum.getOwnerUsername()).orElseThrow(() -> new UserDoesNotExistException(walletDatum.getOwnerUsername()));
+            Wallet wallet = new Wallet(user, walletDatum.getWalletName(), walletDatum.getWalletID(), walletDatum.getCurrency(), walletDatum.isTradeable());
+            user.addWallet(wallet);
+        }
+
     }
 
     /**

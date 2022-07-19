@@ -4,6 +4,7 @@ import databases.UserRepository;
 import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.User;
+import usecases.markets.WalletManager;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,6 +18,8 @@ public class UserFacade {
     protected final LogIn logInner;
     protected final CreateUser userCreator;
 
+    private final WalletManager walletManager;
+
     /**
      * An umbrella/facade use-case class for a user. Used as an interface to most user use-cases for controller
      * classes.
@@ -29,6 +32,7 @@ public class UserFacade {
         this.userChanger = new ChangeUser(user);
         this.logInner = new LogIn();
         this.userCreator = new CreateUser();
+        this.walletManager = WalletManager.getInstance();
     }
 
     /**
@@ -117,5 +121,10 @@ public class UserFacade {
             totalNetWorth += wallet.getNetWorth();
         }
         return totalNetWorth;
+    }
+
+    public void addWallet(String walletName, boolean access) {
+        Wallet createdWallet = this.walletManager.createWallet(this.user, walletName, access);
+        this.user.addWallet(createdWallet);
     }
 }
