@@ -5,15 +5,16 @@ import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
 
+import java.util.Optional;
+
 public class TradingUtil {
 
     private final Wallet tradingTo;
     private final Wallet tradingFrom;
-
     private final UserRepository userRepository;
 
     /**
-     * Initializes a usecases.markets.TradingUtil object for each trade
+     * Initializes a TradingUtil object for each trade
      * @param tradingTo Wallet that <artName> is going to
      * @param tradingFrom Wallet where <artName> originally comes from
      */
@@ -74,23 +75,35 @@ public class TradingUtil {
         return false;
     }
 
+    /**
+     * Trades wallet for wallet
+     * @return True if trade is successful, false otherwise
+     */
     public boolean makeTrade_Wallet_Wallet() {
         // Getting Users
         String str1 = tradingFrom.getOwner();
         String str2 = tradingTo.getOwner();
-        User u1 = UserRepository.getByUsername(str1);
-        User u2 = UserRepository.getByUsername(str2);
+        Optional<User> obj1 = userRepository.getByUsername(str1);
+        Optional<User> obj2 = userRepository.getByUsername(str2);
 
-        // Wallet Trade
-        u1.addWallet(tradingTo);
-        u2.addWallet(tradingFrom);
+        if(obj1.isPresent() && obj2.isPresent()) {
+            User u1 = obj1.get();
+            User u2 = obj2.get();
 
-        // Remove Original Wallet
-        u1.removeWallet(tradingTo.getWalletName());
-        u2.removeWallet(tradingFrom.getWalletName());
+            // Wallet Trade
+            u1.addWallet(tradingTo);
+            u2.addWallet(tradingFrom);
 
-        // Change Owner in Wallet
-        tradingFrom.changeOwner(u2);
-        tradingTo.changeOwner(u1);
+            // Remove Original Wallet
+            u1.removeWallet(tradingTo);
+            u2.removeWallet(tradingFrom);
+
+            // Change Owner in Wallet
+            tradingFrom.setOwner(u2);
+            tradingTo.setOwner(u1);
+
+            return true;
+        }
+        return false;
     }
 }
