@@ -1,8 +1,10 @@
 package view;
 
 import entity.art.Art;
+import usecases.art.ArtFacade;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class WalletView extends GenericView {
@@ -30,10 +32,20 @@ public class WalletView extends GenericView {
         System.out.printf("Creation of wallet %s is successful!\n", walletName);
     }
 
-    public void showWalletGallery(HashMap<String, Art> artPieces) {
+    public void showWalletGallery(List<ArtFacade> artPieces) {
         System.out.println("----------------------------------");
-        for (Map.Entry<String, Art> art : artPieces.entrySet()) {
-//            for (String artLine : art.getValue().)
+        for (ArtFacade art : artPieces) {
+            for (String artLine : art.getAsciiArt().split("n") ) {
+                System.out.println(artLine);
+            }
+            System.out.printf("\" \033[3m %s \033[0m \"", art.getTitle());
+            System.out.printf("Cost: %.2f", art.getPrice());
+            System.out.println("");
+            System.out.println("");
         }
+    }
+
+    public void showArtPrompt() {
+        System.out.println("What do you want your minted art to represent?");
     }
 }
