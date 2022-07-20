@@ -61,7 +61,9 @@ public class Dispatcher {
         } else if (request.equalsIgnoreCase("VIEW NET WORTH")) {
             this.walletController.viewWalletWorth(id);
         } else if (request.equalsIgnoreCase("VIEW WALLET ART")) {
-//            this.walletController.
+            this.walletController.viewWalletArt(id);
+        } else if (request.equalsIgnoreCase("MINT NEW ART")) {
+            this.walletController.mintArt(id);
         }
     }
 }
