@@ -12,6 +12,11 @@ public class Dispatcher {
 
     private final WalletController walletController;
     private final ProfileController profileController;
+
+    /**
+     * Receives the user's command and determines what controller and method to call
+     * @param frontController the FrontController instance that will be used
+     */
     public Dispatcher(FrontController frontController) {
         this.frontController = frontController;
         this.logInController = new LogInController(this.frontController);
@@ -21,6 +26,10 @@ public class Dispatcher {
         this.walletController = new WalletController(this.frontController);
     }
 
+    /**
+     * Receives a request and calls the corresponding method in the corresponding controller
+     * @param request a String in "THIS FORMAT" used to determine what to call
+     */
     public void dispatch(String request) {
         if (request.equalsIgnoreCase("LOGIN")) {
             this.logInController.login();
@@ -53,6 +62,11 @@ public class Dispatcher {
         }
     }
 
+    /**
+     * Receives a request and UUID and makes the corresponding call to a controller method that requires a UUID.
+     * @param request a String in "THIS FORMAT" used to determine what to call
+     * @param id a UUID object of the target
+     */
     public void dispatch(String request, UUID id) {
         if (request.equalsIgnoreCase("GET WALLET ACTIONS")) {
             this.navigationController.walletActionSelect(id);

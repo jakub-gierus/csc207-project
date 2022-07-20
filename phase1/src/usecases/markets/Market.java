@@ -2,7 +2,6 @@ package usecases.markets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-import java.util.Map;
 
 import entity.art.Art;
 import entity.markets.Wallet;
@@ -16,6 +15,13 @@ public class Market {
     private final HashMap<UUID, String> listings;
     private final PublicWalletRegistry registry;
     private final ArtManager artLibrary;
+
+    /**
+     * A different Market instance is created for every type of merchandise available for trade.
+     * Currently, merchandises are Art and Wallet objects.
+     * This class facilitates trading by presenting necessary information to the controllers and make calls to
+     * TradingUtil objects that actually make the trade
+     */
 
     public Market(ArtManager artLibrary, PublicWalletRegistry registry) {
 
@@ -40,14 +46,27 @@ public class Market {
         }
     }
 
+    /**
+     * checks if this merchandise is still for sale
+     * @param merchandise the merchandise being checked
+     * @return a bool of whether this item is for sale
+     */
     public boolean checkitem(Merchandise merchandise){
         return itemsForSale.contains(merchandise);
     }
 
+    /**
+     * gets the list of all the merchandise that's for sale
+     * @return a List of Merchandise objects
+     */
     public List<Merchandise> getitemforsale() {
         return itemsForSale;
     }
 
+    /**
+     *
+     * @return
+     */
     public PublicWalletRegistry getRegistry() {
         return registry;
     }
@@ -56,4 +75,7 @@ public class Market {
         return artLibrary;
     }
 
+    public List<Merchandise> getItemsForSale() {
+        return getitemforsale();
+    }
 }

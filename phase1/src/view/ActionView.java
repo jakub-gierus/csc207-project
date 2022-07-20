@@ -4,6 +4,10 @@ import java.util.List;
 
 public class ActionView extends GenericView {
 
+    /**
+     * A View class that shows the user the actions the uesr can take
+     * @param actions a List of Strings of what actions are available to the user
+     */
     public void showAvailableActions(List<String> actions) {
         System.out.println("----------------------------------");
         System.out.println("-Available actions-");

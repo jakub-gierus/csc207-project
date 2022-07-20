@@ -11,15 +11,31 @@ public class NavigationController {
 
     private ActionView view;
 
+    /**
+     * A controller used to navigate possible actions and send requests to the dispatcher
+     * @param frontController the front controller instance used by this class
+     */
     public NavigationController (FrontController frontController) {
         this.frontController = frontController;
         this.view = new ActionView();
     }
 
+    /**
+     * Create a log of the action taken by the user
+     * @param actionName String name of the action taken
+     * @param action a Runnable object of the action taken
+     * @return a map formatted as <actionName, action>, its type is <String, Runnable>
+     */
     public Map.Entry<String, Runnable> createActionEntry(String actionName, Runnable action) {
         return new AbstractMap.SimpleEntry<>(actionName, action);
     }
 
+    /**
+     * Presents the possible actions to the viewer, then lets them choose one. Used for submenus.
+     * @param actions A mapping with the key as an Integer (the number for the action), and the value being another
+     *                mapping where the key is a String (the name of the action) and the Value is a Runnable
+     *                (the action itself).
+     */
     public void genericActionSelect(Map<Integer, Map.Entry<String, Runnable>> actions) {
         List<String> stringActions = new ArrayList<String>();
 
@@ -43,6 +59,9 @@ public class NavigationController {
         }
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for the main menu.
+     */
     public void mainActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -58,6 +77,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the admin user, then lets them choose one. Used for AdminUsers only.
+     */
     public void adminActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -70,6 +92,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for actions pertaining the user's profile.
+     */
     public void profileActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -80,6 +105,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used choosing or making a new wallet.
+     */
     public void walletSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -91,6 +119,10 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for actions you can do to a specific wallet.
+     * @param walletID the UUID of the wallet that receives the actions.
+     */
     public void walletActionSelect(UUID walletID) {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;

@@ -5,7 +5,7 @@ import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UserIsNotBannableException;
-import interfaces.user.IBannableUser;
+import interfaces.IBannableUser;
 
 import java.time.LocalDateTime;
 
