@@ -1,0 +1,399 @@
+Aardvarks,/animals/aardvarks
+Amoeba,/animals/amoeba
+Bats,/animals/bats
+Bears,/animals/bears
+Beavers,/animals/beavers
+Birds (land),/animals/birds-land
+Birds (water),/animals/birds-water
+Bisons,/animals/bisons
+Camels,/animals/camels
+Cats,/animals/cats
+Cows,/animals/cows
+Deer,/animals/deer
+Dogs,/animals/dogs
+Dolphins,/animals/dolphins
+Elephants,/animals/elephants
+Fish,/animals/fish
+Frogs,/animals/frogs
+Horses,/animals/horses
+Marsupials,/animals/marsupials
+Monkeys,/animals/monkeys
+Moose,/animals/moose
+Other (land),/animals/other-land
+Other (water),/animals/other-water
+Rabbits,/animals/rabbits
+Rhinoceros,/animals/rhinoceros
+Scorpions,/animals/scorpions
+Spiders,/animals/spiders
+Wolves,/animals/wolves
+Artists,/art-and-design/artists
+Borders,/art-and-design/borders
+Celtic,/art-and-design/celtic
+Dividers,/art-and-design/dividers
+Egyptian,/art-and-design/egyptian
+Escher,/art-and-design/escher
+Famous paintings,/art-and-design/famous-paintings
+Fleur-de-lis,/art-and-design/fleur-de-lis
+Fractals,/art-and-design/fractals
+Gender symbols,/art-and-design/gender-symbols
+Geometries,/art-and-design/geometries
+Mazes,/art-and-design/mazes
+Mona Lisa,/art-and-design/mona-lisa
+Origamis,/art-and-design/origamis
+Other,/art-and-design/other
+Patterns,/art-and-design/patterns
+Pentacles,/art-and-design/pentacles
+Sculptures,/art-and-design/sculptures
+Alice in wonderland,/books/alice-in-wonderland
+Books,/books/books
+Dr Seuss,/books/dr-seuss
+Harry Potter,/books/harry-potter
+Lord of the rings,/books/lord-of-the-rings
+Moomintroll,/books/moomintroll
+Other,/books/other
+Winnie the pooh,/books/winnie-the-pooh
+Alcatraz,/buildings-and-places/alcatraz
+Bridges,/buildings-and-places/bridges
+Buildings,/buildings-and-places/buildings
+Castles,/buildings-and-places/castles
+Church,/buildings-and-places/church
+Cities,/buildings-and-places/cities
+Fences,/buildings-and-places/fences
+Flags,/buildings-and-places/flags
+Houses,/buildings-and-places/houses
+Lighthouses,/buildings-and-places/lighthouses
+Maps,/buildings-and-places/maps
+Other,/buildings-and-places/other
+Temple,/buildings-and-places/temple
+Windmills,/buildings-and-places/windmills
+Animaniacs,/cartoons/animaniacs
+Beavis and butt-head,/cartoons/beavis-and-butt-head
+Betty Boop,/cartoons/betty-boop
+Casper,/cartoons/casper
+Felix the cat,/cartoons/felix-the-cat
+Flintstones,/cartoons/flintstones
+Inspector Gadget,/cartoons/inspector-gadget
+Jetsons,/cartoons/jetsons
+Looney tunes,/cartoons/looney-tunes
+Mickey mouse,/cartoons/mickey-mouse
+Mighty mouse,/cartoons/mighty-mouse
+Mushroom,/cartoons/mushroom
+Other,/cartoons/other
+Pink panther,/cartoons/pink-panther
+Popeye,/cartoons/popeye
+Ren and Stimpy,/cartoons/ren-and-stimpy
+Roger Rabbit,/cartoons/roger-rabbit
+Simpsons,/cartoons/simpsons
+Smurfs,/cartoons/smurfs
+South park,/cartoons/south-park
+Spongebob squarepants,/cartoons/spongebob-squarepants
+Tiny toon adventures,/cartoons/tiny-toon-adventures
+Two stupid dogs,/cartoons/two-stupid-dogs
+Bikinis,/clothing-and-accessories/bikinis
+Bra,/clothing-and-accessories/bra
+Crowns,/clothing-and-accessories/crowns
+Dresses,/clothing-and-accessories/dresses
+Footwear,/clothing-and-accessories/footwear
+Glasses,/clothing-and-accessories/glasses
+Handwears,/clothing-and-accessories/handwears
+Hats,/clothing-and-accessories/hats
+Nightwears,/clothing-and-accessories/nightwears
+Other,/clothing-and-accessories/other
+Overalls,/clothing-and-accessories/overalls
+Pants,/clothing-and-accessories/pants
+Shirts,/clothing-and-accessories/shirts
+Skirts,/clothing-and-accessories/skirts
+Umbrellas,/clothing-and-accessories/umbrellas
+Underwear,/clothing-and-accessories/underwear
+Alfred E Neuman,/comics/alfred-e-neuman
+Archie,/comics/archie
+Asterix,/comics/asterix
+Batman,/comics/batman
+Bloom county,/comics/bloom-county
+Calvin and Hobbes,/comics/calvin-and-hobbes
+Captain america,/comics/captain-america
+Dilbert,/comics/dilbert
+Garfield,/comics/garfield
+Judge Dredd,/comics/judge-dredd
+Lucky Luke,/comics/lucky-luke
+Mafalda,/comics/mafalda
+Other,/comics/other
+Peanuts,/comics/peanuts
+Spiderman,/comics/spiderman
+Superman,/comics/superman
+X-men,/comics/x-men
+Amiga,/computers/amiga
+Apple,/computers/apple
+Atari,/computers/atari
+Bug,/computers/bug
+Computers,/computers/computers
+Floppies,/computers/floppies
+Fonts,/computers/fonts
+Game consoles,/computers/game-consoles
+Joysticks,/computers/joysticks
+Keyboards,/computers/keyboards
+Linux,/computers/linux
+Mouse,/computers/mouse
+Other,/computers/other
+Smileys,/computers/smileys
+Sun microsystems,/computers/sun-microsystems
+Audio equipment,/electronics/audio-equipment
+Blender,/electronics/blender
+Calculators,/electronics/calculators
+Cameras,/electronics/cameras
+Clocks,/electronics/clocks
+Electronics,/electronics/electronics
+Light bulbs,/electronics/light-bulbs
+Other,/electronics/other
+Phones,/electronics/phones
+Robots,/electronics/robots
+Stereos,/electronics/stereos
+Televisions,/electronics/televisions
+Apples,/food-and-drinks/apples
+Bananas,/food-and-drinks/bananas
+Beers,/food-and-drinks/beers
+Candies,/food-and-drinks/candies
+Chocolates,/food-and-drinks/chocolates
+Coffee and tea,/food-and-drinks/coffee-and-tea
+Drinks,/food-and-drinks/drinks
+Ice creams,/food-and-drinks/ice-creams
+Other,/food-and-drinks/other
+4th of july,/holiday-and-events/4th-of-july
+Birthdays,/holiday-and-events/birthdays
+Easter,/holiday-and-events/easter
+Fathers day,/holiday-and-events/fathers-day
+Fireworks,/holiday-and-events/fireworks
+Graduation,/holiday-and-events/graduation
+Halloween,/holiday-and-events/halloween
+Hanukkah,/holiday-and-events/hanukkah
+Luck,/holiday-and-events/luck
+Mothers day,/holiday-and-events/mothers-day
+New year,/holiday-and-events/new-year
+Other,/holiday-and-events/other
+Saint patricks day,/holiday-and-events/saint-patricks-day
+Thanksgiving,/holiday-and-events/thanksgiving
+Valentine,/holiday-and-events/valentine
+Wedding,/holiday-and-events/wedding
+Amnesty international,/logos/amnesty-international
+Biohazards,/logos/biohazards
+Caduceus,/logos/caduceus
+Coca-cola,/logos/coca-cola
+Hello kitty,/logos/hello-kitty
+Jolly roger,/logos/jolly-roger
+Kool-aid,/logos/kool-aid
+No bs,/logos/no-bs
+No smoking,/logos/no-smoking
+Other,/logos/other
+Peace,/logos/peace
+Pillsbury doughboy,/logos/pillsbury-doughboy
+Playboy,/logos/playboy
+Recycle,/logos/recycle
+Television,/logos/television
+Abacuses,/miscellaneous/abacuses
+Anchors,/miscellaneous/anchors
+Antennas,/miscellaneous/antennas
+Awards,/miscellaneous/awards
+Badges,/miscellaneous/badges
+Bones,/miscellaneous/bones
+Bottles,/miscellaneous/bottles
+Boxes,/miscellaneous/boxes
+Brooms,/miscellaneous/brooms
+Buckets,/miscellaneous/buckets
+Candles,/miscellaneous/candles
+Chains,/miscellaneous/chains
+Cigarettes,/miscellaneous/cigarettes
+Diamonds,/miscellaneous/diamonds
+Dice,/miscellaneous/dice
+Dna,/miscellaneous/dna
+Feathers,/miscellaneous/feathers
+Fire extinguishers,/miscellaneous/fire-extinguishers
+Handcuffs,/miscellaneous/handcuffs
+Hourglass,/miscellaneous/hourglass
+Keys,/miscellaneous/keys
+Kleenex,/miscellaneous/kleenex
+Magnifying glass,/miscellaneous/magnifying-glass
+Mailbox,/miscellaneous/mailbox
+Medical,/miscellaneous/medical
+Money,/miscellaneous/money
+Noose,/miscellaneous/noose
+One-line,/miscellaneous/one-line
+Other,/miscellaneous/other
+Playing cards,/miscellaneous/playing-cards
+Signs,/miscellaneous/signs
+Tools,/miscellaneous/tools
+Aladdin,/movies/aladdin
+Bambi,/movies/bambi
+Beauty and the beast,/movies/beauty-and-the-beast
+Ghostbusters,/movies/ghostbusters
+Ice age,/movies/ice-age
+James Bond,/movies/james-bond
+Lion King,/movies/lion-king
+Little mermaid,/movies/little-mermaid
+Other,/movies/other
+Peter Pan,/movies/peter-pan
+Pinocchio,/movies/pinocchio
+Pocahontas,/movies/pocahontas
+Red Dwarf,/movies/red-dwarf
+Shrek,/movies/shrek
+Snow white,/movies/snow-white
+Spaceballs,/movies/spaceballs
+Star Wars,/movies/star-wars
+Tinker Bell,/movies/tinker-bell
+Toy story,/movies/toy-story
+Wallace and Gromit,/movies/wallace-and-gromit
+Musical instruments,/music/musical-instruments
+Musical notation,/music/musical-notation
+Other,/music/other
+Pianos,/music/pianos
+Centaurs,/mythology/centaurs
+Devils,/mythology/devils
+Dragons,/mythology/dragons
+Fairies,/mythology/fairies
+Fantasy,/mythology/fantasy
+Ghosts,/mythology/ghosts
+Grim reapers,/mythology/grim-reapers
+Gryphon,/mythology/gryphon
+Mermaids,/mythology/mermaids
+Monsters,/mythology/monsters
+Mythology,/mythology/mythology
+Phoenix,/mythology/phoenix
+Skeletons,/mythology/skeletons
+Unicorns,/mythology/unicorns
+Beach,/nature/beach
+Camping,/nature/camping
+Clouds,/nature/clouds
+Deserts,/nature/deserts
+Islands,/nature/islands
+Landscapes,/nature/landscapes
+Lightning,/nature/lightning
+Mountains,/nature/mountains
+Other,/nature/other
+Rainbow,/nature/rainbow
+Rains,/nature/rains
+Snows,/nature/snows
+Sun,/nature/sun
+Sunset,/nature/sunset
+Tornado,/nature/tornado
+Waterfall,/nature/waterfall
+Babies,/people/babies
+Bathing,/people/bathing
+Couples,/people/couples
+Faces,/people/faces
+Kiss,/people/kiss
+Men,/people/men
+Native Americans,/people/native-americans
+Other,/people/other
+Sleeping,/people/sleeping
+Tribal people,/people/tribal-people
+Women,/people/women
+Bonsai trees,/plants/bonsai-trees
+Cactus,/plants/cactus
+Daffodils,/plants/daffodils
+Dandelions,/plants/dandelions
+Flowers,/plants/flowers
+Leaf,/plants/leaf
+Marijuana,/plants/marijuana
+Mushroom,/plants/mushroom
+Other,/plants/other
+Roses,/plants/roses
+Angels,/religion/angels
+Buddhism,/religion/buddhism
+Christianity,/religion/christianity
+Crosses & crucifixes,/religion/crosses-and-crucifixes
+Hinduism,/religion/hinduism
+Judaism,/religion/judaism
+Other,/religion/other
+Preachers,/religion/preachers
+Saints,/religion/saints
+Yin and Yang,/religion/yin-and-yang
+Aliens,/space/aliens
+Astronauts,/space/astronauts
+Moons,/space/moons
+Other,/space/other
+Planetary rovers,/space/planetary-rovers
+Planets,/space/planets
+Satellites,/space/satellites
+Spaceships,/space/spaceships
+Stars,/space/stars
+Telescopes,/space/telescopes
+Baseball,/sports-and-outdoors/baseball
+Basketball,/sports-and-outdoors/basketball
+Billiards,/sports-and-outdoors/billiards
+Bowling,/sports-and-outdoors/bowling
+Boxing,/sports-and-outdoors/boxing
+Bungee jumping,/sports-and-outdoors/bungee-jumping
+Chess,/sports-and-outdoors/chess
+Cycling,/sports-and-outdoors/cycling
+Dancing,/sports-and-outdoors/dancing
+Darts,/sports-and-outdoors/darts
+Fencing,/sports-and-outdoors/fencing
+Fishing,/sports-and-outdoors/fishing
+Football,/sports-and-outdoors/football
+Golf,/sports-and-outdoors/golf
+Ice hockey,/sports-and-outdoors/ice-hockey
+Ice skating,/sports-and-outdoors/ice-skating
+Logos,/sports-and-outdoors/logos
+NBA logos,/sports-and-outdoors/nba-logos
+Other,/sports-and-outdoors/other
+Rodeo,/sports-and-outdoors/rodeo
+Scuba,/sports-and-outdoors/scuba
+Skiing,/sports-and-outdoors/skiing
+Soccer,/sports-and-outdoors/soccer
+Surfing,/sports-and-outdoors/surfing
+Swimming,/sports-and-outdoors/swimming
+Tennis,/sports-and-outdoors/tennis
+Babylon 5,/television/babylon-5
+Barney,/television/barney
+Bear in the big blue house,/television/bear-in-the-big-blue-house
+Dexters laboratory,/television/dexters-laboratory
+Doctor Who,/television/doctor-who
+Futurama,/television/futurama
+Galaxy quest,/television/galaxy-quest
+Gumby and Pokey,/television/gumby-and-pokey
+Looney tunes,/television/looney-tunes
+Muppets,/television/muppets
+Other,/television/other
+Pinky and the Brain,/television/pinky-and-the-brain
+Rugrats,/television/rugrats
+Sesame street,/television/sesame-street
+Star trek,/television/star-trek
+Wallace and Gromit,/television/wallace-and-gromit
+X-files,/television/x-files
+Balloons,/toys/balloons
+Beanie babies,/toys/beanie-babies
+Dolls,/toys/dolls
+Other,/toys/other
+Pez,/toys/pez
+Teddy bears,/toys/teddy-bears
+Airplanes,/vehicles/airplanes
+Bicycles,/vehicles/bicycles
+Boats,/vehicles/boats
+Busses,/vehicles/busses
+Cars,/vehicles/cars
+Choppers,/vehicles/choppers
+Motorcycles,/vehicles/motorcycles
+Navy,/vehicles/navy
+Other,/vehicles/other
+Trains,/vehicles/trains
+Trucks,/vehicles/trucks
+Atomic bomberman,/video-games/atomic-bomberman
+Creatures,/video-games/creatures
+Hitman,/video-games/hitman
+Lara Croft,/video-games/lara-croft
+Max Payne,/video-games/max-payne
+Mortal kombat,/video-games/mortal-kombat
+Other,/video-games/other
+Pacman,/video-games/pacman
+Pokemon,/video-games/pokemon
+Sonic the Hedgehog,/video-games/sonic-the-hedgehog
+Zelda,/video-games/zelda
+Axes,/weapons/axes
+Bows and arrows,/weapons/bows-and-arrows
+Explosives,/weapons/explosives
+Guillotines,/weapons/guillotines
+Guns,/weapons/guns
+Knives,/weapons/knives
+Other,/weapons/other
+Shields,/weapons/shields
+Soldiers,/weapons/soldiers
+Swords,/weapons/swords

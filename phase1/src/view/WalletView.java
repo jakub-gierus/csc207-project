@@ -1,11 +1,11 @@
 package view;
 
 import entity.art.Art;
+import org.apache.commons.lang3.StringUtils;
 import usecases.art.ArtFacade;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class WalletView extends GenericView {
 
@@ -46,6 +46,17 @@ public class WalletView extends GenericView {
     }
 
     public void showArtPrompt() {
-        System.out.println("What do you want your minted art to represent?");
+        System.out.println("What do you want your minted art to be called (the title will automatically be used to generate an ascii art piece)?");
+    }
+
+    public void showGeneratedArt(String generatedArt) {
+        List<String> artRows = Arrays.asList(generatedArt.split("\n"));
+        int longestRow = artRows.stream().max(Comparator.comparingInt(String::length)).get().length();
+        String horizontalPortrait = "=";
+        System.out.println("  " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
+        for (String row : artRows) {
+            System.out.println("||" + row + StringUtils.join(Collections.nCopies(longestRow - row.length(), " "), "") + "||");
+        }
+        System.out.println(" " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
     }
 }

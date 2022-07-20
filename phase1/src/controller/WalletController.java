@@ -85,12 +85,13 @@ public class WalletController {
     public void mintArt(UUID walletID) {
         this.view.showArtPrompt();
         String artPrompt = this.frontController.userInput.nextLine();
-        ArtGenerator artGenerator = new ArtGenerator();
         try {
-            artGenerator.connectToGoogleImages();
+            ArtGenerator artGenerator = new ArtGenerator();
+            String generatedArt = artGenerator.generateArt(artPrompt);
+            this.view.showGeneratedArt(generatedArt);
+            this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
         } catch (IOException e) {
             e.printStackTrace();
-//            this.view.showErrorMessage();
         }
 
     }

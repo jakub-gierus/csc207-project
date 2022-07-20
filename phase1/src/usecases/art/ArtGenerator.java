@@ -1,36 +1,54 @@
 package usecases.art;
 
-import org.json.JSONObject;
+import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.safety.Safelist;
+import org.jsoup.select.Elements;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 public class ArtGenerator {
 
-    public void connectToGoogleImages() throws IOException {
-        URL url = new URL("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=Godfather");
-        URLConnection connection = url.openConnection();
+    Map<String, String> asciiCategories = new HashMap<>();
+
+    public ArtGenerator() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("./storage/asciiCategories.csv"));
         String line;
-
-        StringBuilder builder = new StringBuilder();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        while (((line = reader.readLine()) != null)) {
-            builder.append(line);
+        while ((line = reader.readLine()) != null) {
+            String[] asciiCategory = line.split(",");
+            this.asciiCategories.put(asciiCategory[0], asciiCategory[1]);
         }
-        JSONObject json = new JSONObject(builder.toString());
-        String imageUrl = json.getJSONObject("responseData").getJSONArray("results").getJSONObject(0).getString("url");
+    }
 
-        BufferedImage image = ImageIO.read(new URL(imageUrl));
-        File outputFile = new File("image.jpg");
-        ImageIO.write(image, "jpg", outputFile);
+    public String determineClosestCategory(String inputString) {
+        int closestDistance = 10000000;
+        String closestCategory = null;
+        int i = 0;
+        for (String category : this.asciiCategories.keySet()) {
+            i++;
+            int distance = StringUtils.getLevenshteinDistance(category.toUpperCase(), inputString.toUpperCase());
+            if (distance < closestDistance && i != 2) {
+                closestDistance = distance;
+                closestCategory = category;
+            }
+        }
+        return closestCategory;
+    }
+
+    public String getRandomArt(String url) throws IOException {
+        Document document = Jsoup.connect(url).get();
+        Elements asciiArts = document.select("pre");
+        Element asciiArt = asciiArts.get(new Random().nextInt(asciiArts.size()));
+        String safe = Jsoup.clean(asciiArt.text(), Safelist.basic());
+        String art = safe + "\nNote: Retrieved from asciiart.eu.\nAny generated art does not belong to this app.";
+        return art;
+    }
+    public String generateArt(String prompt) throws IOException {
+        String closestCategory = this.determineClosestCategory(prompt);
+        String url = "https://www.asciiart.eu/" + this.asciiCategories.get(closestCategory);
+        return getRandomArt(url);
     }
 }
