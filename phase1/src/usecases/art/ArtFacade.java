@@ -11,4 +11,16 @@ public class ArtFacade {
         this.art = art;
         this.artManager = ArtManager.getInstance();
     }
+
+    public String getAsciiArt() {
+        return art.getArt();
+    }
+
+    public String getTitle() {
+        return art.getTitle();
+    }
+
+    public double getPrice() {
+        return art.getPrice();
+    }
 }
