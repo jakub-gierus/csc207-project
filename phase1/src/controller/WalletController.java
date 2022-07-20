@@ -105,6 +105,10 @@ public class WalletController {
         }
     }
 
+    /**
+     * create a new piece of art and adds it to the system
+     * @param walletID
+     */
     public void mintArt(UUID walletID) {
         this.view.showArtPrompt();
         String artPrompt = this.frontController.userInput.nextLine();

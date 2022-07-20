@@ -10,6 +10,12 @@ public class Triplet<T, U, V> {
     private final U second;
     private final V third;
 
+    /**
+     * Utility triple value tuple class used for loading user data from CSVs.
+     * @param first piece of data
+     * @param second piece of data
+     * @param third piece of data
+     */
     public Triplet(T first, U second, V third) {
         this.first = first;
         this.second = second;

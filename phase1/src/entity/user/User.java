@@ -42,6 +42,10 @@ public class User {
         wallets.add(wallet);
     }
 
+    /**
+     * Gets all the user's wallets
+     * @return a List of Wallet objects
+     */
     public List<Wallet> getWallets(){
         return wallets;
     }
@@ -156,10 +160,19 @@ public class User {
      */
     public String getUsername() { return this.username; }
 
+    /**
+     * Gets this user's first wallet. The first wallet is the wallet that occupies index 0 of the user's list of wallets
+     * @return a Wallet object that is this user's first wallet
+     */
     public Wallet getFirstWallet() {
         return wallets.get(0);
     }
 
+    /**
+     * Removes a wallet from the user's wallets list
+     * @param walletName the name of the wallet to be removed
+     * @return a bool if the action is successful
+     */
     public boolean removeWallet(Wallet walletName) {
         wallets.remove(walletName);
         return true;
