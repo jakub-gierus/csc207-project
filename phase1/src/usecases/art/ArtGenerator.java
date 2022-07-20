@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class ArtGenerator {
 
+    /**
+     * Generates a piece of art
+     * @throws IOException if the input stream gives invalid data
+     */
     public void connectToGoogleImages() throws IOException {
         URL url = new URL("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=Godfather");
         URLConnection connection = url.openConnection();

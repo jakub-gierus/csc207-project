@@ -11,6 +11,14 @@ public class Config {
 
     private String walletFilePath;
 
+    /**
+     * A data class containing Strings of file paths where data is stored
+     * @param rootDirectory the String of the path to the root directory
+     * @param basicUserFilePath the String of the path of the Basic User storage file
+     * @param adminUserFilePath the String of the path of the Admin User storage file
+     * @param eventFilePath the String of the path of the events storage file
+     * @param walletFilePath the String of the path of the wallets storage file
+     */
     public Config(String rootDirectory,
                   String basicUserFilePath,
                   String adminUserFilePath,

@@ -56,6 +56,11 @@ public class ArtManager {
         return true;
     }
 
+    /**
+     * Returns the art pieces found in a specific wallet
+     * @param walletId the UUID of the target wallet
+     * @return a mapping of the format <UUID, ArtFacade> that contains all the art in this wallet
+     */
     public Map<UUID, ArtFacade> getArtByWallet(UUID walletId) {
         Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
 

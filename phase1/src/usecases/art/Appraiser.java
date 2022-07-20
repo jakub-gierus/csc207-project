@@ -3,8 +3,8 @@ package usecases.art;
 import entity.art.Art;
 
 /**
- * SINGLETON class
  * Appraises the value of an art piece
+ * UNUSED AS OF PHASE 1
  **/
 public class Appraiser {
     /**

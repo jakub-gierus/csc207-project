@@ -20,6 +20,12 @@ public class Market {
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
     private ArtManager artLibrary = new ArtManager();
 
+    /**
+     * A different Market instance is created for every type of merchandise available for trade.
+     * Currently, merchandises are Art and Wallet objects.
+     * This class facilitates trading by presenting necessary information to the controllers and make calls to
+     * TradingUtil objects that actually make the trade
+     */
     public Market() {
 
         List<Wallet> wallets = registry.getWallets();
@@ -41,14 +47,27 @@ public class Market {
         }
     }
 
+    /**
+     * checks if this merchandise is still for sale
+     * @param merchandise the merchandise being checked
+     * @return a bool of whether this item is for sale
+     */
     public boolean checkitem(Merchandise merchandise){
         return itemsForSale.contains(merchandise);
     }
 
+    /**
+     * gets the list of all the merchandise that's for sale
+     * @return a List of Merchandise objects
+     */
     public List<Merchandise> getitemforsale() {
         return itemsForSale;
     }
 
+    /**
+     *
+     * @return
+     */
     public PublicWalletRegistry getRegistry() {
         return registry;
     }
