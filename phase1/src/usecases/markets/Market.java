@@ -11,18 +11,17 @@ import usecases.art.ArtManager;
 
 import java.util.UUID;
 public class Market {
-    // this implementation allows for the viewer to see both the wallets being sold or the art being sold
-    // however currently since the managers (use case level) are lacking it reaches directly to the entity level
-    // which is not allowed
-    // the proper implementation should make and return lists/mappings of the IDENTIFIERS for the entities
-    // which are then passed to the managers to pull up the actual objects
+
     List<Merchandise> itemsForSale = new ArrayList<>(); //All items being sold
-    private HashMap<UUID, String> listings = new HashMap<>(); // All wallets being sold or the art <id of merchandise, name of user>
-    private final PublicWalletRegistry registry = new PublicWalletRegistry();
-    private ArtManager artLibrary = new ArtManager();
+    private final HashMap<UUID, String> listings;
+    private final PublicWalletRegistry registry;
+    private final ArtManager artLibrary;
 
-    public Market() {
+    public Market(ArtManager artLibrary, PublicWalletRegistry registry) {
 
+        this.artLibrary = artLibrary;
+        this.registry = registry;
+        this.listings =new HashMap<UUID, String>();
         List<Wallet> wallets = registry.getWallets();
         for (Merchandise merchandise : wallets) {
             if (merchandise.getIsTradeable()) {
@@ -31,9 +30,8 @@ public class Market {
             }
         }
 
-        // Below need to change the style of implementation after ArtManager is complete
-        // Currently is using "brute force" to implement it
         HashMap<UUID, Art> library = artLibrary.getLibrary();
+
         for (Merchandise art: library.values()){
             if (art.getIsTradeable()){
                 listings.put(art.getId(), art.getOwner());
