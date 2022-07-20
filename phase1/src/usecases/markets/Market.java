@@ -2,7 +2,6 @@ package usecases.markets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-import java.util.Map;
 
 import entity.art.Art;
 import entity.markets.Wallet;
@@ -58,4 +57,7 @@ public class Market {
         return artLibrary;
     }
 
+    public List<Merchandise> getItemsForSale() {
+        return getitemforsale();
+    }
 }
