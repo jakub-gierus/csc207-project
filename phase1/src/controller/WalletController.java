@@ -2,11 +2,17 @@ package controller;
 
 import entity.art.Art;
 import exceptions.market.WalletNotFoundException;
+import usecases.art.ArtFacade;
+import usecases.art.ArtGenerator;
 import usecases.art.ArtManager;
 import usecases.markets.WalletFacade;
 import usecases.markets.WalletManager;
 import view.WalletView;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class WalletController {
@@ -71,7 +77,12 @@ public class WalletController {
      */
     public void viewWalletArt(UUID walletID) {
         this.retrieveWallet(walletID);
-//        this.view.showWalletGallery(this.artManager.getArtByWallet() .getAllWalletArt());
+        Map<UUID, ArtFacade> arts = this.artManager.getArtByWallet(walletID);
+        List<ArtFacade> artFacades = new ArrayList<>();
+        for (Map.Entry<UUID, ArtFacade> art: arts.entrySet()) {
+            artFacades.add(art.getValue());
+        }
+        this.view.showWalletGallery(artFacades);
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
 
@@ -92,5 +103,18 @@ public class WalletController {
             this.view.showCreateWalletSuccess(walletName);
             this.frontController.dispatchRequest("SELECT WALLET");
         }
+    }
+
+    public void mintArt(UUID walletID) {
+        this.view.showArtPrompt();
+        String artPrompt = this.frontController.userInput.nextLine();
+        ArtGenerator artGenerator = new ArtGenerator();
+        try {
+            artGenerator.connectToGoogleImages();
+        } catch (IOException e) {
+            e.printStackTrace();
+//            this.view.showErrorMessage();
+        }
+
     }
 }

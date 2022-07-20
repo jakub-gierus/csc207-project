@@ -56,10 +56,11 @@ public class ArtManager {
         return true;
     }
 
-    public Map<UUID, Art> getArtByWallet(UUID walletId) {
+    public Map<UUID, ArtFacade> getArtByWallet(UUID walletId) {
         Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
 
-        return this.library.entrySet().stream().filter(typeFilter).collect(Collectors.toMap(Map.Entry<UUID, Art>::getKey, Map.Entry<UUID, Art>::getValue));
+        return this.library.entrySet().stream().filter(typeFilter).collect(Collectors.toMap(Map.Entry<UUID, Art>::getKey,
+                (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue())));
     }
 
     /**
