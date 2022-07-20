@@ -39,12 +39,23 @@ public class ArtGenerator {
     }
 
     public String getRandomArt(String url) throws IOException {
+        Document.OutputSettings outputSettings = new Document.OutputSettings();
+        outputSettings.prettyPrint(false);
         Document document = Jsoup.connect(url).get();
         Elements asciiArts = document.select("pre");
         Element asciiArt = asciiArts.get(new Random().nextInt(asciiArts.size()));
-        String safe = Jsoup.clean(asciiArt.text(), Safelist.basic());
-        String art = safe + "\nNote: Retrieved from asciiart.eu.\nAny generated art does not belong to this app.";
-        return art;
+        String safe = Jsoup.clean(asciiArt.toString(), "", Safelist.none(), outputSettings);
+        String art = safe;
+        List<String> result = new ArrayList<>();
+        for (String row: art.split("\n")) {
+            String filteredRow = row.chars().filter(ch -> ch >= 32 && ch < 127).collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+            result.add(filteredRow);
+        }
+        result.add("Note: Retrieved from asciiart.eu.");
+        result.add("Any generated art does not belong to this app.");
+        String generatedArt = StringUtils.join(result, "\n");
+        System.out.println(generatedArt);
+        return generatedArt;
     }
     public String generateArt(String prompt) throws IOException {
         String closestCategory = this.determineClosestCategory(prompt);

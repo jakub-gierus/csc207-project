@@ -90,6 +90,6 @@ public class WalletView extends GenericView {
         for (String row : artRows) {
             System.out.println("||" + row + StringUtils.join(Collections.nCopies(longestRow - row.length(), " "), "") + "||");
         }
-        System.out.println(" " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
+        System.out.println("  " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
     }
 }

@@ -115,6 +115,7 @@ public class WalletController {
         try {
             ArtGenerator artGenerator = new ArtGenerator();
             String generatedArt = artGenerator.generateArt(artPrompt);
+            System.out.println(generatedArt);
             this.view.showGeneratedArt(generatedArt);
             this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
         } catch (IOException e) {
