@@ -26,7 +26,12 @@ public class WalletController {
     private WalletView view;
 
     private ArtManager artManager;
+    // this class might be overstepping the controller bounds
 
+    /**
+     * Controller used for wallet related tasks.
+     * @param frontController the FrontController instance used by this class
+     */
     public WalletController(FrontController frontController) {
         this.frontController = frontController;
         this.walletManager = WalletManager.getInstance();
@@ -34,6 +39,10 @@ public class WalletController {
         this.view = new WalletView();
     }
 
+    /**
+     * Retrieve a wallet facade object using the wallet's UUID
+     * @param walletID the UUID of the target wallet
+     */
     public void retrieveWallet(UUID walletID) {
         try {
             this.wallet = new WalletFacade(null);
@@ -43,18 +52,29 @@ public class WalletController {
         }
     }
 
+    /**
+     * Show the liquidity of the wallet to the user
+     * @param walletID the ID of the target wallet
+     */
     public void viewLiquidity(UUID walletID) {
         this.retrieveWallet(walletID);
         this.view.showLiquidity(wallet.getCurrency());
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
 
+    /**
+     * Show the liquidity of the wallet to the user
+     * @param walletID the ID of the target wallet
+     */
     public void viewWalletWorth(UUID walletID) {
         this.retrieveWallet(walletID);
         this.view.showWalletWorth(wallet.getNetWorth());
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
-
+    /**
+     * Makes a request to get wallet actions
+     * @param walletID the ID of the target wallet
+     */
     public void viewWalletArt(UUID walletID) {
         this.retrieveWallet(walletID);
         Map<UUID, ArtFacade> arts = this.artManager.getArtByWallet(walletID);
@@ -66,6 +86,9 @@ public class WalletController {
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
 
+    /**
+     * Creates a new wallet
+     */
     public void createWallet() {
         this.view.showWalletNamePrompt();
         String walletName = this.frontController.userInput.nextLine();
@@ -82,6 +105,10 @@ public class WalletController {
         }
     }
 
+    /**
+     * create a new piece of art and adds it to the system
+     * @param walletID
+     */
     public void mintArt(UUID walletID) {
         this.view.showArtPrompt();
         String artPrompt = this.frontController.userInput.nextLine();

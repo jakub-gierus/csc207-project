@@ -81,6 +81,11 @@ public class DataRetriever {
         return eventData;
     }
 
+    /**
+     * reads wallet data from file
+     * @return a list of serialized Wallet objects
+     * @throws IOException if the file path is invalid
+     */
     public List<SerializedWallet> readWalletData() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.walletsFilename));
         String line;

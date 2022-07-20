@@ -1,4 +1,4 @@
-package interfaces.user;
+package interfaces;
 
 import java.time.LocalDateTime;
 

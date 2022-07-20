@@ -6,58 +6,124 @@ import java.util.HashMap;
 import entity.art.Art;
 import entity.markets.Wallet;
 import interfaces.Merchandise;
+import usecases.art.ArtFacade;
 import usecases.art.ArtManager;
 
 import java.util.UUID;
 public class Market {
-    // this implementation allows for the viewer to see both the wallets being sold or the art being sold
-    // however currently since the managers (use case level) are lacking it reaches directly to the entity level
-    // which is not allowed
-    // the proper implementation should make and return lists/mappings of the IDENTIFIERS for the entities
-    // which are then passed to the managers to pull up the actual objects
-    List<Merchandise> itemsForSale = new ArrayList<>(); //All items being sold
-    private HashMap<UUID, String> listings = new HashMap<>(); // All wallets being sold or the art <id of merchandise, name of user>
-    private final PublicWalletRegistry registry = new PublicWalletRegistry();
-    private ArtManager artLibrary = new ArtManager();
 
-    public Market() {
+    List<Merchandise> itemsForSale; //All items being sold
 
-        List<Wallet> wallets = registry.getWallets();
-        for (Merchandise merchandise : wallets) {
-            if (merchandise.getIsTradeable()) {
-                listings.put(merchandise.getId(), merchandise.getOwner());
-                itemsForSale.add(merchandise);
-            }
-        }
+    // <key,value> = <id of merchandise, name of owner>
+    private final HashMap<UUID, String> listings;
 
-        // Below need to change the style of implementation after ArtManager is complete
-        // Currently is using "brute force" to implement it
-        HashMap<UUID, Art> library = artLibrary.getLibrary();
-        for (Merchandise art: library.values()){
-            if (art.getIsTradeable()){
-                listings.put(art.getId(), art.getOwner());
-                itemsForSale.add(art);
-            }
-        }
+    private final WalletManager walletLibrary;
+    private final ArtManager artLibrary;
+
+    /**
+     * A different Market instance is created for every type of merchandise available for trade.
+     * Currently, merchandises are Art and Wallet objects.
+     * This class facilitates trading by presenting necessary information to the controllers and make calls to
+     * TradingUtil objects that actually make the trade
+     * Stored in MARKETCONTROLLER (which is initialized exactly ONCE in FRONTCONTROLLER)
+     */
+
+    public Market(ArtManager artLibrary, WalletManager walletLibrary) {
+        // init an empty market
+        this.artLibrary = artLibrary;
+        this.walletLibrary = walletLibrary;
+        this.listings =new HashMap<UUID, String>();
+        this.itemsForSale = new ArrayList<>();
+
     }
 
+    /**
+     * checks if this merchandise is still for sale
+     * @param merchandise the merchandise being checked
+     * @return a bool of whether this item is for sale
+     */
     public boolean checkitem(Merchandise merchandise){
         return itemsForSale.contains(merchandise);
     }
 
-    public List<Merchandise> getitemforsale() {
+    /**
+     * gets the list of all the merchandise that's for sale
+     * @return a List of Merchandise objects
+     */
+    public List<Merchandise> getItemsForSale() {
         return itemsForSale;
     }
 
-    public PublicWalletRegistry getRegistry() {
-        return registry;
+    /**
+     *
+     * @return
+     */
+    public List<String> getNamesMerchandiseForSale(){
+        List<String> result = new ArrayList<>();
+        for (Merchandise m : getItemsForSale()){
+            if (Wallet.class.isInstance(m)){
+                WalletFacade curr = new WalletFacade((Wallet) m);
+                result.add("Wallet: " + curr.getName());
+            } else if (Art.class.isInstance(m)){
+                ArtFacade curr = new ArtFacade((Art) m);
+                result.add("Art: " + curr.getTitle());
+            }
+        }
+        return result;
     }
 
-    public ArtManager getArtLibrary() {
-        return artLibrary;
+    public boolean addArtToMarket(UUID id){
+        Art art = artLibrary.getArt(id);
+        //final check before placing on market
+        if(!art.getIsTradeable()){
+            return false;
+        }
+        // check if art isn't already on the market
+        if(!checkitem(art)){
+            this.itemsForSale.add(art);
+            this.listings.put(art.getId(),art.getOwner());
+        }
+        return true;
     }
 
-    public List<Merchandise> getItemsForSale() {
-        return getitemforsale();
+    public void makeTradeWithCash(UUID artId, UUID paymentWalletId){
+        Art artObj = this.artLibrary.getArt(artId);
+        Wallet paymentWallet = this.walletLibrary.getWalletById(paymentWalletId);
+
+        TradingUtil trader = new TradingUtil(paymentWallet, artObj.getWallet());
+
+        boolean success = trader.makeTrade_Art_Money(artObj);
+        removeItem(artObj);
+
+        if(success) {
+            System.out.println("The trade has been made!");
+        } else {
+            System.out.println("The trade has been made!");
+        }
+    }
+
+    public void makeTradeWithArt(UUID wantedArtId, UUID userArtId){
+        Art wantedArt = this.artLibrary.getArt(wantedArtId);
+        Art userArt = this.artLibrary.getArt(userArtId);
+
+        TradingUtil trader = new TradingUtil(userArt.getWallet(), wantedArt.getWallet());
+
+        // order of params doesn't matter in art-to-art -> look at implementation
+        boolean success = trader.makeTrade_Art_Art(wantedArt,userArt);
+
+        removeItem(wantedArt);
+        removeItem(userArt);
+
+        if(success) {
+            System.out.println("The trade has been made!");
+        } else {
+            System.out.println("The trade has been made!");
+        }
+    }
+
+    public void removeItem(Merchandise m){
+        // remove listing from marketplace
+        itemsForSale.remove(m);
+        this.listings.remove(m.getId());
     }
 }

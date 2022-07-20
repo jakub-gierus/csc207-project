@@ -15,8 +15,8 @@ public class TradingUtil {
 
     /**
      * Initializes a TradingUtil object for each trade
-     * @param tradingTo Wallet that <artName> is going to
-     * @param tradingFrom Wallet where <artName> originally comes from
+     * @param tradingTo Wallet that <art> is going to
+     * @param tradingFrom Wallet where <art> originally comes from
      */
     public TradingUtil(Wallet tradingTo, Wallet tradingFrom) {
         this.userRepository = UserRepository.getInstance();
@@ -25,21 +25,21 @@ public class TradingUtil {
     }
 
     /**
-     * Trades art <artName> for money between two wallets. Assumes <tradingFrom> contains <artName>
+     * Trades art <art> for money between two wallets. Assumes <tradingFrom> contains <art>
      * @return true if trade was successful, false otherwise
      */
-    public boolean makeTrade_Art_Money(Art artName) {
-        if (tradingTo.getCurrency() >= artName.getPrice() && artName.getIsTradeable()) {
+    public boolean makeTrade_Art_Money(Art art) {
+        if (tradingTo.getCurrency() >= art.getPrice() && art.getIsTradeable()) {
             // Money Transfer
-            tradingTo.removeCurrency(artName.getPrice());
-            tradingFrom.addCurrency(artName.getPrice());
+            tradingTo.removeCurrency(art.getPrice());
+            tradingFrom.addCurrency(art.getPrice());
 
             // Art Transfer
-            tradingFrom.removeArt(artName);
-            tradingTo.addArt(artName);
+            tradingFrom.removeArt(art);
+            tradingTo.addArt(art);
 
             // Art Ownership Transfer
-            artName.setWallet(tradingTo);
+            art.setWallet(tradingTo);
 
             return true;
 

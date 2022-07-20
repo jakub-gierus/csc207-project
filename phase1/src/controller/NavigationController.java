@@ -2,6 +2,8 @@ package controller;
 
 import entity.markets.Wallet;
 import exceptions.user.ActionDoesNotExistException;
+import usecases.markets.WalletFacade;
+import usecases.markets.WalletManager;
 import view.ActionView;
 
 import java.util.*;
@@ -11,15 +13,32 @@ public class NavigationController {
 
     private ActionView view;
 
+
+    /**
+     * A controller used to navigate possible actions and send requests to the dispatcher
+     * @param frontController the front controller instance used by this class
+     */
     public NavigationController (FrontController frontController) {
         this.frontController = frontController;
         this.view = new ActionView();
     }
 
+    /**
+     * Create a log of the action taken by the user
+     * @param actionName String name of the action taken
+     * @param action a Runnable object of the action taken
+     * @return a map formatted as <actionName, action>, its type is <String, Runnable>
+     */
     public Map.Entry<String, Runnable> createActionEntry(String actionName, Runnable action) {
         return new AbstractMap.SimpleEntry<>(actionName, action);
     }
 
+    /**
+     * Presents the possible actions to the viewer, then lets them choose one. Used for submenus.
+     * @param actions A mapping with the key as an Integer (the number for the action), and the value being another
+     *                mapping where the key is a String (the name of the action) and the Value is a Runnable
+     *                (the action itself).
+     */
     public void genericActionSelect(Map<Integer, Map.Entry<String, Runnable>> actions) {
         List<String> stringActions = new ArrayList<String>();
 
@@ -43,6 +62,9 @@ public class NavigationController {
         }
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for the main menu.
+     */
     public void mainActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -58,6 +80,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the admin user, then lets them choose one. Used for AdminUsers only.
+     */
     public void adminActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -70,6 +95,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for actions pertaining the user's profile.
+     */
     public void profileActionSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -80,17 +108,27 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used choosing or making a new wallet.
+     */
     public void walletSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
             actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("GET WALLET ACTIONS", wallet.getId())));
         }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
         actions.put(++actionID, this.createActionEntry("Create New Wallet", () -> this.frontController.dispatchRequest("CREATE WALLET")));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents the possible actions to the user, then lets them choose one. Used for actions you can do to a specific wallet.
+     * @param walletID the UUID of the wallet that receives the actions.
+     */
     public void walletActionSelect(UUID walletID) {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -99,6 +137,65 @@ public class NavigationController {
         actions.put(++actionID, this.createActionEntry("View Wallet Worth", () -> this.frontController.dispatchRequest("VIEW NET WORTH", walletID)));
         actions.put(++actionID, this.createActionEntry("Mint New Art", () -> this.frontController.dispatchRequest("MINT NEW ART", walletID)));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("SELECT WALLET")));
+        this.genericActionSelect(actions);
+    }
+
+    public void marketActionSelect(){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        actions.put(++actionID, this.createActionEntry("View Items on Market", () -> this.frontController.dispatchRequest("VIEW MARKET ITEMS")));
+        actions.put(++actionID, this.createActionEntry("Put Item onto Market", () -> this.frontController.dispatchRequest("POST MARKET ITEM")));
+        actions.put(++actionID, this.createActionEntry("Make Trade", () -> this.frontController.dispatchRequest("TRADE MARKET ITEM")));
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void merchandiseSelect(boolean trade){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        //get art from wallets that are public in order to post ART to market
+        for (WalletFacade wf : this.frontController.getActiveUser().get().getTradeableWallets()) {
+            // get the tradeable art from facade
+            HashMap<UUID, String> artNames = wf.getTradeableArtNames();
+
+            for (UUID id : artNames.keySet()){
+                actions.put(++actionID, this.createActionEntry("Art: " + artNames.get(id), () -> this.frontController.dispatchRequest(trade? "SELECT WALLET FOR TRADE" : "POST ART TO MARKET", id)));
+            }
+        }
+        if(actionID == 0){
+            System.out.println("----------------------------------");
+            System.out.println("--No Valid Merchandise Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void selectWalletToMakeTrade(UUID wantedItemId){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
+            actions.put(++actionID, this.createActionEntry( wallet.getName(), () -> this.frontController.dispatchRequest("MAKE TRADE WITH WALLET", wantedItemId,wallet.getId())));
+        }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void selectArtFromWalletForTrade(UUID wantedItemId, UUID walletId){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+
+        HashMap<UUID,String> tradeableArt = this.frontController.getActiveUser().get().getWalletById(walletId).getTradeableArtNames();
+
+        for (UUID artId : tradeableArt.keySet()) {
+            actions.put(++actionID, this.createActionEntry( tradeableArt.get(artId), () -> this.frontController.dispatchRequest("MAKE A2A TRADE", wantedItemId,artId)));
+        }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
     }
 }

@@ -65,6 +65,10 @@ public class DataSaver {
         this.saveAllWalletData();
     }
 
+    /**
+     * saves data of all wallets
+     * @throws IOException if file path is invalid
+     */
     public void saveAllWalletData() throws IOException {
         FileWriter walletWriter = new FileWriter(this.filePath + this.walletsFilename, false);
         for (User user: this.userRepository.getAllUsers()) {

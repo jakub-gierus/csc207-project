@@ -3,8 +3,8 @@ package usecases.art;
 import entity.art.Art;
 
 /**
- * SINGLETON class
  * Appraises the value of an art piece
+ * UNUSED AS OF PHASE 1
  **/
 public class Appraiser {
     /**
@@ -13,7 +13,7 @@ public class Appraiser {
      * @param art => the art piece to appraise
      * @return float representing the market price of given art piece
      */
-    public float appraiseArt(ArtManager library, Art art){
+    public double appraiseArt(ArtManager library, Art art){
         return art.getPrice();
     }
 }

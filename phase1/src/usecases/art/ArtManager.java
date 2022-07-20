@@ -41,6 +41,7 @@ public class ArtManager {
     public Art getArt(UUID id){
         return this.library.containsKey(id) ? library.get(id) : null;
     }
+
     /**
      * Returns true of the art was successfully added to the library, false otherwise
      * Adds an art piece to the library if it does not already exist in the library
@@ -56,6 +57,11 @@ public class ArtManager {
         return true;
     }
 
+    /**
+     * Returns the art pieces found in a specific wallet
+     * @param walletId the UUID of the target wallet
+     * @return a mapping of the format <UUID, ArtFacade> that contains all the art in this wallet
+     */
     public Map<UUID, ArtFacade> getArtByWallet(UUID walletId) {
         Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
 
@@ -63,11 +69,5 @@ public class ArtManager {
                 (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue())));
     }
 
-    /**
-     * Created the method as ArtManager is not completed, will delete after ArtManager is complete.
-     * @return all Arts in the system
-     */
-    public HashMap<UUID, Art> getLibrary(){
-        return library;
-    }
+
 }
