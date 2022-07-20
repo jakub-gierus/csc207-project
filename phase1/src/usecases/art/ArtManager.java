@@ -41,6 +41,7 @@ public class ArtManager {
     public Art getArt(UUID id){
         return this.library.containsKey(id) ? library.get(id) : null;
     }
+
     /**
      * Returns true of the art was successfully added to the library, false otherwise
      * Adds an art piece to the library if it does not already exist in the library
@@ -68,11 +69,5 @@ public class ArtManager {
                 (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue())));
     }
 
-    /**
-     * Getter method of all Arts in the system
-     * @return all Arts in the system
-     */
-    public HashMap<UUID, Art> getLibrary(){
-        return library;
-    }
+
 }

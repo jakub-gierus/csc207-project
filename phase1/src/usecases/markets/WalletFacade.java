@@ -3,6 +3,7 @@ package usecases.markets;
 import entity.art.Art;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
+import usecases.art.ArtFacade;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -40,6 +41,10 @@ public class WalletFacade {
      * Get all the art stored in the wallet
      * @return a mapping of the format <String, Art> containing all the art stored in this wallet keyed by their title
      */
+    public boolean getIsTradeable(){return this.wallet.getIsTradeable();}
+
+    public String getName(){return this.wallet.getName();}
+
     public HashMap<String, Art> getAllWalletArt () {
         return this.wallet.getAllArt();
     }
@@ -52,5 +57,16 @@ public class WalletFacade {
      */
     public void initializeWalletByID (String username, UUID walletID) throws WalletNotFoundException {
         this.wallet = this.walletManager.getUserWalletByID(username, walletID);
+    }
+
+    public HashMap<UUID, String> getTradeableArtNames(){
+        HashMap<UUID, String> res = new HashMap<>();
+        for(Art a : getAllWalletArt().values()){
+            ArtFacade facade = new ArtFacade(a);
+            if (facade.getTradeable()){
+                res.put(facade.getId(), facade.getTitle());
+            }
+        }
+        return res;
     }
 }

@@ -3,6 +3,8 @@ package usecases.art;
 import entity.art.Art;
 
 
+import java.util.UUID;
+
 public class ArtFacade {
     private Art art;
 
@@ -40,4 +42,8 @@ public class ArtFacade {
     public double getPrice() {
         return art.getPrice();
     }
+
+    public boolean getTradeable(){return art.getIsTradeable();}
+
+    public UUID getId(){ return art.getId();}
 }

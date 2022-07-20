@@ -15,7 +15,6 @@ public class PublicWalletRegistry {
      */
     public PublicWalletRegistry(){
         // TODO: Either make a separate file for storing/retrieving public wallets to add to this registry when wallet data is being retrieved
-        super();
     }
 
     /**

@@ -2,6 +2,8 @@ package controller;
 
 import entity.markets.Wallet;
 import exceptions.user.ActionDoesNotExistException;
+import usecases.markets.WalletFacade;
+import usecases.markets.WalletManager;
 import view.ActionView;
 
 import java.util.*;
@@ -10,6 +12,7 @@ public class NavigationController {
     private FrontController frontController;
 
     private ActionView view;
+
 
     /**
      * A controller used to navigate possible actions and send requests to the dispatcher
@@ -114,6 +117,9 @@ public class NavigationController {
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
             actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("GET WALLET ACTIONS", wallet.getId())));
         }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
         actions.put(++actionID, this.createActionEntry("Create New Wallet", () -> this.frontController.dispatchRequest("CREATE WALLET")));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
         this.genericActionSelect(actions);
@@ -131,6 +137,65 @@ public class NavigationController {
         actions.put(++actionID, this.createActionEntry("View Wallet Worth", () -> this.frontController.dispatchRequest("VIEW NET WORTH", walletID)));
         actions.put(++actionID, this.createActionEntry("Mint New Art", () -> this.frontController.dispatchRequest("MINT NEW ART", walletID)));
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("SELECT WALLET")));
+        this.genericActionSelect(actions);
+    }
+
+    public void marketActionSelect(){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        actions.put(++actionID, this.createActionEntry("View Items on Market", () -> this.frontController.dispatchRequest("VIEW MARKET ITEMS")));
+        actions.put(++actionID, this.createActionEntry("Put Item onto Market", () -> this.frontController.dispatchRequest("POST MARKET ITEM")));
+        actions.put(++actionID, this.createActionEntry("Make Trade", () -> this.frontController.dispatchRequest("TRADE MARKET ITEM")));
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MAIN ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void merchandiseSelect(boolean trade){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        //get art from wallets that are public in order to post ART to market
+        for (WalletFacade wf : this.frontController.getActiveUser().get().getTradeableWallets()) {
+            // get the tradeable art from facade
+            HashMap<UUID, String> artNames = wf.getTradeableArtNames();
+
+            for (UUID id : artNames.keySet()){
+                actions.put(++actionID, this.createActionEntry("Art: " + artNames.get(id), () -> this.frontController.dispatchRequest(trade? "SELECT WALLET FOR TRADE" : "POST ART TO MARKET", id)));
+            }
+        }
+        if(actionID == 0){
+            System.out.println("----------------------------------");
+            System.out.println("--No Valid Merchandise Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void selectWalletToMakeTrade(UUID wantedItemId){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+        for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
+            actions.put(++actionID, this.createActionEntry( wallet.getName(), () -> this.frontController.dispatchRequest("MAKE TRADE WITH WALLET", wantedItemId,wallet.getId())));
+        }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
+        this.genericActionSelect(actions);
+    }
+
+    public void selectArtFromWalletForTrade(UUID wantedItemId, UUID walletId){
+        Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
+        int actionID = 0;
+
+        HashMap<UUID,String> tradeableArt = this.frontController.getActiveUser().get().getWalletById(walletId).getTradeableArtNames();
+
+        for (UUID artId : tradeableArt.keySet()) {
+            actions.put(++actionID, this.createActionEntry( tradeableArt.get(artId), () -> this.frontController.dispatchRequest("MAKE A2A TRADE", wantedItemId,artId)));
+        }
+        if(actionID == 0){
+            System.out.println("--No Wallets Available--");
+        }
+        actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
     }
 }

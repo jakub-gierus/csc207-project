@@ -21,7 +21,7 @@ public class Art implements Merchandise{
     public Art(String title, String asciiValue){
         asciiString = asciiValue;
         this.title = title;
-        price = -1;
+        price = 100;
         id = UUID.randomUUID();
     }
 
@@ -110,4 +110,5 @@ public class Art implements Merchandise{
     public String getOwner(){
         return wallet.getOwner();
     }
+
 }

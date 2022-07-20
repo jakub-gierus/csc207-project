@@ -4,11 +4,14 @@ import databases.UserRepository;
 import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.User;
+import usecases.markets.WalletFacade;
 import usecases.markets.WalletManager;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class UserFacade {
     protected final UserRepository userRepository;
@@ -128,6 +131,17 @@ public class UserFacade {
      * Get the number of wallets owned by this user
      * @return an int of how many wallets are owned by this uesr
      */
+    public List<WalletFacade> getTradeableWallets(){
+        List<WalletFacade> res = new ArrayList<>();
+        for (Wallet w : getWallets()){
+            WalletFacade wf = new WalletFacade(w);
+            if(wf.getIsTradeable()){
+                res.add(wf);
+            }
+        }
+        return res;
+    }
+
     public int getNumberOfWallets() {
         return this.user.getWallets().size();
     }
@@ -152,5 +166,14 @@ public class UserFacade {
     public void addWallet(String walletName, boolean access) {
         Wallet createdWallet = this.walletManager.createWallet(this.user, walletName, access);
         this.user.addWallet(createdWallet);
+    }
+
+    public WalletFacade getWalletById(UUID id){
+        for (Wallet w : this.getWallets() ){
+            if (w.getId() == id){
+                return new WalletFacade(w);
+            }
+        }
+        return null;
     }
 }

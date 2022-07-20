@@ -30,7 +30,6 @@ public class WalletManager {
             WALLETMANAGER = new WalletManager();
         }
         return WALLETMANAGER;
-
     }
 
     /**
@@ -157,6 +156,16 @@ public class WalletManager {
     public void transferWallet(String sender, String receiver, UUID walletID) throws WalletNotFoundException {
         Wallet wallet = getUserWalletByID(sender, walletID);
         this.changeOwner(wallet, receiver);
+    }
+
+    public Wallet getWalletById(UUID id){
+        List<Wallet> allWallets = this.registry.getWallets();
+        for( Wallet w : allWallets){
+            if (w.getId() == id){
+                return w;
+            }
+        }
+        return null;
     }
 
 
