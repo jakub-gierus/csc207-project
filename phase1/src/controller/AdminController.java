@@ -21,11 +21,18 @@ public class AdminController {
 
     private AdminFacade activeAdminUser;
 
+    /**
+     * Controller for admin users
+     * @param frontController an instance of the FrontController user object that will be used
+     */
     public AdminController (FrontController frontController) {
         this.frontController = frontController;
         this.view = new AdminView();
     }
 
+    /**
+     * Shows a list of all users to the viewer
+     */
     public void presentAllUsers() {
         AdminFacade adminFacade = (AdminFacade) this.frontController.getActiveUser().get();
         List<String> users = new ArrayList<>();
@@ -35,11 +42,17 @@ public class AdminController {
         this.view.showAllUsers(users);
     }
 
+    /**
+     * Present all users to the viewer, then allows the user to select the admin actions
+     */
     public void seeAllUsers() {
         this.presentAllUsers();
         this.frontController.dispatchRequest("GET ADMIN ACTIONS");
     }
 
+    /**
+     * Deletes a user from the system
+     */
     public void deleteUser() {
         this.presentAllUsers();
         this.view.showDeletePrompt();
@@ -59,6 +72,9 @@ public class AdminController {
         this.frontController.dispatchRequest("GET ADMIN ACTIONS");
     }
 
+    /**
+     * Creates a new user
+     */
     public void createUser() {
         this.view.showUsernamePrompt();
         String username = this.frontController.userInput.nextLine();
@@ -83,6 +99,9 @@ public class AdminController {
         }
     }
 
+    /**
+     * Bans a user for a time
+     */
     public void banUser() {
         this.presentAllUsers();
         this.view.showBanPrompt();
@@ -107,6 +126,9 @@ public class AdminController {
         this.frontController.dispatchRequest("GET ADMIN ACTIONS");
     }
 
+    /**
+     * Unbans a banned user
+     */
     public void unbanUser() {
         this.presentAllUsers();
         this.view.showUnbanPrompt();

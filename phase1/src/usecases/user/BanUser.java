@@ -5,7 +5,7 @@ import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UserIsNotBannableException;
-import interfaces.user.IBannableUser;
+import interfaces.IBannableUser;
 
 import java.time.LocalDateTime;
 
@@ -16,8 +16,8 @@ public class BanUser {
     /**
      * Use-cass class for banning users.
      */
-    public BanUser() {
-        this.userRepository = UserRepository.getInstance();
+    public BanUser(UserRepository userRepository ) {
+        this.userRepository = userRepository;
     }
 
     /**

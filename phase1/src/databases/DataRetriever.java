@@ -4,7 +4,8 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import utils.Triplet;
+
+import utils.Config;
 
 public class DataRetriever {
     private final String filePath;
@@ -12,18 +13,19 @@ public class DataRetriever {
     private final String adminUsersFilename;
     private final String eventsFilename;
 
+    private final String walletsFilename;
+
+    private final String artsFilename;
     /**
      * Class that retrieves user data from CSVs,
-     * @param filePath root file path for all storage CSVs.
-     * @param basicUsersFilename filename for csv storing basic user data.
-     * @param adminUsersFilename filename for csv storing admin user data.
-     * @param eventsFilename filename for csv storing event user data.
      */
-    public DataRetriever(String filePath, String basicUsersFilename, String adminUsersFilename, String eventsFilename){
-        this.filePath = filePath;
-        this.basicUsersFilename = basicUsersFilename;
-        this.adminUsersFilename = adminUsersFilename;
-        this.eventsFilename = eventsFilename;
+    public DataRetriever(Config config){
+        this.filePath = config.getRootDirectory();
+        this.basicUsersFilename = config.getBasicUserFilePath();
+        this.adminUsersFilename = config.getAdminUserFilePath();
+        this.eventsFilename = config.getEventFilePath();
+        this.walletsFilename = config.getWalletFilePath();
+        this.artsFilename = config.getArtsFilePath();
     }
 
     /**
@@ -82,5 +84,35 @@ public class DataRetriever {
         return eventData;
     }
 
+    /**
+     * reads wallet data from file
+     * @return a list of serialized Wallet objects
+     * @throws IOException if the file path is invalid
+     */
+    public List<SerializedWallet> readWalletData() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.walletsFilename));
+        String line;
+        List<SerializedWallet> walletData = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            String[] rawWalletDatum = line.split(",");
+            walletData.add(new SerializedWallet(rawWalletDatum[0],
+                                                rawWalletDatum[1],
+                                                rawWalletDatum[2],
+                                                rawWalletDatum[3],
+                                                rawWalletDatum[4]));
+        }
+        return walletData;
+    }
 
+    public List<SerializedArt> readArtData() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.artsFilename));
+        String line;
+        List<SerializedArt> artData = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            String[] rawArtDatum = line.split(",");
+            artData.add(new SerializedArt(rawArtDatum[3], UUID.fromString(rawArtDatum[0]), UUID.fromString(rawArtDatum[1]), rawArtDatum[2].replace("newline", "\n"), Float.parseFloat(rawArtDatum[4])));
+
+        }
+        return artData;
+    }
 }

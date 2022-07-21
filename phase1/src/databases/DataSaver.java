@@ -1,7 +1,11 @@
 package databases;
 
+import entity.art.Art;
+import entity.markets.Wallet;
 import entity.user.BasicUser;
 import entity.user.User;
+import usecases.art.ArtManager;
+import utils.Config;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,21 +18,25 @@ public class DataSaver {
     private final String basicUsersFilename;
     private final String adminUsersFilename;
     private final String eventsFilename;
+
+    private final String artsFilename;
+    private final String walletsFilename;
     private final UserRepository userRepository;
+
+    private final ArtManager artManager;
 
     /**
      * Class that saves all user and event data to CSVs.
-     * @param filePath root file path for all storage CSVs.
-     * @param basicUsersFilename filename for csv storing basic user data.
-     * @param adminUsersFilename filename for csv storing admin user data.
-     * @param eventsFilename filename for csv storing event user data.
      */
-    public DataSaver(String filePath, String basicUsersFilename, String adminUsersFilename, String eventsFilename) {
-        this.userRepository = UserRepository.getInstance();
-        this.filePath = filePath;
-        this.basicUsersFilename = basicUsersFilename;
-        this.adminUsersFilename = adminUsersFilename;
-        this.eventsFilename = eventsFilename;
+    public DataSaver(Config config, ArtManager artManager, UserRepository userRepository) {
+        this.userRepository = userRepository;
+        this.filePath = config.getRootDirectory();
+        this.basicUsersFilename = config.getBasicUserFilePath();
+        this.adminUsersFilename = config.getAdminUserFilePath();
+        this.eventsFilename = config.getEventFilePath();
+        this.walletsFilename = config.getWalletFilePath();
+        this.artsFilename = config.getArtsFilePath();
+        this.artManager = artManager;
     }
 
     /**
@@ -61,6 +69,31 @@ public class DataSaver {
             }
         }
         eventWriter.close();
+        this.saveAllWalletData();
+        this.saveAllArtData();
     }
 
+    /**
+     * saves data of all wallets
+     * @throws IOException if file path is invalid
+     */
+    public void saveAllWalletData() throws IOException {
+        FileWriter walletWriter = new FileWriter(this.filePath + this.walletsFilename, false);
+        for (User user: this.userRepository.getAllUsers()) {
+            for (Wallet wallet : user.getWallets()) {
+                walletWriter.write(user.getUsername() + "," + wallet.getId() + "," + wallet.getName() + "," + wallet.getCurrency() + "," + wallet.getIsTradeable() + "\n");
+            }
+        }
+        walletWriter.close();
+    }
+
+
+    public void saveAllArtData() throws IOException {
+        FileWriter artWriter = new FileWriter(this.filePath + this.artsFilename, false);
+        for (Art art: this.artManager.getAllArt()) {
+            artWriter.write(art.getWallet().getId() + ","  + art.getId() + "," + art.getArt().replace("\n", "newline") + "," + art.getTitle() + ","  + art.getPrice() + "\n");
+
+        }
+        artWriter.close();
+    }
 }

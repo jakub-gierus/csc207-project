@@ -3,13 +3,18 @@ package controller;
 import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
+import entity.markets.Wallet;
+import entity.user.User;
+import usecases.art.ArtManager;
+import usecases.markets.WalletManager;
 import usecases.user.UserFacade;
+import utils.Config;
 import view.GenericView;
 
 import java.io.IOException;
-import java.security.CodeSigner;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class FrontController {
 
@@ -24,19 +29,20 @@ public class FrontController {
     private DataSaver dataSaver;
     private GenericView view;
 
-    public FrontController() {
+    private WalletManager walletManager;
+
+    private ArtManager artManager;
+
+    public FrontController(Config config) {
         this.activeUser = Optional.empty();
-        this.dispatcher = new Dispatcher(this);
-        this.userRepository = UserRepository.getInstance();
-        this.dataRetriever = new DataRetriever("./storage/",
-                                               "basicUsers.csv",
-                                               "adminUsers.csv",
-                                               "events.csv");
-        this.dataSaver = new DataSaver("./storage/",
-                                       "basicUsers.csv",
-                                       "adminUsers.csv",
-                                       "events.csv");
+        this.userRepository = new UserRepository();
+        this.walletManager = new WalletManager(this.userRepository);
+        this.artManager = new ArtManager(this.walletManager);
+        this.dataRetriever = new DataRetriever(config);
+        this.dataSaver = new DataSaver(config, this.artManager, this.userRepository);
         this.view = new GenericView();
+        this.dispatcher = new Dispatcher(this, this.walletManager, this.artManager);
+
         this.loadDatabase();
     }
 
@@ -44,32 +50,57 @@ public class FrontController {
         return this.activeUser.isPresent();
     }
 
-    public void dispatchRequest(String request) {
+    public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
-            dispatcher.dispatch(request);
+            if (ids.length > 0) {
+                dispatcher.dispatch(request, ids[0]);
+            } else if(ids.length == 2){
+                dispatcher.dispatch(request, ids[0], ids[1]);
+            }
+            else {
+                dispatcher.dispatch(request);
+            }
         }
         else {
             dispatcher.dispatch("LOGIN");
         }
     }
 
+    /**
+     * Setter for active user
+     * @param newActiveUser a Optional<UserFacade> object that will be set as the current active user
+     */
     public void setActiveUser(Optional<UserFacade> newActiveUser) {
         this.activeUser = newActiveUser;
     }
 
+    /**
+     * Getter for activeUser
+     * @return an Optional<UserFacade> object that represents the active user
+     */
     public Optional<UserFacade> getActiveUser() { return this.activeUser; }
 
+    /**
+     * loads the stored data into the system
+     */
     public void loadDatabase() {
         try {
             this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
                                               this.dataRetriever.readBasicUserData(),
-                                              this.dataRetriever.readEventData());
+                                              this.dataRetriever.readEventData(),
+                                              this.dataRetriever.readWalletData(),
+                                              this.dataRetriever.readArtData(),
+                                              this.walletManager,
+                                              this.artManager);
         }
         catch (IOException e) {
-            this.view.showErrorMessage("Database files not found\n");
+            this.view.showErrorMessage("Database files not found.\n");
         }
     }
 
+    /**
+     * closes the application
+     */
     public void exitApplication() {
         try {
             this.dataSaver.saveAllUserData();
@@ -78,5 +109,17 @@ public class FrontController {
             this.view.showErrorMessage("Failed saving data, storage files not found.");
         }
         System.exit(0);
+    }
+
+    public WalletManager getWalletManager() {
+        return this.walletManager;
+    }
+
+    public ArtManager getArtManager() {
+        return this.artManager;
+    }
+
+    public UserRepository getUserRepository() {
+        return this.userRepository;
     }
 }

@@ -1,10 +1,13 @@
 package databases;
 
+import entity.art.Art;
+import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
-import utils.Triplet;
+import usecases.art.ArtManager;
+import usecases.markets.WalletManager;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,17 +19,13 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class UserRepository {
-    private final static HashMap<String, User> users = new HashMap<>();
-    private final static UserRepository instance = new UserRepository();
-
+    private final HashMap<String, User> users = new HashMap<>();
     /**
      * Stand-in class for a database of users that would be used by actual applications. Implements all needed database
      * operations for this log-in application, such as retrieving data (potentially with filters), creating data, and
      * deleting data.
      */
-    public UserRepository() {}
-    public static UserRepository getInstance() {
-        return instance;
+    public UserRepository() {
     }
 
     /**
@@ -38,20 +37,36 @@ public class UserRepository {
      */
     public void resetUserData(List<Entry<String, String>> adminUserData,
                               List<Triplet<String, String, LocalDateTime>> basicUserData,
-                              List<Triplet<String, LocalDateTime, String>> eventData) {
+                              List<Triplet<String, LocalDateTime, String>> eventData,
+                              List<SerializedWallet> walletData,
+                              List<SerializedArt> artData,
+                              WalletManager walletManager,
+                              ArtManager artManager) {
         HashMap<String, User> users = new HashMap<>();
         for (Entry<String, String> userDatum : adminUserData) {
-            UserRepository.users.put(userDatum.getKey(),
+            this.users.put(userDatum.getKey(),
                     new AdminUser(userDatum.getKey(), userDatum.getValue()));
         }
         for (Triplet<String, String, LocalDateTime> userDatum : basicUserData) {
             BasicUser newUser =  new BasicUser(userDatum.getFirst(), userDatum.getSecond(), userDatum.getThird());
-            UserRepository.users.put(userDatum.getFirst(), newUser);
+            this.users.put(userDatum.getFirst(), newUser);
 
         }
         for (Triplet<String, LocalDateTime, String> eventDatum : eventData) {
             User user = this.getByUsername(eventDatum.getFirst()).orElseThrow(() -> new UserDoesNotExistException(eventDatum.getFirst()));
             user.logEvent(eventDatum.getThird(), eventDatum.getSecond());
+        }
+
+        for (SerializedWallet walletDatum: walletData) {
+            User user = this.getByUsername(walletDatum.getOwnerUsername()).orElseThrow(() -> new UserDoesNotExistException(walletDatum.getOwnerUsername()));
+            Wallet wallet = walletManager.createWallet(user, walletDatum.getWalletName(), walletDatum.isTradeable(), walletDatum.getWalletID(), walletDatum.getCurrency());
+            user.addWallet(wallet);
+        }
+
+
+        for (SerializedArt artDatum: artData) {
+            Art art = new Art(artDatum.getArtTitle(), artDatum.getArt(), artDatum.getArtID(), artDatum.getPrice());
+            artManager.addArt(art, artDatum.getWalletID());
         }
     }
 

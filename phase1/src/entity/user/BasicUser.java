@@ -1,9 +1,8 @@
 package entity.user;
 
-import interfaces.user.IBannableUser;
+import interfaces.IBannableUser;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 public class BasicUser extends User implements IBannableUser {
 

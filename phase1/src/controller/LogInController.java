@@ -12,18 +12,25 @@ public class LogInController {
     private FrontController frontController;
     private LogInView view;
 
+    /**
+     * The controller responsible for logging a user in and out
+     * @param frontController the FrontController instance that will be used
+     */
     public LogInController (FrontController frontController) {
         this.frontController = frontController;
         this.view = new LogInView();
     }
 
+    /**zz
+     * logs the user in
+     */
     public void login() {
         this.view.showUsernamePrompt();
         String username = this.frontController.userInput.nextLine();
         this.view.showPasswordPrompt();
         String password = this.frontController.userInput.nextLine();
         try {
-            UserFacade userFacade = new UserFacade(null);
+            UserFacade userFacade = new UserFacade(null, this.frontController.getUserRepository(), this.frontController.getWalletManager(), this.frontController.getArtManager());
             userFacade.login(username, password);
             if (userFacade.getIsAdmin()) {
                 this.frontController.setActiveUser(Optional.of(userFacade.createAdminFacade()));
@@ -41,6 +48,9 @@ public class LogInController {
 
     }
 
+    /**
+     * logs the user out
+     */
     public void logout () {
         this.frontController.getActiveUser().get().logOut();
         this.frontController.setActiveUser(Optional.empty());
