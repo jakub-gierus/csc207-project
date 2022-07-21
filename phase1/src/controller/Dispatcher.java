@@ -67,9 +67,9 @@ public class Dispatcher {
         } else if (request.equalsIgnoreCase("VIEW MARKET ITEMS")){
             this.marketController.viewMerchandise();
         } else if (request.equalsIgnoreCase("POST MARKET ITEM")){
-            this.navigationController.merchandiseSelect(false);
+            this.navigationController.selectMerchandiseToPostToMarket();
         }else if (request.equalsIgnoreCase("TRADE MARKET ITEM")){
-            this.navigationController.merchandiseSelect(true);
+            this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
         }
     }
 

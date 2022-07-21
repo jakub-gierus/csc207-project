@@ -8,15 +8,12 @@ import java.util.UUID;
 public class ArtFacade {
     private Art art;
 
-    private ArtManager artManager;
-
     /**
      * A facade used for interacting with the art object
      * @param art the target Art object
      */
     public ArtFacade(Art art) {
         this.art = art;
-        this.artManager = ArtManager.getInstance();
     }
 
     /**

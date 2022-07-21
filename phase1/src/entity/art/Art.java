@@ -9,8 +9,7 @@ public class Art implements Merchandise{
     private String title;
     private double price; // this will store the last price the piece was sold for
     private Wallet wallet;
-    private boolean isTradable = false; // this will be initially false. It depends on the user if he wants to make this art
-    //tradable
+    private boolean isTradable;
     final public UUID id;
 
     /**
@@ -18,11 +17,13 @@ public class Art implements Merchandise{
      * @param title String title of the piece
      * @param asciiValue String ASCII data of the piece
      */
-    public Art(String title, String asciiValue){
+    public Art(String title, String asciiValue, Wallet wallet){
         asciiString = asciiValue;
         this.title = title;
         price = 100;
         id = UUID.randomUUID();
+        this.wallet = wallet;
+        this.isTradable = true;
     }
 
     /**

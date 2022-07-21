@@ -2,6 +2,7 @@ package controller;
 
 import entity.art.Art;
 import entity.markets.Wallet;
+import interfaces.Merchandise;
 import usecases.art.ArtManager;
 import usecases.markets.Market;
 import usecases.markets.PublicWalletRegistry;
@@ -33,6 +34,10 @@ public class MarketController {
         this.view.showMarketListingHeader();
         this.view.showMarketListings(itemNames);
         this.frontController.dispatchRequest("GET MARKET ACTIONS");
+    }
+
+    public List<Merchandise> getAllMerchandiseOnMarket(){
+        return this.market.getItemsForSale();
     }
 
 

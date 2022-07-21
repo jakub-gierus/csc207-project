@@ -34,7 +34,6 @@ public class Market {
         this.walletLibrary = walletLibrary;
         this.listings =new HashMap<UUID, String>();
         this.itemsForSale = new ArrayList<>();
-
     }
 
     /**

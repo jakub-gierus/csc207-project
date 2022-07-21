@@ -1,5 +1,6 @@
 package usecases.markets;
 
+import entity.art.Art;
 import entity.user.User;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
@@ -166,6 +167,11 @@ public class WalletManager {
             }
         }
         return null;
+    }
+
+    public void addArtToWallet(Art art, UUID walletId){
+        WalletFacade wf = new WalletFacade(getWalletById(walletId));
+        wf.addArtToWallet(art);
     }
 
 

@@ -1,9 +1,9 @@
 package usecases.art;
 
 import entity.art.Art;
+import entity.markets.Wallet;
 import usecases.markets.WalletManager;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -45,16 +45,19 @@ public class ArtManager {
     /**
      * Returns true of the art was successfully added to the library, false otherwise
      * Adds an art piece to the library if it does not already exist in the library
-     * @param art -> the new art piece to add to the library
-     * */
-    public boolean addArt(Art art){
+     *
+     * @param artName -> the name of the new art
+     * @param asciiArt -> the art string
+     * @param wallet -> the wallet to add the art to
+     * @return UUID
+     */
+    public UUID addArt(String artName, String asciiArt, Wallet wallet, WalletManager walletManager){
         // unique check
-        if(artExists(art)){
-            return false;
-        }
+        Art art = new Art(artName,asciiArt,wallet);
         //add to library
         this.library.put(art.getId(), art);
-        return true;
+        walletManager.addArtToWallet(art, wallet.getId());
+        return art.getId();
     }
 
     /**
