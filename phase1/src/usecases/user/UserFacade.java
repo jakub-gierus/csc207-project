@@ -1,9 +1,11 @@
 package usecases.user;
 
 import databases.UserRepository;
+import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.User;
+import usecases.art.ArtManager;
 import usecases.markets.WalletFacade;
 import usecases.markets.WalletManager;
 
@@ -23,19 +25,22 @@ public class UserFacade {
 
     private final WalletManager walletManager;
 
+    private final ArtManager artManager;
+
     /**
      * An umbrella/facade use-case class for a user. Used as an interface to most user use-cases for controller
      * classes.
      * @param user User entity the methods and use-cases will interact with.
      * @see User
      */
-    public UserFacade(User user) {
+    public UserFacade(User user, UserRepository userRepository, WalletManager walletManager, ArtManager artManager) {
         this.user = user;
-        this.userRepository = UserRepository.getInstance();
+        this.userRepository = userRepository;
+        this.walletManager = walletManager;
+        this.artManager = artManager;
         this.userChanger = new ChangeUser(user);
-        this.logInner = new LogIn();
-        this.userCreator = new CreateUser();
-        this.walletManager = WalletManager.getInstance();
+        this.logInner = new LogIn(this.userRepository);
+        this.userCreator = new CreateUser(this.userRepository, this.walletManager);
     }
 
     /**
@@ -107,7 +112,7 @@ public class UserFacade {
         if (!getIsAdmin()) {
             return null;
         }
-        return new AdminFacade((AdminUser) user);
+        return new AdminFacade((AdminUser) user, this.userRepository, this.walletManager, this.artManager);
     }
 
     /**
@@ -134,7 +139,7 @@ public class UserFacade {
     public List<WalletFacade> getTradeableWallets(){
         List<WalletFacade> res = new ArrayList<>();
         for (Wallet w : getWallets()){
-            WalletFacade wf = new WalletFacade(w);
+            WalletFacade wf = new WalletFacade(w, this.walletManager, this.artManager);
             if(wf.getIsTradeable()){
                 res.add(wf);
             }
@@ -171,9 +176,17 @@ public class UserFacade {
     public WalletFacade getWalletById(UUID id){
         for (Wallet w : this.getWallets() ){
             if (w.getId() == id){
-                return new WalletFacade(w);
+                return new WalletFacade(w, this.walletManager, this.artManager);
             }
         }
         return null;
+    }
+
+    public WalletManager getWalletManager() {
+        return this.walletManager;
+    }
+
+    public ArtManager getArtManager() {
+        return this.artManager;
     }
 }

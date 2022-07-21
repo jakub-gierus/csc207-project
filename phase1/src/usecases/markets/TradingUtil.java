@@ -18,8 +18,8 @@ public class TradingUtil {
      * @param tradingTo Wallet that <art> is going to
      * @param tradingFrom Wallet where <art> originally comes from
      */
-    public TradingUtil(Wallet tradingTo, Wallet tradingFrom) {
-        this.userRepository = UserRepository.getInstance();
+    public TradingUtil(Wallet tradingTo, Wallet tradingFrom, UserRepository userRepository) {
+        this.userRepository = userRepository;
         this.tradingFrom = tradingFrom;
         this.tradingTo = tradingTo;
     }

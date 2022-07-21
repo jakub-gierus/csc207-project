@@ -1,8 +1,11 @@
 package usecases.user;
 
 import databases.UserRepository;
+import entity.art.Art;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
+import usecases.art.ArtManager;
+import usecases.markets.WalletManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,24 +13,14 @@ import java.util.List;
 public class FindUser {
     private final UserRepository userRepository;
 
+    private final WalletManager walletManager;
+
     /**
      * Find a user from the repository
      */
-    public FindUser() {
-        this.userRepository = UserRepository.getInstance();
-    }
-
-    /**
-     * Get a list of all user facades stored in the user repository
-     * @return a List of UserFacade objects
-     */
-    public List<UserFacade> getAllUsers () {
-        List<User> userEntities =  this.userRepository.getAllUsers();
-        List<UserFacade> users = new ArrayList<>();
-        for (User userEntity: userEntities) {
-            users.add(new UserFacade(userEntity));
-        }
-        return users;
+    public FindUser(UserRepository userRepository, WalletManager walletManager) {
+        this.userRepository = userRepository;
+        this.walletManager = walletManager;
     }
 
     /**

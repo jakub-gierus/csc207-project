@@ -1,6 +1,5 @@
 package controller;
 
-import entity.art.Art;
 import exceptions.market.WalletNotFoundException;
 import usecases.art.ArtFacade;
 import usecases.art.ArtGenerator;
@@ -34,8 +33,8 @@ public class WalletController {
      */
     public WalletController(FrontController frontController) {
         this.frontController = frontController;
-        this.walletManager = WalletManager.getInstance();
-        this.artManager = ArtManager.getInstance();
+        this.walletManager = this.frontController.getWalletManager();
+        this.artManager = this.frontController.getArtManager();
         this.view = new WalletView();
     }
 
@@ -45,7 +44,7 @@ public class WalletController {
      */
     public void retrieveWallet(UUID walletID) {
         try {
-            this.wallet = new WalletFacade(null);
+            this.wallet = new WalletFacade(null, this.walletManager, this.artManager);
             this.wallet.initializeWalletByID(this.frontController.getActiveUser().get().getUsername(), walletID);
         } catch (WalletNotFoundException e) {
             this.view.showErrorMessage(e.getMessage());
@@ -77,12 +76,7 @@ public class WalletController {
      */
     public void viewWalletArt(UUID walletID) {
         this.retrieveWallet(walletID);
-        Map<UUID, ArtFacade> arts = this.artManager.getArtByWallet(walletID);
-        List<ArtFacade> artFacades = new ArrayList<>();
-        for (Map.Entry<UUID, ArtFacade> art: arts.entrySet()) {
-            artFacades.add(art.getValue());
-        }
-        this.view.showWalletGallery(artFacades);
+        this.view.showWalletGallery(this.wallet.getWalletArts(), this.wallet.getWalletArtTitles(), this.wallet.getWalletArtPrices());
         this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
     }
 
@@ -110,13 +104,23 @@ public class WalletController {
      * @param walletID
      */
     public void mintArt(UUID walletID) {
+        this.retrieveWallet(walletID);
         this.view.showArtPrompt();
         String artPrompt = this.frontController.userInput.nextLine();
         try {
             ArtGenerator artGenerator = new ArtGenerator();
             String generatedArt = artGenerator.generateArt(artPrompt);
-            System.out.println(generatedArt);
-            this.view.showGeneratedArt(generatedArt);
+            this.view.showArt(generatedArt);
+            this.view.showSetPricePrompt(artPrompt);
+            String price = this.frontController.userInput.nextLine();
+            try {
+                float priceDouble = Float.parseFloat(price);
+                this.artManager.createNewArt(artPrompt, generatedArt, priceDouble, walletID);
+                this.view.showMintSuccess(artPrompt, priceDouble);
+            } catch (NumberFormatException e) {
+                this.view.showErrorMessage("Input the price as a number and try again");
+                this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
+            }
             this.frontController.dispatchRequest("GET WALLET ACTIONS", walletID);
         } catch (IOException e) {
             e.printStackTrace();

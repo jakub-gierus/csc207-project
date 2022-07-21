@@ -16,8 +16,8 @@ public class BanUser {
     /**
      * Use-cass class for banning users.
      */
-    public BanUser() {
-        this.userRepository = UserRepository.getInstance();
+    public BanUser(UserRepository userRepository ) {
+        this.userRepository = userRepository;
     }
 
     /**

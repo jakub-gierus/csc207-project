@@ -1,13 +1,12 @@
 package usecases.markets;
 
+import databases.UserRepository;
 import entity.user.User;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 import usecases.user.FindUser;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 
 public class WalletManager {
@@ -16,21 +15,8 @@ public class WalletManager {
 
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
 
-    private final FindUser userFinder = new FindUser();
-
-    /**
-     * A use case level class for wallet focused actions
-     */
-    public WalletManager(){
-
-    }
-    public static WalletManager getInstance() {
-        // TODO: make this class not a singleton anymore
-        if (WALLETMANAGER == null) {
-            WALLETMANAGER = new WalletManager();
-        }
-        return WALLETMANAGER;
-    }
+    private final Map<UUID, Wallet> wallets = new HashMap<>();;
+    private final FindUser userFinder;
 
     /**
      * Create a wallet
@@ -41,7 +27,15 @@ public class WalletManager {
         // default wallet for new users
         Wallet wallet = new Wallet(owner, owner.getUsername() + "'s wallet");
         wallet.addCurrency(DEFAULT_INIT_CURRENCY);
+        this.wallets.put(wallet.getId(), wallet);
         return wallet;
+    }
+
+    /**
+     * A use case level class for wallet focused actions
+     */
+    public WalletManager(UserRepository userRepository){
+        this.userFinder = new FindUser(userRepository, this);
     }
 
     /**
@@ -56,9 +50,18 @@ public class WalletManager {
         if(access){
             registry.makeWalletPublic(wallet);
         }
+        this.wallets.put(wallet.getId(), wallet);
         return wallet;
     }
 
+    public Wallet createWallet(User owner, String walletName, boolean access, UUID walletID, double currency) {
+        Wallet wallet = new Wallet(owner, walletName, walletID , currency);
+        if (access) {
+            registry.makeWalletPublic(wallet);
+        }
+        this.wallets.put(walletID, wallet);
+        return wallet;
+    }
     /**
      * Make the wallet private
      * @param wallet the target Wallet object
@@ -103,6 +106,9 @@ public class WalletManager {
         return user.getWallets();
     }
 
+    public Wallet getWalletByID(UUID walletId) {
+        return this.wallets.get(walletId);
+    }
     /**
      * Get a User's wallet by its id
      * @param username the String name of the target user
@@ -159,14 +165,17 @@ public class WalletManager {
     }
 
     public Wallet getWalletById(UUID id){
-        List<Wallet> allWallets = this.registry.getWallets();
-        for( Wallet w : allWallets){
-            if (w.getId() == id){
-                return w;
-            }
-        }
-        return null;
+        return this.wallets.get(id);
+//
+//        Collection<Wallet> allWallets = this.wallets.values();
+//        for( Wallet w : allWallets){
+//            if (w.getId() == id){
+//                return w;
+//            }
+//        }
+//        return null;
     }
+
 
 
 

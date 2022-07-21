@@ -1,8 +1,13 @@
 package usecases.user;
 
+import databases.UserRepository;
 import entity.user.AdminUser;
+import entity.user.User;
+import usecases.art.ArtManager;
+import usecases.markets.WalletManager;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminFacade extends UserFacade {
@@ -17,11 +22,11 @@ public class AdminFacade extends UserFacade {
      * as a skeleton for other use-cases related to admin user actions.
      * @param user entity.user.AdminUser entity methods and use-cases will interact with.
      */
-    public AdminFacade(AdminUser user) {
-        super(user);
-        userBanner = new BanUser();
-        userFinder = new FindUser();
-        userCreater = new CreateUser();
+    public AdminFacade(AdminUser user, UserRepository userRepository, WalletManager walletManager, ArtManager artManager ) {
+        super(user, userRepository, walletManager, artManager);
+        userBanner = new BanUser(userRepository);
+        userFinder = new FindUser(userRepository, walletManager);
+        userCreater = new CreateUser(userRepository, walletManager);
     }
 
     /**
@@ -54,6 +59,13 @@ public class AdminFacade extends UserFacade {
         userCreator.deleteUser(username);
     }
     public List<UserFacade> getAllUsers() {
-        return userFinder.getAllUsers();
+
+
+        List<User> users =  userRepository.getAllUsers();
+        List<UserFacade> userFacades = new ArrayList<>();
+        for (User user: users) {
+            userFacades.add(new UserFacade(user, this.userRepository, this.getWalletManager(), this.getArtManager()));
+        }
+        return userFacades;
     }
 }

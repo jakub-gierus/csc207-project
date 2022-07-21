@@ -1,8 +1,10 @@
 package databases;
 
+import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.BasicUser;
 import entity.user.User;
+import usecases.art.ArtManager;
 import utils.Config;
 
 import java.io.FileWriter;
@@ -17,19 +19,24 @@ public class DataSaver {
     private final String adminUsersFilename;
     private final String eventsFilename;
 
+    private final String artsFilename;
     private final String walletsFilename;
     private final UserRepository userRepository;
+
+    private final ArtManager artManager;
 
     /**
      * Class that saves all user and event data to CSVs.
      */
-    public DataSaver(Config config) {
-        this.userRepository = UserRepository.getInstance();
+    public DataSaver(Config config, ArtManager artManager, UserRepository userRepository) {
+        this.userRepository = userRepository;
         this.filePath = config.getRootDirectory();
         this.basicUsersFilename = config.getBasicUserFilePath();
         this.adminUsersFilename = config.getAdminUserFilePath();
         this.eventsFilename = config.getEventFilePath();
         this.walletsFilename = config.getWalletFilePath();
+        this.artsFilename = config.getArtsFilePath();
+        this.artManager = artManager;
     }
 
     /**
@@ -63,6 +70,7 @@ public class DataSaver {
         }
         eventWriter.close();
         this.saveAllWalletData();
+        this.saveAllArtData();
     }
 
     /**
@@ -79,4 +87,14 @@ public class DataSaver {
         walletWriter.close();
     }
 
+
+    public void saveAllArtData() throws IOException {
+        System.out.println(this.artsFilename);
+        FileWriter artWriter = new FileWriter(this.filePath + this.artsFilename, false);
+        for (Art art: this.artManager.getAllArt()) {
+            artWriter.write(art.getWallet().getId() + ","  + art.getId() + "," + art.getArt().replace("\n", "newline") + "," + art.getTitle() + ","  + art.getPrice() + "\n");
+
+        }
+        artWriter.close();
+    }
 }

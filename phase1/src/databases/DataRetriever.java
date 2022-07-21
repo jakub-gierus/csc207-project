@@ -14,6 +14,8 @@ public class DataRetriever {
     private final String eventsFilename;
 
     private final String walletsFilename;
+
+    private final String artsFilename;
     /**
      * Class that retrieves user data from CSVs,
      */
@@ -23,6 +25,7 @@ public class DataRetriever {
         this.adminUsersFilename = config.getAdminUserFilePath();
         this.eventsFilename = config.getEventFilePath();
         this.walletsFilename = config.getWalletFilePath();
+        this.artsFilename = config.getArtsFilePath();
     }
 
     /**
@@ -99,5 +102,17 @@ public class DataRetriever {
                                                 rawWalletDatum[4]));
         }
         return walletData;
+    }
+
+    public List<SerializedArt> readArtData() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.artsFilename));
+        String line;
+        List<SerializedArt> artData = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            String[] rawArtDatum = line.split(",");
+            artData.add(new SerializedArt(rawArtDatum[3], UUID.fromString(rawArtDatum[0]), UUID.fromString(rawArtDatum[1]), rawArtDatum[2].replace("newline", "\n"), Float.parseFloat(rawArtDatum[4])));
+
+        }
+        return artData;
     }
 }

@@ -28,9 +28,8 @@ public class ArtGenerator {
         String closestCategory = null;
         int i = 0;
         for (String category : this.asciiCategories.keySet()) {
-            i++;
             int distance = StringUtils.getLevenshteinDistance(category.toUpperCase(), inputString.toUpperCase());
-            if (distance < closestDistance && i != 2) {
+            if (distance < closestDistance) {
                 closestDistance = distance;
                 closestCategory = category;
             }
@@ -43,6 +42,8 @@ public class ArtGenerator {
         outputSettings.prettyPrint(false);
         Document document = Jsoup.connect(url).get();
         Elements asciiArts = document.select("pre");
+        asciiArts.remove(0);
+        asciiArts.remove(0);
         Element asciiArt = asciiArts.get(new Random().nextInt(asciiArts.size()));
         String safe = Jsoup.clean(asciiArt.toString(), "", Safelist.none(), outputSettings);
         String art = safe;
@@ -54,7 +55,7 @@ public class ArtGenerator {
         result.add("Note: Retrieved from asciiart.eu.");
         result.add("Any generated art does not belong to this app.");
         String generatedArt = StringUtils.join(result, "\n");
-        System.out.println(generatedArt);
+        generatedArt = generatedArt.replace(",", ".");
         return generatedArt;
     }
     public String generateArt(String prompt) throws IOException {

@@ -21,7 +21,7 @@ public class MarketController {
     final private ArtManager artLibrary;
 
     public MarketController(FrontController frontController, ArtManager artLibrary, WalletManager walletLibrary){
-        this.market = new Market(artLibrary, walletLibrary);
+        this.market = new Market(frontController.getUserRepository(), artLibrary, walletLibrary);
         this.view = new MarketView();
         this.frontController = frontController;
         this.walletLibrary = walletLibrary;

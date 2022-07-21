@@ -21,7 +21,7 @@ public class LogInController {
         this.view = new LogInView();
     }
 
-    /**
+    /**zz
      * logs the user in
      */
     public void login() {
@@ -30,7 +30,7 @@ public class LogInController {
         this.view.showPasswordPrompt();
         String password = this.frontController.userInput.nextLine();
         try {
-            UserFacade userFacade = new UserFacade(null);
+            UserFacade userFacade = new UserFacade(null, this.frontController.getUserRepository(), this.frontController.getWalletManager(), this.frontController.getArtManager());
             userFacade.login(username, password);
             if (userFacade.getIsAdmin()) {
                 this.frontController.setActiveUser(Optional.of(userFacade.createAdminFacade()));

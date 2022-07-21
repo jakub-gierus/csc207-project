@@ -4,9 +4,9 @@ import entity.art.Art;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 import usecases.art.ArtFacade;
+import usecases.art.ArtManager;
 
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public class WalletFacade {
 
@@ -14,13 +14,16 @@ public class WalletFacade {
 
     private WalletManager walletManager;
 
+    private ArtManager artManager;
+
     /**
      * A facade for interacting with Wallet objects
      * @param wallet the Wallet object that's being interacted with
      */
-    public WalletFacade(Wallet wallet) {
+    public WalletFacade(Wallet wallet, WalletManager walletManager, ArtManager artManager) {
         this.wallet = wallet;
-        this.walletManager = WalletManager.getInstance();
+        this.artManager = artManager;
+        this.walletManager = walletManager;
     }
 
     /**
@@ -59,10 +62,37 @@ public class WalletFacade {
         this.wallet = this.walletManager.getUserWalletByID(username, walletID);
     }
 
+    public Map<UUID, String> getWalletArts() {
+        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, String> returnWalletArts = new HashMap<>();
+        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+            returnWalletArts.put(walletArt.getValue().getId(), walletArt.getValue().getArt());
+        }
+        return returnWalletArts;
+    }
+
+    public Map<UUID, String> getWalletArtTitles() {
+        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, String> returnWalletArtTitles = new HashMap<>();
+        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+            returnWalletArtTitles.put(walletArt.getValue().getId(), walletArt.getValue().getTitle());
+        }
+        return returnWalletArtTitles;
+    }
+
+    public Map<UUID, Float> getWalletArtPrices() {
+        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Float> returnWalletArtPrices = new HashMap<>();
+        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+            returnWalletArtPrices.put(walletArt.getValue().getId(), walletArt.getValue().getPrice());
+        }
+        return returnWalletArtPrices;
+    }
+
     public HashMap<UUID, String> getTradeableArtNames(){
         HashMap<UUID, String> res = new HashMap<>();
         for(Art a : getAllWalletArt().values()){
-            ArtFacade facade = new ArtFacade(a);
+            ArtFacade facade = new ArtFacade(a, this.artManager);
             if (facade.getTradeable()){
                 res.put(facade.getId(), facade.getTitle());
             }

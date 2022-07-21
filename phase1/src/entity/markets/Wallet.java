@@ -80,6 +80,7 @@ public class Wallet implements Merchandise{
     public void addArt(Art newArt){
         String name = newArt.getTitle();
         arts.put(name, newArt);
+        this.calcNetWorth();
     }
 
     /**
@@ -88,6 +89,7 @@ public class Wallet implements Merchandise{
      */
     public void removeArt(Art art) {
         arts.remove(art.getTitle());
+        this.calcNetWorth();
     }
 
     /**

@@ -3,8 +3,9 @@ package controller;
 import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
+import entity.markets.Wallet;
+import entity.user.User;
 import usecases.art.ArtManager;
-import usecases.markets.PublicWalletRegistry;
 import usecases.markets.WalletManager;
 import usecases.user.UserFacade;
 import utils.Config;
@@ -28,44 +29,30 @@ public class FrontController {
     private DataSaver dataSaver;
     private GenericView view;
 
-    final private ArtManager artManager;
+    private WalletManager walletManager;
 
-    final private WalletManager walletLibrary;
+    private ArtManager artManager;
 
-    /**
-     * The controller that sets up the dispatcher and data for the other controllers
-     * @param config a Config object that knows the locations where data is stored
-     */
     public FrontController(Config config) {
         this.activeUser = Optional.empty();
-        this.userRepository = UserRepository.getInstance();
+        this.userRepository = new UserRepository();
+        this.walletManager = new WalletManager(this.userRepository);
+        this.artManager = new ArtManager(this.walletManager);
         this.dataRetriever = new DataRetriever(config);
-        this.dataSaver = new DataSaver(config);
+        this.dataSaver = new DataSaver(config, this.artManager, this.userRepository);
         this.view = new GenericView();
-        this.loadDatabase();
-        // init new art db and wallet db
-        this.artManager = ArtManager.getInstance();
-        this.walletLibrary = WalletManager.getInstance();
-        this.dispatcher = new Dispatcher(this, walletLibrary,artManager);
+        this.dispatcher = new Dispatcher(this, this.walletManager, this.artManager);
 
+        this.loadDatabase();
     }
 
-    /**
-     * Getter for if there is an active user
-     * @return whether the user is logged in
-     */
     public boolean isLoggedIn() {
         return this.activeUser.isPresent();
     }
 
-    /**
-     * sends a request to the dispatcher
-     * @param request a String in "THIS FORMAT" that tells the dispatcher what controller to call
-     * @param ids optional UUID for UUID based requests
-     */
     public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
-            if (ids.length == 1) {
+            if (ids.length > 0) {
                 dispatcher.dispatch(request, ids[0]);
             } else if(ids.length == 2){
                 dispatcher.dispatch(request, ids[0], ids[1]);
@@ -101,7 +88,10 @@ public class FrontController {
             this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
                                               this.dataRetriever.readBasicUserData(),
                                               this.dataRetriever.readEventData(),
-                                              this.dataRetriever.readWalletData());
+                                              this.dataRetriever.readWalletData(),
+                                              this.dataRetriever.readArtData(),
+                                              this.walletManager,
+                                              this.artManager);
         }
         catch (IOException e) {
             this.view.showErrorMessage("Database files not found.\n");
@@ -119,5 +109,17 @@ public class FrontController {
             this.view.showErrorMessage("Failed saving data, storage files not found.");
         }
         System.exit(0);
+    }
+
+    public WalletManager getWalletManager() {
+        return this.walletManager;
+    }
+
+    public ArtManager getArtManager() {
+        return this.artManager;
+    }
+
+    public UserRepository getUserRepository() {
+        return this.userRepository;
     }
 }
