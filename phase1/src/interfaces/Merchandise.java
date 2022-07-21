@@ -8,4 +8,6 @@ public interface Merchandise {
     String getOwner();
     UUID getId();
     boolean getIsTradeable();
+    String getNameOrTitle();
+    String getTypeString();
 }

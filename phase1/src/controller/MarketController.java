@@ -1,16 +1,11 @@
 package controller;
 
-import entity.art.Art;
-import entity.markets.Wallet;
 import interfaces.Merchandise;
 import usecases.art.ArtManager;
 import usecases.markets.Market;
-import usecases.markets.PublicWalletRegistry;
 import usecases.markets.WalletManager;
 import view.MarketView;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class MarketController {
@@ -18,14 +13,12 @@ public class MarketController {
     final private MarketView view;
     final private FrontController frontController;
     final private Market market;
-    final private WalletManager walletLibrary;
     final private ArtManager artLibrary;
 
     public MarketController(FrontController frontController, ArtManager artLibrary, WalletManager walletLibrary){
         this.market = new Market(artLibrary, walletLibrary);
         this.view = new MarketView();
         this.frontController = frontController;
-        this.walletLibrary = walletLibrary;
         this.artLibrary = artLibrary;
     }
 

@@ -225,4 +225,12 @@ public class Wallet implements Merchandise{
     public void setPublic(boolean newAccess){
         publicAccess = newAccess;
     }
+
+    public String getNameOrTitle(){
+        return getName();
+    }
+
+    public String getTypeString(){
+        return "Wallet";
+    };
 }

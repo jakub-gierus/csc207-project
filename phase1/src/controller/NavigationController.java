@@ -1,12 +1,9 @@
 package controller;
 
-import entity.art.Art;
 import entity.markets.Wallet;
 import exceptions.user.ActionDoesNotExistException;
 import interfaces.Merchandise;
-import usecases.art.ArtFacade;
 import usecases.markets.WalletFacade;
-import usecases.markets.WalletManager;
 import view.ActionView;
 
 import java.util.*;
@@ -207,14 +204,7 @@ public class NavigationController {
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
         for (Merchandise m : items) {
-            if(Wallet.class.isInstance(m)){
-                WalletFacade wf = new WalletFacade((Wallet) m);
-                actions.put(++actionID, this.createActionEntry("Wallet: " + wf.getName(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", wf.getId())));
-            } else {
-                ArtFacade af = new ArtFacade((Art) m);
-                actions.put(++actionID, this.createActionEntry("Art:"  + af.getTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", af.getId())));
-            }
-
+                actions.put(++actionID, this.createActionEntry(m.getTypeString() + m.getNameOrTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", m.getId())));
         }
 
         if(actionID == 0){

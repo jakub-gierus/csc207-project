@@ -112,4 +112,13 @@ public class Art implements Merchandise{
         return wallet.getOwner();
     }
 
+    public String getNameOrTitle(){
+        return getTitle();
+    }
+
+    public String getTypeString(){
+        return "Art";
+    };
+
+
 }
