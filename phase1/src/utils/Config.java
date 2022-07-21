@@ -11,6 +11,8 @@ public class Config {
 
     private String walletFilePath;
 
+    private String artsFilePath;
+
     /**
      * A data class containing Strings of file paths where data is stored
      * @param rootDirectory the String of the path to the root directory
@@ -23,12 +25,14 @@ public class Config {
                   String basicUserFilePath,
                   String adminUserFilePath,
                   String eventFilePath,
-                  String walletFilePath) {
+                  String walletFilePath,
+                  String artsFilePath) {
         this.rootDirectory = rootDirectory;
         this.basicUserFilePath = basicUserFilePath;
         this.adminUserFilePath = adminUserFilePath;
         this.eventFilePath = eventFilePath;
         this.walletFilePath = walletFilePath;
+        this.artsFilePath = artsFilePath;
     }
 
     /**
@@ -68,4 +72,6 @@ public class Config {
      * @return a String for the path to the wallet file
      */
     public String getWalletFilePath() { return this.walletFilePath; }
+
+    public String getArtsFilePath() { return this.artsFilePath; }
 }

@@ -7,7 +7,9 @@ public class Main {
                                    "basicUsers.csv",
                                    "adminUsers.csv",
                                    "events.csv",
-                                   "wallets.csv");
+                                   "wallets.csv",
+                                   "asciiArts.csv");
+
         FrontController controller = new FrontController(config);
 
         controller.dispatchRequest("LOGIN");

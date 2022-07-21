@@ -7,7 +7,7 @@ import interfaces.Merchandise;
 public class Art implements Merchandise{
     final private String asciiString;
     private String title;
-    private double price; // this will store the last price the piece was sold for
+    private float price; // this will store the last price the piece was sold for
     private Wallet wallet;
     private boolean isTradable;
     final public UUID id;
@@ -17,12 +17,19 @@ public class Art implements Merchandise{
      * @param title String title of the piece
      * @param asciiValue String ASCII data of the piece
      */
-    public Art(String title, String asciiValue, Wallet wallet){
-        asciiString = asciiValue;
+    public Art(String title, String asciiValue){
+        this.asciiString = asciiValue;
         this.title = title;
-        price = 100;
-        id = UUID.randomUUID();
-        this.wallet = wallet;
+        this.price = 100;
+        this.id = UUID.randomUUID();
+        this.isTradable = true;
+    }
+
+    public Art(String title, String asciiValue, UUID artId, float price) {
+        this.asciiString = asciiValue;
+        this.title = title;
+        this.price = price;
+        this.id = artId;
         this.isTradable = true;
     }
 
@@ -69,7 +76,7 @@ public class Art implements Merchandise{
      * @param newWallet a Wallet object that this piece will belong to
      */
     public void setWallet(Wallet newWallet){
-        wallet = newWallet;
+        this.wallet = newWallet;
     }
 
     /**
@@ -84,7 +91,7 @@ public class Art implements Merchandise{
      * Getter for this piece's price
      * @return a float value of this piece's price
      */
-    public double getPrice(){
+    public float getPrice(){
         return price;
     }
 

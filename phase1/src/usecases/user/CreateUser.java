@@ -17,10 +17,10 @@ public class CreateUser {
     /**
      * Use-case class for creating and deleting users
      */
-    public CreateUser() {
+    public CreateUser(UserRepository userRepository, WalletManager walletManager) {
 
-        this.userRepository = UserRepository.getInstance();
-        this.walletManager = WalletManager.getInstance();
+        this.userRepository = userRepository;
+        this.walletManager = walletManager;
     }
 
     /**

@@ -1,9 +1,9 @@
 package usecases.art;
 
 import entity.art.Art;
-import entity.markets.Wallet;
 import usecases.markets.WalletManager;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -19,13 +19,10 @@ public class ArtManager {
     // unique id : Art object
     final private HashMap<UUID, Art> library = new HashMap<>();
 
-    private static ArtManager ARTMANAGER;
-    public static ArtManager getInstance() {
-        if (ARTMANAGER == null) {
-            ARTMANAGER = new ArtManager();
-        }
-        return ARTMANAGER;
+    final private WalletManager walletManager;
 
+    public ArtManager(WalletManager walletManager) {
+        this.walletManager = walletManager;
     }
     /**
      * Returns true if an art piece exists in the library, false otherwise
@@ -45,19 +42,16 @@ public class ArtManager {
     /**
      * Returns true of the art was successfully added to the library, false otherwise
      * Adds an art piece to the library if it does not already exist in the library
-     *
-     * @param artName -> the name of the new art
-     * @param asciiArt -> the art string
-     * @param wallet -> the wallet to add the art to
-     * @return UUID
-     */
-    public UUID addArt(String artName, String asciiArt, Wallet wallet, WalletManager walletManager){
-        // unique check
-        Art art = new Art(artName,asciiArt,wallet);
+     * @param art -> the new art piece to add to the library
+     * */
+    public boolean createNewArt(String artName, String art, float artPrice, UUID walletID){
         //add to library
-        this.library.put(art.getId(), art);
-        walletManager.addArtToWallet(art, wallet.getId());
-        return art.getId();
+        Art newArt = new Art(artName, art);
+        newArt.setPrice(artPrice);
+        this.walletManager.getWalletById(walletID).addArt(newArt);
+        newArt.setWallet(this.walletManager.getWalletById(walletID));
+        this.library.put(newArt.getId(), newArt);
+        return true;
     }
 
     /**
@@ -69,8 +63,17 @@ public class ArtManager {
         Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
 
         return this.library.entrySet().stream().filter(typeFilter).collect(Collectors.toMap(Map.Entry<UUID, Art>::getKey,
-                (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue())));
+                (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue(), this)));
     }
 
+    public Collection<Art> getAllArt() {
+        return this.library.values();
+    }
 
+    public void addArt(Art art, UUID walletID) {
+        this.walletManager.getWalletById(walletID).addArt(art);
+        art.setWallet(this.walletManager.getWalletById(walletID));
+        this.library.put(art.getId(), art);
+
+    }
 }

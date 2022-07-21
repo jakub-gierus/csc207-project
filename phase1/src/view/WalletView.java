@@ -1,11 +1,9 @@
 package view;
 
-import entity.art.Art;
 import org.apache.commons.lang3.StringUtils;
 import usecases.art.ArtFacade;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class WalletView extends GenericView {
 
@@ -62,16 +60,15 @@ public class WalletView extends GenericView {
      * Display a gallery of the user's wallets
      * @param artPieces a List of ArtFacades
      */
-    public void showWalletGallery(List<ArtFacade> artPieces) {
+    public void showWalletGallery(Map<UUID, String> artPieces, Map<UUID, String> artTitles, Map<UUID, Float> artPrices) {
         System.out.println("----------------------------------");
-        for (ArtFacade art : artPieces) {
-            for (String artLine : art.getAsciiArt().split("n") ) {
-                System.out.println(artLine);
-            }
-            System.out.printf("\" \033[3m %s \033[0m \"", art.getTitle());
-            System.out.printf("Cost: %.2f", art.getPrice());
+        System.out.println("-Art Gallery-");
+
+        for (Map.Entry<UUID, String> artPiece : artPieces.entrySet()) {
             System.out.println("");
-            System.out.println("");
+            this.showArt(artPiece.getValue());
+            System.out.printf("\"\u001B[1m\033[3m%s\033[0m\u001B[0m\"\n", artTitles.get(artPiece.getKey()));
+            System.out.printf("Cost: $%.2f\n", artPrices.get(artPiece.getKey()));
         }
     }
 
@@ -82,8 +79,8 @@ public class WalletView extends GenericView {
         System.out.println("What do you want your minted art to be called (the title will automatically be used to generate an ascii art piece)?");
     }
 
-    public void showGeneratedArt(String generatedArt) {
-        List<String> artRows = Arrays.asList(generatedArt.split("\n"));
+    public void showArt(String art) {
+        List<String> artRows = Arrays.asList(art.split("\n"));
         int longestRow = artRows.stream().max(Comparator.comparingInt(String::length)).get().length();
         String horizontalPortrait = "=";
         System.out.println("  " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
@@ -91,5 +88,13 @@ public class WalletView extends GenericView {
             System.out.println("||" + row + StringUtils.join(Collections.nCopies(longestRow - row.length(), " "), "") + "||");
         }
         System.out.println("  " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
+    }
+
+    public void showSetPricePrompt(String artTitle) {
+        System.out.printf("What price do you want to set the art piece \"\u001B[1m\033[3m%s\033[0m\u001B[0m\" to?\n", artTitle);
+    }
+
+    public void showMintSuccess(String artName, float artPrice) {
+        System.out.printf("You have successfully minted \"\u001B[1m\033[3m%s\033[0m\u001B[0m\" for $%.2f!\n", artName, artPrice);
     }
 }

@@ -13,8 +13,8 @@ public class LogIn {
     /**
      * Use-case class for logging in users.
      */
-    public LogIn() {
-        this.userRepository = UserRepository.getInstance();
+    public LogIn(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     /**
