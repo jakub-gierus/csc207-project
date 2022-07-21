@@ -63,27 +63,27 @@ public class WalletFacade {
     }
 
     public Map<UUID, String> getWalletArts() {
-        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, String> returnWalletArts = new HashMap<>();
-        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+        for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArts.put(walletArt.getValue().getId(), walletArt.getValue().getArt());
         }
         return returnWalletArts;
     }
 
     public Map<UUID, String> getWalletArtTitles() {
-        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, String> returnWalletArtTitles = new HashMap<>();
-        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+        for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArtTitles.put(walletArt.getValue().getId(), walletArt.getValue().getTitle());
         }
         return returnWalletArtTitles;
     }
 
     public Map<UUID, Float> getWalletArtPrices() {
-        Map<String, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, Float> returnWalletArtPrices = new HashMap<>();
-        for (Map.Entry<String, Art> walletArt : walletArts.entrySet()) {
+        for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArtPrices.put(walletArt.getValue().getId(), walletArt.getValue().getPrice());
         }
         return returnWalletArtPrices;

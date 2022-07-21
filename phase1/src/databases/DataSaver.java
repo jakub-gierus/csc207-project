@@ -89,7 +89,6 @@ public class DataSaver {
 
 
     public void saveAllArtData() throws IOException {
-        System.out.println(this.artsFilename);
         FileWriter artWriter = new FileWriter(this.filePath + this.artsFilename, false);
         for (Art art: this.artManager.getAllArt()) {
             artWriter.write(art.getWallet().getId() + ","  + art.getId() + "," + art.getArt().replace("\n", "newline") + "," + art.getTitle() + ","  + art.getPrice() + "\n");

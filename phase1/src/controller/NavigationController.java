@@ -206,16 +206,16 @@ public class NavigationController {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
-        for (Merchandise m : items) {
-            if(Wallet.class.isInstance(m)){
-                WalletFacade wf = new WalletFacade((Wallet) m);
-                actions.put(++actionID, this.createActionEntry("Wallet: " + wf.getName(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", wf.getId())));
-            } else {
-                ArtFacade af = new ArtFacade((Art) m);
-                actions.put(++actionID, this.createActionEntry("Art:"  + af.getTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", af.getId())));
-            }
-
-        }
+//        for (Merchandise m : items) {
+//            if(Wallet.class.isInstance(m)){
+//                WalletFacade wf = new WalletFacade((Wallet), );
+//                actions.put(++actionID, this.createActionEntry("Wallet: " + wf.getName(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", wf.getId())));
+//            } else {
+//                ArtFacade af = new ArtFacade((Art) m);
+//                actions.put(++actionID, this.createActionEntry("Art:"  + af.getTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", af.getId())));
+//            }
+//
+//        }
 
         if(actionID == 0){
             System.out.println("----------------------------------");

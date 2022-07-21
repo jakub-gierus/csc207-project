@@ -79,7 +79,7 @@ public class Wallet implements Merchandise{
      */
     public void addArt(Art newArt){
         String name = newArt.getTitle();
-        arts.put(name, newArt);
+        arts.put(newArt.getId(), newArt);
         this.calcNetWorth();
     }
 
