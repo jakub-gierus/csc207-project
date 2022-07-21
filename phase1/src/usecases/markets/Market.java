@@ -39,7 +39,6 @@ public class Market {
         this.userRepository = userRepository;
         this.listings =new HashMap<UUID, String>();
         this.itemsForSale = new ArrayList<>();
-
     }
 
     /**

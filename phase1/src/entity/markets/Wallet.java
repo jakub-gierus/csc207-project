@@ -8,7 +8,7 @@ import interfaces.Merchandise;
 import java.util.UUID;
 
 public class Wallet implements Merchandise{
-    private final HashMap<String, Art> arts = new HashMap<>();
+    private final HashMap<UUID, Art> arts = new HashMap<>();
     private double currency = 0;
     private boolean publicAccess;
     private User owner;
@@ -24,7 +24,7 @@ public class Wallet implements Merchandise{
     public Wallet(User owner, String walletName){
         this.owner = owner;
         this.walletName = walletName;
-        this.publicAccess = false;
+        this.publicAccess = true;
         id = UUID.randomUUID();
     }
 
@@ -38,7 +38,7 @@ public class Wallet implements Merchandise{
     public Wallet(User owner, String walletName, UUID walletID, double netWorth) {
         this.owner = owner;
         this.walletName = walletName;
-        this.publicAccess = false;
+        this.publicAccess = true;
         this.id = walletID;
         this.netWorth = netWorth;
     }
@@ -88,33 +88,33 @@ public class Wallet implements Merchandise{
      * @param art the piece of art to be removed from this wallet
      */
     public void removeArt(Art art) {
-        arts.remove(art.getTitle());
+        arts.remove(art.getId());
         this.calcNetWorth();
     }
 
     /**
      * Checks if this wallet contains the specified piece of art
-     * @param title the String title of the target art piece
+     * @param id the UUID id of the target art piece
      * @return whether the target art is in the wallet
      */
-    public boolean containsArt(String title){
-        return arts.containsKey(title);
+    public boolean containsArt(UUID id){
+        return arts.containsKey(id);
     }
 
     /**
      * Getter for an art piece stored in this wallet
-     * @param title the title of the target art piece
+     * @param id the id of the target art piece
      * @return the Art object specified by the title
      */
-    public Art getArt(String title){
-        return arts.get(title);
+    public Art getArt(UUID id){
+        return arts.get(id);
     }
 
     /**
      * Gets the mapping of all the art stored in this wallet
      * @return a map of <String, Art> containing all the art stored in this wallet
      */
-    public HashMap<String, Art> getAllArt(){
+    public HashMap<UUID, Art> getAllArt(){
         // this seems like a bad idea but might be useful for development for now
         return arts;
     }
@@ -183,7 +183,7 @@ public class Wallet implements Merchandise{
      * Gets a mapping of all the arts stored in this wallet
      * @return a mapping of <String, Art> containing all the art stored in this wallet
      */
-    public HashMap<String, Art> getArts() {
+    public HashMap<UUID, Art> getArts() {
         return arts;
     }
 

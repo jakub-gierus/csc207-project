@@ -1,5 +1,6 @@
 package controller;
 
+import entity.art.Art;
 import exceptions.market.WalletNotFoundException;
 import usecases.art.ArtFacade;
 import usecases.art.ArtGenerator;

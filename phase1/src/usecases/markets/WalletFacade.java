@@ -48,7 +48,7 @@ public class WalletFacade {
 
     public String getName(){return this.wallet.getName();}
 
-    public HashMap<String, Art> getAllWalletArt () {
+    public HashMap<UUID, Art> getAllWalletArt () {
         return this.wallet.getAllArt();
     }
 
@@ -99,4 +99,10 @@ public class WalletFacade {
         }
         return res;
     }
+
+    public void addArtToWallet(Art art){
+        this.wallet.addArt(art);
+    }
+
+    public UUID getId(){return this.wallet.getId();}
 }

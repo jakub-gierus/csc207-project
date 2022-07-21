@@ -3,8 +3,10 @@ package usecases.art;
 import entity.art.Art;
 import usecases.markets.WalletManager;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -51,8 +53,6 @@ public class ArtManager {
         this.library.put(newArt.getId(), newArt);
         return true;
     }
-
-
 
     /**
      * Returns the art pieces found in a specific wallet
