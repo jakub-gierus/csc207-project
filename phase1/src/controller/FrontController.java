@@ -46,10 +46,11 @@ public class FrontController {
 
     public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
-            if (ids.length > 0) {
-                dispatcher.dispatch(request, ids[0]);
-            } else if(ids.length == 2){
+            if (ids.length == 2) {
                 dispatcher.dispatch(request, ids[0], ids[1]);
+
+            } else if(ids.length >0){
+                dispatcher.dispatch(request, ids[0]);
             }
             else {
                 dispatcher.dispatch(request);
