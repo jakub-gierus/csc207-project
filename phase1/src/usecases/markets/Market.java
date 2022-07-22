@@ -32,7 +32,7 @@ public class Market {
         this.artManager = artManager;
         this.walletLibrary = walletLibrary;
         this.userRepository = userRepository;
-        this.listings = new HashMap<UUID, String>();
+        this.listings = new HashMap<>();
         this.itemsForSale = new ArrayList<>();
     }
 
@@ -54,7 +54,8 @@ public class Market {
     }
 
     /**
-     * @return List of Merchandise for sale
+     *
+     * @return a List of name of Merchandise listed on the market
      */
     public List<String> getNamesMerchandiseForSale(){
         List<String> result = new ArrayList<>();
@@ -91,9 +92,9 @@ public class Market {
         TradingUtil trader = new TradingUtil(paymentWallet, artObj.getWallet(), this.userRepository);
 
         boolean success = trader.makeTrade_Art_Money(artObj);
-        removeItem(artObj);
 
         if(success) {
+            removeItem(artObj);
             System.out.println("The trade has been made!");
         } else {
             System.out.println("The trade has been made!");
@@ -109,10 +110,9 @@ public class Market {
         // order of params doesn't matter in art-to-art -> look at implementation
         boolean success = trader.makeTrade_Art_Art(wantedArt,userArt);
 
-        removeItem(wantedArt);
-        removeItem(userArt);
-
         if(success) {
+            removeItem(wantedArt);
+            removeItem(userArt);
             System.out.println("The trade has been made!");
         } else {
             System.out.println("The trade has been made!");
