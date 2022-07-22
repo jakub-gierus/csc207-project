@@ -162,9 +162,11 @@ public class NavigationController {
                 actions.put(++actionID, this.createActionEntry("Art: " + artNames.get(id), () -> this.frontController.dispatchRequest("POST ART TO MARKET", id)));
             }
         }
+        System.out.println("----------------------------------");
         if(actionID == 0){
-            System.out.println("----------------------------------");
             System.out.println("--No Valid Merchandise Available--");
+        } else {
+            System.out.println("Select an Art from your Wallets to Post on the Market");
         }
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
@@ -176,8 +178,11 @@ public class NavigationController {
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
             actions.put(++actionID, this.createActionEntry( wallet.getName(), () -> this.frontController.dispatchRequest("MAKE TRADE WITH WALLET", wantedItemId,wallet.getId())));
         }
+        System.out.println("----------------------------------");
         if(actionID == 0){
             System.out.println("--No Wallets Available--");
+        } else {
+            System.out.println("Select a Wallet to Pay for the Trade");
         }
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
@@ -192,8 +197,11 @@ public class NavigationController {
         for (UUID artId : tradeableArt.keySet()) {
             actions.put(++actionID, this.createActionEntry( tradeableArt.get(artId), () -> this.frontController.dispatchRequest("MAKE A2A TRADE", wantedItemId,artId)));
         }
+        System.out.println("----------------------------------");
         if(actionID == 0){
             System.out.println("--No Wallets Available--");
+        } else {
+            System.out.println("Select an Art from Your Wallets to Trade");
         }
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
@@ -204,12 +212,13 @@ public class NavigationController {
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
         for (Merchandise m : items) {
-                actions.put(++actionID, this.createActionEntry(m.getTypeString() + m.getNameOrTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", m.getId())));
+                actions.put(++actionID, this.createActionEntry(m.getTypeString() + ": " + m.getNameOrTitle(), () -> this.frontController.dispatchRequest("SELECT WALLET FOR TRADE", m.getId())));
         }
-
+        System.out.println("----------------------------------");
         if(actionID == 0){
-            System.out.println("----------------------------------");
             System.out.println("--No Valid Merchandise Available--");
+        }else {
+            System.out.println("Select an Item on the Market to Buy");
         }
         actions.put(++actionID, this.createActionEntry("Go Back", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         this.genericActionSelect(actions);
