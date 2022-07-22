@@ -9,9 +9,9 @@ import view.ActionView;
 import java.util.*;
 
 public class NavigationController {
-    private FrontController frontController;
+    private final FrontController frontController;
 
-    private ActionView view;
+    private final ActionView view;
 
 
     /**
@@ -71,9 +71,11 @@ public class NavigationController {
         actions.put(++actionID, this.createActionEntry("Go to Market", () -> this.frontController.dispatchRequest("GET MARKET ACTIONS")));
         actions.put(++actionID, this.createActionEntry("Go to Wallets", () -> this.frontController.dispatchRequest("SELECT WALLET")));
         actions.put(++actionID, this.createActionEntry("Profile", () -> this.frontController.dispatchRequest("GET PROFILE ACTIONS")));
-        if (this.frontController.getActiveUser().get().getIsAdmin()) {
+
+        if (frontController.getActiveUser().isPresent() && frontController.getActiveUser().get().getIsAdmin()) {
             actions.put(++actionID, this.createActionEntry("Admin Actions", () -> this.frontController.dispatchRequest("GET ADMIN ACTIONS")));
         }
+
         actions.put(++actionID, this.createActionEntry("Logout", () -> this.frontController.dispatchRequest("LOGOUT")));
         actions.put(++actionID, this.createActionEntry("Exit Application", () -> this.frontController.dispatchRequest("EXIT APP")));
 
@@ -114,8 +116,10 @@ public class NavigationController {
     public void walletSelect() {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
-        for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
-            actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("GET WALLET ACTIONS", wallet.getId())));
+        if(frontController.getActiveUser().isPresent()) {
+            for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
+                actions.put(++actionID, this.createActionEntry("View Wallet - " + wallet.getName(), () -> this.frontController.dispatchRequest("GET WALLET ACTIONS", wallet.getId())));
+            }
         }
         if(actionID == 0){
             System.out.println("--No Wallets Available--");
@@ -154,12 +158,14 @@ public class NavigationController {
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
-        for (WalletFacade wf : this.frontController.getActiveUser().get().getTradeableWallets()) {
-            // get the tradeable art from facade
-            HashMap<UUID, String> artNames = wf.getTradeableArtNames();
+        if (frontController.getActiveUser().isPresent()) {
+            for (WalletFacade wf : this.frontController.getActiveUser().get().getTradeableWallets()) {
+                // get the tradeable art from facade
+                HashMap<UUID, String> artNames = wf.getTradeableArtNames();
 
-            for (UUID id : artNames.keySet()){
-                actions.put(++actionID, this.createActionEntry("Art: " + artNames.get(id), () -> this.frontController.dispatchRequest("POST ART TO MARKET", id)));
+                for (UUID id : artNames.keySet()) {
+                    actions.put(++actionID, this.createActionEntry("Art: " + artNames.get(id), () -> this.frontController.dispatchRequest("POST ART TO MARKET", id)));
+                }
             }
         }
         if(actionID == 0){

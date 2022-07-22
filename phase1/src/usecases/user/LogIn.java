@@ -7,7 +7,6 @@ import exceptions.user.IncorrectUserNameOrPasswordException;
 import exceptions.user.UserIsBannedException;
 
 public class LogIn {
-
     private final UserRepository userRepository;
 
     /**

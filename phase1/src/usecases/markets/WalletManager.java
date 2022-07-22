@@ -5,17 +5,12 @@ import entity.user.User;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 import usecases.user.FindUser;
-
 import java.util.*;
-
 
 public class WalletManager {
     double DEFAULT_INIT_CURRENCY = 100.00;
-    private static WalletManager WALLETMANAGER;
-
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
-
-    private final Map<UUID, Wallet> wallets = new HashMap<>();;
+    private final Map<UUID, Wallet> wallets = new HashMap<>();
     private final FindUser userFinder;
 
     /**
@@ -87,15 +82,6 @@ public class WalletManager {
     }
 
     /**
-     * Get the owner of a specified wallet
-     * @param wallet the target Wallet object
-     * @return a String of the username of the User who owns this wallet
-     */
-    public String getWalletOwner(Wallet wallet){
-        return wallet.getOwner();
-    }
-
-    /**
      * Get the List of Wallets a user owns
      * @param username the String name of the target user
      * @return a List of Wallets
@@ -109,6 +95,7 @@ public class WalletManager {
     public Wallet getWalletByID(UUID walletId) {
         return this.wallets.get(walletId);
     }
+
     /**
      * Get a User's wallet by its id
      * @param username the String name of the target user
@@ -140,7 +127,6 @@ public class WalletManager {
         return ids;
     }
 
-
     /**
      * Changes the owner of this wallet
      * @param wallet the Wallet object being swapped
@@ -166,18 +152,5 @@ public class WalletManager {
 
     public Wallet getWalletById(UUID id){
         return this.wallets.get(id);
-//
-//        Collection<Wallet> allWallets = this.wallets.values();
-//        for( Wallet w : allWallets){
-//            if (w.getId() == id){
-//                return w;
-//            }
-//        }
-//        return null;
     }
-
-
-
-
-
 }

@@ -80,6 +80,7 @@ public class TradingUtil {
      * @return True if trade is successful, false otherwise
      */
     public boolean makeTrade_Wallet_Wallet() {
+        // For Phase2
         // Getting Users
         String str1 = tradingFrom.getOwner();
         String str2 = tradingTo.getOwner();

@@ -3,8 +3,6 @@ package controller;
 import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
-import entity.markets.Wallet;
-import entity.user.User;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 import usecases.user.UserFacade;
@@ -21,17 +19,13 @@ public class FrontController {
 
     private Optional<UserFacade> activeUser;
     public final Scanner userInput = new Scanner(System.in);
-    private Dispatcher dispatcher;
-
-    private UserRepository userRepository;
-
-    private DataRetriever dataRetriever;
-    private DataSaver dataSaver;
-    private GenericView view;
-
-    private WalletManager walletManager;
-
-    private ArtManager artManager;
+    private final Dispatcher dispatcher;
+    private final UserRepository userRepository;
+    private final DataRetriever dataRetriever;
+    private final DataSaver dataSaver;
+    private final GenericView view;
+    private final WalletManager walletManager;
+    private final ArtManager artManager;
 
     public FrontController(Config config) {
         this.activeUser = Optional.empty();

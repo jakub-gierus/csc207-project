@@ -10,7 +10,6 @@ import interfaces.IBannableUser;
 import java.time.LocalDateTime;
 
 public class BanUser {
-
     private final UserRepository userRepository;
 
     /**

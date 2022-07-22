@@ -1,7 +1,6 @@
 package entity.user;
 
 import entity.markets.Wallet;
-
 import java.time.LocalDateTime;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -79,12 +78,6 @@ public class User {
      * @return true if this user's password is equal to provided password
      */
     public boolean validate(String password) { return this.password.equals(password); }
-
-    /**
-     * Getter for isLoggedIn
-     * @return true if User is logged in
-     */
-    public boolean getIsLoggedIn() { return this.isLoggedIn; }
 
     /**
      * Setter for isLoggedIn = true
@@ -171,10 +164,8 @@ public class User {
     /**
      * Removes a wallet from the user's wallets list
      * @param walletName the name of the wallet to be removed
-     * @return a bool if the action is successful
      */
-    public boolean removeWallet(Wallet walletName) {
+    public void removeWallet(Wallet walletName) {
         wallets.remove(walletName);
-        return true;
     }
 }

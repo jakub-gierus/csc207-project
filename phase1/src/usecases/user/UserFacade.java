@@ -18,13 +18,10 @@ import java.util.UUID;
 public class UserFacade {
     protected final UserRepository userRepository;
     private User user;
-
     protected final ChangeUser userChanger;
     protected final LogIn logInner;
     protected final CreateUser userCreator;
-
     private final WalletManager walletManager;
-
     private final ArtManager artManager;
 
     /**
@@ -100,7 +97,7 @@ public class UserFacade {
      * @param newPassword the user's desired new password.
      * @see ChangeUser
      */
-    public void changePassword (String oldPassword, String newPassword) {
+    public void changePassword(String oldPassword, String newPassword) {
         userChanger.changePassword(oldPassword, newPassword);
     }
 
@@ -134,7 +131,7 @@ public class UserFacade {
 
     /**
      * Get the number of wallets owned by this user
-     * @return an int of how many wallets are owned by this uesr
+     * @return an int of how many wallets are owned by this user
      */
     public List<WalletFacade> getTradeableWallets(){
         List<WalletFacade> res = new ArrayList<>();

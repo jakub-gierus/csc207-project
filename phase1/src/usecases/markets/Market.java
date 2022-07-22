@@ -1,27 +1,22 @@
 package usecases.markets;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-
 import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
-import entity.user.User;
 import interfaces.Merchandise;
 import usecases.art.ArtFacade;
 import usecases.art.ArtManager;
 
 import java.util.UUID;
 public class Market {
-
     List<Merchandise> itemsForSale; //All items being sold
-
     // <key,value> = <id of merchandise, name of owner>
     private final HashMap<UUID, String> listings;
-
     private final WalletManager walletLibrary;
     private final ArtManager artManager;
-
     private final UserRepository userRepository;
 
     /**
@@ -37,7 +32,7 @@ public class Market {
         this.artManager = artManager;
         this.walletLibrary = walletLibrary;
         this.userRepository = userRepository;
-        this.listings =new HashMap<UUID, String>();
+        this.listings = new HashMap<UUID, String>();
         this.itemsForSale = new ArrayList<>();
     }
 
@@ -46,7 +41,7 @@ public class Market {
      * @param merchandise the merchandise being checked
      * @return a bool of whether this item is for sale
      */
-    public boolean checkitem(Merchandise merchandise){
+    public boolean checkItem(Merchandise merchandise){
         return itemsForSale.contains(merchandise);
     }
 
@@ -59,8 +54,7 @@ public class Market {
     }
 
     /**
-     *
-     * @return
+     * @return List of Merchandise for sale
      */
     public List<String> getNamesMerchandiseForSale(){
         List<String> result = new ArrayList<>();
@@ -83,7 +77,7 @@ public class Market {
             return false;
         }
         // check if art isn't already on the market
-        if(!checkitem(art)){
+        if(!checkItem(art)){
             this.itemsForSale.add(art);
             this.listings.put(art.getId(),art.getOwner());
         }

@@ -10,9 +10,7 @@ public class WalletView extends GenericView {
     /**
      * The View shown to users interacting with their wallet
      */
-    public WalletView(){
-
-    }
+    public WalletView(){}
 
     /**
      * Shows how much cash the user has

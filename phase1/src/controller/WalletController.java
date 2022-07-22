@@ -1,8 +1,6 @@
 package controller;
 
-import entity.art.Art;
 import exceptions.market.WalletNotFoundException;
-import usecases.art.ArtFacade;
 import usecases.art.ArtGenerator;
 import usecases.art.ArtManager;
 import usecases.markets.WalletFacade;
@@ -10,23 +8,17 @@ import usecases.markets.WalletManager;
 import view.WalletView;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
+
+// this class might be overstepping the controller bounds
 
 public class WalletController {
 
-    private FrontController frontController;
-
-    private WalletManager walletManager;
-
+    private final FrontController frontController;
+    private final WalletManager walletManager;
     private WalletFacade wallet;
-
-    private WalletView view;
-
-    private ArtManager artManager;
-    // this class might be overstepping the controller bounds
+    private final WalletView view;
+    private final ArtManager artManager;
 
     /**
      * Controller used for wallet related tasks.
@@ -102,7 +94,7 @@ public class WalletController {
 
     /**
      * create a new piece of art and adds it to the system
-     * @param walletID
+     * @param walletID the id of wallet where the new art will be located
      */
     public void mintArt(UUID walletID) {
         this.retrieveWallet(walletID);

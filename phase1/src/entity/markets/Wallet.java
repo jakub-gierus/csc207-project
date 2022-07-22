@@ -78,9 +78,8 @@ public class Wallet implements Merchandise{
      * @param newArt an Art object that is added to this wallet
      */
     public void addArt(Art newArt){
-        String name = newArt.getTitle();
         arts.put(newArt.getId(), newArt);
-        this.calcNetWorth();
+        calcNetWorth();
     }
 
     /**
@@ -89,7 +88,7 @@ public class Wallet implements Merchandise{
      */
     public void removeArt(Art art) {
         arts.remove(art.getId());
-        this.calcNetWorth();
+        calcNetWorth();
     }
 
     /**
@@ -233,5 +232,5 @@ public class Wallet implements Merchandise{
 
     public String getTypeString(){
         return "Wallet";
-    };
+    }
 }

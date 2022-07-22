@@ -1,7 +1,6 @@
 package controller;
 
 import usecases.art.ArtManager;
-import usecases.markets.PublicWalletRegistry;
 import usecases.markets.WalletManager;
 
 import java.util.UUID;

@@ -3,13 +3,11 @@ package controller;
 import view.ProfileView;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class ProfileController {
 
-    private ProfileView view;
-    private FrontController frontController;
+    private final ProfileView view;
+    private final FrontController frontController;
 
     /**
      * A controller used for actions pertaining to the user's profile

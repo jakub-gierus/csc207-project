@@ -11,10 +11,8 @@ import java.util.*;
 public class WalletFacade {
 
     private Wallet wallet;
-
-    private WalletManager walletManager;
-
-    private ArtManager artManager;
+    private final WalletManager walletManager;
+    private final ArtManager artManager;
 
     /**
      * A facade for interacting with Wallet objects

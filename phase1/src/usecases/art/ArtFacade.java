@@ -1,14 +1,11 @@
 package usecases.art;
 
 import entity.art.Art;
-
-
 import java.util.UUID;
 
 public class ArtFacade {
-    private Art art;
-
-    private ArtManager artManager;
+    private final Art art;
+    private final ArtManager artManager;
 
     /**
      * A facade used for interacting with the art object

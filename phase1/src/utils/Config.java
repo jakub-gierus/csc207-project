@@ -1,17 +1,12 @@
 package utils;
 
 public class Config {
-    private String rootDirectory;
-
-    private String basicUserFilePath;
-
-    private String adminUserFilePath;
-
-    private String eventFilePath;
-
-    private String walletFilePath;
-
-    private String artsFilePath;
+    private final String rootDirectory;
+    private final String basicUserFilePath;
+    private final String adminUserFilePath;
+    private final String eventFilePath;
+    private final String walletFilePath;
+    private final String artsFilePath;
 
     /**
      * A data class containing Strings of file paths where data is stored

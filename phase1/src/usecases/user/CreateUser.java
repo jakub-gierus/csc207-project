@@ -11,7 +11,6 @@ import usecases.markets.WalletManager;
 
 public class CreateUser {
     private final UserRepository userRepository;
-
     private final WalletManager walletManager;
 
     /**

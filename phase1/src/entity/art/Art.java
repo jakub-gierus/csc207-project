@@ -1,16 +1,16 @@
 package entity.art;
 
 import java.util.UUID;
-
 import entity.markets.Wallet;
 import interfaces.Merchandise;
+
 public class Art implements Merchandise{
-    final private String asciiString;
+    private final String asciiString;
     private String title;
     private float price; // this will store the last price the piece was sold for
     private Wallet wallet;
     private boolean isTradable;
-    final public UUID id;
+    public final UUID id;
 
     /**
      * An entity class that represents a piece of ASCII artwork
@@ -47,13 +47,13 @@ public class Art implements Merchandise{
      */
     public UUID getId(){return id;}
 
-    /**
-     * Changes the title of the art piece
-     * @param newTitle a String that is to be the piece's new title
-     */
+    /*
+       Changes the title of the art piece
+       @param newTitle a String that is to be the piece's new title
     public void changeTitle(String newTitle){
         title = newTitle;
     }
+    */
 
     /**
      * Getter for the piece's title
@@ -125,7 +125,6 @@ public class Art implements Merchandise{
 
     public String getTypeString(){
         return "Art";
-    };
-
+    }
 
 }

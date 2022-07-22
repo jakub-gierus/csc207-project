@@ -5,15 +5,12 @@ import entity.user.AdminUser;
 import entity.user.User;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdminFacade extends UserFacade {
-
     private final BanUser userBanner;
-
     private final FindUser userFinder;
     private final CreateUser userCreater;
 

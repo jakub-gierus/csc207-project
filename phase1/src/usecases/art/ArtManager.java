@@ -2,7 +2,6 @@ package usecases.art;
 
 import entity.art.Art;
 import usecases.markets.WalletManager;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,14 +43,13 @@ public class ArtManager {
      * Adds an art piece to the library if it does not already exist in the library
      * @param art -> the new art piece to add to the library
      * */
-    public boolean createNewArt(String artName, String art, float artPrice, UUID walletID){
+    public void createNewArt(String artName, String art, float artPrice, UUID walletID){
         //add to library
         Art newArt = new Art(artName, art);
         newArt.setPrice(artPrice);
         this.walletManager.getWalletById(walletID).addArt(newArt);
         newArt.setWallet(this.walletManager.getWalletById(walletID));
         this.library.put(newArt.getId(), newArt);
-        return true;
     }
 
     /**

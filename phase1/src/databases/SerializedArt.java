@@ -3,11 +3,11 @@ package databases;
 import java.util.UUID;
 
 public class SerializedArt {
-    private String artTitle;
-    private UUID walletID;
-    private UUID artID;
-    private String art;
-    private float price;
+    private final String artTitle;
+    private final UUID walletID;
+    private final UUID artID;
+    private final String art;
+    private final float price;
 
 
     public SerializedArt(String artTitle, UUID walletID, UUID artID, String art, float price) {
@@ -29,7 +29,6 @@ public class SerializedArt {
     public UUID getArtID() {
         return artID;
     }
-
 
     public String getArt() {
         return art;

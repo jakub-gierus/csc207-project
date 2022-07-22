@@ -42,7 +42,9 @@ public class UserRepository {
                               List<SerializedArt> artData,
                               WalletManager walletManager,
                               ArtManager artManager) {
-        HashMap<String, User> users = new HashMap<>();
+
+        // HashMap<String, User> users = new HashMap<>();
+
         for (Entry<String, String> userDatum : adminUserData) {
             this.users.put(userDatum.getKey(),
                     new AdminUser(userDatum.getKey(), userDatum.getValue()));

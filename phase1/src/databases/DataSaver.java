@@ -18,11 +18,9 @@ public class DataSaver {
     private final String basicUsersFilename;
     private final String adminUsersFilename;
     private final String eventsFilename;
-
     private final String artsFilename;
     private final String walletsFilename;
     private final UserRepository userRepository;
-
     private final ArtManager artManager;
 
     /**

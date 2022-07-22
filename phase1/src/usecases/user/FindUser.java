@@ -12,7 +12,6 @@ import java.util.List;
 
 public class FindUser {
     private final UserRepository userRepository;
-
     private final WalletManager walletManager;
 
     /**
