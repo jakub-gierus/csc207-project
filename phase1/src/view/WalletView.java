@@ -56,9 +56,12 @@ public class WalletView extends GenericView {
 
     /**
      * Display a gallery of the user's wallets
-     * @param artPieces a List of ArtFacades
+     * @param artPieces a Map of ArtFacades <UUID, String>
+     * @param artTitles a Map of ArtTitles <UUID, String>
+     * @param artPrices a Map of ArtPrices <UUID, float>
      */
     public void showWalletGallery(Map<UUID, String> artPieces, Map<UUID, String> artTitles, Map<UUID, Float> artPrices) {
+        // why is artPrices a map of <UUID, Float> instead of <UUID, float> ?
         System.out.println("----------------------------------");
         System.out.println("-Art Gallery-");
 
@@ -77,6 +80,10 @@ public class WalletView extends GenericView {
         System.out.println("What do you want your minted art to be called (the title will automatically be used to generate an ascii art piece)?");
     }
 
+    /**
+     * Shows the piece of art
+     * @param art the ASCII value of the art
+     */
     public void showArt(String art) {
         List<String> artRows = Arrays.asList(art.split("\n"));
         int longestRow = artRows.stream().max(Comparator.comparingInt(String::length)).get().length();
@@ -88,10 +95,19 @@ public class WalletView extends GenericView {
         System.out.println("  " + StringUtils.join(Collections.nCopies(longestRow, "="), ""));
     }
 
+    /**
+     * Ask the user to set the price for the art
+     * @param artTitle the String title of the art
+     */
     public void showSetPricePrompt(String artTitle) {
         System.out.printf("What price do you want to set the art piece \"\u001B[1m\033[3m%s\033[0m\u001B[0m\" to?\n", artTitle);
     }
 
+    /**
+     * Tells the user that the art has been succesfully minted
+     * @param artName the String name of the art
+     * @param artPrice the float price of the art
+     */
     public void showMintSuccess(String artName, float artPrice) {
         System.out.printf("You have successfully minted \"\u001B[1m\033[3m%s\033[0m\u001B[0m\" for $%.2f!\n", artName, artPrice);
     }

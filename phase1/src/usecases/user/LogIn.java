@@ -11,6 +11,7 @@ public class LogIn {
 
     /**
      * Use-case class for logging in users.
+     * @param userRepository an UserRepository instance
      */
     public LogIn(UserRepository userRepository) {
         this.userRepository = userRepository;

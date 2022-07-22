@@ -25,6 +25,9 @@ public class Market {
      * This class facilitates trading by presenting necessary information to the controllers and make calls to
      * TradingUtil objects that actually make the trade
      * Stored in MARKETCONTROLLER (which is initialized exactly ONCE in FRONTCONTROLLER)
+     * @param userRepository an UserRepository
+     * @param artManager an ArtManager
+     * @param walletLibrary a WalletManager
      */
 
     public Market(UserRepository userRepository, ArtManager artManager, WalletManager walletLibrary) {
@@ -71,6 +74,11 @@ public class Market {
         return result;
     }
 
+    /**
+     * Adds a piece of art to the market
+     * @param id the UUID of the art piece
+     * @return a boolean on whether the operation is successful, true if the art isn't already on the market
+     */
     public boolean addArtToMarket(UUID id){
         Art art = artManager.getArt(id);
         //final check before placing on market
@@ -85,6 +93,11 @@ public class Market {
         return true;
     }
 
+    /**
+     * Makes a trade with cash currency
+     * @param artId the UUId of the art being bought
+     * @param paymentWalletId the UUID of the wallet used to pay
+     */
     public void makeTradeWithCash(UUID artId, UUID paymentWalletId){
         Art artObj = this.artManager.getArt(artId);
         Wallet paymentWallet = this.walletLibrary.getWalletById(paymentWalletId);
@@ -101,6 +114,11 @@ public class Market {
         }
     }
 
+    /**
+     * Makes a trade with another piece of art
+     * @param wantedArtId the UUID of the wanted art
+     * @param userArtId the UUID of the art being used as payment
+     */
     public void makeTradeWithArt(UUID wantedArtId, UUID userArtId){
         Art wantedArt = this.artManager.getArt(wantedArtId);
         Art userArt = this.artManager.getArt(userArtId);
@@ -119,6 +137,10 @@ public class Market {
         }
     }
 
+    /**
+     * Remove an item from the listings
+     * @param m the Merchandise object being removed
+     */
     public void removeItem(Merchandise m){
         // remove listing from marketplace
         itemsForSale.remove(m);

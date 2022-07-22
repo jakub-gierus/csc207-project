@@ -14,6 +14,7 @@ public class BanUser {
 
     /**
      * Use-cass class for banning users.
+     * @param userRepository an UserRepository instance
      */
     public BanUser(UserRepository userRepository ) {
         this.userRepository = userRepository;

@@ -17,6 +17,8 @@ public class Dispatcher {
     /**
      * Receives the user's command and determines what controller and method to call
      * @param frontController the FrontController instance that will be used
+     * @param walletLibrary the WalletManager instance that will be used
+     * @param artLibrary the ArtManager instance that will be used
      */
     public Dispatcher(FrontController frontController, WalletManager walletLibrary, ArtManager artLibrary) {
         this.frontController = frontController;
@@ -94,6 +96,13 @@ public class Dispatcher {
             this.navigationController.selectWalletToMakeTrade(id);
         }
     }
+
+    /**
+     * Receive a request and two UUID and makes the corresponding call to a controller method that require 2 UUIDs
+     * @param request a String in "THIS FORMAT" used to determine what to call
+     * @param id1 a UUID object of the first target
+     * @param id2 a UUID object of the second target
+     */
     public void dispatch(String request, UUID id1, UUID id2){
         if (request.equalsIgnoreCase("MAKE TRADE WITH WALLET")) {
             // item id, wallet id

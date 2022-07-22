@@ -18,6 +18,9 @@ public class AdminFacade extends UserFacade {
      * An umbrella/facade use-case class for an admin user. Primarily, it is used
      * as a skeleton for other use-cases related to admin user actions.
      * @param user entity.user.AdminUser entity methods and use-cases will interact with.
+     * @param userRepository an UserRepository instance
+     * @param walletManager a WalletManager instance
+     * @param artManager an ArtManager instance
      */
     public AdminFacade(AdminUser user, UserRepository userRepository, WalletManager walletManager, ArtManager artManager ) {
         super(user, userRepository, walletManager, artManager);
@@ -55,6 +58,11 @@ public class AdminFacade extends UserFacade {
     public void deleteUser(final String username) {
         userCreator.deleteUser(username);
     }
+
+    /**
+     * Gets all the UserFacade objects
+     * @return a List of UserFacades
+     */
     public List<UserFacade> getAllUsers() {
 
 

@@ -25,6 +25,9 @@ public class DataSaver {
 
     /**
      * Class that saves all user and event data to CSVs.
+     * @param config a Config object that stores the location of files
+     * @param artManager the ArtManager instance that will be used
+     * @param userRepository the UserRepository instance that will be used
      */
     public DataSaver(Config config, ArtManager artManager, UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -85,7 +88,10 @@ public class DataSaver {
         walletWriter.close();
     }
 
-
+    /**
+     * save data of all arts
+     * @throws IOException if file path is invalid
+     */
     public void saveAllArtData() throws IOException {
         FileWriter artWriter = new FileWriter(this.filePath + this.artsFilename, false);
         for (Art art: this.artManager.getAllArt()) {

@@ -17,6 +17,7 @@ public class TradingUtil {
      * Initializes a TradingUtil object for each trade
      * @param tradingTo Wallet that <art> is going to
      * @param tradingFrom Wallet where <art> originally comes from
+     * @param userRepository a UserRepository instance
      */
     public TradingUtil(Wallet tradingTo, Wallet tradingFrom, UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -26,6 +27,7 @@ public class TradingUtil {
 
     /**
      * Trades art <art> for money between two wallets. Assumes <tradingFrom> contains <art>
+     * @param art the Art object to be traded
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Money(Art art) {

@@ -16,6 +16,8 @@ public class FindUser {
 
     /**
      * Find a user from the repository
+     * @param userRepository an UserRepository instance
+     * @param walletManager a WalletManager instance
      */
     public FindUser(UserRepository userRepository, WalletManager walletManager) {
         this.userRepository = userRepository;

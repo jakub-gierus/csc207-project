@@ -144,6 +144,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Present actions pertaining to the market to the user
+     */
     public void marketActionSelect(){
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -154,6 +157,9 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents actions to the user pertaining to posting merchandise onto the market
+     */
     public void selectMerchandiseToPostToMarket(){
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -178,11 +184,15 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
-    public void selectWalletToMakeTrade(UUID wantedItemId){
+    /**
+     * Presents actions to the user pertaining to selecting a wallet to make trades with
+     * @param walletID the UUID of the target wallet
+     */
+    public void selectWalletToMakeTrade(UUID walletID){
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
-            actions.put(++actionID, this.createActionEntry( wallet.getName(), () -> this.frontController.dispatchRequest("MAKE TRADE WITH WALLET", wantedItemId,wallet.getId())));
+            actions.put(++actionID, this.createActionEntry( wallet.getName(), () -> this.frontController.dispatchRequest("MAKE TRADE WITH WALLET", walletID,wallet.getId())));
         }
         System.out.println("----------------------------------");
         if(actionID == 0){
@@ -194,6 +204,11 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents actions to the user pertaining to picking out a piece of Art from a specified wallet for trade
+     * @param wantedItemId the UUID of the wanted merchandise
+     * @param walletId the UUID of the wallet the art is in
+     */
     public void selectArtFromWalletForTrade(UUID wantedItemId, UUID walletId){
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
@@ -213,6 +228,10 @@ public class NavigationController {
         this.genericActionSelect(actions);
     }
 
+    /**
+     * Presents actions to the user pertaining to the selection of merchandise from the market
+     * @param items a List of Merchandise objects, which are the items that can be purchased
+     */
     public void selectMarketItemToBuy(List<Merchandise> items){
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;

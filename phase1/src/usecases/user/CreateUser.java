@@ -15,6 +15,8 @@ public class CreateUser {
 
     /**
      * Use-case class for creating and deleting users
+     * @param userRepository an UserRepository instance
+     * @param walletManager a WalletManager instance
      */
     public CreateUser(UserRepository userRepository, WalletManager walletManager) {
 

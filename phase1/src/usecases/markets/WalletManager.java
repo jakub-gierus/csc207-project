@@ -28,6 +28,7 @@ public class WalletManager {
 
     /**
      * A use case level class for wallet focused actions
+     * @param userRepository an UserRepository instance to be used 
      */
     public WalletManager(UserRepository userRepository){
         this.userFinder = new FindUser(userRepository, this);
@@ -49,6 +50,15 @@ public class WalletManager {
         return wallet;
     }
 
+    /**
+     * Creates a new wallet, overloaded to specify the access lvl, name, and stored currency
+     * @param owner the User object that will own this wallet
+     * @param walletName the String name this wallet will have
+     * @param access the bool of whether this wallet will be public
+     * @param walletID the UUID of this wallet
+     * @param currency the double of how much currency this wallet contains
+     * @return the newly created Wallet object
+     */
     public Wallet createWallet(User owner, String walletName, boolean access, UUID walletID, double currency) {
         Wallet wallet = new Wallet(owner, walletName, walletID , currency);
         if (access) {
@@ -150,6 +160,11 @@ public class WalletManager {
         this.changeOwner(wallet, receiver);
     }
 
+    /**
+     * Gets the wallet object using its ID
+     * @param id the UUID of the target wallet
+     * @return the target Wallet object
+     */
     public Wallet getWalletById(UUID id){
         return this.wallets.get(id);
     }

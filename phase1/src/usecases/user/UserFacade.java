@@ -28,6 +28,9 @@ public class UserFacade {
      * An umbrella/facade use-case class for a user. Used as an interface to most user use-cases for controller
      * classes.
      * @param user User entity the methods and use-cases will interact with.
+     * @param userRepository a UserRepository instance
+     * @param walletManager a WalletManager instance
+     * @param artManager an ArtManager instance
      * @see User
      */
     public UserFacade(User user, UserRepository userRepository, WalletManager walletManager, ArtManager artManager) {
@@ -85,6 +88,7 @@ public class UserFacade {
 
     /**
      * Getter for all events of a certain type related to a user.
+     * @param type a String of the type of event
      * @return a list of key-value pairs for each event's time and type, respectively, of a certain type for this user.
      */
     public List<Map.Entry<LocalDateTime, String>> getEventsByType(String type) {
@@ -170,6 +174,11 @@ public class UserFacade {
         this.user.addWallet(createdWallet);
     }
 
+    /**
+     * Gets a WalletFacade by its ID
+     * @param id the UUID of the target wallet
+     * @return the WalletFacade object
+     */
     public WalletFacade getWalletById(UUID id){
         for (Wallet w : this.getWallets() ){
             if (w.getId() == id){
@@ -179,10 +188,18 @@ public class UserFacade {
         return null;
     }
 
+    /**
+     * Get the WalletManager object
+     * @return a WalletManager object
+     */
     public WalletManager getWalletManager() {
         return this.walletManager;
     }
 
+    /**
+     * Get the ArtManager object
+     * @return an ArtManager object
+     */
     public ArtManager getArtManager() {
         return this.artManager;
     }

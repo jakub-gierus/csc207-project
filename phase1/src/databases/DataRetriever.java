@@ -18,6 +18,7 @@ public class DataRetriever {
     private final String artsFilename;
     /**
      * Class that retrieves user data from CSVs,
+     * @param config a Config object that stores the location of files
      */
     public DataRetriever(Config config){
         this.filePath = config.getRootDirectory();
@@ -104,6 +105,11 @@ public class DataRetriever {
         return walletData;
     }
 
+    /**
+     * Reads arts data and readies it
+     * @return a List of SerializedArt objects
+     * @throws IOException if the file path is invalid
+     */
     public List<SerializedArt> readArtData() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(this.filePath + this.artsFilename));
         String line;

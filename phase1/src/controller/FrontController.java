@@ -27,6 +27,11 @@ public class FrontController {
     private final WalletManager walletManager;
     private final ArtManager artManager;
 
+    /**
+     * The controller that acts as the intermediary between the user and the system.
+     * All other controllers goes through this.
+     * @param config a Config object that stores the locations of data files.
+     */
     public FrontController(Config config) {
         this.activeUser = Optional.empty();
         this.userRepository = new UserRepository();
@@ -40,10 +45,19 @@ public class FrontController {
         this.loadDatabase();
     }
 
+    /**
+     * Checks whether the user is logged in
+     * @return a boolean, true if the user is logged in
+     */
     public boolean isLoggedIn() {
         return this.activeUser.isPresent();
     }
 
+    /**
+     * Sends a dispatch request to the dispatcher
+     * @param request a String request in "THIS FORMAT"
+     * @param ids UUID object of targets of the request (1 to 2, optional)
+     */
     public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
             if (ids.length == 2) {
@@ -106,14 +120,26 @@ public class FrontController {
         System.exit(0);
     }
 
+    /**
+     * Returns the walletManager object
+     * @return a WalletManager object
+     */
     public WalletManager getWalletManager() {
         return this.walletManager;
     }
 
+    /**
+     * Returns the artManager object
+     * @return a ArtManager object
+     */
     public ArtManager getArtManager() {
         return this.artManager;
     }
 
+    /**
+     * Return a UserRepository object
+     * @return a UserRepository object
+     */
     public UserRepository getUserRepository() {
         return this.userRepository;
     }
