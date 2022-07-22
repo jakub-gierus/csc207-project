@@ -80,6 +80,12 @@ public class User {
     public boolean validate(String password) { return this.password.equals(password); }
 
     /**
+     * Getter for isLoggedIn
+     * @return true if User is logged in
+     */
+    public boolean getIsLoggedIn() { return this.isLoggedIn; }
+
+    /**
      * Setter for isLoggedIn = true
      * @param bool whether the user is logged in
      */
