@@ -10,11 +10,11 @@ import interfaces.IBannableUser;
 import java.time.LocalDateTime;
 
 public class BanUser {
-
     private final UserRepository userRepository;
 
     /**
      * Use-cass class for banning users.
+     * @param userRepository an UserRepository instance
      */
     public BanUser(UserRepository userRepository ) {
         this.userRepository = userRepository;

@@ -1,17 +1,12 @@
 package utils;
 
 public class Config {
-    private String rootDirectory;
-
-    private String basicUserFilePath;
-
-    private String adminUserFilePath;
-
-    private String eventFilePath;
-
-    private String walletFilePath;
-
-    private String artsFilePath;
+    private final String rootDirectory;
+    private final String basicUserFilePath;
+    private final String adminUserFilePath;
+    private final String eventFilePath;
+    private final String walletFilePath;
+    private final String artsFilePath;
 
     /**
      * A data class containing Strings of file paths where data is stored
@@ -20,6 +15,7 @@ public class Config {
      * @param adminUserFilePath the String of the path of the Admin User storage file
      * @param eventFilePath the String of the path of the events storage file
      * @param walletFilePath the String of the path of the wallets storage file
+     * @param artsFilePath  the String of the path of the arts storage file
      */
     public Config(String rootDirectory,
                   String basicUserFilePath,
@@ -73,5 +69,9 @@ public class Config {
      */
     public String getWalletFilePath() { return this.walletFilePath; }
 
+    /**
+     * Get the path of the art file
+     * @return a String for the path to the art file
+     */
     public String getArtsFilePath() { return this.artsFilePath; }
 }

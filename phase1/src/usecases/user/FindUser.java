@@ -12,11 +12,12 @@ import java.util.List;
 
 public class FindUser {
     private final UserRepository userRepository;
-
     private final WalletManager walletManager;
 
     /**
      * Find a user from the repository
+     * @param userRepository an UserRepository instance
+     * @param walletManager a WalletManager instance
      */
     public FindUser(UserRepository userRepository, WalletManager walletManager) {
         this.userRepository = userRepository;

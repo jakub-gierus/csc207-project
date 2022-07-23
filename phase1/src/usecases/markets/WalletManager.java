@@ -5,17 +5,12 @@ import entity.user.User;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 import usecases.user.FindUser;
-
 import java.util.*;
-
 
 public class WalletManager {
     double DEFAULT_INIT_CURRENCY = 100.00;
-    private static WalletManager WALLETMANAGER;
-
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
-
-    private final Map<UUID, Wallet> wallets = new HashMap<>();;
+    private final Map<UUID, Wallet> wallets = new HashMap<>();
     private final FindUser userFinder;
 
     /**
@@ -33,6 +28,7 @@ public class WalletManager {
 
     /**
      * A use case level class for wallet focused actions
+     * @param userRepository an UserRepository instance to be used 
      */
     public WalletManager(UserRepository userRepository){
         this.userFinder = new FindUser(userRepository, this);
@@ -54,6 +50,15 @@ public class WalletManager {
         return wallet;
     }
 
+    /**
+     * Creates a new wallet, overloaded to specify the access lvl, name, and stored currency
+     * @param owner the User object that will own this wallet
+     * @param walletName the String name this wallet will have
+     * @param access the bool of whether this wallet will be public
+     * @param walletID the UUID of this wallet
+     * @param currency the double of how much currency this wallet contains
+     * @return the newly created Wallet object
+     */
     public Wallet createWallet(User owner, String walletName, boolean access, UUID walletID, double currency) {
         Wallet wallet = new Wallet(owner, walletName, walletID , currency);
         if (access) {
@@ -87,15 +92,6 @@ public class WalletManager {
     }
 
     /**
-     * Get the owner of a specified wallet
-     * @param wallet the target Wallet object
-     * @return a String of the username of the User who owns this wallet
-     */
-    public String getWalletOwner(Wallet wallet){
-        return wallet.getOwner();
-    }
-
-    /**
      * Get the List of Wallets a user owns
      * @param username the String name of the target user
      * @return a List of Wallets
@@ -109,6 +105,7 @@ public class WalletManager {
     public Wallet getWalletByID(UUID walletId) {
         return this.wallets.get(walletId);
     }
+
     /**
      * Get a User's wallet by its id
      * @param username the String name of the target user
@@ -140,7 +137,6 @@ public class WalletManager {
         return ids;
     }
 
-
     /**
      * Changes the owner of this wallet
      * @param wallet the Wallet object being swapped
@@ -164,20 +160,12 @@ public class WalletManager {
         this.changeOwner(wallet, receiver);
     }
 
+    /**
+     * Gets the wallet object using its ID
+     * @param id the UUID of the target wallet
+     * @return the target Wallet object
+     */
     public Wallet getWalletById(UUID id){
         return this.wallets.get(id);
-//
-//        Collection<Wallet> allWallets = this.wallets.values();
-//        for( Wallet w : allWallets){
-//            if (w.getId() == id){
-//                return w;
-//            }
-//        }
-//        return null;
     }
-
-
-
-
-
 }

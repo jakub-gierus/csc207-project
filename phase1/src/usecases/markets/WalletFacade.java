@@ -11,14 +11,14 @@ import java.util.*;
 public class WalletFacade {
 
     private Wallet wallet;
-
-    private WalletManager walletManager;
-
-    private ArtManager artManager;
+    private final WalletManager walletManager;
+    private final ArtManager artManager;
 
     /**
      * A facade for interacting with Wallet objects
      * @param wallet the Wallet object that's being interacted with
+     * @param walletManager a WalletManager instance
+     * @param artManager an ArtManager instance
      */
     public WalletFacade(Wallet wallet, WalletManager walletManager, ArtManager artManager) {
         this.wallet = wallet;
@@ -62,6 +62,10 @@ public class WalletFacade {
         this.wallet = this.walletManager.getUserWalletByID(username, walletID);
     }
 
+    /**
+     * Get all the art from this wallet
+     * @return a Mapping of the format <UUID of the art, String of the ASCII value of the art>
+     */
     public Map<UUID, String> getWalletArts() {
         Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, String> returnWalletArts = new HashMap<>();
@@ -71,6 +75,10 @@ public class WalletFacade {
         return returnWalletArts;
     }
 
+    /**
+     * Get all the titles from the art in this wallet
+     * @return a Mapping of the format <UUID of the art, String of the art's title>
+     */
     public Map<UUID, String> getWalletArtTitles() {
         Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, String> returnWalletArtTitles = new HashMap<>();
@@ -80,6 +88,10 @@ public class WalletFacade {
         return returnWalletArtTitles;
     }
 
+    /**
+     * Gets the prices of all the art in this wallet
+     * @return a mapping in the format <UUID of the art piece, float of the price>
+     */
     public Map<UUID, Float> getWalletArtPrices() {
         Map<UUID, Art> walletArts = this.wallet.getArts();
         Map<UUID, Float> returnWalletArtPrices = new HashMap<>();
@@ -89,6 +101,10 @@ public class WalletFacade {
         return returnWalletArtPrices;
     }
 
+    /**
+     * Gets the name of all the tradable art
+     * @return a mapping in the format <UUID of the art, String name of the art>
+     */
     public HashMap<UUID, String> getTradeableArtNames(){
         HashMap<UUID, String> res = new HashMap<>();
         for(Art a : getAllWalletArt().values()){
@@ -100,9 +116,17 @@ public class WalletFacade {
         return res;
     }
 
+    /**
+     * Adds a piece of art to the wallet
+     * @param art the Art object being added
+     */
     public void addArtToWallet(Art art){
         this.wallet.addArt(art);
     }
 
+    /**
+     * Gets the UUID of this wallet
+     * @return the UUID of this wallet
+     */
     public UUID getId(){return this.wallet.getId();}
 }

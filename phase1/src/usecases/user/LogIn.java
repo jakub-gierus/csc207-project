@@ -7,11 +7,11 @@ import exceptions.user.IncorrectUserNameOrPasswordException;
 import exceptions.user.UserIsBannedException;
 
 public class LogIn {
-
     private final UserRepository userRepository;
 
     /**
      * Use-case class for logging in users.
+     * @param userRepository an UserRepository instance
      */
     public LogIn(UserRepository userRepository) {
         this.userRepository = userRepository;

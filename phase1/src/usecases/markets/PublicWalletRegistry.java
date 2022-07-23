@@ -12,6 +12,7 @@ public class PublicWalletRegistry {
 
     /**
      * This class stores all the wallet's that are public
+     * For Phase2
      */
     public PublicWalletRegistry(){
         // TODO: Either make a separate file for storing/retrieving public wallets to add to this registry when wallet data is being retrieved

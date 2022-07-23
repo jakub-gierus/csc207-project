@@ -14,6 +14,10 @@ public class ArtGenerator {
 
     Map<String, String> asciiCategories = new HashMap<>();
 
+    /**
+     * Generates a piece of art
+     * @throws IOException if file name is invalid
+     */
     public ArtGenerator() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("./storage/asciiCategories.csv"));
         String line;
@@ -23,6 +27,11 @@ public class ArtGenerator {
         }
     }
 
+    /**
+     * Determines which category the art piece fits based on the levenstein distance
+     * @param inputString the ASCII value of the art
+     * @return a String representing the category which this piece fits
+     */
     public String determineClosestCategory(String inputString) {
         int closestDistance = 10000000;
         String closestCategory = null;
@@ -37,6 +46,12 @@ public class ArtGenerator {
         return closestCategory;
     }
 
+    /**
+     * Grabs a random piece of ASCII art
+     * @param url the url where the art is stored
+     * @return a String of the ASCII art
+     * @throws IOException if the url is invalid
+     */
     public String getRandomArt(String url) throws IOException {
         Document.OutputSettings outputSettings = new Document.OutputSettings();
         outputSettings.prettyPrint(false);
@@ -58,6 +73,13 @@ public class ArtGenerator {
         generatedArt = generatedArt.replace(",", ".");
         return generatedArt;
     }
+
+    /**
+     * Generates the piece of art
+     * @param prompt the prompt to generate the art piece with
+     * @return a String of ASCII art
+     * @throws IOException if the url is invalid
+     */
     public String generateArt(String prompt) throws IOException {
         String closestCategory = this.determineClosestCategory(prompt);
         String url = "https://www.asciiart.eu/" + this.asciiCategories.get(closestCategory);

@@ -34,6 +34,10 @@ public class UserRepository {
      * @param adminUserData list of admin-user data in username -> password key-value pairs.
      * @param basicUserData list of basic-user data in (username, password, banUntil) Triplets.
      * @param eventData list of event data in (related user, datetime, type) Triplets.
+     * @param walletData a SerializedWallet
+     * @param artData a serializedArt
+     * @param walletManager a WalletManager instance
+     * @param artManager an ArtManager instance
      */
     public void resetUserData(List<Entry<String, String>> adminUserData,
                               List<Triplet<String, String, LocalDateTime>> basicUserData,
@@ -42,7 +46,9 @@ public class UserRepository {
                               List<SerializedArt> artData,
                               WalletManager walletManager,
                               ArtManager artManager) {
-        HashMap<String, User> users = new HashMap<>();
+
+        // HashMap<String, User> users = new HashMap<>();
+
         for (Entry<String, String> userDatum : adminUserData) {
             this.users.put(userDatum.getKey(),
                     new AdminUser(userDatum.getKey(), userDatum.getValue()));

@@ -1,7 +1,6 @@
 package entity.user;
 
 import interfaces.IBannableUser;
-
 import java.time.LocalDateTime;
 
 public class BasicUser extends User implements IBannableUser {
@@ -23,6 +22,8 @@ public class BasicUser extends User implements IBannableUser {
     /**
      * Overloaded constructor to construct a entity.user.BasicUser with a custom initial ban date-time.
      * @param bannedUntil date-time the user is banned until.
+     * @param username a String of the username of this user
+     * @param password a String of the password of this user
      */
     public BasicUser(String username, String password, LocalDateTime bannedUntil) {
         super(username, password, false);

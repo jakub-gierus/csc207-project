@@ -5,13 +5,12 @@ import exceptions.user.NewPasswordIsTheSameAsOldPasswordException;
 import exceptions.user.PasswordsDontMatchException;
 
 public class ChangeUser {
-
     private final User user;
 
     /**
      * Use-case class for changing users. Users can be changed in the following ways:
      *      - Changing the user's password
-     *      - TODO: Changing the user's username.
+     *      - Changing the user's username
      * @param user User entity related to this use-case
      */
     public ChangeUser(User user) {

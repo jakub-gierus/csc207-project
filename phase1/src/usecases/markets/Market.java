@@ -1,27 +1,22 @@
 package usecases.markets;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-
 import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
-import entity.user.User;
 import interfaces.Merchandise;
 import usecases.art.ArtFacade;
 import usecases.art.ArtManager;
 
 import java.util.UUID;
 public class Market {
-
     List<Merchandise> itemsForSale; //All items being sold
-
     // <key,value> = <id of merchandise, name of owner>
     private final HashMap<UUID, String> listings;
-
     private final WalletManager walletLibrary;
     private final ArtManager artManager;
-
     private final UserRepository userRepository;
 
     /**
@@ -30,6 +25,9 @@ public class Market {
      * This class facilitates trading by presenting necessary information to the controllers and make calls to
      * TradingUtil objects that actually make the trade
      * Stored in MARKETCONTROLLER (which is initialized exactly ONCE in FRONTCONTROLLER)
+     * @param userRepository an UserRepository
+     * @param artManager an ArtManager
+     * @param walletLibrary a WalletManager
      */
 
     public Market(UserRepository userRepository, ArtManager artManager, WalletManager walletLibrary) {
@@ -37,7 +35,7 @@ public class Market {
         this.artManager = artManager;
         this.walletLibrary = walletLibrary;
         this.userRepository = userRepository;
-        this.listings =new HashMap<UUID, String>();
+        this.listings = new HashMap<>();
         this.itemsForSale = new ArrayList<>();
     }
 
@@ -46,7 +44,7 @@ public class Market {
      * @param merchandise the merchandise being checked
      * @return a bool of whether this item is for sale
      */
-    public boolean checkitem(Merchandise merchandise){
+    public boolean checkItem(Merchandise merchandise){
         return itemsForSale.contains(merchandise);
     }
 
@@ -60,7 +58,7 @@ public class Market {
 
     /**
      *
-     * @return
+     * @return a List of name of Merchandise listed on the market
      */
     public List<String> getNamesMerchandiseForSale(){
         List<String> result = new ArrayList<>();
@@ -76,6 +74,11 @@ public class Market {
         return result;
     }
 
+    /**
+     * Adds a piece of art to the market
+     * @param id the UUID of the art piece
+     * @return a boolean on whether the operation is successful, true if the art isn't already on the market
+     */
     public boolean addArtToMarket(UUID id){
         Art art = artManager.getArt(id);
         //final check before placing on market
@@ -83,13 +86,18 @@ public class Market {
             return false;
         }
         // check if art isn't already on the market
-        if(!checkitem(art)){
+        if(!checkItem(art)){
             this.itemsForSale.add(art);
             this.listings.put(art.getId(),art.getOwner());
         }
         return true;
     }
 
+    /**
+     * Makes a trade with cash currency
+     * @param artId the UUId of the art being bought
+     * @param paymentWalletId the UUID of the wallet used to pay
+     */
     public void makeTradeWithCash(UUID artId, UUID paymentWalletId){
         Art artObj = this.artManager.getArt(artId);
         Wallet paymentWallet = this.walletLibrary.getWalletById(paymentWalletId);
@@ -97,15 +105,20 @@ public class Market {
         TradingUtil trader = new TradingUtil(paymentWallet, artObj.getWallet(), this.userRepository);
 
         boolean success = trader.makeTrade_Art_Money(artObj);
-        removeItem(artObj);
 
         if(success) {
+            removeItem(artObj);
             System.out.println("The trade has been made!");
         } else {
             System.out.println("The trade has been made!");
         }
     }
 
+    /**
+     * Makes a trade with another piece of art
+     * @param wantedArtId the UUID of the wanted art
+     * @param userArtId the UUID of the art being used as payment
+     */
     public void makeTradeWithArt(UUID wantedArtId, UUID userArtId){
         Art wantedArt = this.artManager.getArt(wantedArtId);
         Art userArt = this.artManager.getArt(userArtId);
@@ -115,16 +128,19 @@ public class Market {
         // order of params doesn't matter in art-to-art -> look at implementation
         boolean success = trader.makeTrade_Art_Art(wantedArt,userArt);
 
-        removeItem(wantedArt);
-        removeItem(userArt);
-
         if(success) {
+            removeItem(wantedArt);
+            removeItem(userArt);
             System.out.println("The trade has been made!");
         } else {
             System.out.println("The trade has been made!");
         }
     }
 
+    /**
+     * Remove an item from the listings
+     * @param m the Merchandise object being removed
+     */
     public void removeItem(Merchandise m){
         // remove listing from marketplace
         itemsForSale.remove(m);

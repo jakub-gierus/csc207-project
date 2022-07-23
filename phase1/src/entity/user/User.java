@@ -1,7 +1,6 @@
 package entity.user;
 
 import entity.markets.Wallet;
-
 import java.time.LocalDateTime;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -171,10 +170,8 @@ public class User {
     /**
      * Removes a wallet from the user's wallets list
      * @param walletName the name of the wallet to be removed
-     * @return a bool if the action is successful
      */
-    public boolean removeWallet(Wallet walletName) {
+    public void removeWallet(Wallet walletName) {
         wallets.remove(walletName);
-        return true;
     }
 }

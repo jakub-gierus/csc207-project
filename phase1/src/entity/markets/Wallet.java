@@ -26,6 +26,7 @@ public class Wallet implements Merchandise{
         this.walletName = walletName;
         this.publicAccess = true;
         id = UUID.randomUUID();
+        this.calcNetWorth();
     }
 
     /**
@@ -33,14 +34,15 @@ public class Wallet implements Merchandise{
      * @param owner a User object that owns this wallet
      * @param walletName a String that is to be this wallet's name
      * @param walletID a UUID object that is this wallet's ID
-     * @param netWorth a double value representing the net worth of this wallet
+     * @param currency a double value representing the initial currency of this wallet
      */
-    public Wallet(User owner, String walletName, UUID walletID, double netWorth) {
+    public Wallet(User owner, String walletName, UUID walletID, double currency) {
         this.owner = owner;
         this.walletName = walletName;
         this.publicAccess = true;
         this.id = walletID;
-        this.netWorth = netWorth;
+        this.currency = currency;
+        this.calcNetWorth();
     }
 
     /**
@@ -78,9 +80,8 @@ public class Wallet implements Merchandise{
      * @param newArt an Art object that is added to this wallet
      */
     public void addArt(Art newArt){
-        String name = newArt.getTitle();
         arts.put(newArt.getId(), newArt);
-        this.calcNetWorth();
+        calcNetWorth();
     }
 
     /**
@@ -89,7 +90,7 @@ public class Wallet implements Merchandise{
      */
     public void removeArt(Art art) {
         arts.remove(art.getId());
-        this.calcNetWorth();
+        calcNetWorth();
     }
 
     /**
@@ -225,5 +226,13 @@ public class Wallet implements Merchandise{
      */
     public void setPublic(boolean newAccess){
         publicAccess = newAccess;
+    }
+
+    public String getNameOrTitle(){
+        return getName();
+    }
+
+    public String getTypeString(){
+        return "Wallet";
     }
 }

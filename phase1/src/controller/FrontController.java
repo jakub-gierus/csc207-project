@@ -3,8 +3,6 @@ package controller;
 import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
-import entity.markets.Wallet;
-import entity.user.User;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 import usecases.user.UserFacade;
@@ -21,18 +19,19 @@ public class FrontController {
 
     private Optional<UserFacade> activeUser;
     public final Scanner userInput = new Scanner(System.in);
-    private Dispatcher dispatcher;
+    private final Dispatcher dispatcher;
+    private final UserRepository userRepository;
+    private final DataRetriever dataRetriever;
+    private final DataSaver dataSaver;
+    private final GenericView view;
+    private final WalletManager walletManager;
+    private final ArtManager artManager;
 
-    private UserRepository userRepository;
-
-    private DataRetriever dataRetriever;
-    private DataSaver dataSaver;
-    private GenericView view;
-
-    private WalletManager walletManager;
-
-    private ArtManager artManager;
-
+    /**
+     * The controller that acts as the intermediary between the user and the system.
+     * All other controllers goes through this.
+     * @param config a Config object that stores the locations of data files.
+     */
     public FrontController(Config config) {
         this.activeUser = Optional.empty();
         this.userRepository = new UserRepository();
@@ -46,16 +45,26 @@ public class FrontController {
         this.loadDatabase();
     }
 
+    /**
+     * Checks whether the user is logged in
+     * @return a boolean, true if the user is logged in
+     */
     public boolean isLoggedIn() {
         return this.activeUser.isPresent();
     }
 
+    /**
+     * Sends a dispatch request to the dispatcher
+     * @param request a String request in "THIS FORMAT"
+     * @param ids UUID object of targets of the request (1 to 2, optional)
+     */
     public void dispatchRequest(String request, UUID ... ids) {
         if (isLoggedIn()) {
-            if (ids.length > 0) {
-                dispatcher.dispatch(request, ids[0]);
-            } else if(ids.length == 2){
+            if (ids.length == 2) {
                 dispatcher.dispatch(request, ids[0], ids[1]);
+
+            } else if(ids.length >0){
+                dispatcher.dispatch(request, ids[0]);
             }
             else {
                 dispatcher.dispatch(request);
@@ -111,14 +120,26 @@ public class FrontController {
         System.exit(0);
     }
 
+    /**
+     * Returns the walletManager object
+     * @return a WalletManager object
+     */
     public WalletManager getWalletManager() {
         return this.walletManager;
     }
 
+    /**
+     * Returns the artManager object
+     * @return a ArtManager object
+     */
     public ArtManager getArtManager() {
         return this.artManager;
     }
 
+    /**
+     * Return a UserRepository object
+     * @return a UserRepository object
+     */
     public UserRepository getUserRepository() {
         return this.userRepository;
     }

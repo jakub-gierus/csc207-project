@@ -2,7 +2,6 @@ package usecases.art;
 
 import entity.art.Art;
 import usecases.markets.WalletManager;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +26,7 @@ public class ArtManager {
     /**
      * Returns true if an art piece exists in the library, false otherwise
      * @param art piece to check
+     * @return true if art exists here
      */
     public boolean artExists(Art art){
         return this.library.containsKey(art.getId());
@@ -34,7 +34,9 @@ public class ArtManager {
 
     /**
      * Returns an art piece if it exists in the library, null otherwise
-     * @param id -> unique id of art piece*/
+     * @param id the UUID of the target art
+     * @return an Art object or Null
+     */
     public Art getArt(UUID id){
         return this.library.containsKey(id) ? library.get(id) : null;
     }
@@ -43,15 +45,17 @@ public class ArtManager {
      * Returns true of the art was successfully added to the library, false otherwise
      * Adds an art piece to the library if it does not already exist in the library
      * @param art -> the new art piece to add to the library
+     * @param artName the String name of the new art
+     * @param artPrice the float price of the new art
+     * @param walletID the UUID of the wallet that will contain this art
      * */
-    public boolean createNewArt(String artName, String art, float artPrice, UUID walletID){
+    public void createNewArt(String artName, String art, float artPrice, UUID walletID){
         //add to library
         Art newArt = new Art(artName, art);
         newArt.setPrice(artPrice);
         this.walletManager.getWalletById(walletID).addArt(newArt);
         newArt.setWallet(this.walletManager.getWalletById(walletID));
         this.library.put(newArt.getId(), newArt);
-        return true;
     }
 
     /**
@@ -66,10 +70,19 @@ public class ArtManager {
                 (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue(), this)));
     }
 
+    /**
+     * Get all the art
+     * @return a Collection of Art
+     */
     public Collection<Art> getAllArt() {
         return this.library.values();
     }
 
+    /**
+     * Adds a piece of art to the system
+     * @param art an Art object to be added
+     * @param walletID the UUID of the wallet the art is contained in
+     */
     public void addArt(Art art, UUID walletID) {
         this.walletManager.getWalletById(walletID).addArt(art);
         art.setWallet(this.walletManager.getWalletById(walletID));

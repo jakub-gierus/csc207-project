@@ -1,18 +1,16 @@
 package usecases.art;
 
 import entity.art.Art;
-
-
 import java.util.UUID;
 
 public class ArtFacade {
-    private Art art;
-
-    private ArtManager artManager;
+    private final Art art;
+    private final ArtManager artManager;
 
     /**
      * A facade used for interacting with the art object
      * @param art the target Art object
+     * @param artManager the ArtManager used
      */
     public ArtFacade(Art art, ArtManager artManager) {
         this.art = art;
@@ -43,7 +41,15 @@ public class ArtFacade {
         return art.getPrice();
     }
 
+    /**
+     * Get whether the art is tradable
+     * @return a boolean, true if this art is public/tradeable
+     */
     public boolean getTradeable(){return art.getIsTradeable();}
 
+    /**
+     * Get the ID of this art
+     * @return a UUID
+     */
     public UUID getId(){ return art.getId();}
 }

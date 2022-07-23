@@ -1,0 +1,2219 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:demostyle2="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/2.0" xmlns:demostyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/1.0" xmlns:icon-style="http://www.yworks.com/yed-live/icon-style/1.0" xmlns:bpmn="http://www.yworks.com/xml/yfiles-bpmn/2.0" xmlns:demotablestyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoTableStyle/1.0" xmlns:uml="http://www.yworks.com/yFilesHTML/demos/UMLDemoStyle/1.0" xmlns:GraphvizNodeStyle="http://www.yworks.com/yFilesHTML/graphviz-node-style/1.0" xmlns:VuejsNodeStyle="http://www.yworks.com/demos/yfiles-vuejs-node-style/1.0" xmlns:explorer-style="http://www.yworks.com/data-explorer/1.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/3.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/3.0" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/2.0/xaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/2.0/ygraphml.xsd ">
+  <key id="d0" for="node" attr.type="int" attr.name="zOrder" y:attr.uri="http://www.yworks.com/xml/yfiles-z-order/1.0/zOrder" />
+  <key id="d1" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+    <default>true</default>
+  </key>
+  <key id="d2" for="node" attr.type="string" attr.name="url" />
+  <key id="d3" for="node" attr.type="string" attr.name="description" />
+  <key id="d4" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels" />
+  <key id="d5" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry" />
+  <key id="d6" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags" />
+  <key id="d7" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle" />
+  <key id="d8" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState" />
+  <key id="d9" for="edge" attr.type="string" attr.name="url" />
+  <key id="d10" for="edge" attr.type="string" attr.name="description" />
+  <key id="d11" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels" />
+  <key id="d12" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry" />
+  <key id="d13" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle" />
+  <key id="d14" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState" />
+  <key id="d15" for="port" attr.name="PortLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLabels" />
+  <key id="d16" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+    <default>
+      <x:Static Member="y:FreeNodePortLocationModel.NodeCenterAnchored" />
+    </default>
+  </key>
+  <key id="d17" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+    <default>
+      <x:Static Member="y:VoidPortStyle.Instance" />
+    </default>
+  </key>
+  <key id="d18" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState" />
+  <key id="d19" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData" />
+  <data key="d19">
+    <y:SharedData>
+      <y:InteriorLabelModel x:Key="1" />
+      <y:CompositeLabelModelParameter x:Key="2">
+        <y:CompositeLabelModelParameter.Parameter>
+          <y:InteriorLabelModelParameter Position="Center" Model="{y:GraphMLReference 1}" />
+        </y:CompositeLabelModelParameter.Parameter>
+        <y:CompositeLabelModelParameter.Model>
+          <y:CompositeLabelModel>
+            <y:CompositeLabelModel.LabelModels>
+              <y:ExteriorLabelModel Insets="5" />
+              <y:GraphMLReference ResourceKey="1" />
+              <y:FreeNodeLabelModel />
+            </y:CompositeLabelModel.LabelModels>
+          </y:CompositeLabelModel>
+        </y:CompositeLabelModelParameter.Model>
+      </y:CompositeLabelModelParameter>
+      <y:SmartEdgeLabelModel x:Key="3" />
+    </y:SharedData>
+  </data>
+  <graph id="G" edgedefault="directed">
+    <data key="d6">
+      <y:Json>{&quot;version&quot;:&quot;2.0.0&quot;,&quot;theme&quot;:{&quot;name&quot;:&quot;light&quot;,&quot;version&quot;:&quot;1.0.0&quot;},&quot;bridge-style&quot;:&quot;ARC_SCALED&quot;}</y:Json>
+    </data>
+    <node id="node20">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1606" Y="183" Width="249" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ActionDoesNotExistException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ActionDoesNotExistException():</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node31">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-129" Y="-4" Width="264" Height="77" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ActionView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ActionView():</sys:String>
+                  <sys:String>+ showAvailableActions(List&lt;String&gt;): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999994741136392,-0.0064930690722134945" />
+        </data>
+      </port>
+    </node>
+    <node id="node4">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="678" Y="702" Width="230" Height="197" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="AdminController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ view: AdminView</sys:String>
+                  <sys:String>+ frontController: FrontController</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ AdminController(FrontController):</sys:String>
+                  <sys:String>+ seeAllUsers(): void</sys:String>
+                  <sys:String>+ createUser(): void</sys:String>
+                  <sys:String>+ unbanUser(): void</sys:String>
+                  <sys:String>+ banUser(): void</sys:String>
+                  <sys:String>+ deleteUser(): void</sys:String>
+                  <sys:String>+ presentAllUsers(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node22">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1681" Y="492" Width="399" Height="179" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="AdminFacade" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userCreater: CreateUser</sys:String>
+                  <sys:String>+ userBanner: BanUser</sys:String>
+                  <sys:String>+ userFinder: FindUser</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ AdminFacade(AdminUser, UserRepository, WalletManager,  ...):</sys:String>
+                  <sys:String>+ banUser(String, LocalDateTime): void</sys:String>
+                  <sys:String>+ getAllUsers(): List&lt;UserFacade&gt;</sys:String>
+                  <sys:String>+ deleteUser(String): void</sys:String>
+                  <sys:String>+ createUser(String, String, boolean): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5173082263607075,-0.004761904761904762" />
+        </data>
+      </port>
+    </node>
+    <node id="node35">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-548" Y="484" Width="187" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="AdminUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ AdminUser(String, String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000025315042959,1.0" />
+        </data>
+      </port>
+    </node>
+    <node id="node55">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1117" Y="-225" Width="240" Height="239" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="AdminView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ AdminView():</sys:String>
+                  <sys:String>+ showAllUsers(List&lt;String&gt;): void</sys:String>
+                  <sys:String>+ showPasswordPrompt(): void</sys:String>
+                  <sys:String>+ showDeleteSuccess(String): void</sys:String>
+                  <sys:String>+ showUnbanSuccess(String): void</sys:String>
+                  <sys:String>+ showIsAdminPrompt(String): void</sys:String>
+                  <sys:String>+ showCreateUserSuccess(String): void</sys:String>
+                  <sys:String>+ showBanPrompt(): void</sys:String>
+                  <sys:String>+ showBanLengthPrompt(String): void</sys:String>
+                  <sys:String>+ showBanSuccess(String, String): void</sys:String>
+                  <sys:String>+ showUsernamePrompt(): void</sys:String>
+                  <sys:String>+ showDeletePrompt(): void</sys:String>
+                  <sys:String>+ showUnbanPrompt(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000015869392371,-0.001567398119122257" />
+        </data>
+      </port>
+    </node>
+    <node id="node9">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-125" Y="1222" Width="242" Height="77" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Appraiser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Appraiser():</sys:String>
+                  <sys:String>+ appraiseArt(ArtManager, Art): double</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node37">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-693" Y="1196" Width="207" Height="356" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Art" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ isTradable: boolean</sys:String>
+                  <sys:String>+ asciiString: String</sys:String>
+                  <sys:String>+ wallet: Wallet</sys:String>
+                  <sys:String>+ id: UUID</sys:String>
+                  <sys:String>+ price: float</sys:String>
+                  <sys:String>+ title: String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Art(String, String):</sys:String>
+                  <sys:String>+ Art(String, String, UUID, float):</sys:String>
+                  <sys:String>+ getId(): UUID</sys:String>
+                  <sys:String>+ getIsTradeable(): boolean</sys:String>
+                  <sys:String>+ setWallet(Wallet): void</sys:String>
+                  <sys:String>+ getNameOrTitle(): String</sys:String>
+                  <sys:String>+ getTitle(): String</sys:String>
+                  <sys:String>+ getWallet(): Wallet</sys:String>
+                  <sys:String>+ getArt(): String</sys:String>
+                  <sys:String>+ getOwner(): String</sys:String>
+                  <sys:String>+ getTypeString(): String</sys:String>
+                  <sys:String>+ getPrice(): float</sys:String>
+                  <sys:String>+ setisTradable(boolean): void</sys:String>
+                  <sys:String>+ setPrice(float): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.2546135532361558,-0.002109704641350211" />
+        </data>
+      </port>
+    </node>
+    <node id="node15">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-103" Y="1426" Width="198" Height="179" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ArtFacade" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                  <sys:String>+ art: Art</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ArtFacade(Art, ArtManager):</sys:String>
+                  <sys:String>+ getAsciiArt(): String</sys:String>
+                  <sys:String>+ getTradeable(): boolean</sys:String>
+                  <sys:String>+ getPrice(): double</sys:String>
+                  <sys:String>+ getId(): UUID</sys:String>
+                  <sys:String>+ getTitle(): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node51">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-425" Y="1164" Width="262" Height="122" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ArtGenerator" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ asciiCategories: Map&lt;String, String&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ArtGenerator():</sys:String>
+                  <sys:String>+ generateArt(String): String</sys:String>
+                  <sys:String>+ getRandomArt(String): String</sys:String>
+                  <sys:String>+ determineClosestCategory(String): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node7">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-440" Y="1379" Width="292" Height="197" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ArtManager" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ library: HashMap&lt;UUID, Art&gt;</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ArtManager(WalletManager):</sys:String>
+                  <sys:String>+ getArt(UUID): Art</sys:String>
+                  <sys:String>+ createNewArt(String, String, float, UUID): void</sys:String>
+                  <sys:String>+ artExists(Art): boolean</sys:String>
+                  <sys:String>+ addArt(Art, UUID): void</sys:String>
+                  <sys:String>+ getAllArt(): Collection&lt;Art&gt;</sys:String>
+                  <sys:String>+ getArtByWallet(UUID): Map&lt;UUID, ArtFacade&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node23">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="561" Y="502" Width="241" Height="100" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="BanUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ BanUser(UserRepository):</sys:String>
+                  <sys:String>+ banUser(String, LocalDateTime): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node10">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-922" Y="528" Width="271" Height="141" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="BasicUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ tempBannedUntil: LocalDateTime</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ BasicUser(String, String, LocalDateTime):</sys:String>
+                  <sys:String>+ BasicUser(String, String):</sys:String>
+                  <sys:String>+ setTempBannedUntil(LocalDateTime): void</sys:String>
+                  <sys:String>+ getTempBannedUntil(): LocalDateTime</sys:String>
+                  <sys:String>+ getIsTempBanned(): boolean</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.44464794539575947,-0.006024096385542169" />
+        </data>
+      </port>
+      <port name="port1">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5041846277935921,0.02885692238324197" />
+        </data>
+      </port>
+    </node>
+    <node id="node11">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="582" Y="1013" Width="240" Height="100" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ChangeUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ user: User</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ChangeUser(User):</sys:String>
+                  <sys:String>+ changePassword(String, String): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node14">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="2221" Y="1394" Width="312" Height="240" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Config" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ rootDirectory: String</sys:String>
+                  <sys:String>+ walletFilePath: String</sys:String>
+                  <sys:String>+ basicUserFilePath: String</sys:String>
+                  <sys:String>+ adminUserFilePath: String</sys:String>
+                  <sys:String>+ artsFilePath: String</sys:String>
+                  <sys:String>+ eventFilePath: String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Config(String, String, String, String, String, String):</sys:String>
+                  <sys:String>+ getBasicUserFilePath(): String</sys:String>
+                  <sys:String>+ getRootDirectory(): String</sys:String>
+                  <sys:String>+ getAdminUserFilePath(): String</sys:String>
+                  <sys:String>+ getWalletFilePath(): String</sys:String>
+                  <sys:String>+ getArtsFilePath(): String</sys:String>
+                  <sys:String>+ getEventFilePath(): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node52">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="364" Y="653" Width="282" Height="122" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="CreateUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ CreateUser(UserRepository, WalletManager):</sys:String>
+                  <sys:String>+ createUser(String, String, boolean): void</sys:String>
+                  <sys:String>+ deleteUser(String): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node43">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="582" Y="1416" Width="392" Height="224" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="DataRetriever" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ eventsFilename: String</sys:String>
+                  <sys:String>+ filePath: String</sys:String>
+                  <sys:String>+ basicUsersFilename: String</sys:String>
+                  <sys:String>+ adminUsersFilename: String</sys:String>
+                  <sys:String>+ artsFilename: String</sys:String>
+                  <sys:String>+ walletsFilename: String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ DataRetriever(Config):</sys:String>
+                  <sys:String>+ readAdminUserData(): List&lt;Entry&lt;String, String&gt;&gt;</sys:String>
+                  <sys:String>+ readBasicUserData(): List&lt;Triplet&lt;String, String, LocalDateTime&gt;&gt;</sys:String>
+                  <sys:String>+ readWalletData(): List&lt;SerializedWallet&gt;</sys:String>
+                  <sys:String>+ readArtData(): List&lt;SerializedArt&gt;</sys:String>
+                  <sys:String>+ readEventData(): List&lt;Triplet&lt;String, LocalDateTime, String&gt;&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node2">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1054" Y="1427" Width="302" Height="224" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="DataSaver" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                  <sys:String>+ eventsFilename: String</sys:String>
+                  <sys:String>+ filePath: String</sys:String>
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                  <sys:String>+ artsFilename: String</sys:String>
+                  <sys:String>+ adminUsersFilename: String</sys:String>
+                  <sys:String>+ basicUsersFilename: String</sys:String>
+                  <sys:String>+ walletsFilename: String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ DataSaver(Config, ArtManager, UserRepository):</sys:String>
+                  <sys:String>+ saveAllWalletData(): void</sys:String>
+                  <sys:String>+ saveAllUserData(): void</sys:String>
+                  <sys:String>+ saveAllArtData(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node54">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="939" Y="1087" Width="352" Height="207" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Dispatcher" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ walletController: WalletController</sys:String>
+                  <sys:String>+ adminController: AdminController</sys:String>
+                  <sys:String>+ profileController: ProfileController</sys:String>
+                  <sys:String>+ frontController: FrontController</sys:String>
+                  <sys:String>+ navigationController: NavigationController</sys:String>
+                  <sys:String>+ logInController: LogInController</sys:String>
+                  <sys:String>+ marketController: MarketController</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Dispatcher(FrontController, WalletManager, ArtManager):</sys:String>
+                  <sys:String>+ dispatch(String, UUID): void</sys:String>
+                  <sys:String>+ dispatch(String, UUID, UUID): void</sys:String>
+                  <sys:String>+ dispatch(String): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node53">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="388" Y="849" Width="271" Height="122" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="FindUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ FindUser(UserRepository, WalletManager):</sys:String>
+                  <sys:String>+ getUserByUsername(String): User</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node1">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="939" Y="582" Width="276" Height="339" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="FrontController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userInput: Scanner</sys:String>
+                  <sys:String>+ dataSaver: DataSaver</sys:String>
+                  <sys:String>+ view: GenericView</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                  <sys:String>+ activeUser: Optional&lt;UserFacade&gt;</sys:String>
+                  <sys:String>+ dispatcher: Dispatcher</sys:String>
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                  <sys:String>+ dataRetriever: DataRetriever</sys:String>
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ FrontController(Config):</sys:String>
+                  <sys:String>+ getArtManager(): ArtManager</sys:String>
+                  <sys:String>+ exitApplication(): void</sys:String>
+                  <sys:String>+ dispatchRequest(String, UUID[]): void</sys:String>
+                  <sys:String>+ getActiveUser(): Optional&lt;UserFacade&gt;</sys:String>
+                  <sys:String>+ isLoggedIn(): boolean</sys:String>
+                  <sys:String>+ setActiveUser(Optional&lt;UserFacade&gt;): void</sys:String>
+                  <sys:String>+ getWalletManager(): WalletManager</sys:String>
+                  <sys:String>+ getUserRepository(): UserRepository</sys:String>
+                  <sys:String>+ loadDatabase(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node44">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="969" Y="-532" Width="213" Height="77" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="GenericView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ GenericView():</sys:String>
+                  <sys:String>+ showErrorMessage(String): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066" />
+        </data>
+      </port>
+      <port name="port1">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066" />
+        </data>
+      </port>
+      <port name="port2">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066" />
+        </data>
+      </port>
+      <port name="port3">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066" />
+        </data>
+      </port>
+      <port name="port4">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066" />
+        </data>
+      </port>
+    </node>
+    <node id="node0">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1214" Y="403" Width="271" Height="98" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#4CAF50" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="interface" constraint="" className="IBannableUser" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ getIsTempBanned(): boolean</sys:String>
+                  <sys:String>+ getTempBannedUntil(): LocalDateTime</sys:String>
+                  <sys:String>+ setTempBannedUntil(LocalDateTime): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.0,0.5" />
+        </data>
+      </port>
+    </node>
+    <node id="node8">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1883" Y="83" Width="322" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="IncorrectUserNameOrPasswordException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ IncorrectUserNameOrPasswordException():</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node6">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="2017" Y="802" Width="209" Height="100" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="LogIn" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ LogIn(UserRepository):</sys:String>
+                  <sys:String>+ logIn(String, String): User</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node32">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1743" Y="780" Width="224" Height="122" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="LogInController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ frontController: FrontController</sys:String>
+                  <sys:String>+ view: LogInView</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ LogInController(FrontController):</sys:String>
+                  <sys:String>+ login(): void</sys:String>
+                  <sys:String>+ logout(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node50">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1396" Y="-384" Width="213" Height="121" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="LogInView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ LogInView():</sys:String>
+                  <sys:String>+ showPasswordPrompt(): void</sys:String>
+                  <sys:String>+ showLogInSuccess(String): void</sys:String>
+                  <sys:String>+ showUsernamePrompt(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.0,0.5000016039363836" />
+        </data>
+      </port>
+    </node>
+    <node id="node27">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1037" Y="330" Width="149" Height="77" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Main" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Main():</sys:String>
+                  <sys:String>+ main(String[]): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node3">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-2066" Y="1096" Width="331" Height="240" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Market" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                  <sys:String>+ itemsForSale: List&lt;Merchandise&gt;</sys:String>
+                  <sys:String>+ listings: HashMap&lt;UUID, String&gt;</sys:String>
+                  <sys:String>+ walletLibrary: WalletManager</sys:String>
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Market(UserRepository, ArtManager, WalletManager):</sys:String>
+                  <sys:String>+ makeTradeWithArt(UUID, UUID): void</sys:String>
+                  <sys:String>+ getNamesMerchandiseForSale(): List&lt;String&gt;</sys:String>
+                  <sys:String>+ removeItem(Merchandise): void</sys:String>
+                  <sys:String>+ checkItem(Merchandise): boolean</sys:String>
+                  <sys:String>+ addArtToMarket(UUID): boolean</sys:String>
+                  <sys:String>+ getItemsForSale(): List&lt;Merchandise&gt;</sys:String>
+                  <sys:String>+ makeTradeWithCash(UUID, UUID): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node16">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1729" Y="993" Width="386" Height="191" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="MarketController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ artLibrary: ArtManager</sys:String>
+                  <sys:String>+ market: Market</sys:String>
+                  <sys:String>+ view: MarketView</sys:String>
+                  <sys:String>+ frontController: FrontController</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ MarketController(FrontController, ArtManager, WalletManager ...):</sys:String>
+                  <sys:String>+ getAllMerchandiseOnMarket(): List&lt;Merchandise&gt;</sys:String>
+                  <sys:String>+ postMerchandise(UUID): void</sys:String>
+                  <sys:String>+ makeArtForArtTrade(UUID, UUID): void</sys:String>
+                  <sys:String>+ makeTradeWithWallet(UUID, UUID): void</sys:String>
+                  <sys:String>+ viewMerchandise(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node36">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="678" Y="-102" Width="277" Height="140" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="MarketView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ MarketView():</sys:String>
+                  <sys:String>+ failAddToMarket(): void</sys:String>
+                  <sys:String>+ showMarketListingHeader(): void</sys:String>
+                  <sys:String>+ successAddToMarket(): void</sys:String>
+                  <sys:String>+ showPaymentMethodPrompt(double): void</sys:String>
+                  <sys:String>+ showMarketListings(List&lt;String&gt;): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.499999875615725,1.003030303030303" />
+        </data>
+      </port>
+    </node>
+    <node id="node17">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-830" Y="829" Width="179" Height="121" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#4CAF50" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="interface" constraint="" className="Merchandise" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ getIsTradeable(): boolean</sys:String>
+                  <sys:String>+ getOwner(): String</sys:String>
+                  <sys:String>+ getNameOrTitle(): String</sys:String>
+                  <sys:String>+ getId(): UUID</sys:String>
+                  <sys:String>+ getTypeString(): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.49999856413409255,0.999996619933775" />
+        </data>
+      </port>
+      <port name="port1">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.49999856413409255,0.999996619933775" />
+        </data>
+      </port>
+    </node>
+    <node id="node26">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1268" Y="670" Width="401" Height="273" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="NavigationController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ frontController: FrontController</sys:String>
+                  <sys:String>+ view: ActionView</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ NavigationController(FrontController):</sys:String>
+                  <sys:String>+ profileActionSelect(): void</sys:String>
+                  <sys:String>+ marketActionSelect(): void</sys:String>
+                  <sys:String>+ mainActionSelect(): void</sys:String>
+                  <sys:String>+ walletActionSelect(UUID): void</sys:String>
+                  <sys:String>+ adminActionSelect(): void</sys:String>
+                  <sys:String>+ createActionEntry(String, Runnable): Entry&lt;String, Runnable&gt;</sys:String>
+                  <sys:String>+ walletSelect(): void</sys:String>
+                  <sys:String>+ selectMerchandiseToPostToMarket(): void</sys:String>
+                  <sys:String>+ selectArtFromWalletForTrade(UUID, UUID): void</sys:String>
+                  <sys:String>+ selectMarketItemToBuy(List&lt;Merchandise&gt;): void</sys:String>
+                  <sys:String>+ genericActionSelect(Map&lt;Integer, Entry&lt;String, Runnable&gt;&gt;): void</sys:String>
+                  <sys:String>+ selectWalletToMakeTrade(UUID): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node24">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1919" Y="183" Width="382" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="NewPasswordIsTheSameAsOldPasswordException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ NewPasswordIsTheSameAsOldPasswordException():</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node28">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1601" Y="283" Width="259" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="PasswordsDontMatchException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ PasswordsDontMatchException():</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node19">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1279" Y="502" Width="228" Height="122" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ProfileController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ view: ProfileView</sys:String>
+                  <sys:String>+ frontController: FrontController</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ProfileController(FrontController):</sys:String>
+                  <sys:String>+ viewProfile(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node41">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="771" Y="124" Width="323" Height="77" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="ProfileView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ ProfileView():</sys:String>
+                  <sys:String>+ showProfile(String, int, double, LocalDateTime): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node46">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1272" Y="1031" Width="231" Height="160" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="PublicWalletRegistry" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ wallets: List&lt;Wallet&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ PublicWalletRegistry():</sys:String>
+                  <sys:String>+ showPublicWalletIDs(): List&lt;UUID&gt;</sys:String>
+                  <sys:String>+ makeWalletPublic(Wallet): void</sys:String>
+                  <sys:String>+ makeWalletPrivate(Wallet): void</sys:String>
+                  <sys:String>+ getWallets(): List&lt;Wallet&gt;</sys:String>
+                  <sys:String>+ isWalletPublic(Wallet): boolean</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node13">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1817" Y="1438" Width="289" Height="207" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="SerializedArt" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ artTitle: String</sys:String>
+                  <sys:String>+ walletID: UUID</sys:String>
+                  <sys:String>+ art: String</sys:String>
+                  <sys:String>+ price: float</sys:String>
+                  <sys:String>+ artID: UUID</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ SerializedArt(String, UUID, UUID, String, float):</sys:String>
+                  <sys:String>+ getArtID(): UUID</sys:String>
+                  <sys:String>+ getArtTitle(): String</sys:String>
+                  <sys:String>+ getPrice(): float</sys:String>
+                  <sys:String>+ getWalletID(): UUID</sys:String>
+                  <sys:String>+ getArt(): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node42">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1435" Y="1438" Width="321" Height="207" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="SerializedWallet" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ walletName: String</sys:String>
+                  <sys:String>+ ownerUsername: String</sys:String>
+                  <sys:String>+ walletID: UUID</sys:String>
+                  <sys:String>+ isTradeable: boolean</sys:String>
+                  <sys:String>+ currency: double</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ SerializedWallet(String, String, String, String, String):</sys:String>
+                  <sys:String>+ isTradeable(): boolean</sys:String>
+                  <sys:String>+ getCurrency(): double</sys:String>
+                  <sys:String>+ getWalletID(): UUID</sys:String>
+                  <sys:String>+ getWalletName(): String</sys:String>
+                  <sys:String>+ getOwnerUsername(): String</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node40">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-2010" Y="1468" Width="275" Height="160" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="TradingUtil" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ tradingTo: Wallet</sys:String>
+                  <sys:String>+ tradingFrom: Wallet</sys:String>
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ TradingUtil(Wallet, Wallet, UserRepository):</sys:String>
+                  <sys:String>+ makeTrade_Art_Money(Art): boolean</sys:String>
+                  <sys:String>+ makeTrade_Wallet_Wallet(): boolean</sys:String>
+                  <sys:String>+ makeTrade_Art_Art(Art, Art): boolean</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node34">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="340" Y="1401" Width="163" Height="160" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Triplet&lt;T, U, V&gt;" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ third: V</sys:String>
+                  <sys:String>+ first: T</sys:String>
+                  <sys:String>+ second: U</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Triplet(T, U, V):</sys:String>
+                  <sys:String>+ getSecond(): U</sys:String>
+                  <sys:String>+ getThird(): V</sys:String>
+                  <sys:String>+ getFirst(): T</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node5">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-875" Y="-192" Width="465" Height="422" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="User" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ isLoggedIn: boolean</sys:String>
+                  <sys:String>+ password: String</sys:String>
+                  <sys:String>+ events: List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                  <sys:String>+ username: String</sys:String>
+                  <sys:String>+ wallets: List&lt;Wallet&gt;</sys:String>
+                  <sys:String>+ isAdmin: boolean</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ User(String, String, boolean):</sys:String>
+                  <sys:String>+ addWallet(Wallet): void</sys:String>
+                  <sys:String>+ getEvents(String): List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                  <sys:String>+ getFirstWallet(): Wallet</sys:String>
+                  <sys:String>+ removeWallet(Wallet): void</sys:String>
+                  <sys:String>+ getPassword(): String</sys:String>
+                  <sys:String>+ getIsLoggedIn(): boolean</sys:String>
+                  <sys:String>+ logEvent(String, LocalDateTime): void</sys:String>
+                  <sys:String>+ logEvent(String): void</sys:String>
+                  <sys:String>+ getEvents(LocalDateTime, LocalDateTime): List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                  <sys:String>+ validate(String): boolean</sys:String>
+                  <sys:String>+ getUsername(): String</sys:String>
+                  <sys:String>+ setPassword(String): boolean</sys:String>
+                  <sys:String>+ getIsAdmin(): boolean</sys:String>
+                  <sys:String>+ setUsername(String): void</sys:String>
+                  <sys:String>+ getWallets(): List&lt;Wallet&gt;</sys:String>
+                  <sys:String>+ setLoggedIn(boolean): void</sys:String>
+                  <sys:String>+ getEvents(): List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.3336388697868535,1.0017786604184407" />
+        </data>
+      </port>
+      <port name="port1">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.3336388697868535,1.0017786604184407" />
+        </data>
+      </port>
+    </node>
+    <node id="node21">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1589" Y="-58" Width="236" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UserDoesNotExistException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UserDoesNotExistException(String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.499998020048544,0.0" />
+        </data>
+      </port>
+    </node>
+    <node id="node49">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1673" Y="-203" Width="383" Height="438" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UserFacade" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ user: User</sys:String>
+                  <sys:String>+ userRepository: UserRepository</sys:String>
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                  <sys:String>+ userCreator: CreateUser</sys:String>
+                  <sys:String>+ userChanger: ChangeUser</sys:String>
+                  <sys:String>+ logInner: LogIn</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UserFacade(User, UserRepository, WalletManager, ArtManager):</sys:String>
+                  <sys:String>+ getWallets(): List&lt;Wallet&gt;</sys:String>
+                  <sys:String>+ changePassword(String, String): void</sys:String>
+                  <sys:String>+ login(String, String): boolean</sys:String>
+                  <sys:String>+ getWalletById(UUID): WalletFacade</sys:String>
+                  <sys:String>+ addWallet(String, boolean): void</sys:String>
+                  <sys:String>+ getWalletManager(): WalletManager</sys:String>
+                  <sys:String>+ register(String, String): void</sys:String>
+                  <sys:String>+ getUsername(): String</sys:String>
+                  <sys:String>+ getEventsByType(String): List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                  <sys:String>+ getArtManager(): ArtManager</sys:String>
+                  <sys:String>+ createAdminFacade(): AdminFacade</sys:String>
+                  <sys:String>+ getNumberOfWallets(): int</sys:String>
+                  <sys:String>+ logOut(): void</sys:String>
+                  <sys:String>+ getIsAdmin(): boolean</sys:String>
+                  <sys:String>+ getTradeableWallets(): List&lt;WalletFacade&gt;</sys:String>
+                  <sys:String>+ getTotalNetWorth(): double</sys:String>
+                  <sys:String>+ getAllEvents(): List&lt;Entry&lt;LocalDateTime, String&gt;&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5,1.0017123287671232" />
+        </data>
+      </port>
+    </node>
+    <node id="node38">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1642" Y="-214" Width="214" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UserIsBannedException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UserIsBannedException(String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.49999866334311077,0.0" />
+        </data>
+      </port>
+    </node>
+    <node id="node33">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="2219" Y="-66" Width="243" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UserIsNotBannableException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UserIsNotBannableException(String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.5000013580896747,0.0" />
+        </data>
+      </port>
+    </node>
+    <node id="node48">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1248" Y="10" Width="340" Height="179" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UserRepository" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ users: HashMap&lt;String, User&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UserRepository():</sys:String>
+                  <sys:String>+ getByUsername(String): Optional&lt;User&gt;</sys:String>
+                  <sys:String>+ resetUserData(List&lt;Entry&lt;String, String&gt;&gt;, List&lt;Triplet&lt; ...): void</sys:String>
+                  <sys:String>+ createUser(User): void</sys:String>
+                  <sys:String>+ removeUser(User): void</sys:String>
+                  <sys:String>+ getAllUsers(): List&lt;User&gt;</sys:String>
+                  <sys:String>+ getAllUsersByType(boolean): List&lt;User&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node25">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="2048" Y="-214" Width="270" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UsernameAlreadyExistsException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UsernameAlreadyExistsException(String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999991626957749,0.9999968969176612" />
+        </data>
+      </port>
+    </node>
+    <node id="node45">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1871" Y="-298" Width="233" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="UsernameException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ UsernameException(String, String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1.0" />
+        </data>
+      </port>
+      <port name="port1">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1.0" />
+        </data>
+      </port>
+      <port name="port2">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1.0" />
+        </data>
+      </port>
+      <port name="port3">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1.0" />
+        </data>
+      </port>
+    </node>
+    <node id="node12">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-964" Y="1031" Width="229" Height="554" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="Wallet" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ publicAccess: boolean</sys:String>
+                  <sys:String>+ netWorth: double</sys:String>
+                  <sys:String>+ id: UUID</sys:String>
+                  <sys:String>+ currency: double</sys:String>
+                  <sys:String>+ walletName: String</sys:String>
+                  <sys:String>+ arts: HashMap&lt;UUID, Art&gt;</sys:String>
+                  <sys:String>+ owner: User</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ Wallet(User, String):</sys:String>
+                  <sys:String>+ Wallet(User, String, UUID, double):</sys:String>
+                  <sys:String>+ addArt(Art): void</sys:String>
+                  <sys:String>+ getNetWorth(): double</sys:String>
+                  <sys:String>+ setWalletName(String): void</sys:String>
+                  <sys:String>+ isPublicAccess(): boolean</sys:String>
+                  <sys:String>+ getId(): UUID</sys:String>
+                  <sys:String>+ getName(): String</sys:String>
+                  <sys:String>+ getTypeString(): String</sys:String>
+                  <sys:String>+ getOwnerObj(): User</sys:String>
+                  <sys:String>+ getNameOrTitle(): String</sys:String>
+                  <sys:String>+ setOwner(User): void</sys:String>
+                  <sys:String>+ getIsTradeable(): boolean</sys:String>
+                  <sys:String>+ getIsEmpty(): boolean</sys:String>
+                  <sys:String>+ calcNetWorth(): void</sys:String>
+                  <sys:String>+ getCurrency(): double</sys:String>
+                  <sys:String>+ getArts(): HashMap&lt;UUID, Art&gt;</sys:String>
+                  <sys:String>+ containsArt(UUID): boolean</sys:String>
+                  <sys:String>+ getArt(UUID): Art</sys:String>
+                  <sys:String>+ removeCurrency(double): void</sys:String>
+                  <sys:String>+ getOwner(): String</sys:String>
+                  <sys:String>+ addCurrency(double): void</sys:String>
+                  <sys:String>+ setPublic(boolean): void</sys:String>
+                  <sys:String>+ removeArt(Art): void</sys:String>
+                  <sys:String>+ getAllArt(): HashMap&lt;UUID, Art&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.49999889192795766,-0.0013550135501355014" />
+        </data>
+      </port>
+    </node>
+    <node id="node39">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1729" Y="414" Width="227" Height="224" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="WalletController" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ view: WalletView</sys:String>
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                  <sys:String>+ wallet: WalletFacade</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                  <sys:String>+ frontController: FrontController</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ WalletController(FrontController):</sys:String>
+                  <sys:String>+ retrieveWallet(UUID): void</sys:String>
+                  <sys:String>+ viewLiquidity(UUID): void</sys:String>
+                  <sys:String>+ mintArt(UUID): void</sys:String>
+                  <sys:String>+ viewWalletArt(UUID): void</sys:String>
+                  <sys:String>+ viewWalletWorth(UUID): void</sys:String>
+                  <sys:String>+ createWallet(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node29">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1702" Y="1223" Width="318" Height="290" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="WalletFacade" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ artManager: ArtManager</sys:String>
+                  <sys:String>+ walletManager: WalletManager</sys:String>
+                  <sys:String>+ wallet: Wallet</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ WalletFacade(Wallet, WalletManager, ArtManager):</sys:String>
+                  <sys:String>+ getCurrency(): double</sys:String>
+                  <sys:String>+ getIsTradeable(): boolean</sys:String>
+                  <sys:String>+ getId(): UUID</sys:String>
+                  <sys:String>+ initializeWalletByID(String, UUID): void</sys:String>
+                  <sys:String>+ getWalletArtTitles(): Map&lt;UUID, String&gt;</sys:String>
+                  <sys:String>+ getNetWorth(): double</sys:String>
+                  <sys:String>+ getWalletArtPrices(): Map&lt;UUID, Float&gt;</sys:String>
+                  <sys:String>+ getName(): String</sys:String>
+                  <sys:String>+ getTradeableArtNames(): HashMap&lt;UUID, String&gt;</sys:String>
+                  <sys:String>+ getAllWalletArt(): HashMap&lt;UUID, Art&gt;</sys:String>
+                  <sys:String>+ addArtToWallet(Art): void</sys:String>
+                  <sys:String>+ getWalletArts(): Map&lt;UUID, String&gt;</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node47">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="-1350" Y="1290" Width="343" Height="323" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="WalletManager" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ registry: PublicWalletRegistry</sys:String>
+                  <sys:String>+ wallets: Map&lt;UUID, Wallet&gt;</sys:String>
+                  <sys:String>+ userFinder: FindUser</sys:String>
+                  <sys:String>+ DEFAULT_INIT_CURRENCY: double</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ WalletManager(UserRepository):</sys:String>
+                  <sys:String>+ createWallet(User, String, boolean, UUID, double): Wallet</sys:String>
+                  <sys:String>+ createWallet(User): Wallet</sys:String>
+                  <sys:String>+ getUserWalletByID(String, UUID): Wallet</sys:String>
+                  <sys:String>+ makeWalletPublic(Wallet): void</sys:String>
+                  <sys:String>+ getWalletById(UUID): Wallet</sys:String>
+                  <sys:String>+ getWalletByID(UUID): Wallet</sys:String>
+                  <sys:String>+ changeOwner(Wallet, String): void</sys:String>
+                  <sys:String>+ retrievePublicWallets(): List&lt;UUID&gt;</sys:String>
+                  <sys:String>+ createWallet(User, String, boolean): Wallet</sys:String>
+                  <sys:String>+ getUserWallets(String): List&lt;Wallet&gt;</sys:String>
+                  <sys:String>+ getUserWalletIDs(String): List&lt;UUID&gt;</sys:String>
+                  <sys:String>+ transferWallet(String, String, UUID): void</sys:String>
+                  <sys:String>+ makeWalletPrivate(Wallet): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node30">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="1606" Y="83" Width="230" Height="54" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="WalletNotFoundException" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ WalletNotFoundException(String):</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+    </node>
+    <node id="node18">
+      <data key="d0">0</data>
+      <data key="d5">
+        <y:RectD X="213" Y="-157" Width="410" Height="206" />
+      </data>
+      <data key="d7">
+        <uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+          <uml:UMLNodeStyle.model>
+            <uml:UMLClassModel stereotype="" constraint="" className="WalletView" attributesOpen="true" operationsOpen="true">
+              <uml:UMLClassModel.attributes>
+                <x:Array Type="sys:Object" />
+              </uml:UMLClassModel.attributes>
+              <uml:UMLClassModel.operations>
+                <x:Array Type="sys:Object">
+                  <sys:String>+ WalletView():</sys:String>
+                  <sys:String>+ showPublicAccessPrompt(String): void</sys:String>
+                  <sys:String>+ showMintSuccess(String, float): void</sys:String>
+                  <sys:String>+ showCreateWalletSuccess(String): void</sys:String>
+                  <sys:String>+ showArt(String): void</sys:String>
+                  <sys:String>+ showLiquidity(double): void</sys:String>
+                  <sys:String>+ showWalletWorth(double): void</sys:String>
+                  <sys:String>+ showSetPricePrompt(String): void</sys:String>
+                  <sys:String>+ showWalletNamePrompt(): void</sys:String>
+                  <sys:String>+ showWalletGallery(Map&lt;UUID, String&gt;, Map&lt;UUID, String&gt;, Map ...): void</sys:String>
+                  <sys:String>+ showArtPrompt(): void</sys:String>
+                </x:Array>
+              </uml:UMLClassModel.operations>
+            </uml:UMLClassModel>
+          </uml:UMLNodeStyle.model>
+        </uml:UMLNodeStyle>
+      </data>
+      <port name="port0">
+        <data key="d16">
+          <y:FreeNodePortLocationModelParameter Ratio="0.30892310834504555,-0.0018166216619812819" />
+        </data>
+      </port>
+    </node>
+    <edge id="edge8" source="node31" target="node44" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="2.8478764787198543,-454.5804785441611" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge1" source="node22" target="node49" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-1474.7620841253215,501.6097063679291" />
+          <y:Bend Location="-1481.6680664432438,501.6097063679291" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge0" source="node35" target="node5" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-454.3669755343194,430.35124110901313" />
+          <y:Bend Location="-719.4912074462479,430.35124110901313" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge10" source="node55" target="node44" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="1237.4501485175213,-334.285505376344" />
+          <y:Bend Location="1075.953944392969,-334.285505376344" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge9" source="node37" target="node17" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-640.3513414708405,1001.4590404215936" />
+          <y:Bend Location="-740.4449650938216,1001.4590404215936" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#008200" dashStyle="Dash" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge7" source="node10" target="node0" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-801.4451148715731,489.6260267542265" />
+          <y:Bend Location="-795.863326428288,489.6260267542265" />
+          <y:Bend Location="-795.863326428288,451.75830782330195" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#008200" dashStyle="Dash" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge5" source="node10" target="node5" sourceport="port1" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-785.3106739417605,516.2277434267309" />
+          <y:Bend Location="-779.7288854984754,516.2277434267309" />
+          <y:Bend Location="-779.7288854984754,499.17149205269266" />
+          <y:Bend Location="-780.8629196305387,499.17149205269266" />
+          <y:Bend Location="-780.8629196305387,430.8337623406543" />
+          <y:Bend Location="-719.4912074462479,430.8337623406543" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge11" source="node50" target="node44" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="1459.0343440860217,-323.9595819588982" />
+          <y:Bend Location="1459.0343440860217,-454.5804785441611" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge3" source="node36" target="node44" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="816.6759710522701,-220.28550537634402" />
+          <y:Bend Location="816.6760055067143,-220.28550537634402" />
+          <y:Bend Location="816.6760055067143,-454.0804785441611" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge14" source="node21" target="node45" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="1706.7350781006025,-30.523117440919634" />
+          <y:Bend Location="1987.8379999999997,-30.523117440919634" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge4" source="node38" target="node45" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="1748.9978569175623,-114.02413878136201" />
+          <y:Bend Location="1987.8379999999997,-114.02413878136201" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge13" source="node33" target="node45" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="2340.231625232975,-30.523117440919634" />
+          <y:Bend Location="1987.8379999999997,-30.523117440919634" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge12" source="node25" target="node45" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="2183.350681003584,-114.02413878136201" />
+          <y:Bend Location="1987.8379999999997,-114.02413878136201" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge6" source="node12" target="node17" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="-849.8435184862781,1001.4590404215936" />
+          <y:Bend Location="-740.4449650938216,1001.4590404215936" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#008200" dashStyle="Dash" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#008200" fill="#008200" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+    <edge id="edge2" source="node18" target="node44" sourceport="port0" targetport="port0">
+      <data key="d11">
+        <x:List />
+      </data>
+      <data key="d12">
+        <x:List>
+          <y:Bend Location="339.2287741935485,-454.0804785441611" />
+        </x:List>
+      </data>
+      <data key="d13">
+        <yjs:PolylineEdgeStyle smoothingLength="20">
+          <yjs:PolylineEdgeStyle.stroke>
+            <yjs:Stroke fill="#000082" />
+          </yjs:PolylineEdgeStyle.stroke>
+          <yjs:PolylineEdgeStyle.sourceArrow>
+            <yjs:Arrow type="NONE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.sourceArrow>
+          <yjs:PolylineEdgeStyle.targetArrow>
+            <yjs:Arrow type="TRIANGLE" stroke="#000082" fill="#000082" />
+          </yjs:PolylineEdgeStyle.targetArrow>
+        </yjs:PolylineEdgeStyle>
+      </data>
+    </edge>
+  </graph>
+</graphml>

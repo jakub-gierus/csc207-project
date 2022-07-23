@@ -3,11 +3,11 @@ package databases;
 import java.util.UUID;
 
 public class SerializedWallet {
-    private String walletName;
-    private String ownerUsername;
-    private UUID walletID;
-    private double currency;
-    private boolean isTradeable;
+    private final String walletName;
+    private final String ownerUsername;
+    private final UUID walletID;
+    private final double currency;
+    private final boolean isTradeable;
 
     /**
      * A wallet object that is serialized for storage
@@ -15,7 +15,7 @@ public class SerializedWallet {
      * @param walletID String walletID, to be converted to UUID
      * @param walletName String name of the wallet
      * @param currency String of how much currency is in the wallet, to be parsed into a double
-     * @param isTradeable String of whether or not the wallet is public/tradeable, to be parsed into boolean
+     * @param isTradeable String of whether the wallet is public/tradeable, to be parsed into boolean
      */
     public SerializedWallet(String ownerUsername, String walletID, String walletName,  String currency, String isTradeable) {
         this.walletName = walletName;

@@ -11,11 +11,12 @@ import usecases.markets.WalletManager;
 
 public class CreateUser {
     private final UserRepository userRepository;
-
     private final WalletManager walletManager;
 
     /**
      * Use-case class for creating and deleting users
+     * @param userRepository an UserRepository instance
+     * @param walletManager a WalletManager instance
      */
     public CreateUser(UserRepository userRepository, WalletManager walletManager) {
 

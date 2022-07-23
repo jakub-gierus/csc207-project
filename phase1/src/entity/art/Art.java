@@ -1,16 +1,16 @@
 package entity.art;
 
 import java.util.UUID;
-
 import entity.markets.Wallet;
 import interfaces.Merchandise;
+
 public class Art implements Merchandise{
-    final private String asciiString;
+    private final String asciiString;
     private String title;
     private float price; // this will store the last price the piece was sold for
     private Wallet wallet;
     private boolean isTradable;
-    final public UUID id;
+    public final UUID id;
 
     /**
      * An entity class that represents a piece of ASCII artwork
@@ -25,6 +25,13 @@ public class Art implements Merchandise{
         this.isTradable = true;
     }
 
+    /**
+     * An overloaded constructor that allows the ID and price to be specified
+     * @param title String title of the art
+     * @param asciiValue String ASCII value of the art
+     * @param artId UUID of this art
+     * @param price float of the art's price
+     */
     public Art(String title, String asciiValue, UUID artId, float price) {
         this.asciiString = asciiValue;
         this.title = title;
@@ -47,13 +54,13 @@ public class Art implements Merchandise{
      */
     public UUID getId(){return id;}
 
-    /**
-     * Changes the title of the art piece
-     * @param newTitle a String that is to be the piece's new title
-     */
+    /*
+       Changes the title of the art piece
+       @param newTitle a String that is to be the piece's new title
     public void changeTitle(String newTitle){
         title = newTitle;
     }
+    */
 
     /**
      * Getter for the piece's title
@@ -120,6 +127,22 @@ public class Art implements Merchandise{
      */
     public String getOwner(){
         return wallet.getOwner();
+    }
+
+    /**
+     * Get the name of the art
+     * @return a String
+     */
+    public String getNameOrTitle(){
+        return getTitle();
+    }
+
+    /**
+     * Get the type of this object
+     * @return a String
+     */
+    public String getTypeString(){
+        return "Art";
     }
 
 }

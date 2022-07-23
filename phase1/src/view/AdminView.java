@@ -32,7 +32,7 @@ public class AdminView extends GenericView {
 
     /**
      * Shows that they've successfully deleted the chosen user
-     * @param username
+     * @param username User to be deleted
      */
     public void showDeleteSuccess(String username) {
         System.out.printf("User %s successfully deleted\n", username);
