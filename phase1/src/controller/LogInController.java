@@ -29,17 +29,7 @@ public class LogInController {
         this.view.showPasswordPrompt();
         String password = this.frontController.userInput.nextLine();
         try {
-            UserFacade userFacade = new UserFacade(null, this.frontController.getUserRepository(),
-                                                              this.frontController.getWalletManager(),
-                                                              this.frontController.getArtManager());
-            userFacade.login(username, password);
-
-            if (userFacade.getIsAdmin()) {
-                this.frontController.setActiveUser(Optional.of(userFacade.createAdminFacade()));
-            }
-            else {
-                this.frontController.setActiveUser(Optional.of(userFacade));
-            }
+            checkForAdminUser(username, password);
 
             this.view.showLogInSuccess(this.frontController.getActiveUser().get().getUsername());
 
@@ -48,6 +38,24 @@ public class LogInController {
         catch (IncorrectUserNameOrPasswordException | UserIsBannedException e) {
             this.view.showErrorMessage(e.getMessage());
             this.frontController.dispatchRequest("LOGIN");
+        }
+    }
+
+    private void checkForAdminUser(String username, String password) {
+        UserFacade userFacade = new UserFacade(null, this.frontController.getUserRepository(),
+                                                          this.frontController.getWalletManager(),
+                                                          this.frontController.getArtManager());
+        userFacade.login(username, password);
+
+        setActiveUserToAdmin(userFacade);
+    }
+
+    private void setActiveUserToAdmin(UserFacade userFacade) {
+        if (userFacade.getIsAdmin()) {
+            this.frontController.setActiveUser(Optional.of(userFacade.createAdminFacade()));
+        }
+        else {
+            this.frontController.setActiveUser(Optional.of(userFacade));
         }
     }
 

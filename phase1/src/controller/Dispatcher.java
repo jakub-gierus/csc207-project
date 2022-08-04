@@ -35,43 +35,63 @@ public class Dispatcher {
      * @param request a String in "THIS FORMAT" used to determine what to call
      */
     public void dispatch(String request) {
-        if (request.equalsIgnoreCase("LOGIN")) {
-            this.logInController.login();
-        } else if (request.equalsIgnoreCase("GET MAIN ACTIONS")) {
-            this.navigationController.mainActionSelect();
-        } else if (request.equalsIgnoreCase("LOGOUT")) {
-            this.logInController.logout();
-        } else if (request.equalsIgnoreCase("EXIT APP")) {
-            this.frontController.exitApplication();
-        } else if (request.equalsIgnoreCase("GET ADMIN ACTIONS")) {
-            this.navigationController.adminActionSelect();
-        } else if (request.equalsIgnoreCase("GET PROFILE ACTIONS")) {
-            this.navigationController.profileActionSelect();
-        } else if (request.equalsIgnoreCase("GET MARKET ACTIONS")){
-            this.navigationController.marketActionSelect();
-        }else if (request.equalsIgnoreCase("VIEW ALL USERS")) {
-            this.adminController.seeAllUsers();
-        } else if (request.equalsIgnoreCase("DELETE USER")) {
-            this.adminController.deleteUser();
-        } else if (request.equalsIgnoreCase("CREATE USER")) {
-            this.adminController.createUser();
-        } else if (request.equalsIgnoreCase("BAN USER")) {
-            this.adminController.banUser();
-        } else if (request.equalsIgnoreCase("UNBAN USER")) {
-            this.adminController.unbanUser();
-        } else if (request.equalsIgnoreCase("VIEW PROFILE")) {
-            this.profileController.viewProfile();
-        } else if (request.equalsIgnoreCase("SELECT WALLET")) {
-            this.navigationController.walletSelect();
-        } else if (request.equalsIgnoreCase("CREATE WALLET")) {
-            this.walletController.createWallet();
-        } else if (request.equalsIgnoreCase("VIEW MARKET ITEMS")){
-            this.marketController.viewMerchandise();
-        } else if (request.equalsIgnoreCase("POST MARKET ITEM")){
-            this.navigationController.selectMerchandiseToPostToMarket();
-        }else if (request.equalsIgnoreCase("TRADE MARKET ITEM")){
-            this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
+        switch (request.toUpperCase()) {
+            case "LOGIN" -> this.logInController.login();
+            case "GET MAIN ACTIONS" -> this.navigationController.mainActionSelect();
+            case "LOGOUT" -> this.logInController.logout();
+            case "EXIT APP" -> this.frontController.exitApplication();
+            case "GET ADMIN ACTIONS" -> this.navigationController.adminActionSelect();
+            case "GET PROFILE ACTIONS" -> this.navigationController.profileActionSelect();
+            case "GET MARKET ACTIONS" -> this.navigationController.marketActionSelect();
+            case "VIEW ALL USERS" -> this.adminController.seeAllUsers();
+            case "DELETE USER" -> this.adminController.deleteUser();
+            case "CREATE USER" -> this.adminController.createUser();
+            case "BAN USER" -> this.adminController.banUser();
+            case "UNBAN USER" -> this.adminController.unbanUser();
+            case "VIEW PROFILE" -> this.profileController.viewProfile();
+            case "SELECT WALLET" -> this.navigationController.walletSelect();
+            case "CREATE WALLET" -> this.walletController.createWallet();
+            case "VIEW MARKET ITEMS" -> this.marketController.viewMerchandise();
+            case "POST MARKET ITEM" -> this.navigationController.selectMerchandiseToPostToMarket();
+            case "TRADE MARKET ITEM" -> this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
         }
+//        if (request.equalsIgnoreCase("LOGIN")) {
+//            this.logInController.login();
+//        } else if (request.equalsIgnoreCase("GET MAIN ACTIONS")) {
+//            this.navigationController.mainActionSelect();
+//        } else if (request.equalsIgnoreCase("LOGOUT")) {
+//            this.logInController.logout();
+//        } else if (request.equalsIgnoreCase("EXIT APP")) {
+//            this.frontController.exitApplication();
+//        } else if (request.equalsIgnoreCase("GET ADMIN ACTIONS")) {
+//            this.navigationController.adminActionSelect();
+//        } else if (request.equalsIgnoreCase("GET PROFILE ACTIONS")) {
+//            this.navigationController.profileActionSelect();
+//        } else if (request.equalsIgnoreCase("GET MARKET ACTIONS")){
+//            this.navigationController.marketActionSelect();
+//        }else if (request.equalsIgnoreCase("VIEW ALL USERS")) {
+//            this.adminController.seeAllUsers();
+//        } else if (request.equalsIgnoreCase("DELETE USER")) {
+//            this.adminController.deleteUser();
+//        } else if (request.equalsIgnoreCase("CREATE USER")) {
+//            this.adminController.createUser();
+//        } else if (request.equalsIgnoreCase("BAN USER")) {
+//            this.adminController.banUser();
+//        } else if (request.equalsIgnoreCase("UNBAN USER")) {
+//            this.adminController.unbanUser();
+//        } else if (request.equalsIgnoreCase("VIEW PROFILE")) {
+//            this.profileController.viewProfile();
+//        } else if (request.equalsIgnoreCase("SELECT WALLET")) {
+//            this.navigationController.walletSelect();
+//        } else if (request.equalsIgnoreCase("CREATE WALLET")) {
+//            this.walletController.createWallet();
+//        } else if (request.equalsIgnoreCase("VIEW MARKET ITEMS")){
+//            this.marketController.viewMerchandise();
+//        } else if (request.equalsIgnoreCase("POST MARKET ITEM")){
+//            this.navigationController.selectMerchandiseToPostToMarket();
+//        }else if (request.equalsIgnoreCase("TRADE MARKET ITEM")){
+//            this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
+//        }
     }
 
     /**

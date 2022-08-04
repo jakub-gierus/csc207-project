@@ -54,12 +54,16 @@ public class MarketController {
     public void postMerchandise(UUID artId){
         // if not send id to market method
         boolean added = this.market.addArtToMarket(artId);
+        checkIfItemIsAddedToMarket(added);
+        this.frontController.dispatchRequest("GET MARKET ACTIONS");
+    }
+
+    private void checkIfItemIsAddedToMarket(boolean added) {
         if(added){
             this.view.successAddToMarket();
         } else {
             this.view.failAddToMarket();
         }
-        this.frontController.dispatchRequest("GET MARKET ACTIONS");
     }
 
     /**

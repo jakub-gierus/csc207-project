@@ -110,7 +110,7 @@ public class Market {
             removeItem(artObj);
             System.out.println("The trade has been made!");
         } else {
-            System.out.println("The trade has been made!");
+            System.out.println("The trade has not been made!");
         }
     }
 

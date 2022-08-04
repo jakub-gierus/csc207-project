@@ -49,30 +49,51 @@ public class UserRepository {
 
         // HashMap<String, User> users = new HashMap<>();
 
-        for (Entry<String, String> userDatum : adminUserData) {
-            this.users.put(userDatum.getKey(),
-                    new AdminUser(userDatum.getKey(), userDatum.getValue()));
-        }
-        for (Triplet<String, String, LocalDateTime> userDatum : basicUserData) {
-            BasicUser newUser =  new BasicUser(userDatum.getFirst(), userDatum.getSecond(), userDatum.getThird());
-            this.users.put(userDatum.getFirst(), newUser);
+        getAdminUser(adminUserData);
 
-        }
-        for (Triplet<String, LocalDateTime, String> eventDatum : eventData) {
-            User user = this.getByUsername(eventDatum.getFirst()).orElseThrow(() -> new UserDoesNotExistException(eventDatum.getFirst()));
-            user.logEvent(eventDatum.getThird(), eventDatum.getSecond());
-        }
+        getBasicUser(basicUserData);
 
+        logUserEvent(eventData);
+
+        getWalletData(walletData, walletManager);
+
+        getArt(artData, artManager);
+    }
+
+    private void getWalletData(List<SerializedWallet> walletData, WalletManager walletManager) {
         for (SerializedWallet walletDatum: walletData) {
             User user = this.getByUsername(walletDatum.getOwnerUsername()).orElseThrow(() -> new UserDoesNotExistException(walletDatum.getOwnerUsername()));
             Wallet wallet = walletManager.createWallet(user, walletDatum.getWalletName(), walletDatum.isTradeable(), walletDatum.getWalletID(), walletDatum.getCurrency());
             user.addWallet(wallet);
         }
+    }
 
+    private void logUserEvent(List<Triplet<String, LocalDateTime, String>> eventData) {
+        for (Triplet<String, LocalDateTime, String> eventDatum : eventData) {
+            User user = this.getByUsername(eventDatum.getFirst()).orElseThrow(() -> new UserDoesNotExistException(eventDatum.getFirst()));
+            user.logEvent(eventDatum.getThird(), eventDatum.getSecond());
+        }
+    }
 
+    private void getArt(List<SerializedArt> artData, ArtManager artManager) {
         for (SerializedArt artDatum: artData) {
             Art art = new Art(artDatum.getArtTitle(), artDatum.getArt(), artDatum.getArtID(), artDatum.getPrice());
             artManager.addArt(art, artDatum.getWalletID());
+        }
+    }
+
+    private void getBasicUser(List<Triplet<String, String, LocalDateTime>> basicUserData) {
+        for (Triplet<String, String, LocalDateTime> userDatum : basicUserData) {
+            BasicUser newUser =  new BasicUser(userDatum.getFirst(), userDatum.getSecond(), userDatum.getThird());
+            this.users.put(userDatum.getFirst(), newUser);
+
+        }
+    }
+
+    private void getAdminUser(List<Entry<String, String>> adminUserData) {
+        for (Entry<String, String> userDatum : adminUserData) {
+            this.users.put(userDatum.getKey(),
+                    new AdminUser(userDatum.getKey(), userDatum.getValue()));
         }
     }
 
