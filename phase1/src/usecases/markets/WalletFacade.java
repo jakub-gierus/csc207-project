@@ -48,9 +48,9 @@ public class WalletFacade {
 
     public String getName(){return this.wallet.getName();}
 
-    public HashMap<UUID, Art> getAllWalletArt () {
-        return this.wallet.getAllArt();
-    }
+//    public HashMap<UUID, Art> getAllWalletArt () {
+//        return this.wallet.getAllArt();
+//    }
 
     /**
      * Gets a user's wallet by the wallet id
@@ -107,7 +107,7 @@ public class WalletFacade {
      */
     public HashMap<UUID, String> getTradeableArtNames(){
         HashMap<UUID, String> res = new HashMap<>();
-        for(Art a : getAllWalletArt().values()){
+        for(Art a : wallet){
             ArtFacade facade = new ArtFacade(a, this.artManager);
             if (facade.getTradeable()){
                 res.put(facade.getId(), facade.getTitle());

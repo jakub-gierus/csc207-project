@@ -1,13 +1,12 @@
 package entity.markets;
 
-import java.util.HashMap;
+import java.util.*;
 
 import entity.art.Art;
 import entity.user.User;
 import interfaces.Merchandise;
-import java.util.UUID;
 
-public class Wallet implements Merchandise{
+public class Wallet implements Iterable<Art>, Merchandise {
     private final HashMap<UUID, Art> arts = new HashMap<>();
     private double currency = 0;
     private boolean publicAccess;
@@ -115,10 +114,10 @@ public class Wallet implements Merchandise{
      * Gets the mapping of all the art stored in this wallet
      * @return a map of <String, Art> containing all the art stored in this wallet
      */
-    public HashMap<UUID, Art> getAllArt(){
-        // this seems like a bad idea but might be useful for development for now
-        return arts;
-    }
+//    public HashMap<UUID, Art> getAllArt(){
+//        // this seems like a bad idea but might be useful for development for now
+//        return arts;
+//    }
 
     /**
      * Get the amount of currency stored in this wallet
@@ -234,5 +233,34 @@ public class Wallet implements Merchandise{
 
     public String getTypeString(){
         return "Wallet";
+    }
+
+    /**
+     * The iterator design pattern for getallart()
+     * @return all the art in this wallet
+     */
+    @Override
+    public Iterator<Art> iterator() {
+        return new artIterator();
+    }
+
+    public class artIterator implements Iterator<Art> {
+        List<Art> name = new ArrayList<>(arts.values());
+
+        int current = 0;
+        
+        @Override
+        public boolean hasNext() {
+            return current < name.size();
+        }
+        @Override
+        public Art next() {
+            if (this.hasNext()) {
+                Art artName = name.get(current);
+                current++;
+                return artName;
+            }
+            return null;
+        }
     }
 }
