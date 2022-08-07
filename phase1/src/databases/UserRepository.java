@@ -6,6 +6,7 @@ import entity.user.AdminUser;
 import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
+import factory.UserFactory;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 
@@ -84,7 +85,8 @@ public class UserRepository {
 
     private void getBasicUser(List<Triplet<String, String, LocalDateTime>> basicUserData) {
         for (Triplet<String, String, LocalDateTime> userDatum : basicUserData) {
-            BasicUser newUser =  new BasicUser(userDatum.getFirst(), userDatum.getSecond(), userDatum.getThird());
+            UserFactory userFactory = new UserFactory();
+            User newUser =  userFactory.getUser(userDatum.getFirst(), userDatum.getSecond(), false);
             this.users.put(userDatum.getFirst(), newUser);
 
         }
@@ -92,8 +94,9 @@ public class UserRepository {
 
     private void getAdminUser(List<Entry<String, String>> adminUserData) {
         for (Entry<String, String> userDatum : adminUserData) {
-            this.users.put(userDatum.getKey(),
-                    new AdminUser(userDatum.getKey(), userDatum.getValue()));
+            UserFactory userFactory = new UserFactory();
+            User newUser =  userFactory.getUser(userDatum.getKey(), userDatum.getValue(), true);
+            this.users.put(userDatum.getKey(), newUser);
         }
     }
 

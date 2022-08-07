@@ -7,6 +7,7 @@ import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UsernameAlreadyExistsException;
+import factory.UserFactory;
 import usecases.markets.WalletManager;
 
 public class CreateUser {
@@ -36,11 +37,12 @@ public class CreateUser {
             throw new UsernameAlreadyExistsException(username);
         }
         User newUser;
+        UserFactory userFactory = new UserFactory();
         if (isAdmin) {
-            newUser = new AdminUser(username, password);
+            newUser =  userFactory.getUser(username, password, false);
         }
         else {
-            newUser = new BasicUser(username, password);
+            newUser =  userFactory.getUser(username, password, true);
         }
         Wallet defaultWallet = walletManager.createWallet(newUser);
         newUser.addWallet(defaultWallet);
