@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class User {
+public abstract class User {
     private String password;
     private String username;
     private final List<Map.Entry<LocalDateTime, String>> events;

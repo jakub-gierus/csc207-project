@@ -36,24 +36,26 @@ public class Dispatcher {
      */
     public void dispatch(String request) {
         switch (request.toUpperCase()) {
-            case "LOGIN" -> this.logInController.login();
-            case "GET MAIN ACTIONS" -> this.navigationController.mainActionSelect();
-            case "LOGOUT" -> this.logInController.logout();
-            case "EXIT APP" -> this.frontController.exitApplication();
-            case "GET ADMIN ACTIONS" -> this.navigationController.adminActionSelect();
-            case "GET PROFILE ACTIONS" -> this.navigationController.profileActionSelect();
-            case "GET MARKET ACTIONS" -> this.navigationController.marketActionSelect();
-            case "VIEW ALL USERS" -> this.adminController.seeAllUsers();
-            case "DELETE USER" -> this.adminController.deleteUser();
-            case "CREATE USER" -> this.adminController.createUser();
-            case "BAN USER" -> this.adminController.banUser();
-            case "UNBAN USER" -> this.adminController.unbanUser();
-            case "VIEW PROFILE" -> this.profileController.viewProfile();
-            case "SELECT WALLET" -> this.navigationController.walletSelect();
-            case "CREATE WALLET" -> this.walletController.createWallet();
-            case "VIEW MARKET ITEMS" -> this.marketController.viewMerchandise();
-            case "POST MARKET ITEM" -> this.navigationController.selectMerchandiseToPostToMarket();
-            case "TRADE MARKET ITEM" -> this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
+            case "LOGIN": logInController.login(); break;
+            case "GET MAIN ACTIONS": navigationController.mainActionSelect(); break;
+            case "LOGOUT": logInController.logout(); break;
+            case "EXIT APP": frontController.exitApplication(); break;
+            case "GET ADMIN ACTIONS": navigationController.adminActionSelect(); break;
+            case "GET PROFILE ACTIONS": navigationController.profileActionSelect(); break;
+            case "GET MARKET ACTIONS": navigationController.marketActionSelect(); break;
+            case "VIEW ALL USERS": adminController.seeAllUsers(); break;
+            case "DELETE USER": adminController.deleteUser(); break;
+            case "CREATE USER": adminController.createUser(); break;
+            case "BAN USER": adminController.banUser(); break;
+            case "UNBAN USER": adminController.unbanUser(); break;
+            case "VIEW PROFILE": profileController.viewProfile(); break;
+            case "SELECT WALLET": navigationController.walletSelect(); break;
+            case "CREATE WALLET": walletController.createWallet(); break;
+            case "VIEW MARKET ITEMS": marketController.viewMerchandise(); break;
+            case "POST MARKET ITEM": navigationController.selectMerchandiseToPostToMarket(); break;
+            case "TRADE MARKET ITEM":
+                navigationController.selectMarketItemToBuy(marketController.getAllMerchandiseOnMarket());
+                break;
         }
 //        if (request.equalsIgnoreCase("LOGIN")) {
 //            this.logInController.login();
@@ -100,21 +102,30 @@ public class Dispatcher {
      * @param id a UUID object of the target
      */
     public void dispatch(String request, UUID id) {
-        if (request.equalsIgnoreCase("GET WALLET ACTIONS")) {
-            this.navigationController.walletActionSelect(id);
-        } else if (request.equalsIgnoreCase("VIEW LIQUIDITY")) {
-            this.walletController.viewLiquidity(id);
-        } else if (request.equalsIgnoreCase("VIEW NET WORTH")) {
-            this.walletController.viewWalletWorth(id);
-        } else if (request.equalsIgnoreCase("VIEW WALLET ART")) {
-            this.walletController.viewWalletArt(id);
-        } else if (request.equalsIgnoreCase("MINT NEW ART")) {
-            this.walletController.mintArt(id);
-        }else if (request.equalsIgnoreCase("POST ART TO MARKET")) {
-            this.marketController.postMerchandise(id);
-        } else if (request.equalsIgnoreCase("SELECT WALLET FOR TRADE")) {
-            this.navigationController.selectWalletToMakeTrade(id);
+        switch (request.toUpperCase()) {
+            case "GET WALLET ACTIONS": navigationController.walletActionSelect(id); break;
+            case "VIEW LIQUIDITY": walletController.viewLiquidity(id); break;
+            case "VIEW NET WORTH": walletController.viewWalletWorth(id); break;
+            case "VIEW WALLET ART": walletController.viewWalletArt(id); break;
+            case "MINT NEW ART": walletController.mintArt(id); break;
+            case "POST ART TO MARKET": marketController.postMerchandise(id); break;
+            case "SELECT WALLET FOR TRADE": navigationController.selectWalletToMakeTrade(id); break;
         }
+//        if (request.equalsIgnoreCase("GET WALLET ACTIONS")) {
+//            this.navigationController.walletActionSelect(id);
+//        } else if (request.equalsIgnoreCase("VIEW LIQUIDITY")) {
+//            this.walletController.viewLiquidity(id);
+//        } else if (request.equalsIgnoreCase("VIEW NET WORTH")) {
+//            this.walletController.viewWalletWorth(id);
+//        } else if (request.equalsIgnoreCase("VIEW WALLET ART")) {
+//            this.walletController.viewWalletArt(id);
+//        } else if (request.equalsIgnoreCase("MINT NEW ART")) {
+//            this.walletController.mintArt(id);
+//        }else if (request.equalsIgnoreCase("POST ART TO MARKET")) {
+//            this.marketController.postMerchandise(id);
+//        } else if (request.equalsIgnoreCase("SELECT WALLET FOR TRADE")) {
+//            this.navigationController.selectWalletToMakeTrade(id);
+//        }
     }
 
     /**
@@ -124,16 +135,21 @@ public class Dispatcher {
      * @param id2 a UUID object of the second target
      */
     public void dispatch(String request, UUID id1, UUID id2){
-        if (request.equalsIgnoreCase("MAKE TRADE WITH WALLET")) {
-            // item id, wallet id
-            this.marketController.makeTradeWithWallet(id1, id2);
-        } else if (request.equalsIgnoreCase("MAKE A2A TRADE")) {
-            // marketArt id, usersArt id
-            this.marketController.makeArtForArtTrade(id1, id2);
-        }else if (request.equalsIgnoreCase("SELECT ART FOR A2A TRADE")) {
-            // wantedItem id, userWallet id
-            this.navigationController.selectArtFromWalletForTrade(id1, id2);
+        switch (request.toUpperCase()){
+            case "MAKE TRADE WITH WALLET": marketController.makeTradeWithWallet(id1, id2); break;
+            case "MAKE A2A TRADE": marketController.makeArtForArtTrade(id1, id2); break;
+            case "SELECT ART FOR A2A TRADE": navigationController.selectArtFromWalletForTrade(id1, id2); break;
         }
+//        if (request.equalsIgnoreCase("MAKE TRADE WITH WALLET")) {
+//            // item id, wallet id
+//            this.marketController.makeTradeWithWallet(id1, id2);
+//        } else if (request.equalsIgnoreCase("MAKE A2A TRADE")) {
+//            // marketArt id, usersArt id
+//            this.marketController.makeArtForArtTrade(id1, id2);
+//        }else if (request.equalsIgnoreCase("SELECT ART FOR A2A TRADE")) {
+//            // wantedItem id, userWallet id
+//            this.navigationController.selectArtFromWalletForTrade(id1, id2);
+//        }
     }
 }
 
