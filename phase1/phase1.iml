@@ -38,5 +38,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="modules" level="project" />
+    <orderEntry type="library" name="amazonaws.aws.java.sdk.dynamodb" level="project" />
   </component>
 </module>

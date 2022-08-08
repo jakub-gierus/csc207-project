@@ -130,7 +130,7 @@ public class UserFacade {
      * @return a List of Wallet objects
      */
     public List<Wallet> getWallets() {
-        return this.user.getWallets();
+        return walletManager.getWalletsByUserName(user.getUsername());
     }
 
     /**
@@ -149,7 +149,7 @@ public class UserFacade {
     }
 
     public int getNumberOfWallets() {
-        return this.user.getWallets().size();
+        return getWallets().size();
     }
 
     /**
@@ -159,7 +159,7 @@ public class UserFacade {
     public double getTotalNetWorth() {
         double totalNetWorth = 0;
         for (Wallet wallet : this.getWallets()) {
-            totalNetWorth += wallet.getNetWorth();
+            totalNetWorth += artManager.getArtValue(wallet.getId());
         }
         return totalNetWorth;
     }
@@ -170,8 +170,7 @@ public class UserFacade {
      * @param access the bool of whether this wallet is public
      */
     public void addWallet(String walletName, boolean access) {
-        Wallet createdWallet = this.walletManager.createWallet(this.user, walletName, access);
-        this.user.addWallet(createdWallet);
+        this.walletManager.createWallet(this.user, walletName, access);
     }
 
     /**
@@ -203,4 +202,6 @@ public class UserFacade {
     public ArtManager getArtManager() {
         return this.artManager;
     }
+
+
 }

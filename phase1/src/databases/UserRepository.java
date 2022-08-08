@@ -19,6 +19,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class UserRepository {
+    // username: User
     private final HashMap<String, User> users = new HashMap<>();
     /**
      * Stand-in class for a database of users that would be used by actual applications. Implements all needed database
@@ -47,7 +48,6 @@ public class UserRepository {
                               WalletManager walletManager,
                               ArtManager artManager) {
 
-        // HashMap<String, User> users = new HashMap<>();
 
         getAdminUser(adminUserData);
 
@@ -58,13 +58,14 @@ public class UserRepository {
         getWalletData(walletData, walletManager);
 
         getArt(artData, artManager);
+
+
     }
 
     private void getWalletData(List<SerializedWallet> walletData, WalletManager walletManager) {
         for (SerializedWallet walletDatum: walletData) {
             User user = this.getByUsername(walletDatum.getOwnerUsername()).orElseThrow(() -> new UserDoesNotExistException(walletDatum.getOwnerUsername()));
             Wallet wallet = walletManager.createWallet(user, walletDatum.getWalletName(), walletDatum.isTradeable(), walletDatum.getWalletID(), walletDatum.getCurrency());
-            user.addWallet(wallet);
         }
     }
 

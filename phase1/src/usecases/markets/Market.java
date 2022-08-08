@@ -45,7 +45,7 @@ public class Market {
      * @return a bool of whether this item is for sale
      */
     public boolean checkItem(Merchandise merchandise){
-        return itemsForSale.contains(merchandise);
+        return listings.containsKey(merchandise.getId());
     }
 
     /**
@@ -88,7 +88,8 @@ public class Market {
         // check if art isn't already on the market
         if(!checkItem(art)){
             this.itemsForSale.add(art);
-            this.listings.put(art.getId(),art.getOwner());
+            String owner = walletLibrary.getWalletById(art.getWalletId()).getOwner();
+            this.listings.put(art.getId(),owner);
         }
         return true;
     }
@@ -102,7 +103,8 @@ public class Market {
         Art artObj = this.artManager.getArt(artId);
         Wallet paymentWallet = this.walletLibrary.getWalletById(paymentWalletId);
 
-        TradingUtil trader = new TradingUtil(paymentWallet, artObj.getWallet(), this.userRepository);
+        TradingUtil trader = new TradingUtil(paymentWallet, walletLibrary.getWalletById(artObj.getWalletId()),
+                this.userRepository, walletLibrary, artManager);
 
         boolean success = trader.makeTrade_Art_Money(artObj);
 
@@ -123,7 +125,13 @@ public class Market {
         Art wantedArt = this.artManager.getArt(wantedArtId);
         Art userArt = this.artManager.getArt(userArtId);
 
-        TradingUtil trader = new TradingUtil(userArt.getWallet(), wantedArt.getWallet(), this.userRepository);
+        TradingUtil trader = new TradingUtil(
+                walletLibrary.getWalletById(userArt.getWalletId()),
+                walletLibrary.getWalletById(wantedArt.getWalletId()),
+                this.userRepository,
+                walletLibrary,
+                artManager
+        );
 
         // order of params doesn't matter in art-to-art -> look at implementation
         boolean success = trader.makeTrade_Art_Art(wantedArt,userArt);

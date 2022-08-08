@@ -5,6 +5,7 @@ import entity.markets.Wallet;
 import entity.user.BasicUser;
 import entity.user.User;
 import usecases.art.ArtManager;
+import usecases.markets.WalletManager;
 import utils.Config;
 
 import java.io.FileWriter;
@@ -23,13 +24,15 @@ public class DataSaver {
     private final UserRepository userRepository;
     private final ArtManager artManager;
 
+    private final WalletManager walletManager;
+
     /**
      * Class that saves all user and event data to CSVs.
      * @param config a Config object that stores the location of files
      * @param artManager the ArtManager instance that will be used
      * @param userRepository the UserRepository instance that will be used
      */
-    public DataSaver(Config config, ArtManager artManager, UserRepository userRepository) {
+    public DataSaver(Config config, ArtManager artManager, UserRepository userRepository, WalletManager wm) {
         this.userRepository = userRepository;
         this.filePath = config.getRootDirectory();
         this.basicUsersFilename = config.getBasicUserFilePath();
@@ -38,6 +41,7 @@ public class DataSaver {
         this.walletsFilename = config.getWalletFilePath();
         this.artsFilename = config.getArtsFilePath();
         this.artManager = artManager;
+        this.walletManager = wm;
     }
 
     /**
@@ -81,7 +85,7 @@ public class DataSaver {
     public void saveAllWalletData() throws IOException {
         FileWriter walletWriter = new FileWriter(this.filePath + this.walletsFilename, false);
         for (User user: this.userRepository.getAllUsers()) {
-            for (Wallet wallet : user.getWallets()) {
+            for (Wallet wallet : walletManager.getWalletsByUserName(user.getUsername())) {
                 walletWriter.write(user.getUsername() + "," + wallet.getId() + "," + wallet.getName() + "," + wallet.getCurrency() + "," + wallet.getIsTradeable() + "\n");
             }
         }
@@ -95,9 +99,10 @@ public class DataSaver {
     public void saveAllArtData() throws IOException {
         FileWriter artWriter = new FileWriter(this.filePath + this.artsFilename, false);
         for (Art art: this.artManager.getAllArt()) {
-            artWriter.write(art.getWallet().getId() + ","  + art.getId() + "," + art.getArt().replace("\n", "newline") + "," + art.getTitle() + ","  + art.getPrice() + "\n");
 
+            artWriter.write(walletManager.getWalletById(art.getWalletId()).getId() + ","  + art.getId() + "," + art.getArt().replace("\n", "newline") + "," + art.getTitle() + ","  + art.getPrice() + "\n");
         }
+
         artWriter.close();
     }
 }

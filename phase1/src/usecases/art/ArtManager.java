@@ -1,35 +1,22 @@
 package usecases.art;
-
+import databases.ArtRepository;
 import entity.art.Art;
 import usecases.markets.WalletManager;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import utils.DynamoDBConfig;
+
+import java.util.*;
 
 /**
  * SINGLETON class
  * Keeps track of every piece of art
  **/
-public class ArtManager {
-    // Set containing all the art contained in the system/app
-    // unique id : Art object
-    final private HashMap<UUID, Art> library = new HashMap<>();
-
+public class ArtManager implements Iterable<Art>{
     final private WalletManager walletManager;
+    final private ArtRepository db;
 
-    public ArtManager(WalletManager walletManager) {
+    public ArtManager(WalletManager walletManager, DynamoDBConfig config) {
         this.walletManager = walletManager;
-    }
-    /**
-     * Returns true if an art piece exists in the library, false otherwise
-     * @param art piece to check
-     * @return true if art exists here
-     */
-    public boolean artExists(Art art){
-        return this.library.containsKey(art.getId());
+        this.db = new ArtRepository(config);
     }
 
     /**
@@ -38,7 +25,7 @@ public class ArtManager {
      * @return an Art object or Null
      */
     public Art getArt(UUID id){
-        return this.library.containsKey(id) ? library.get(id) : null;
+        return db.getById(id.toString());
     }
 
     /**
@@ -53,9 +40,9 @@ public class ArtManager {
         //add to library
         Art newArt = new Art(artName, art);
         newArt.setPrice(artPrice);
-        this.walletManager.getWalletById(walletID).addArt(newArt);
+        setNewWalletId(walletID,newArt);
         newArt.setWallet(this.walletManager.getWalletById(walletID));
-        this.library.put(newArt.getId(), newArt);
+        db.save(newArt);
     }
 
     /**
@@ -63,11 +50,25 @@ public class ArtManager {
      * @param walletId the UUID of the target wallet
      * @return a mapping of the format <UUID, ArtFacade> that contains all the art in this wallet
      */
-    public Map<UUID, ArtFacade> getArtByWallet(UUID walletId) {
-        Predicate<Map.Entry<UUID, Art>> typeFilter = art -> art.getValue().getWallet().getId().equals(walletId);
+    public List<Art> getArtByWallet(UUID walletId) {
+        List<Art> result = new ArrayList<>();
+        for (Art art : db.getAll()){
+            if(art.getWalletId().equals(walletId)){
+                result.add(art);
+            }
+        }
 
-        return this.library.entrySet().stream().filter(typeFilter).collect(Collectors.toMap(Map.Entry<UUID, Art>::getKey,
-                (Map.Entry<UUID, Art> entry) -> new ArtFacade(entry.getValue(), this)));
+        return result;
+    }
+
+    public HashMap<UUID, Art> getArtByWalletMap(UUID walletId){
+        HashMap<UUID, Art> result = new HashMap<UUID,Art>();
+        for (Art art : db.getAll()){
+            if(art.getWalletId().equals(walletId)){
+                result.put(art.getId(), art);
+            }
+        }
+        return result;
     }
 
     /**
@@ -75,7 +76,7 @@ public class ArtManager {
      * @return a Collection of Art
      */
     public Collection<Art> getAllArt() {
-        return this.library.values();
+        return db.getAll();
     }
 
     /**
@@ -84,9 +85,56 @@ public class ArtManager {
      * @param walletID the UUID of the wallet the art is contained in
      */
     public void addArt(Art art, UUID walletID) {
-        this.walletManager.getWalletById(walletID).addArt(art);
+        setNewWalletId(walletID,art);
         art.setWallet(this.walletManager.getWalletById(walletID));
-        this.library.put(art.getId(), art);
-
+        db.save(art);
     }
+
+    public void setNewWalletId(UUID newId, Art art){
+        art.setWalletId(newId.toString());
+        db.save(art);
+    }
+
+    public double getArtValue(UUID walletId){
+        double res = 0.0;
+        for (Art art : getArtByWallet(walletId)){
+            res += art.getPrice();
+        }
+        return res;
+    }
+
+    public void wipeRemoteDb(){
+        db.deleteAll();
+    }
+
+    /**
+     * The iterator design pattern for getallart()
+     * @return all the art in this wallet
+     */
+    @Override
+    public Iterator<Art> iterator() {
+        return new artIterator();
+    }
+
+    public class artIterator implements Iterator<Art> {
+        List<Art> name = new ArrayList<>(getAllArt());
+
+        int current = 0;
+
+        @Override
+        public boolean hasNext() {
+            return current < name.size();
+        }
+        @Override
+        public Art next() {
+            if (this.hasNext()) {
+                Art artName = name.get(current);
+                current++;
+                return artName;
+            }
+            return null;
+        }
+    }
+
+
 }

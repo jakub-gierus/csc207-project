@@ -31,8 +31,12 @@ public class WalletFacade {
      * @return a double of this wallet's net worth
      */
     public double getNetWorth () {
-        return this.wallet.getNetWorth();
+        double res = 0;
+        res += wallet.getCurrency();
+        res += artManager.getArtValue(wallet.getId());
+        return res;
     }
+
 
     /**
      * Get the currency stored in this wallet
@@ -67,7 +71,7 @@ public class WalletFacade {
      * @return a Mapping of the format <UUID of the art, String of the ASCII value of the art>
      */
     public Map<UUID, String> getWalletArts() {
-        Map<UUID, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.artManager.getArtByWalletMap(wallet.getId());
         Map<UUID, String> returnWalletArts = new HashMap<>();
         for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArts.put(walletArt.getValue().getId(), walletArt.getValue().getArt());
@@ -80,7 +84,7 @@ public class WalletFacade {
      * @return a Mapping of the format <UUID of the art, String of the art's title>
      */
     public Map<UUID, String> getWalletArtTitles() {
-        Map<UUID, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.artManager.getArtByWalletMap(wallet.getId());
         Map<UUID, String> returnWalletArtTitles = new HashMap<>();
         for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArtTitles.put(walletArt.getValue().getId(), walletArt.getValue().getTitle());
@@ -93,7 +97,7 @@ public class WalletFacade {
      * @return a mapping in the format <UUID of the art piece, float of the price>
      */
     public Map<UUID, Float> getWalletArtPrices() {
-        Map<UUID, Art> walletArts = this.wallet.getArts();
+        Map<UUID, Art> walletArts = this.artManager.getArtByWalletMap(wallet.getId());
         Map<UUID, Float> returnWalletArtPrices = new HashMap<>();
         for (Map.Entry<UUID, Art> walletArt : walletArts.entrySet()) {
             returnWalletArtPrices.put(walletArt.getValue().getId(), walletArt.getValue().getPrice());
@@ -107,7 +111,7 @@ public class WalletFacade {
      */
     public HashMap<UUID, String> getTradeableArtNames(){
         HashMap<UUID, String> res = new HashMap<>();
-        for(Art a : wallet){
+        for(Art a : artManager.getArtByWallet(wallet.getId())){
             ArtFacade facade = new ArtFacade(a, this.artManager);
             if (facade.getTradeable()){
                 res.put(facade.getId(), facade.getTitle());
@@ -116,13 +120,6 @@ public class WalletFacade {
         return res;
     }
 
-    /**
-     * Adds a piece of art to the wallet
-     * @param art the Art object being added
-     */
-    public void addArtToWallet(Art art){
-        this.wallet.addArt(art);
-    }
 
     /**
      * Gets the UUID of this wallet

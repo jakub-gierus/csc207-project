@@ -1,12 +1,17 @@
 package controller;
 
+import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.Table;
 import databases.DataRetriever;
 import databases.DataSaver;
 import databases.UserRepository;
+import entity.art.Art;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 import usecases.user.UserFacade;
 import utils.Config;
+import utils.DynamoDBConfig;
 import view.GenericView;
 
 import java.io.IOException;
@@ -33,16 +38,20 @@ public class FrontController {
      * @param config a Config object that stores the locations of data files.
      */
     public FrontController(Config config) {
+        DynamoDBConfig dbConfig = new DynamoDBConfig();
         this.activeUser = Optional.empty();
         this.userRepository = new UserRepository();
-        this.walletManager = new WalletManager(this.userRepository);
-        this.artManager = new ArtManager(this.walletManager);
+        this.walletManager = new WalletManager(this.userRepository, dbConfig);
+        this.artManager = new ArtManager(this.walletManager, dbConfig);
         this.dataRetriever = new DataRetriever(config);
-        this.dataSaver = new DataSaver(config, this.artManager, this.userRepository);
+        this.dataSaver = new DataSaver(config, this.artManager, this.userRepository, this.walletManager);
         this.view = new GenericView();
         this.dispatcher = new Dispatcher(this, this.walletManager, this.artManager);
 
+        this.artManager.wipeRemoteDb();
+        this.walletManager.wipeRemoteDb();
         this.loadDatabase();
+
     }
 
     /**
@@ -111,12 +120,6 @@ public class FrontController {
      * closes the application
      */
     public void exitApplication() {
-        try {
-            this.dataSaver.saveAllUserData();
-        }
-        catch (IOException e) {
-            this.view.showErrorMessage("Failed saving data, storage files not found.");
-        }
         System.exit(0);
     }
 

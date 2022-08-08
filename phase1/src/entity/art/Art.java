@@ -1,16 +1,28 @@
 package entity.art;
 
 import java.util.UUID;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.document.Item;
 import entity.markets.Wallet;
 import interfaces.Merchandise;
-
+@DynamoDBTable(tableName = "art")
 public class Art implements Merchandise{
+    @DynamoDBHashKey
+    public String id;
+    @DynamoDBAttribute
     private final String asciiString;
-    private String title;
+    @DynamoDBAttribute
+    private final String title;
+    @DynamoDBAttribute
     private float price; // this will store the last price the piece was sold for
-    private Wallet wallet;
+    @DynamoDBAttribute
+    private String walletId;
+    @DynamoDBAttribute
     private boolean isTradable;
-    public final UUID id;
+
 
     /**
      * An entity class that represents a piece of ASCII artwork
@@ -21,8 +33,17 @@ public class Art implements Merchandise{
         this.asciiString = asciiValue;
         this.title = title;
         this.price = 100;
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.isTradable = true;
+    }
+
+    public Art(Item item){
+        this.asciiString = item.get("art").toString();
+        this.title = item.get("title").toString();
+        this.id = item.get("id").toString();
+        this.walletId = item.get("walletId").toString();
+        this.isTradable = item.get("isTradeable").toString().equals("1");
+        this.price = Float.parseFloat(item.get("price").toString());
     }
 
     /**
@@ -36,7 +57,7 @@ public class Art implements Merchandise{
         this.asciiString = asciiValue;
         this.title = title;
         this.price = price;
-        this.id = artId;
+        this.id = artId.toString();
         this.isTradable = true;
     }
 
@@ -52,7 +73,7 @@ public class Art implements Merchandise{
      * Getter for the art's id
      * @return a UUID object for the art piece
      */
-    public UUID getId(){return id;}
+    public UUID getId(){return UUID.fromString(id);}
 
     /*
        Changes the title of the art piece
@@ -71,27 +92,11 @@ public class Art implements Merchandise{
     }
 
     /**
-     * Getter for the wallet object this piece belongs to
-     * @return a Wallet object that this piece is found in
-     */
-    public Wallet getWallet(){
-        return wallet;
-    }
-
-    /**
      * Sets a new wallet that this piece belongs to
      * @param newWallet a Wallet object that this piece will belong to
      */
     public void setWallet(Wallet newWallet){
-        this.wallet = newWallet;
-    }
-
-    /**
-     * Sets this piece's price
-     * @param newPrice a float value that is to be the piece's new price
-     */
-    public void setPrice(float newPrice){
-        price = newPrice;
+        this.walletId = newWallet.getId().toString();
     }
 
     /**
@@ -121,13 +126,6 @@ public class Art implements Merchandise{
         return isTradable;
     }
 
-    /**
-     * Getter for the username of the owner of this piece
-     * @return a String of the username of this piece's owner
-     */
-    public String getOwner(){
-        return wallet.getOwner();
-    }
 
     /**
      * Get the name of the art
@@ -143,6 +141,21 @@ public class Art implements Merchandise{
      */
     public String getTypeString(){
         return "Art";
+    }
+    public UUID getWalletId() {
+        return UUID.fromString(walletId) ;
+    }
+
+    public void setWalletId(String walletId) {
+        this.walletId = walletId.toString();
+    }
+
+    /**
+     * Sets this piece's price
+     * @param newPrice a float value that is to be the piece's new price
+     */
+    public void setPrice(float newPrice){
+        price = newPrice;
     }
 
 }

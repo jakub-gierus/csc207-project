@@ -1,17 +1,20 @@
 package usecases.markets;
 
 import databases.UserRepository;
+import databases.WalletRepository;
 import entity.user.User;
 import entity.markets.Wallet;
 import exceptions.market.WalletNotFoundException;
 import usecases.user.FindUser;
+import utils.DynamoDBConfig;
+
 import java.util.*;
 
 public class WalletManager {
     double DEFAULT_INIT_CURRENCY = 100.00;
     private final PublicWalletRegistry registry = new PublicWalletRegistry();
-    private final Map<UUID, Wallet> wallets = new HashMap<>();
     private final FindUser userFinder;
+    final private WalletRepository db;
 
     /**
      * Create a wallet
@@ -22,16 +25,16 @@ public class WalletManager {
         // default wallet for new users
         Wallet wallet = new Wallet(owner, owner.getUsername() + "'s wallet");
         wallet.addCurrency(DEFAULT_INIT_CURRENCY);
-        this.wallets.put(wallet.getId(), wallet);
-        return wallet;
+        return db.save(wallet);
     }
 
     /**
      * A use case level class for wallet focused actions
      * @param userRepository an UserRepository instance to be used 
      */
-    public WalletManager(UserRepository userRepository){
+    public WalletManager(UserRepository userRepository, DynamoDBConfig config){
         this.userFinder = new FindUser(userRepository, this);
+        this.db = new WalletRepository(config);
     }
 
     /**
@@ -46,8 +49,7 @@ public class WalletManager {
         if(access){
             registry.makeWalletPublic(wallet);
         }
-        this.wallets.put(wallet.getId(), wallet);
-        return wallet;
+        return db.save(wallet);
     }
 
     /**
@@ -64,8 +66,7 @@ public class WalletManager {
         if (access) {
             registry.makeWalletPublic(wallet);
         }
-        this.wallets.put(walletID, wallet);
-        return wallet;
+        return db.save(wallet);
     }
     /**
      * Make the wallet private
@@ -97,13 +98,17 @@ public class WalletManager {
      * @return a List of Wallets
      */
     private List<Wallet> getUserWallets(String username){
-        User user = this.userFinder.getUserByUsername(username);
-
-        return user.getWallets();
+        List<Wallet> result = new ArrayList<>();
+        for(Wallet wallet : db.getAll()){
+            if(wallet.getOwner().equals(username)){
+                result.add(wallet);
+            }
+        }
+        return result;
     }
 
     public Wallet getWalletByID(UUID walletId) {
-        return this.wallets.get(walletId);
+        return db.getById(walletId.toString());
     }
 
     /**
@@ -116,7 +121,7 @@ public class WalletManager {
     public Wallet getUserWalletByID(String username, UUID id) throws WalletNotFoundException {
         List<Wallet> userWallets = getUserWallets(username);
         for(Wallet w: userWallets){
-            if(w.getId() == id){
+            if(w.getId().equals(id)){
                 return w;
             }
         }
@@ -166,6 +171,21 @@ public class WalletManager {
      * @return the target Wallet object
      */
     public Wallet getWalletById(UUID id){
-        return this.wallets.get(id);
+        return db.getById(id.toString());
     }
+
+    public List<Wallet> getWalletsByUserName(String username){
+        List<Wallet> res = new ArrayList<>();
+        for (Wallet wallet : db.getAll()){
+            if(wallet.getOwner().equals(username)){
+                res.add(wallet);
+            }
+        }
+        return res;
+    }
+
+    public void wipeRemoteDb(){
+        db.deleteAll();
+    }
+
 }

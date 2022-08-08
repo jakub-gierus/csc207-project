@@ -43,7 +43,6 @@ public class CreateUser {
             newUser = new BasicUser(username, password);
         }
         Wallet defaultWallet = walletManager.createWallet(newUser);
-        newUser.addWallet(defaultWallet);
 
         userRepository.createUser(newUser);
 

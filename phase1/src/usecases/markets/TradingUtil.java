@@ -4,6 +4,7 @@ import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
+import usecases.art.ArtManager;
 
 import java.util.Optional;
 
@@ -12,6 +13,8 @@ public class TradingUtil {
     private final Wallet tradingTo;
     private final Wallet tradingFrom;
     private final UserRepository userRepository;
+    private final WalletManager walletlibrary;
+    private final ArtManager artLibrary;
 
     /**
      * Initializes a TradingUtil object for each trade
@@ -19,10 +22,13 @@ public class TradingUtil {
      * @param tradingFrom Wallet where <art> originally comes from
      * @param userRepository a UserRepository instance
      */
-    public TradingUtil(Wallet tradingTo, Wallet tradingFrom, UserRepository userRepository) {
+    public TradingUtil(Wallet tradingTo, Wallet tradingFrom, UserRepository userRepository,
+                       WalletManager wm, ArtManager am) {
         this.userRepository = userRepository;
         this.tradingFrom = tradingFrom;
         this.tradingTo = tradingTo;
+        this.walletlibrary = wm;
+        this.artLibrary = am;
     }
 
     /**
@@ -37,8 +43,7 @@ public class TradingUtil {
             tradingFrom.addCurrency(art.getPrice());
 
             // Art Transfer
-            tradingFrom.removeArt(art);
-            tradingTo.addArt(art);
+            artLibrary.setNewWalletId(tradingTo.getId(), art);
 
             // Art Ownership Transfer
             art.setWallet(tradingTo);
@@ -56,8 +61,8 @@ public class TradingUtil {
      * @return true if trade was successful, false otherwise
      */
     public boolean makeTrade_Art_Art(Art art1, Art art2) {
-        Wallet senderWallet = art1.getWallet();
-        Wallet receiverWallet = art2.getWallet();
+        Wallet senderWallet = walletlibrary.getWalletById(art1.getWalletId());
+        Wallet receiverWallet = walletlibrary.getWalletById(art2.getWalletId());
 
         if (art1.getIsTradeable() && art2.getIsTradeable()) {
             // Change Art Ownership
@@ -65,12 +70,8 @@ public class TradingUtil {
             art2.setWallet(senderWallet);
 
             // Remove Art from original wallet
-            senderWallet.removeArt(art1);
-            receiverWallet.removeArt(art2);
-
-            // Add Art to current wallet
-            senderWallet.addArt(art2);
-            receiverWallet.addArt(art1);
+            artLibrary.setNewWalletId(receiverWallet.getId(), art1);
+            artLibrary.setNewWalletId(senderWallet.getId(), art2);
 
             return true;
         }
@@ -94,12 +95,8 @@ public class TradingUtil {
             User u2 = obj2.get();
 
             // Wallet Trade
-            u1.addWallet(tradingTo);
-            u2.addWallet(tradingFrom);
-
-            // Remove Original Wallet
-            u1.removeWallet(tradingTo);
-            u2.removeWallet(tradingFrom);
+            walletlibrary.changeOwner(tradingTo,u1.getUsername());
+            walletlibrary.changeOwner(tradingFrom,u2.getUsername());
 
             // Change Owner in Wallet
             tradingFrom.setOwner(u2);

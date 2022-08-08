@@ -18,6 +18,7 @@ import usecases.user.CreateUser;
 import usecases.user.LogIn;
 import usecases.user.UserFacade;
 import utils.Config;
+import utils.DynamoDBConfig;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -30,6 +31,7 @@ import static org.junit.Assert.*;
         UserRepository ur;
         WalletManager wm;
         ArtManager am;
+        DynamoDBConfig dbConfig;
         @Before
         public void setUp() {
             this.config = new Config("./storage/",
@@ -42,6 +44,7 @@ import static org.junit.Assert.*;
             ur = frontController.getUserRepository();
             wm = frontController.getWalletManager();
             am = frontController.getArtManager();
+            dbConfig = new DynamoDBConfig();
             CreateUser cuuc = new CreateUser(ur, wm);
             cuuc.createUser("Basic1", "Basic1", false);
             cuuc.createUser("Admin1", "Admin1", true);
@@ -55,8 +58,8 @@ import static org.junit.Assert.*;
         public void testLogin_LogOut() {
             try {
                 UserRepository ur = new UserRepository();
-                WalletManager wm = new WalletManager(ur);
-                ArtManager am = new ArtManager(wm);
+                WalletManager wm = new WalletManager(ur,dbConfig);
+                ArtManager am = new ArtManager(wm,dbConfig);
                 CreateUser cuuc = new CreateUser(ur, wm);
                 cuuc.createUser("Basic1", "Basic1", false);
                 cuuc.createUser("Admin1", "Admin1", true);
@@ -87,8 +90,8 @@ import static org.junit.Assert.*;
         public void testBan() {
             try {
                 UserRepository ur = new UserRepository();
-                WalletManager wm = new WalletManager(ur);
-                ArtManager am = new ArtManager(wm);
+                WalletManager wm = new WalletManager(ur,dbConfig);
+                ArtManager am = new ArtManager(wm,dbConfig);
                 CreateUser cuuc = new CreateUser(ur,wm);
                 cuuc.createUser("basic1", "basic1", false);
                 cuuc.createUser("admin1", "admin1", true);
@@ -116,12 +119,12 @@ import static org.junit.Assert.*;
                 UserFacade uf = new UserFacade(u1, ur,wm,am);
                 uf.addWallet("fromWallet",true);
 
-                assertEquals(u1.getWallets().size() , 2);
+                assertEquals(wm.getWalletsByUserName(u1.getUsername()).size() , 2);
                 Wallet w1 = getWallet(u1,"fromWallet");
                 Art newArt = mintArt(w1.getId());
-                assertFalse(w1.getIsEmpty());
+                assertFalse(w1.getCurrency() == 0 && am.getArtByWallet(w1.getId()).size() == 0);
 
-                HashMap<UUID, Art> map = w1.getArts();
+                HashMap<UUID, Art> map = am.getArtByWalletMap(w1.getId());
                 assertTrue(map.values().stream().anyMatch(art -> Objects.equals(art.getArt(), newArt.getArt())));
 
             } catch (Exception e){
@@ -166,8 +169,8 @@ import static org.junit.Assert.*;
                 market.makeTradeWithCash(newArt.getId(),w2.getId());
 
                 assertFalse(market.checkItem(newArt));
-                assertTrue(w2.containsArt(newArt.getId()));
-                assertFalse(w1.containsArt(newArt.getId()));
+                assertTrue(am.getArtByWalletMap(w2.getId()).containsKey(newArt.getId()));
+                assertFalse(am.getArtByWalletMap(w1.getId()).containsKey(newArt.getId()));
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -194,7 +197,9 @@ import static org.junit.Assert.*;
         }
 
         private Wallet getWallet(User user, String name){
-            return user.getWallets().stream().filter(w -> w.getName().equals(name))
+            return wm.getWalletsByUserName(user.getUsername())
+                    .stream()
+                    .filter(w -> w.getName().equals(name))
                     .findFirst()
                     .orElse(null);
         }

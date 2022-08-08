@@ -10,10 +10,9 @@ public class Main {
                                    "wallets.csv",
                                    "asciiArts.csv");
 
+
         FrontController controller = new FrontController(config);
-
         controller.dispatchRequest("LOGIN");
-
     }
 }
 

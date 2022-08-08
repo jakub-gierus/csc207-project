@@ -2,18 +2,30 @@ package entity.markets;
 
 import java.util.*;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.document.Item;
 import entity.art.Art;
 import entity.user.User;
 import interfaces.Merchandise;
 
-public class Wallet implements Iterable<Art>, Merchandise {
-    private final HashMap<UUID, Art> arts = new HashMap<>();
+@DynamoDBTable(tableName = "wallet")
+public class Wallet implements Merchandise {
+    @DynamoDBHashKey
+    private final String id;
+    @DynamoDBAttribute
     private double currency = 0;
+    @DynamoDBAttribute
     private boolean publicAccess;
-    private User owner;
+    @DynamoDBAttribute
+    // if you need object -> userRepository using username
+    private String ownerUsername;
+    @DynamoDBAttribute
     private double netWorth = 0;
+    @DynamoDBAttribute
     private String walletName;
-    private final UUID id;
+
 
     /**
      * An entity class representing a user's wallet
@@ -21,11 +33,19 @@ public class Wallet implements Iterable<Art>, Merchandise {
      * @param walletName a String that is to be this wallet's name
      */
     public Wallet(User owner, String walletName){
-        this.owner = owner;
+        this.ownerUsername = owner.getUsername();
         this.walletName = walletName;
         this.publicAccess = true;
-        id = UUID.randomUUID();
-        this.calcNetWorth();
+        id = UUID.randomUUID().toString();
+    }
+
+    public Wallet(Item item){
+        this.id = item.get("id").toString();
+        this.currency = Double.parseDouble(item.get("currency").toString());
+        this.walletName = item.get("name").toString();
+        this.netWorth = Double.parseDouble(item.get("netWorth").toString());
+        this.publicAccess = item.get("publicAccess").toString().equals("1");
+        this.ownerUsername = item.get("owner").toString();
     }
 
     /**
@@ -36,34 +56,18 @@ public class Wallet implements Iterable<Art>, Merchandise {
      * @param currency a double value representing the initial currency of this wallet
      */
     public Wallet(User owner, String walletName, UUID walletID, double currency) {
-        this.owner = owner;
+        this.ownerUsername = owner.getUsername();
         this.walletName = walletName;
         this.publicAccess = true;
-        this.id = walletID;
+        this.id = walletID.toString();
         this.currency = currency;
-        this.calcNetWorth();
     }
 
     /**
      * calculates and sets this wallet's net worth
      */
-    private void calcNetWorth() {
-        // when called add up the value of the currency and the last value of the art pieces and auto set the net worth
-        double artWorth = 0;
-
-        for (Art a: arts.values()) {
-            artWorth += a.getPrice();
-        }
-        this.netWorth = currency + artWorth;
-    }
-
-    /**
-     * returns whether this wallet is empty (no art and no currency)
-     * @return a boolean if the wallet is empty
-     */
-    public boolean getIsEmpty(){
-        // there can be free art, so 0 net worth != empty
-        return arts.isEmpty() && currency == 0;
+    public void setNetWorth(double amount) {
+        this.netWorth = amount;
     }
 
     /**
@@ -71,53 +75,8 @@ public class Wallet implements Iterable<Art>, Merchandise {
      * @return the UUID for this wallet
      */
     public UUID getId(){
-        return id;
+        return UUID.fromString(id);
     }
-
-    /**
-     * Adds a piece of art to this wallet
-     * @param newArt an Art object that is added to this wallet
-     */
-    public void addArt(Art newArt){
-        arts.put(newArt.getId(), newArt);
-        calcNetWorth();
-    }
-
-    /**
-     * Removes a piece of art from this wallet
-     * @param art the piece of art to be removed from this wallet
-     */
-    public void removeArt(Art art) {
-        arts.remove(art.getId());
-        calcNetWorth();
-    }
-
-    /**
-     * Checks if this wallet contains the specified piece of art
-     * @param id the UUID id of the target art piece
-     * @return whether the target art is in the wallet
-     */
-    public boolean containsArt(UUID id){
-        return arts.containsKey(id);
-    }
-
-    /**
-     * Getter for an art piece stored in this wallet
-     * @param id the id of the target art piece
-     * @return the Art object specified by the title
-     */
-    public Art getArt(UUID id){
-        return arts.get(id);
-    }
-
-    /**
-     * Gets the mapping of all the art stored in this wallet
-     * @return a map of <String, Art> containing all the art stored in this wallet
-     */
-//    public HashMap<UUID, Art> getAllArt(){
-//        // this seems like a bad idea but might be useful for development for now
-//        return arts;
-//    }
 
     /**
      * Get the amount of currency stored in this wallet
@@ -142,7 +101,7 @@ public class Wallet implements Iterable<Art>, Merchandise {
     public void addCurrency(double newCurrency){
         // calling this should incur a call to calcNetWorth
         currency += newCurrency;
-        this.calcNetWorth();
+        this.netWorth += newCurrency;
     }
 
     /**
@@ -152,7 +111,7 @@ public class Wallet implements Iterable<Art>, Merchandise {
     public void removeCurrency(double spentCurrency){
         // calling this should incur a call to calcNetWorth
         currency -= spentCurrency;
-        this.calcNetWorth();
+        netWorth -= spentCurrency;
     }
 
     /**
@@ -180,19 +139,11 @@ public class Wallet implements Iterable<Art>, Merchandise {
     }
 
     /**
-     * Gets a mapping of all the arts stored in this wallet
-     * @return a mapping of <String, Art> containing all the art stored in this wallet
-     */
-    public HashMap<UUID, Art> getArts() {
-        return arts;
-    }
-
-    /**
      * Gets the username of this wallet's owner
      * @return a String of this wallet's owner's username
      */
     public String getOwner() {
-        return this.owner.getUsername();
+        return this.ownerUsername;
     }
 
     /**
@@ -200,15 +151,7 @@ public class Wallet implements Iterable<Art>, Merchandise {
      * @param owner an Owner object that is to own this wallet
      */
     public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    /**
-     * Gets the User object that owns this wallet
-     * @return a User object that owns this wallet
-     */
-    private User getOwnerObj(){
-        return owner;
+        this.ownerUsername = owner.getUsername();
     }
 
     /**
@@ -235,32 +178,4 @@ public class Wallet implements Iterable<Art>, Merchandise {
         return "Wallet";
     }
 
-    /**
-     * The iterator design pattern for getallart()
-     * @return all the art in this wallet
-     */
-    @Override
-    public Iterator<Art> iterator() {
-        return new artIterator();
-    }
-
-    public class artIterator implements Iterator<Art> {
-        List<Art> name = new ArrayList<>(arts.values());
-
-        int current = 0;
-        
-        @Override
-        public boolean hasNext() {
-            return current < name.size();
-        }
-        @Override
-        public Art next() {
-            if (this.hasNext()) {
-                Art artName = name.get(current);
-                current++;
-                return artName;
-            }
-            return null;
-        }
-    }
 }
