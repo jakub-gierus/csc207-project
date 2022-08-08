@@ -63,8 +63,10 @@ public class LogInController {
      * logs the user out
      */
     public void logout () {
-        this.frontController.getActiveUser().get().logOut();
-        this.frontController.setActiveUser(Optional.empty());
-        this.frontController.dispatchRequest("LOGIN");
+        if (frontController.getActiveUser().isPresent()) {
+            frontController.getActiveUser().get().logOut();
+        }
+        frontController.setActiveUser(Optional.empty());
+        frontController.dispatchRequest("LOGIN");
     }
 }
