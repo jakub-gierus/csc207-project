@@ -49,6 +49,8 @@ public class Dispatcher {
             case "BAN USER": adminController.banUser(); break;
             case "UNBAN USER": adminController.unbanUser(); break;
             case "VIEW PROFILE": profileController.viewProfile(); break;
+            case "UPDATE USERNAME": profileController.changeUsername(); break;
+            case "UPDATE PASSWORD": profileController.changePassword(); break;
             case "SELECT WALLET": navigationController.walletSelect(); break;
             case "CREATE WALLET": walletController.createWallet(); break;
             case "VIEW MARKET ITEMS": marketController.viewMerchandise(); break;
