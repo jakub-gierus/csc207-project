@@ -13,27 +13,22 @@ public class Appraiser {
      * Returns the value of an art piece based on total issues of the art
      * @param library => library of arts pieces in system
      * @param art => the art piece to appraise
-     * @return float representing the market price of given art piece
      */
-    public double appraiseArt(ArtManager library, Art art){
+    public void appraiseArt(ArtManager library, Art art){
 
         Collection<Art> arts = library.getAllArt();
         HashMap<Character, Integer> collectionChars = new HashMap<>();
 
-        // Gets most common char in all the arts and its value
+        // Gets most common char in all the arts
         char commonCharAllArts = getMostCommonCharCollection(arts, collectionChars);
-        int commonAllArtInt = Collections.max(collectionChars.values());
 
-        // gets most common char in this art and its value
+        // gets most common char in this art
         HashMap<Character, Integer> artChars = new HashMap<>();
         char commonCharThisArt = getMostCommonChar(art, artChars);
-        int commonThisArtInt = Collections.max(artChars.values());
 
-        if(commonThisArtInt > 0.1*commonAllArtInt) {
+        if(artChars.get(commonCharThisArt) > 0.05*collectionChars.get(commonCharAllArts)) {
             art.setPrice((float) (art.getPrice()*0.9));
         }
-
-        return art.getPrice();
     }
 
     private char getMostCommonCharCollection(Collection<Art> arts, HashMap<Character, Integer> chars) {
