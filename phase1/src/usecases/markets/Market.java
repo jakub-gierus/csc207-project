@@ -7,6 +7,7 @@ import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
 import interfaces.Merchandise;
+import usecases.art.Appraiser;
 import usecases.art.ArtFacade;
 import usecases.art.ArtManager;
 
@@ -18,7 +19,7 @@ public class Market {
     private final WalletManager walletLibrary;
     private final ArtManager artManager;
     private final UserRepository userRepository;
-
+    private final Appraiser appraiser;
     /**
      * A different Market instance is created for every type of merchandise available for trade.
      * Currently, merchandises are Art and Wallet objects.
@@ -37,6 +38,7 @@ public class Market {
         this.userRepository = userRepository;
         this.listings = new HashMap<>();
         this.itemsForSale = new ArrayList<>();
+        this.appraiser = new Appraiser();
     }
 
     /**
@@ -87,6 +89,7 @@ public class Market {
         }
         // check if art isn't already on the market
         if(!checkItem(art)){
+            appraiser.appraiseArt(artManager, art); // appraises value of art before being put on market
             this.itemsForSale.add(art);
             String owner = walletLibrary.getWalletById(art.getWalletId()).getOwner();
             this.listings.put(art.getId(),owner);

@@ -4,6 +4,7 @@ import databases.UserRepository;
 import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
+import usecases.art.Appraiser;
 import usecases.art.ArtManager;
 
 import java.util.Optional;
