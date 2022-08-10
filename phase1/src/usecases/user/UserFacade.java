@@ -1,7 +1,6 @@
 package usecases.user;
 
 import databases.UserRepository;
-import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.AdminUser;
 import entity.user.User;
@@ -70,6 +69,11 @@ public class UserFacade {
         return user.getUsername();
     }
 
+    /**
+     * Changes the user's username
+     * @param newUsername a new String username
+     */
+    public void changeUsername(String newUsername) {user.setUsername(newUsername);}
     /**
      * Getter for whether the user is an admin user at the use-case level.
      * @return the user entities isAdmin attribute.

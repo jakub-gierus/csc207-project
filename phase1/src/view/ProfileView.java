@@ -36,4 +36,19 @@ public class ProfileView {
         System.out.printf("Your Total Net Worth: $%4.2f\n", netWorth);
         System.out.printf("You've been a member for %s\n", formattedTimeDifference);
     }
+
+    public void showChangeUsernamePrompt(){
+        System.out.println("----------------------------------");
+        System.out.println("Enter your new username");
+    }
+
+
+    public void showAskForOldPW(){
+        System.out.println("----------------------------------");
+        System.out.println("Enter your old password");
+    }
+    public void showAskForNewPW(){
+        System.out.println("----------------------------------");
+        System.out.println("Enter your new password");
+    }
 }

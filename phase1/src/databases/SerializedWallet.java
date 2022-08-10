@@ -6,7 +6,7 @@ public class SerializedWallet {
     private final String walletName;
     private final String ownerUsername;
     private final UUID walletID;
-    private final double currency;
+    private final float currency;
     private final boolean isTradeable;
 
     /**
@@ -21,7 +21,7 @@ public class SerializedWallet {
         this.walletName = walletName;
         this.ownerUsername = ownerUsername;
         this.walletID = UUID.fromString(walletID);
-        this.currency = Double.parseDouble(currency);
+        this.currency = Float.parseFloat(currency);
         this.isTradeable = Boolean.parseBoolean(isTradeable);
     }
 
@@ -37,7 +37,7 @@ public class SerializedWallet {
      * Getter for how much currency is stored in this wallet
      * @return a double for how much money is stored
      */
-    public double getCurrency() {
+    public float getCurrency() {
         return currency;
     }
 
