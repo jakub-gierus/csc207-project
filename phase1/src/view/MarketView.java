@@ -1,10 +1,15 @@
 package view;
 
+import utils.Config;
+
 import java.util.List;
 
 /**
  * Contains the static prompts for the MarketController to use**/
 public class MarketView extends GenericView{
+    public MarketView(Config config) {
+        super(config);
+    }
 
     /**
      * Shows the header of the Market List to the user

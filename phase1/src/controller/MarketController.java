@@ -4,6 +4,7 @@ import interfaces.Merchandise;
 import usecases.art.ArtManager;
 import usecases.markets.Market;
 import usecases.markets.WalletManager;
+import utils.Config;
 import view.MarketView;
 import java.util.List;
 import java.util.UUID;
@@ -14,18 +15,22 @@ public class MarketController {
     final private FrontController frontController;
     final private Market market;
     final private ArtManager artLibrary;
+    final private Config config;
 
     /**
      * This controller pertains to running the Market functions that allow players to trade with each other
      * @param frontController the FrontController used by this class
      * @param artLibrary the ArtLibrary used by this class
      * @param walletLibrary the WalletManager used by this class (not PublicWalletRegistry)
+     * @param config the Config class used by this class
      */
-    public MarketController(FrontController frontController, ArtManager artLibrary, WalletManager walletLibrary){
+    public MarketController(FrontController frontController, ArtManager artLibrary, WalletManager walletLibrary,
+                            Config config) {
         this.market = new Market(frontController.getUserRepository(), artLibrary, walletLibrary);
-        this.view = new MarketView();
+        this.view = new MarketView(config);
         this.frontController = frontController;
         this.artLibrary = artLibrary;
+        this.config = config;
     }
 
     /**

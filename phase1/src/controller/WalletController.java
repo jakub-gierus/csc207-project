@@ -5,6 +5,7 @@ import usecases.art.ArtGenerator;
 import usecases.art.ArtManager;
 import usecases.markets.WalletFacade;
 import usecases.markets.WalletManager;
+import utils.Config;
 import view.WalletView;
 
 import java.io.IOException;
@@ -19,16 +20,18 @@ public class WalletController {
     private WalletFacade wallet;
     private final WalletView view;
     private final ArtManager artManager;
+    private final Config config;
 
     /**
      * Controller used for wallet related tasks.
      * @param frontController the FrontController instance used by this class
      */
-    public WalletController(FrontController frontController) {
+    public WalletController(FrontController frontController, Config config) {
         this.frontController = frontController;
         this.walletManager = this.frontController.getWalletManager();
         this.artManager = this.frontController.getArtManager();
-        this.view = new WalletView();
+        this.view = new WalletView(config);
+        this.config = config;
     }
 
     /**

@@ -2,6 +2,7 @@ package view;
 
 import org.apache.commons.lang3.StringUtils;
 import usecases.art.ArtFacade;
+import utils.Config;
 
 import java.util.*;
 
@@ -10,7 +11,7 @@ public class WalletView extends GenericView {
     /**
      * The View shown to users interacting with their wallet
      */
-    public WalletView(){}
+    public WalletView(Config config){ super(config);}
 
     /**
      * Shows how much cash the user has

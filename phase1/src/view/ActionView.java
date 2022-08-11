@@ -1,8 +1,13 @@
 package view;
 
+import utils.Config;
+
 import java.util.List;
 
 public class ActionView extends GenericView {
+    public ActionView(Config config){
+        super(config);
+    }
 
     /**
      * A View class that shows the user the actions the uesr can take

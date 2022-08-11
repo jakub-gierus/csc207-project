@@ -21,6 +21,7 @@ public class NavigationController {
     public NavigationController (FrontController frontController, Config config) {
         this.frontController = frontController;
         this.view = new ActionView(config);
+
     }
 
     /**

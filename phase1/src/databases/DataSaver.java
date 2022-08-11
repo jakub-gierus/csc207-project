@@ -59,9 +59,9 @@ public class DataSaver {
         basicUsersWriter.close();
 
         FileWriter adminUsersWriter = new FileWriter(this.filePath + this.adminUsersFilename, false);
-        for (User basicUser: this.userRepository.getAllUsersByType(true)) {
+        for (User adminUser: this.userRepository.getAllUsersByType(true)) {
             DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            adminUsersWriter.write(basicUser.getUsername() + "," + basicUser.getPassword() + '\n');
+            adminUsersWriter.write(adminUser.getUsername() + "," + adminUser.getPassword() + '\n');
         }
         adminUsersWriter.close();
 

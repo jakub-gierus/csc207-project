@@ -1,5 +1,7 @@
 package view;
 
+import utils.Config;
+
 import java.util.List;
 
 public class AdminView extends GenericView {

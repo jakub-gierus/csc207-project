@@ -1,5 +1,12 @@
 package view;
 
+import org.json.JSONObject;
+import utils.Config;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class GenericView {
     protected JSONObject langJson = null;
     protected Config config;

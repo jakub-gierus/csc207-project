@@ -2,6 +2,7 @@ package controller;
 
 import databases.UserRepository;
 import usecases.user.UserFacade;
+import utils.Config;
 import view.ProfileView;
 
 import java.time.LocalDateTime;
@@ -12,15 +13,18 @@ public class ProfileController {
     private final FrontController frontController;
     private final UserRepository userRepo;
 
+    private final Config config;
+
 
     /**
      * A controller used for actions pertaining to the user's profile
      * @param frontController the FrontController instance used by this class
      */
-    public ProfileController(FrontController frontController) {
+    public ProfileController(FrontController frontController, Config config) {
         this.frontController = frontController;
         this.view = new ProfileView();
         this.userRepo = frontController.getUserRepository();
+        this.config = config;
     }
 
     /**
