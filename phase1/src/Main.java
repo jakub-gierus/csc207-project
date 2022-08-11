@@ -13,7 +13,6 @@ public class Main {
                 "lang.json",
                 "en");
 
-
         FrontController controller = new FrontController(config);
         controller.dispatchRequest("LOGIN");
     }
