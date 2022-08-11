@@ -5,6 +5,7 @@ import exceptions.user.UserIsNotBannableException;
 import exceptions.user.UsernameAlreadyExistsException;
 import usecases.user.AdminFacade;
 import usecases.user.UserFacade;
+import utils.Config;
 import view.AdminView;
 
 import java.time.LocalDateTime;
@@ -24,9 +25,9 @@ public class AdminController {
      * Controller for admin users
      * @param frontController an instance of the FrontController user object that will be used
      */
-    public AdminController (FrontController frontController) {
+    public AdminController (FrontController frontController, Config config) {
         this.frontController = frontController;
-        this.view = new AdminView();
+        this.view = new AdminView(config);
     }
 
     /**

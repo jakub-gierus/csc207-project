@@ -6,8 +6,8 @@ public class AdminView extends GenericView {
     /**
      * A View class that is used for Admin users
      */
-    public AdminView(){
-        super();
+    public AdminView(Config config){
+        super(config);
     }
 
     /**
@@ -16,7 +16,9 @@ public class AdminView extends GenericView {
      */
     public void showAllUsers(List<String> users) {
         System.out.println("----------------------------------");
-        System.out.println("-ALL USERS IN SYSTEM-");
+        String prompt = this.langJson.getJSONObject("showAllUsers").getString(this.config.getLangCurr());
+        System.out.println(prompt);
+        // System.out.println("-ALL USERS IN SYSTEM-");
         for (String user: users) {
             System.out.println(user);
         }

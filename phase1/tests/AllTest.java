@@ -39,7 +39,10 @@ import static org.junit.Assert.*;
                     "adminUsers.csv",
                     "events.csv",
                     "wallets.csv",
-                    "asciiArts.csv");
+                    "asciiArts.csv",
+                    "./lang/",
+                    "lang.json",
+                    "en");
             this.frontController = new FrontController(config);
             ur = frontController.getUserRepository();
             wm = frontController.getWalletManager();
@@ -203,4 +206,4 @@ import static org.junit.Assert.*;
                     .findFirst()
                     .orElse(null);
         }
-}
+    }

@@ -4,6 +4,7 @@ import entity.markets.Wallet;
 import exceptions.user.ActionDoesNotExistException;
 import interfaces.Merchandise;
 import usecases.markets.WalletFacade;
+import utils.Config;
 import view.ActionView;
 
 import java.util.*;
@@ -17,9 +18,9 @@ public class NavigationController {
      * A controller used to navigate possible actions and send requests to the dispatcher
      * @param frontController the front controller instance used by this class
      */
-    public NavigationController (FrontController frontController) {
+    public NavigationController (FrontController frontController, Config config) {
         this.frontController = frontController;
-        this.view = new ActionView();
+        this.view = new ActionView(config);
     }
 
     /**
@@ -138,6 +139,7 @@ public class NavigationController {
 
         actions.put(++actionID, newDispatchEntry("Logout", "LOGOUT"));
         actions.put(++actionID, newDispatchEntry("Exit Application", "EXIT APP"));
+        actions.put(++actionID, newDispatchEntry("Change Language", "CHANGE LANG"));
 
         this.genericActionSelect(actions);
     }
@@ -161,6 +163,7 @@ public class NavigationController {
      * Presents the possible actions to the user, then lets them choose one. Used for actions pertaining the user's profile.
      */
     public void profileActionSelect() {
+
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         actions.put(++actionID, newDispatchEntry("View Profile", "VIEW PROFILE"));
@@ -179,7 +182,7 @@ public class NavigationController {
         if(frontController.getActiveUser().isPresent()) {
             for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
                 actions.put(++actionID, newDispatchEntry("View Wallet - " + wallet.getName()
-                                                        , "GET WALLET ACTIONS", wallet.getId()));
+                        , "GET WALLET ACTIONS", wallet.getId()));
             }
         }
         if(actionID == 0){
@@ -209,6 +212,7 @@ public class NavigationController {
      * Present actions pertaining to the market to the user
      */
     public void marketActionSelect(){
+
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         actions.put(++actionID, newDispatchEntry("View Items on Market", "VIEW MARKET ITEMS"));
@@ -222,6 +226,7 @@ public class NavigationController {
      * Presents actions to the user pertaining to posting merchandise onto the market
      */
     public void selectMerchandiseToPostToMarket(){
+
         Map<Integer, Map.Entry<String, Runnable>> actions = new HashMap<>();
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
@@ -232,7 +237,7 @@ public class NavigationController {
 
                 for (UUID id : artNames.keySet()) {
                     actions.put(++actionID, newDispatchEntry("Art: " + artNames.get(id),
-                                                        "POST ART TO MARKET", id));
+                            "POST ART TO MARKET", id));
                 }
             }
         }
@@ -255,7 +260,7 @@ public class NavigationController {
         int actionID = 0;
         for (Wallet wallet : this.frontController.getActiveUser().get().getWallets()) {
             actions.put(++actionID, newDispatchEntry("Making trade with wallet " + wallet.getName(),
-                                                        "MAKE TRADE WITH WALLET", walletID, wallet.getId()));
+                    "MAKE TRADE WITH WALLET", walletID, wallet.getId()));
         }
         System.out.println("----------------------------------");
         if(actionID == 0){
@@ -280,7 +285,7 @@ public class NavigationController {
 
         for (UUID artId : tradeableArt.keySet()) {
             actions.put(++actionID, newDispatchEntry("Make art trade with " + tradeableArt.get(artId),
-                                                                "MAKE A2A TRADE", wantedItemId, artId));
+                    "MAKE A2A TRADE", wantedItemId, artId));
         }
         System.out.println("----------------------------------");
         if(actionID == 0){
@@ -301,8 +306,8 @@ public class NavigationController {
         int actionID = 0;
         //get art from wallets that are public in order to post ART to market
         for (Merchandise m : items) {
-                actions.put(++actionID, newDispatchEntry(m.getTypeString() + ": " + m.getNameOrTitle(),
-                        "SELECT WALLET FOR TRADE", m.getId()));
+            actions.put(++actionID, newDispatchEntry(m.getTypeString() + ": " + m.getNameOrTitle(),
+                    "SELECT WALLET FOR TRADE", m.getId()));
         }
         System.out.println("----------------------------------");
         if(actionID == 0){
