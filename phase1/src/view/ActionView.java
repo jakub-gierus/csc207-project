@@ -15,10 +15,14 @@ public class ActionView extends GenericView {
      */
     public void showAvailableActions(List<String> actions) {
         System.out.println("----------------------------------");
-        System.out.println("-Available actions-");
+        String prompt = this.langJson.getJSONObject("availableActions").getString(this.config.getLangCurr());
+        System.out.println(prompt);
+        // System.out.println("-Available actions-");
         for (int i = 1; i <= actions.size(); i++) {
-            System.out.printf("%d) %s%n", i, actions.get(i-1));
+            prompt = this.langJson.getJSONObject(actions.get(i-1)).getString(this.config.getLangCurr());
+            System.out.printf("%d) %s%n", i, prompt);
         }
-        System.out.println("Enter desired action:");
+        prompt = this.langJson.getJSONObject("enterAction").getString(this.config.getLangCurr());
+        System.out.println(prompt);
     }
 }
