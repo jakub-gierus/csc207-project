@@ -1,0 +1,119 @@
+{
+  "showAllUsers": {
+    "en": "-ALL USERS IN SYSTEM-",
+    "es": "-TODOS LOS USUARIOS DEL SISTEMA-",
+    "cn": "显示所有用户"
+  },
+  "login": {
+    "en": "LOGIN",
+    "es": "LOGIN",
+    "cn": "登录"
+  },
+  "enterUsername": {
+    "en": "enter username: ",
+    "es": "introduzca su nombre de usuario: ",
+    "cn": "输入用户名"
+  },
+  "enterPassword": {
+    "en": "Enter password: ",
+    "es": "introducir la contraseña: ",
+    "cn": "输入密码"
+  },
+  "loginSuccess": {
+    "en": "User %s successfully logged in!\n",
+    "es": "¡El usuario %s inició sesión correctamente!\n",
+    "cn": "用户 %s 成功登入！\n"
+  },
+  "langOptions": "Enter en for English\nIngrese es para español\n输入 cn 使用中文",
+  "availableActions": {
+    "en": "-Available actions-",
+    "es": "-Acciones disponibles-",
+    "cn": "可用操作"
+  },
+  "Go to Market": {
+    "en": "Go to Market",
+    "es": "Ir al mercado",
+    "cn": "前往市场"
+  },
+  "Go to Wallets": {
+    "en": "Go to Wallets",
+    "es": "Ir a Carteras",
+    "cn": "前往钱包"
+  },
+  "Profile": {
+    "en": "Profile",
+    "es": "Perfil",
+    "cn": "账户"
+  },
+  "Admin Actions": {
+    "en": "Admin Actions",
+    "es": "Acciones de administración",
+    "cn": "管理员操作"
+  },
+  "Logout": {
+    "en": "Logout",
+    "es": "Cerrar sesión",
+    "cn": "登出"
+  },
+  "Exit Application": {
+    "en": "Exit Application",
+    "es": "Salir de la aplicación",
+    "cn": "退出应用"
+  },
+  "Change Language": {
+    "en": "Change Language/Cambiar idioma/改变语言",
+    "es": "Change Language/Cambiar idioma/改变语言",
+    "cn": "Change Language/Cambiar idioma/改变语言"
+  },
+  "enterAction": {
+    "en": "Enter desired action:",
+    "es": "Ingrese la acción deseada:",
+    "cn": "输入指令"
+  },
+  "View All Users": {
+    "en": "View All Users",
+    "es": "Ver todos los usuarios",
+    "cn": "查看所有用户"
+  },
+  "Delete User": {
+    "en": "Delete Users",
+    "es": "borrar usuario",
+    "cn": "删除用户"
+  },
+  "Create User": {
+    "en": "Create User",
+    "es": "crear usuario",
+    "cn": "创建用户"
+  },
+  "Ban User": {
+    "en": "Ban User",
+    "es": "prohibir usuario",
+    "cn": "禁止用户"
+  },
+  "Unban User": {
+    "en": "Unban User",
+    "es": "No prohibir al usuario",
+    "cn": "解禁用户"
+  },
+  "Go Back": {
+    "en": "Go Back",
+    "es": "regresa",
+    "cn": "回去"
+  },
+  "View Profile": {
+    "en": "View Profile",
+    "es": "regresa",
+    "cn": "回去"
+  },
+  "Update Username": {
+    "en": "Update Username",
+    "es": "Actualizar nombre de usuario",
+    "cn": "更新用户名"
+  },
+  "Update Password": {
+    "en": "Update Password",
+    "es": "Actualiza contraseña",
+    "cn": "更新密码"
+  }
+}
+

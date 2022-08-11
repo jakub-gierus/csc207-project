@@ -3,6 +3,7 @@ package controller;
 import exceptions.user.IncorrectUserNameOrPasswordException;
 import exceptions.user.UserIsBannedException;
 import usecases.user.UserFacade;
+import utils.Config;
 import view.LogInView;
 
 import java.util.Optional;
@@ -15,9 +16,9 @@ public class LogInController {
      * The controller responsible for logging a user in and out
      * @param frontController the FrontController instance that will be used
      */
-    public LogInController (FrontController frontController) {
+    public LogInController (FrontController frontController, Config config) {
         this.frontController = frontController;
-        this.view = new LogInView();
+        this.view = new LogInView(config);
     }
 
     /**zz
@@ -43,8 +44,8 @@ public class LogInController {
 
     private void checkForAdminUser(String username, String password) {
         UserFacade userFacade = new UserFacade(null, this.frontController.getUserRepository(),
-                                                          this.frontController.getWalletManager(),
-                                                          this.frontController.getArtManager());
+                this.frontController.getWalletManager(),
+                this.frontController.getArtManager());
         userFacade.login(username, password);
 
         setActiveUserToAdmin(userFacade);

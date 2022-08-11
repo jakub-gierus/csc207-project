@@ -2,6 +2,7 @@ package controller;
 
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
+import utils.Config;
 
 import java.util.UUID;
 
@@ -13,6 +14,7 @@ public class Dispatcher {
     private final MarketController marketController;
     private final WalletController walletController;
     private final ProfileController profileController;
+    private final LangController langController;
 
     /**
      * Receives the user's command and determines what controller and method to call
@@ -20,14 +22,15 @@ public class Dispatcher {
      * @param walletLibrary the WalletManager instance that will be used
      * @param artLibrary the ArtManager instance that will be used
      */
-    public Dispatcher(FrontController frontController, WalletManager walletLibrary, ArtManager artLibrary) {
+    public Dispatcher(FrontController frontController, WalletManager walletLibrary, ArtManager artLibrary, Config config) {
         this.frontController = frontController;
-        this.logInController = new LogInController(this.frontController);
-        this.navigationController = new NavigationController(this.frontController);
-        this.adminController = new AdminController(this.frontController);
-        this.profileController = new ProfileController(this.frontController);
-        this.walletController = new WalletController(this.frontController);
-        this.marketController = new MarketController(this.frontController,artLibrary, walletLibrary);
+        this.logInController = new LogInController(this.frontController, config);
+        this.navigationController = new NavigationController(this.frontController, config);
+        this.adminController = new AdminController(this.frontController, config);
+        this.profileController = new ProfileController(this.frontController, config);
+        this.walletController = new WalletController(this.frontController, config);
+        this.marketController = new MarketController(this.frontController,artLibrary, walletLibrary, config);
+        this.langController = new LangController(this.frontController, config);
     }
 
     /**
@@ -49,8 +52,6 @@ public class Dispatcher {
             case "BAN USER": adminController.banUser(); break;
             case "UNBAN USER": adminController.unbanUser(); break;
             case "VIEW PROFILE": profileController.viewProfile(); break;
-            case "UPDATE USERNAME": profileController.changeUsername(); break;
-            case "UPDATE PASSWORD": profileController.changePassword(); break;
             case "SELECT WALLET": navigationController.walletSelect(); break;
             case "CREATE WALLET": walletController.createWallet(); break;
             case "VIEW MARKET ITEMS": marketController.viewMerchandise(); break;
@@ -58,6 +59,8 @@ public class Dispatcher {
             case "TRADE MARKET ITEM":
                 navigationController.selectMarketItemToBuy(marketController.getAllMerchandiseOnMarket());
                 break;
+            case "CHANGE LANG": langController.changeLang(); break;
+
         }
 //        if (request.equalsIgnoreCase("LOGIN")) {
 //            this.logInController.login();

@@ -7,6 +7,9 @@ public class Config {
     private final String eventFilePath;
     private final String walletFilePath;
     private final String artsFilePath;
+    private final String langDirectory;
+    private final String langFilePath;
+    private String langCurr = "en";
 
     /**
      * A data class containing Strings of file paths where data is stored
@@ -22,13 +25,19 @@ public class Config {
                   String adminUserFilePath,
                   String eventFilePath,
                   String walletFilePath,
-                  String artsFilePath) {
+                  String artsFilePath,
+                  String langDirectory,
+                  String langFilePath,
+                  String defaultLanguage) {
         this.rootDirectory = rootDirectory;
         this.basicUserFilePath = basicUserFilePath;
         this.adminUserFilePath = adminUserFilePath;
         this.eventFilePath = eventFilePath;
         this.walletFilePath = walletFilePath;
         this.artsFilePath = artsFilePath;
+        this.langDirectory = langDirectory;
+        this.langFilePath = langFilePath;
+        this.langCurr = defaultLanguage;
     }
 
     /**
@@ -74,4 +83,20 @@ public class Config {
      * @return a String for the path to the art file
      */
     public String getArtsFilePath() { return this.artsFilePath; }
+
+    public String getLangDirectory() {
+        return langDirectory;
+    }
+
+    public String getLangFilePath() {
+        return langFilePath;
+    }
+
+    public String getLangCurr() {
+        return langCurr;
+    }
+
+    public void setLangCurr(String langCurr) {
+        this.langCurr = langCurr;
+    }
 }

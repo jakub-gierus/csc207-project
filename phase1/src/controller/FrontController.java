@@ -45,8 +45,9 @@ public class FrontController {
         this.artManager = new ArtManager(this.walletManager, dbConfig);
         this.dataRetriever = new DataRetriever(config);
         this.dataSaver = new DataSaver(config, this.artManager, this.userRepository, this.walletManager);
-        this.view = new GenericView();
-        this.dispatcher = new Dispatcher(this, this.walletManager, this.artManager);
+        this.view = new GenericView(config);
+        this.dispatcher = new Dispatcher(this, this.walletManager, this.artManager, config);
+
 
         this.artManager.wipeRemoteDb();
         this.walletManager.wipeRemoteDb();
@@ -104,12 +105,12 @@ public class FrontController {
     public void loadDatabase() {
         try {
             this.userRepository.resetUserData(this.dataRetriever.readAdminUserData(),
-                                              this.dataRetriever.readBasicUserData(),
-                                              this.dataRetriever.readEventData(),
-                                              this.dataRetriever.readWalletData(),
-                                              this.dataRetriever.readArtData(),
-                                              this.walletManager,
-                                              this.artManager);
+                    this.dataRetriever.readBasicUserData(),
+                    this.dataRetriever.readEventData(),
+                    this.dataRetriever.readWalletData(),
+                    this.dataRetriever.readArtData(),
+                    this.walletManager,
+                    this.artManager);
         }
         catch (IOException e) {
             this.view.showErrorMessage("Database files not found.\n");
@@ -146,4 +147,5 @@ public class FrontController {
     public UserRepository getUserRepository() {
         return this.userRepository;
     }
+
 }
