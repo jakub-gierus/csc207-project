@@ -10,13 +10,13 @@
     "cn": "登录"
   },
   "enterUsername": {
-    "en": "enter username: ",
-    "es": "introduzca su nombre de usuario: ",
+    "en": "Enter username: ",
+    "es": "Introduzca su nombre de usuario: ",
     "cn": "输入用户名"
   },
   "enterPassword": {
     "en": "Enter password: ",
-    "es": "introducir la contraseña: ",
+    "es": "Introducir la contraseña: ",
     "cn": "输入密码"
   },
   "loginSuccess": {
