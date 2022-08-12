@@ -1,0 +1,86 @@
+A number of design patterns were employed in the creation of this application.
+
+- Factory pattern
+A factor pattern was deployed for the creation of users. This can be found in usercases/users/UserFactory
+We believed that this pattern was useful here because there were several subtypes of users that could be created, and
+the program would benefit from all the user creation being centralized and unified in one place while retaining the
+ability to customize object properties.
+
+- Iterator pattern
+A iterator pattern was applied to the Wallet class. This can be found in entity/markets/Wallet
+Because wallets are meant to store as many art pieces as the user desired, we felt that the iterator pattern would be
+useful here because it provides us with a way to easily traverse through the art collection of any given wallet and
+retrieve necessary information.
+
+- Facade pattern
+The facade pattern was applied to all our entities and their managers. They can be found within the subdirectories of
+src/usecases/.
+Due to the many responsibilities (business rules) of our entities, the entity manager classes became too bloated for
+our liking. Thus, the Facade pattern was deployed to facilitate higher level classes' interaction with entities and
+their usecases.
+
+- Model View Controller pattern
+The MVC comprises most of our frontend. Most relevant classes can be found under src/usecases and src/controller.
+We believe that the MVC pattern is the most optimal way to organize our user interaction system because by the nature of
+our application the user have a wide range of ways they can interact with the system. Using controllers and views allows
+related actions to be handled more clearly. Additionally, this pattern allows multiple developers to work on the UI
+system simultaneously, which is helpful when working close to the deadline.
+
+- Dispatcher pattern
+The dispatcher class can be found in src/controller/Dispatcher
+As suggested previously, the user have a wide range of options to engage with the application. On top of that, we have
+a large amount of controller classes who all needs to receive and send information. Thus, the dispatcher was necessary
+for relaying commands between classes as centralizing user commands made them much easier to program around.
+
+- FrontController pattern
+The FrontController can be found in src/controller/FrontController
+Our motivation for using the FrontController was similar to that for the Dispatcher. Using the FrontController pattern
+allowed us to centralize all user input in one object so that only one user input collection system needs to be
+implemented for all our controllers. Additionally, the FrontController facilitates the loading of application data and
+the sharing of such data between all controller level classes.
+
+- Dependency Injection Pattern
+Dependency Injection is used widely in our application. Examples of such can be found in our controller level classes,
+in which instances of Config and FrontController is passed into controller objects. We relied on this pattern for the
+sake of maintaining adherence to SOLID dependency and single responsibility principles. Beyond just following SOLID
+guidelines though, we felt that it would be wise to decouple classes as much as we can for the sake of testing, and
+because we were never 100% certain on where we will place our extensions and thus were worried about replacing
+dependencies.
+
+- Planned - Adapter pattern.
+In our attempt to create an android client for our application, we found that it was very difficult for the android UI
+to interact with our backend as the did not plan for a way to inject and extract commands/information into our
+controller level objects. As such, given more time we likely would have created an adapter or adapted version of the
+dispatcher/front controller for the android system to interact with the back.
+
+A number of design patterns were considered, but purposefully rejected.
+
+- Factory pattern on wallets and art.
+While a wallet and art factory were definitely possible, we found that each art and wallet instance was so similar and
+created in such similar circumstances that the benefits of the factory pattern were largely unnecessary.
+
+- Strategy pattern on art
+While many different strategies for rendering the ascii art and other art related processes could have been implemented
+in a strategy pattern, we never found the need to apply different algorithms for these tasks. Thus, a strategy pattern
+was rejected.
+
+Other design decisions.
+
+The application was designed from ground up to be structured as three "branches" stemming from our three entities. From
+our experience with the Log In system in phase 0, we sought to decouple the backend as much as possible so that each
+team can work on their own features without stepping on each other's toes.
+
+To adhere to the single responsibility principle, we created a different controller for each domain the user can
+interact with; this led us to create a FrontController, Dispatcher, and Navigator that was adaptive in the sense that
+new feature blocks can be easily slotted. This simplifies the construction of new application features, as shown by how
+we added a language selection feature while changing very little of the original code.
+
+Our program improved over the original in several ways.
+
+The entire codebase was scanned over and refactored to be concise, clear, and rid of code smells. Helper functions built
+specifically to wrap convoluted code and make the logic clearer to unfamiliar developers. Large methods were broken up
+to facilitate testing and certain modules were reorganized. We attempted to reduce overreach between higher, controller
+level classes and lower, entity level classes for the sake of decoupling to facilitate future feature development.
+Certain design patterns such as the factory and iterator was deployed in phase 2 to facilitate interaction with the
+relevant classes. Finally, by adopting a new database system, employing technologies such as AmazonDynamoDB we gained
+access to sophisticated and powerful tools for the storage, management, testing, and development of our data system.
