@@ -37,16 +37,25 @@ public class ProfileView {
         System.out.printf("You've been a member for %s\n", formattedTimeDifference);
     }
 
+    /**
+     * Asks the user for their new username
+     */
     public void showChangeUsernamePrompt(){
         System.out.println("----------------------------------");
         System.out.println("Enter your new username");
     }
 
-
+    /**
+     * Asks the user for their old password
+     */
     public void showAskForOldPW(){
         System.out.println("----------------------------------");
         System.out.println("Enter your old password");
     }
+
+    /**
+     * Asks the user for their new password
+     */
     public void showAskForNewPW(){
         System.out.println("----------------------------------");
         System.out.println("Enter your new password");

@@ -11,7 +11,6 @@ import view.AdminView;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,20 +60,7 @@ public class AdminController {
         String inputUsername = this.frontController.userInput.nextLine();
 
         userDeletionProcess(inputUsername);
-//        try {
-//            if (frontController.getActiveUser().isPresent()) {
-//                AdminFacade activeAdminUser = ((AdminFacade) this.frontController.getActiveUser().get());
-//                if (inputUsername.equals(activeAdminUser.getUsername())) {
-//                    activeAdminUser.deleteUser(inputUsername);
-//                    this.frontController.setActiveUser(Optional.empty());
-//                } else {
-//                    activeAdminUser.deleteUser(inputUsername);
-//                }
-//                this.view.showDeleteSuccess(inputUsername);
-//            }
-//        } catch (UserDoesNotExistException e) {
-//            this.view.showErrorMessage(e.getMessage());
-//        }
+
         this.frontController.dispatchRequest("GET ADMIN ACTIONS");
     }
 
@@ -116,15 +102,7 @@ public class AdminController {
             boolean isAdmin = isAdminString.equals("y");
 
             createUserProcess(username, password, isAdmin);
-//            try {
-//                if(frontController.getActiveUser().isPresent()) {
-//                    AdminFacade activeAdminUser = ((AdminFacade) this.frontController.getActiveUser().get());
-//                    activeAdminUser.createUser(username, password, isAdmin);
-//                    this.view.showCreateUserSuccess(username);
-//                }
-//            } catch (UsernameAlreadyExistsException e) {
-//                this.view.showErrorMessage(e.getMessage());
-//            }
+
             this.frontController.dispatchRequest("GET ADMIN ACTIONS");
         }
     }
@@ -159,23 +137,7 @@ public class AdminController {
         int timeOfBan = Integer.parseInt(stringTimeOfBan);
 
         banUserProcess(inputUsername, timeOfBan);
-//        try {
-//            if (frontController.getActiveUser().isPresent()) {
-//                AdminFacade activeAdminUser = ((AdminFacade) this.frontController.getActiveUser().get());
-//                int timeOfBan = Integer.parseInt(stringTimeOfBan);
-//                activeAdminUser.banUser(inputUsername, LocalDateTime.now().plusMinutes(timeOfBan));
-//                if (inputUsername.equals(activeAdminUser.getUsername())) {
-//                    this.frontController.setActiveUser(Optional.empty());
-//                }
-//                DateTimeFormatter format = DateTimeFormatter.ofPattern("dd MMM, yyyy HH:mm:ss");
-//                String formatDateTime = LocalDateTime.now().plusMinutes(Integer.parseInt(stringTimeOfBan)).format(format);
-//                this.view.showBanSuccess(inputUsername, formatDateTime);
-//            }
-//        } catch (NumberFormatException e) {
-//            this.view.showErrorMessage("Input the ban length as an integer amount of minutes and try again.");
-//        } catch (UserDoesNotExistException | UserIsNotBannableException e) {
-//            this.view.showErrorMessage(e.getMessage());
-//        }
+
         frontController.dispatchRequest("GET ADMIN ACTIONS");
     }
 

@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"controller"},{"l":"databases"},{"l":"entity.art"},{"l":"entity.markets"},{"l":"entity.user"},{"l":"exceptions.market"},{"l":"exceptions.user"},{"l":"interfaces"},{"l":"usecases.art"},{"l":"usecases.markets"},{"l":"usecases.user"},{"l":"utils"},{"l":"view"}]

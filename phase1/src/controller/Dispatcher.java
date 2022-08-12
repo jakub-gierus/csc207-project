@@ -52,6 +52,8 @@ public class Dispatcher {
             case "BAN USER": adminController.banUser(); break;
             case "UNBAN USER": adminController.unbanUser(); break;
             case "VIEW PROFILE": profileController.viewProfile(); break;
+            case "UPDATE USERNAME": profileController.changeUsername(); break;
+            case "UPDATE PASSWORD": profileController.changePassword(); break;
             case "SELECT WALLET": navigationController.walletSelect(); break;
             case "CREATE WALLET": walletController.createWallet(); break;
             case "VIEW MARKET ITEMS": marketController.viewMerchandise(); break;
@@ -62,43 +64,6 @@ public class Dispatcher {
             case "CHANGE LANG": langController.changeLang(); break;
 
         }
-//        if (request.equalsIgnoreCase("LOGIN")) {
-//            this.logInController.login();
-//        } else if (request.equalsIgnoreCase("GET MAIN ACTIONS")) {
-//            this.navigationController.mainActionSelect();
-//        } else if (request.equalsIgnoreCase("LOGOUT")) {
-//            this.logInController.logout();
-//        } else if (request.equalsIgnoreCase("EXIT APP")) {
-//            this.frontController.exitApplication();
-//        } else if (request.equalsIgnoreCase("GET ADMIN ACTIONS")) {
-//            this.navigationController.adminActionSelect();
-//        } else if (request.equalsIgnoreCase("GET PROFILE ACTIONS")) {
-//            this.navigationController.profileActionSelect();
-//        } else if (request.equalsIgnoreCase("GET MARKET ACTIONS")){
-//            this.navigationController.marketActionSelect();
-//        }else if (request.equalsIgnoreCase("VIEW ALL USERS")) {
-//            this.adminController.seeAllUsers();
-//        } else if (request.equalsIgnoreCase("DELETE USER")) {
-//            this.adminController.deleteUser();
-//        } else if (request.equalsIgnoreCase("CREATE USER")) {
-//            this.adminController.createUser();
-//        } else if (request.equalsIgnoreCase("BAN USER")) {
-//            this.adminController.banUser();
-//        } else if (request.equalsIgnoreCase("UNBAN USER")) {
-//            this.adminController.unbanUser();
-//        } else if (request.equalsIgnoreCase("VIEW PROFILE")) {
-//            this.profileController.viewProfile();
-//        } else if (request.equalsIgnoreCase("SELECT WALLET")) {
-//            this.navigationController.walletSelect();
-//        } else if (request.equalsIgnoreCase("CREATE WALLET")) {
-//            this.walletController.createWallet();
-//        } else if (request.equalsIgnoreCase("VIEW MARKET ITEMS")){
-//            this.marketController.viewMerchandise();
-//        } else if (request.equalsIgnoreCase("POST MARKET ITEM")){
-//            this.navigationController.selectMerchandiseToPostToMarket();
-//        }else if (request.equalsIgnoreCase("TRADE MARKET ITEM")){
-//            this.navigationController.selectMarketItemToBuy(this.marketController.getAllMerchandiseOnMarket());
-//        }
     }
 
     /**
@@ -116,21 +81,6 @@ public class Dispatcher {
             case "POST ART TO MARKET": marketController.postMerchandise(id); break;
             case "SELECT WALLET FOR TRADE": navigationController.selectWalletToMakeTrade(id); break;
         }
-//        if (request.equalsIgnoreCase("GET WALLET ACTIONS")) {
-//            this.navigationController.walletActionSelect(id);
-//        } else if (request.equalsIgnoreCase("VIEW LIQUIDITY")) {
-//            this.walletController.viewLiquidity(id);
-//        } else if (request.equalsIgnoreCase("VIEW NET WORTH")) {
-//            this.walletController.viewWalletWorth(id);
-//        } else if (request.equalsIgnoreCase("VIEW WALLET ART")) {
-//            this.walletController.viewWalletArt(id);
-//        } else if (request.equalsIgnoreCase("MINT NEW ART")) {
-//            this.walletController.mintArt(id);
-//        }else if (request.equalsIgnoreCase("POST ART TO MARKET")) {
-//            this.marketController.postMerchandise(id);
-//        } else if (request.equalsIgnoreCase("SELECT WALLET FOR TRADE")) {
-//            this.navigationController.selectWalletToMakeTrade(id);
-//        }
     }
 
     /**
@@ -145,16 +95,6 @@ public class Dispatcher {
             case "MAKE A2A TRADE": marketController.makeArtForArtTrade(id1, id2); break;
             case "SELECT ART FOR A2A TRADE": navigationController.selectArtFromWalletForTrade(id1, id2); break;
         }
-//        if (request.equalsIgnoreCase("MAKE TRADE WITH WALLET")) {
-//            // item id, wallet id
-//            this.marketController.makeTradeWithWallet(id1, id2);
-//        } else if (request.equalsIgnoreCase("MAKE A2A TRADE")) {
-//            // marketArt id, usersArt id
-//            this.marketController.makeArtForArtTrade(id1, id2);
-//        }else if (request.equalsIgnoreCase("SELECT ART FOR A2A TRADE")) {
-//            // wantedItem id, userWallet id
-//            this.navigationController.selectArtFromWalletForTrade(id1, id2);
-//        }
     }
 }
 

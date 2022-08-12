@@ -83,6 +83,9 @@ public class WalletRepository implements DataRepository<Wallet> {
 
     }
 
+    /**
+     * Delete all wallet data from the database
+     */
     public void deleteAll(){
         try{
             ScanRequest scanRequest = new ScanRequest()

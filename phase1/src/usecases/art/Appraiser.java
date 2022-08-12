@@ -3,7 +3,6 @@ package usecases.art;
 import entity.art.Art;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 /**
  * Appraises the value of an art piece

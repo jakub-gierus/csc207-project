@@ -2,12 +2,10 @@ package usecases.user;
 
 import databases.UserRepository;
 import entity.markets.Wallet;
-import entity.user.AdminUser;
-import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UsernameAlreadyExistsException;
-import factory.UserFactory;
+import usecases.UserFactory;
 import usecases.markets.WalletManager;
 
 public class CreateUser {

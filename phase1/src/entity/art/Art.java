@@ -37,6 +37,10 @@ public class Art implements Merchandise{
         this.isTradable = true;
     }
 
+    /**
+     * A constructor that accepts an Item object to unpack into art
+     * @param item an Item object that contains all the data needed for an art entity
+     */
     public Art(Item item){
         this.asciiString = item.get("art").toString();
         this.title = item.get("title").toString();
@@ -74,14 +78,6 @@ public class Art implements Merchandise{
      * @return a UUID object for the art piece
      */
     public UUID getId(){return UUID.fromString(id);}
-
-    /*
-       Changes the title of the art piece
-       @param newTitle a String that is to be the piece's new title
-    public void changeTitle(String newTitle){
-        title = newTitle;
-    }
-    */
 
     /**
      * Getter for the piece's title
@@ -142,10 +138,19 @@ public class Art implements Merchandise{
     public String getTypeString(){
         return "Art";
     }
+
+    /**
+     * Gets the UUID of the wallet that stores this art
+     * @return an UUID
+     */
     public UUID getWalletId() {
         return UUID.fromString(walletId) ;
     }
 
+    /**
+     * Sets the UUID of the wallet that stores this art
+     * @param walletId a String
+     */
     public void setWalletId(String walletId) {
         this.walletId = walletId.toString();
     }

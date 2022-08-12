@@ -55,6 +55,9 @@ public class ProfileController {
         frontController.dispatchRequest("GET PROFILE ACTIONS");
     }
 
+    /**
+     * Changes the active user's password
+     */
     public void changePassword() {
         view.showAskForOldPW();
         String oldPassword = frontController.userInput.nextLine();

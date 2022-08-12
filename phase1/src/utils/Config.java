@@ -84,18 +84,34 @@ public class Config {
      */
     public String getArtsFilePath() { return this.artsFilePath; }
 
+    /**
+     * Get the directory for the language info
+     * @return a String of the lang directory
+     */
     public String getLangDirectory() {
         return langDirectory;
     }
 
+    /**
+     * Get the file path to the language data storage location
+     * @return a String file path
+     */
     public String getLangFilePath() {
         return langFilePath;
     }
 
+    /**
+     * Return the current language
+     * @return a String representing current language
+     */
     public String getLangCurr() {
         return langCurr;
     }
 
+    /**
+     * Sets the current language
+     * @param langCurr a String that represents the language to be set
+     */
     public void setLangCurr(String langCurr) {
         this.langCurr = langCurr;
     }

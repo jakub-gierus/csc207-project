@@ -14,6 +14,11 @@ public class ArtManager implements Iterable<Art>{
     final private WalletManager walletManager;
     final private ArtRepository db;
 
+    /**
+     * Manages the storage of art entities
+     * @param walletManager the WalletManager instance used by this controller
+     * @param config the DynamoDBConfig file used for locate storage
+     */
     public ArtManager(WalletManager walletManager, DynamoDBConfig config) {
         this.walletManager = walletManager;
         this.db = new ArtRepository(config);
@@ -129,6 +134,9 @@ public class ArtManager implements Iterable<Art>{
         return new artIterator();
     }
 
+    /**
+     * An iterator to rotate through stored art
+     */
     public class artIterator implements Iterator<Art> {
         List<Art> name = new ArrayList<>(getAllArt());
 

@@ -2,11 +2,9 @@ package databases;
 
 import entity.art.Art;
 import entity.markets.Wallet;
-import entity.user.AdminUser;
-import entity.user.BasicUser;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
-import factory.UserFactory;
+import usecases.UserFactory;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 

@@ -39,6 +39,10 @@ public class Wallet implements Merchandise {
         id = UUID.randomUUID().toString();
     }
 
+    /**
+     * A Wallet constructor that unpacks an Item to get a wallet entity
+     * @param item an Item object that contains all the data needed for a wallet entity
+     */
     public Wallet(Item item){
         this.id = item.get("id").toString();
         this.currency = Double.parseDouble(item.get("currency").toString());
@@ -170,10 +174,18 @@ public class Wallet implements Merchandise {
         publicAccess = newAccess;
     }
 
+    /**
+     * Gets the name of this wallet
+     * @return String name
+     */
     public String getNameOrTitle(){
         return getName();
     }
 
+    /**
+     * Gets the type of this wallet as a string
+     * @return the String "Wallet"
+     */
     public String getTypeString(){
         return "Wallet";
     }

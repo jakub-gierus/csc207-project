@@ -11,6 +11,10 @@ public class GenericView {
     protected JSONObject langJson = null;
     protected Config config;
 
+    /**
+     * A generic view method for printing information to the screen
+     * @param config a Config file for location storage
+     */
     public GenericView(Config config) {
         this.config = config;
         try {
