@@ -1,0 +1,4 @@
+A number of design patterns were employed in the creation of this application.
+
+1. Factory pattern
+A factor pattern was deployed for the creation of users. This can be found in

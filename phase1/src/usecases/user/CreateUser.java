@@ -5,7 +5,6 @@ import entity.markets.Wallet;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
 import exceptions.user.UsernameAlreadyExistsException;
-import usecases.UserFactory;
 import usecases.markets.WalletManager;
 
 public class CreateUser {

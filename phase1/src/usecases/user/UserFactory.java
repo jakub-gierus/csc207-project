@@ -1,4 +1,4 @@
-package usecases;
+package usecases.user;
 
 import entity.user.AdminUser;
 import entity.user.BasicUser;

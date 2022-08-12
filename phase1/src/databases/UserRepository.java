@@ -4,7 +4,7 @@ import entity.art.Art;
 import entity.markets.Wallet;
 import entity.user.User;
 import exceptions.user.UserDoesNotExistException;
-import usecases.UserFactory;
+import usecases.user.UserFactory;
 import usecases.art.ArtManager;
 import usecases.markets.WalletManager;
 
