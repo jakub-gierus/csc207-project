@@ -17,6 +17,10 @@ public class DynamoDBConfig {
         this.mapper = dynamoDBMapper();
     }
 
+    /**
+     * Creates a mapping object that sets preset parameters for database queries
+     * @return a mapper object to create db queries
+     */
     public DynamoDBMapper dynamoDBMapper(){
         // set the mapper from strong consistency since we dont really care about latency
         DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
@@ -25,7 +29,10 @@ public class DynamoDBConfig {
         clientDb = buildAmazonDynamoDB();
         return new DynamoDBMapper(clientDb, mapperConfig);
     }
-
+    /**
+     * Returns a database instance endpoint
+     * @return database instance
+     */
     private AmazonDynamoDB buildAmazonDynamoDB(){
         return AmazonDynamoDBClientBuilder
                 .standard()

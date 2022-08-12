@@ -48,7 +48,7 @@ public class ArtManager implements Iterable<Art>{
     /**
      * Returns the art pieces found in a specific wallet
      * @param walletId the UUID of the target wallet
-     * @return a mapping of the format <UUID, ArtFacade> that contains all the art in this wallet
+     * @return a list of all the art in this wallet
      */
     public List<Art> getArtByWallet(UUID walletId) {
         List<Art> result = new ArrayList<>();
@@ -60,7 +60,11 @@ public class ArtManager implements Iterable<Art>{
 
         return result;
     }
-
+    /**
+     * Returns the art pieces found in a specific wallet
+     * @param walletId the UUID of the target wallet
+     * @return a mapping of the format <UUID, ArtFacade> that contains all the art in this wallet
+     */
     public HashMap<UUID, Art> getArtByWalletMap(UUID walletId){
         HashMap<UUID, Art> result = new HashMap<UUID,Art>();
         for (Art art : db.getAll()){
@@ -89,12 +93,19 @@ public class ArtManager implements Iterable<Art>{
         art.setWallet(this.walletManager.getWalletById(walletID));
         db.save(art);
     }
-
+    /**
+     * Update the wallet of an art piece
+     * @param art an Art object to be edited
+     * @param newId the new UUID of the wallet the art
+     */
     public void setNewWalletId(UUID newId, Art art){
         art.setWalletId(newId.toString());
         db.save(art);
     }
-
+    /**
+     * Get the value of all art in a wallet
+     * @param walletId the new UUID of the wallet
+     */
     public double getArtValue(UUID walletId){
         double res = 0.0;
         for (Art art : getArtByWallet(walletId)){
@@ -102,7 +113,9 @@ public class ArtManager implements Iterable<Art>{
         }
         return res;
     }
-
+    /**
+     * Remove all records from remote database
+     */
     public void wipeRemoteDb(){
         db.deleteAll();
     }

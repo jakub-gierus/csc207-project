@@ -26,11 +26,18 @@ public class WalletRepository implements DataRepository<Wallet> {
         this.mapper = config.mapper;
         this.table = new DynamoDB(clientDb).getTable("wallet");
     }
-
+    /**
+     * Returns a Wallet if it exists in the library, null otherwise
+     * @param id, id of the art to get
+     * @return a Wallet object or Null
+     */
     public Wallet getById(String id) {
         return new Wallet(table.getItem("id", id));
     }
-
+    /**
+     * Delete a Wallet if it exists in the library, null otherwise
+     * @param id, id of the Wallet to get
+     */
     public void delete(String id) {
         try{
             table.deleteItem("id", id);
@@ -39,16 +46,23 @@ public class WalletRepository implements DataRepository<Wallet> {
             System.out.println("Error deleting Wallet Object from AWS DynamoDB");
         }
     }
-
+    /**
+     * Saves a Wallet object into the database
+     * @param obj, the art to save
+     * @return the Wallet object
+     */
     public Wallet save(Wallet obj) {
         try{
             mapper.save(obj);
         } catch (Exception e){
-            System.out.println("Error saving Wallet Object to AWS DynamoDB");
+            System.out.println("Error saving Wallet object to AWS DynamoDB");
         }
         return obj;
     }
-
+    /**
+     * returns all Wallets in the databse
+     * @return a list of all stored Wallets
+     */
     public List<Wallet> getAll(){
         try{
             ScanRequest scanRequest = new ScanRequest()
