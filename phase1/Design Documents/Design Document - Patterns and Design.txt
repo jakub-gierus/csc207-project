@@ -7,10 +7,11 @@ the program would benefit from all the user creation being centralized and unifi
 ability to customize object properties.
 
 - Iterator pattern
-A iterator pattern was applied to the Wallet class. This can be found in entity/markets/Wallet
-Because wallets are meant to store as many art pieces as the user desired, we felt that the iterator pattern would be
-useful here because it provides us with a way to easily traverse through the art collection of any given wallet and
-retrieve necessary information.
+A iterator pattern was applied to the ArtManager class. This can be found in usecases/art/ArtManager
+Because the ArtManager is responsible for keeping track of all art pieces present in the system, it became necessary for
+us to find an easy and efficient way to traverse through these art objects. We found that an iterator pattern was really
+conducive for our needs because in our usage we tend to process art piece data one after another without requiring a
+specific order or filter.
 
 - Facade pattern
 The facade pattern was applied to all our entities and their managers. They can be found within the subdirectories of
