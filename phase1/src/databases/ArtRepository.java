@@ -29,6 +29,11 @@ public class ArtRepository implements DataRepository<Art> {
         this.table = new DynamoDB(clientDb).getTable("art");
     }
 
+    /**
+     * Returns an art piece if it exists in the library, null otherwise
+     * @param id, id of the art to get
+     * @return an Art object or Null
+     */
     public Art getById(String id) {
         try{
             return new Art(table.getItem("id", id));
@@ -36,7 +41,10 @@ public class ArtRepository implements DataRepository<Art> {
             return null;
         }
     }
-
+    /**
+     * Delete an art piece if it exists in the library, null otherwise
+     * @param id, id of the art to get
+     */
     public void delete(String id) {
         try{
             table.deleteItem("id", id);
@@ -45,7 +53,11 @@ public class ArtRepository implements DataRepository<Art> {
             System.out.println("Error deleting Art Object from AWS DynamoDB");
         }
     }
-
+    /**
+     * Saves an art object into the database
+     * @param obj, the art to save
+     * @return the Art object
+     */
     public Art save(Art obj) {
         try{
             mapper.save(obj);
@@ -54,7 +66,10 @@ public class ArtRepository implements DataRepository<Art> {
         }
         return obj;
     }
-
+    /**
+     * returns all art pieces in the databse
+     * @return a list of all stored art
+     */
     public List<Art> getAll(){
         try{
             ScanRequest scanRequest = new ScanRequest()

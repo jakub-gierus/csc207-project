@@ -174,6 +174,11 @@ public class WalletManager {
         return db.getById(id.toString());
     }
 
+    /**
+     * Gets the wallets that belong to a user
+     * @param username the name of the user
+     * @return List of wallets that belong to the user
+     */
     public List<Wallet> getWalletsByUserName(String username){
         List<Wallet> res = new ArrayList<>();
         for (Wallet wallet : db.getAll()){
@@ -184,6 +189,9 @@ public class WalletManager {
         return res;
     }
 
+    /**
+     * Remove all records in remote database
+     */
     public void wipeRemoteDb(){
         db.deleteAll();
     }
