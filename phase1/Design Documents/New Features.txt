@@ -6,5 +6,6 @@ New features added for phase 2:
 - A new database system, the application is now integrated with Amazon DynamoDB so that the data is now hosted on the
   cloud and accessible anywhere. As a result, new tools for data management is now available to developers.
 - (Unfinished) An Android client for the application. Though it is not yet connected to the application backend the
-  UI is trivially functional.
+  UI is trivially functional. Android files can be accessed via https://github.com/chait27/csc207 (If access isn't working,
+  email chait.mahajan@mail.utoronto.ca)
 - The phase 1 codebase has been refactored and cleaned.
