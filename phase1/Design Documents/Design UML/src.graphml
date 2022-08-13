@@ -1,0 +1,2562 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by yFiles for HTML 2.5-->
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/2.0/ygraphml.xsd " xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:demostyle2="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/2.0" xmlns:demostyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/1.0" xmlns:icon-style="http://www.yworks.com/yed-live/icon-style/1.0" xmlns:bpmn="http://www.yworks.com/xml/yfiles-bpmn/2.0" xmlns:demotablestyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoTableStyle/1.0" xmlns:uml="http://www.yworks.com/yFilesHTML/demos/UMLDemoStyle/1.0" xmlns:GraphvizNodeStyle="http://www.yworks.com/yFilesHTML/graphviz-node-style/1.0" xmlns:VuejsNodeStyle="http://www.yworks.com/demos/yfiles-vuejs-node-style/1.0" xmlns:explorer-style="http://www.yworks.com/data-explorer/1.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/3.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/3.0" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/2.0/xaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key id="d0" for="node" attr.type="int" attr.name="zOrder" y:attr.uri="http://www.yworks.com/xml/yfiles-z-order/1.0/zOrder"/>
+	<key id="d1" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+		<default>true</default>
+	</key>
+	<key id="d2" for="node" attr.type="string" attr.name="url"/>
+	<key id="d3" for="node" attr.type="string" attr.name="description"/>
+	<key id="d4" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels"/>
+	<key id="d5" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry"/>
+	<key id="d6" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags"/>
+	<key id="d7" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle"/>
+	<key id="d8" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState"/>
+	<key id="d9" for="edge" attr.type="string" attr.name="url"/>
+	<key id="d10" for="edge" attr.type="string" attr.name="description"/>
+	<key id="d11" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels"/>
+	<key id="d12" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry"/>
+	<key id="d13" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle"/>
+	<key id="d14" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState"/>
+	<key id="d15" for="port" attr.name="PortLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLabels"/>
+	<key id="d16" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+		<default>
+			<x:Static Member="y:FreeNodePortLocationModel.NodeCenterAnchored"/>
+		</default>
+	</key>
+	<key id="d17" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+		<default>
+			<x:Static Member="y:VoidPortStyle.Instance"/>
+		</default>
+	</key>
+	<key id="d18" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState"/>
+	<key id="d19" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData"/>
+	<data key="d19">
+		<y:SharedData>
+			<yjs:Stroke x:Key="1" fill="#FF663800"/>
+			<yjs:SolidColorFill x:Key="2" color="DarkOrange"/>
+			<yjs:PolylineEdgeStyle x:Key="3" stroke="{y:GraphMLReference 9}" sourceArrow="{y:GraphMLReference 10}"/>
+			<yjs:Stroke x:Key="4" fill="#FF000082"/>
+			<yjs:Arrow x:Key="5" type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+			<yjs:Arrow x:Key="6" type="NONE" stroke="#FF000082" fill="#FF000082"/>
+			<y:SmartEdgeLabelModelParameter x:Key="7" Distance="5">
+				<y:SmartEdgeLabelModelParameter.Model>
+					<y:SmartEdgeLabelModel/>
+				</y:SmartEdgeLabelModelParameter.Model>
+			</y:SmartEdgeLabelModelParameter>
+			<yjs:DefaultLabelStyle x:Key="8" verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" textFill="BLACK">
+				<yjs:DefaultLabelStyle.font>
+					<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+				</yjs:DefaultLabelStyle.font>
+			</yjs:DefaultLabelStyle>
+			<yjs:Stroke x:Key="9" fill="#FF000000" dashStyle="Dash"/>
+			<yjs:Arrow x:Key="10" type="TRIANGLE" stroke="#FF000000" fill="#FFFFFFFF"/>
+		</y:SharedData>
+	</data>
+	<graph id="G" edgedefault="directed">
+		<data key="d6">
+			<y:Json>{"version":"2.0.0","bridge-style":"ARC_SCALED","theme":{"name":"light","version":"1.0.0"}}</y:Json>
+		</data>
+		<node id="n0">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2119.9999999999995" Y="-788.75" Width="249" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ActionDoesNotExistException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ActionDoesNotExistException():]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n1">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-136" Y="-203.75" Width="264" Height="124"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ActionView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ActionView():]]></sys:String>
+									<sys:String><![CDATA[+ showAvailableActions(List<String>): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999994741136392,-0.0064930690722134945"/>
+				</data>
+			</port>
+		</node>
+		<node id="n2">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="678" Y="682.5" Width="230" Height="236"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="AdminController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ view: AdminView]]></sys:String>
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ AdminController(FrontController):]]></sys:String>
+									<sys:String><![CDATA[+ seeAllUsers(): void]]></sys:String>
+									<sys:String><![CDATA[+ createUser(): void]]></sys:String>
+									<sys:String><![CDATA[+ unbanUser(): void]]></sys:String>
+									<sys:String><![CDATA[+ banUser(): void]]></sys:String>
+									<sys:String><![CDATA[+ deleteUser(): void]]></sys:String>
+									<sys:String><![CDATA[+ presentAllUsers(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9956896551724138,0.5"/>
+				</data>
+			</port>
+			<port name="p1"/>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4"/>
+		</node>
+		<node id="n3">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-1681" Y="471.5" Width="399" Height="220"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="AdminFacade" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userCreater: CreateUser]]></sys:String>
+									<sys:String><![CDATA[+ userBanner: BanUser]]></sys:String>
+									<sys:String><![CDATA[+ userFinder: FindUser]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ AdminFacade(AdminUser, UserRepository, WalletManager,  ...):]]></sys:String>
+									<sys:String><![CDATA[+ banUser(String, LocalDateTime): void]]></sys:String>
+									<sys:String><![CDATA[+ getAllUsers(): List<UserFacade>]]></sys:String>
+									<sys:String><![CDATA[+ deleteUser(String): void]]></sys:String>
+									<sys:String><![CDATA[+ createUser(String, String, boolean): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5173082263607075,-0.004761904761904762"/>
+				</data>
+			</port>
+		</node>
+		<node id="n4">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-548" Y="457" Width="187" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="AdminUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ AdminUser(String, String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000025315042959,1"/>
+				</data>
+			</port>
+		</node>
+		<node id="n5">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1104.6432432432428" Y="-431.75" Width="250.7135135135135" Height="300"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="AdminView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ AdminView():]]></sys:String>
+									<sys:String><![CDATA[+ showAllUsers(List<String>): void]]></sys:String>
+									<sys:String><![CDATA[+ showPasswordPrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showDeleteSuccess(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showUnbanSuccess(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showIsAdminPrompt(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showCreateUserSuccess(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showBanPrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showBanLengthPrompt(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showBanSuccess(String, String): void]]></sys:String>
+									<sys:String><![CDATA[+ showUsernamePrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showDeletePrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showUnbanPrompt(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000015869392371,-0.001567398119122257"/>
+				</data>
+			</port>
+		</node>
+		<node id="n6">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-125" Y="1198.5" Width="242" Height="124"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Appraiser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Appraiser():]]></sys:String>
+									<sys:String><![CDATA[+ appraiseArt(ArtManager, Art): double]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n7">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1041.9216216216219" Y="2678.25" Width="207" Height="412"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Art" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ isTradable: boolean]]></sys:String>
+									<sys:String><![CDATA[+ asciiString: String]]></sys:String>
+									<sys:String><![CDATA[+ wallet: Wallet]]></sys:String>
+									<sys:String><![CDATA[+ id: UUID]]></sys:String>
+									<sys:String><![CDATA[+ price: float]]></sys:String>
+									<sys:String><![CDATA[+ title: String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Art(String, String):]]></sys:String>
+									<sys:String><![CDATA[+ Art(String, String, UUID, float):]]></sys:String>
+									<sys:String><![CDATA[+ getId(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getIsTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ setWallet(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ getNameOrTitle(): String]]></sys:String>
+									<sys:String><![CDATA[+ getTitle(): String]]></sys:String>
+									<sys:String><![CDATA[+ getWallet(): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ getArt(): String]]></sys:String>
+									<sys:String><![CDATA[+ getOwner(): String]]></sys:String>
+									<sys:String><![CDATA[+ getTypeString(): String]]></sys:String>
+									<sys:String><![CDATA[+ getPrice(): float]]></sys:String>
+									<sys:String><![CDATA[+ setisTradable(boolean): void]]></sys:String>
+									<sys:String><![CDATA[+ setPrice(float): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.2546135532361558,-0.002109704641350211"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9952153110047847,0.5"/>
+				</data>
+			</port>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4"/>
+			<port name="p5"/>
+			<port name="p6"/>
+		</node>
+		<node id="n8">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-103" Y="1405.5" Width="198" Height="220"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ArtFacade" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ art: Art]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ArtFacade(Art, ArtManager):]]></sys:String>
+									<sys:String><![CDATA[+ getAsciiArt(): String]]></sys:String>
+									<sys:String><![CDATA[+ getTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getPrice(): double]]></sys:String>
+									<sys:String><![CDATA[+ getId(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getTitle(): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.9954954954954955"/>
+				</data>
+			</port>
+		</node>
+		<node id="n9">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-427.3827027027027" Y="1139" Width="266.76540540540543" Height="172"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ArtGenerator" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ asciiCategories: Map<String, String>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ArtGenerator():]]></sys:String>
+									<sys:String><![CDATA[+ generateArt(String): String]]></sys:String>
+									<sys:String><![CDATA[+ getRandomArt(String): String]]></sys:String>
+									<sys:String><![CDATA[+ determineClosestCategory(String): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.0037207169519886674,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n10">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1269.529189189189" Y="2401.25" Width="292" Height="236"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ArtManager" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ library: HashMap<UUID, Art>]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ArtManager(WalletManager):]]></sys:String>
+									<sys:String><![CDATA[+ getArt(UUID): Art]]></sys:String>
+									<sys:String><![CDATA[+ createNewArt(String, String, float, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ artExists(Art): boolean]]></sys:String>
+									<sys:String><![CDATA[+ addArt(Art, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ getAllArt(): Collection<Art>]]></sys:String>
+									<sys:String><![CDATA[+ getArtByWallet(UUID): Map<UUID, ArtFacade>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4"/>
+		</node>
+		<node id="n11">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="577.6497297297295" Y="468" Width="246.70054054054054" Height="140"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="BanUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ BanUser(UserRepository):]]></sys:String>
+									<sys:String><![CDATA[+ banUser(String, LocalDateTime): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n12">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-924.898918918919" Y="504.5" Width="276.79783783783785" Height="188"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="BasicUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ tempBannedUntil: LocalDateTime]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ BasicUser(String, String, LocalDateTime):]]></sys:String>
+									<sys:String><![CDATA[+ BasicUser(String, String):]]></sys:String>
+									<sys:String><![CDATA[+ setTempBannedUntil(LocalDateTime): void]]></sys:String>
+									<sys:String><![CDATA[+ getTempBannedUntil(): LocalDateTime]]></sys:String>
+									<sys:String><![CDATA[+ getIsTempBanned(): boolean]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.44464794539575947,-0.006024096385542169"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5041846277935921,0.02885692238324197"/>
+				</data>
+			</port>
+		</node>
+		<node id="n13">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="599.1545945945944" Y="1019.5" Width="243.6908108108108" Height="140"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ChangeUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ user: User]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ChangeUser(User):]]></sys:String>
+									<sys:String><![CDATA[+ changePassword(String, String): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n14">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="683.1536486486486" Y="1405.5" Width="312" Height="300"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Config" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ rootDirectory: String]]></sys:String>
+									<sys:String><![CDATA[+ walletFilePath: String]]></sys:String>
+									<sys:String><![CDATA[+ basicUserFilePath: String]]></sys:String>
+									<sys:String><![CDATA[+ adminUserFilePath: String]]></sys:String>
+									<sys:String><![CDATA[+ artsFilePath: String]]></sys:String>
+									<sys:String><![CDATA[+ eventFilePath: String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Config(String, String, String, String, String, String):]]></sys:String>
+									<sys:String><![CDATA[+ getBasicUserFilePath(): String]]></sys:String>
+									<sys:String><![CDATA[+ getRootDirectory(): String]]></sys:String>
+									<sys:String><![CDATA[+ getAdminUserFilePath(): String]]></sys:String>
+									<sys:String><![CDATA[+ getWalletFilePath(): String]]></sys:String>
+									<sys:String><![CDATA[+ getArtsFilePath(): String]]></sys:String>
+									<sys:String><![CDATA[+ getEventFilePath(): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+			<port name="p2"/>
+		</node>
+		<node id="n15">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="360.5816216216216" Y="628" Width="288.83675675675676" Height="172"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="CreateUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ CreateUser(UserRepository, WalletManager):]]></sys:String>
+									<sys:String><![CDATA[+ createUser(String, String, boolean): void]]></sys:String>
+									<sys:String><![CDATA[+ deleteUser(String): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n16">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="352.1418918918919" Y="1803.25" Width="406.2162162162162" Height="284"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="DataRetriever" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ eventsFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ filePath: String]]></sys:String>
+									<sys:String><![CDATA[+ basicUsersFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ adminUsersFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ artsFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ walletsFilename: String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ DataRetriever(Config):]]></sys:String>
+									<sys:String><![CDATA[+ readAdminUserData(): List<Entry<String, String>>]]></sys:String>
+									<sys:String><![CDATA[+ readBasicUserData(): List<Triplet<String, String, LocalDateTime>>]]></sys:String>
+									<sys:String><![CDATA[+ readWalletData(): List<SerializedWallet>]]></sys:String>
+									<sys:String><![CDATA[+ readArtData(): List<SerializedArt>]]></sys:String>
+									<sys:String><![CDATA[+ readEventData(): List<Triplet<String, LocalDateTime, String>>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.0034965034965035446"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.0034965034965035446"/>
+				</data>
+			</port>
+		</node>
+		<node id="n17">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="956.8221621621624" Y="1791.75" Width="303.8854054054054" Height="284"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="DataSaver" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ eventsFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ filePath: String]]></sys:String>
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ artsFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ adminUsersFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ basicUsersFilename: String]]></sys:String>
+									<sys:String><![CDATA[+ walletsFilename: String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ DataSaver(Config, ArtManager, UserRepository):]]></sys:String>
+									<sys:String><![CDATA[+ saveAllWalletData(): void]]></sys:String>
+									<sys:String><![CDATA[+ saveAllUserData(): void]]></sys:String>
+									<sys:String><![CDATA[+ saveAllArtData(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.0034965034965035446"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.9965034965034965"/>
+				</data>
+			</port>
+			<port name="p2"/>
+			<port name="p3">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.996730801854784,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n18">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="939" Y="1056.5" Width="352" Height="268"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Dispatcher" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ walletController: WalletController]]></sys:String>
+									<sys:String><![CDATA[+ adminController: AdminController]]></sys:String>
+									<sys:String><![CDATA[+ profileController: ProfileController]]></sys:String>
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+									<sys:String><![CDATA[+ navigationController: NavigationController]]></sys:String>
+									<sys:String><![CDATA[+ logInController: LogInController]]></sys:String>
+									<sys:String><![CDATA[+ marketController: MarketController]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Dispatcher(FrontController, WalletManager, ArtManager):]]></sys:String>
+									<sys:String><![CDATA[+ dispatch(String, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ dispatch(String, UUID, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ dispatch(String): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.003703703703703709"/>
+				</data>
+			</port>
+		</node>
+		<node id="n19">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="385.6027027027027" Y="832" Width="275.7945945945946" Height="156"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="FindUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ FindUser(UserRepository, WalletManager):]]></sys:String>
+									<sys:String><![CDATA[+ getUserByUsername(String): User]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n20">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="937.0962162162162" Y="553.5" Width="279.80756756756756" Height="396"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="FrontController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userInput: Scanner]]></sys:String>
+									<sys:String><![CDATA[+ dataSaver: DataSaver]]></sys:String>
+									<sys:String><![CDATA[+ view: GenericView]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ activeUser: Optional<UserFacade>]]></sys:String>
+									<sys:String><![CDATA[+ dispatcher: Dispatcher]]></sys:String>
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ dataRetriever: DataRetriever]]></sys:String>
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ FrontController(Config):]]></sys:String>
+									<sys:String><![CDATA[+ getArtManager(): ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ exitApplication(): void]]></sys:String>
+									<sys:String><![CDATA[+ dispatchRequest(String, UUID[]): void]]></sys:String>
+									<sys:String><![CDATA[+ getActiveUser(): Optional<UserFacade>]]></sys:String>
+									<sys:String><![CDATA[+ isLoggedIn(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ setActiveUser(Optional<UserFacade>): void]]></sys:String>
+									<sys:String><![CDATA[+ getWalletManager(): WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ getUserRepository(): UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ loadDatabase(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.002512562814070307"/>
+				</data>
+			</port>
+			<port name="p5"/>
+			<port name="p6"/>
+			<port name="p7"/>
+		</node>
+		<node id="n21">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="929.6983783783784" Y="-848" Width="216.60324324324324" Height="124"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="GenericView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ GenericView():]]></sys:String>
+									<sys:String><![CDATA[+ showErrorMessage(String): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066"/>
+				</data>
+			</port>
+			<port name="p2">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066"/>
+				</data>
+			</port>
+			<port name="p3">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066"/>
+				</data>
+			</port>
+			<port name="p4">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000021344171547,1.0064935064935066"/>
+				</data>
+			</port>
+		</node>
+		<node id="n22">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-1196.6489189189185" Y="316.25" Width="276.79783783783785" Height="140"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF4CAF50" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="interface" constraint="" className="IBannableUser" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ getIsTempBanned(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getTempBannedUntil(): LocalDateTime]]></sys:String>
+									<sys:String><![CDATA[+ setTempBannedUntil(LocalDateTime): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n23">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2397" Y="-888.75" Width="322" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="IncorrectUserNameOrPasswordException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ IncorrectUserNameOrPasswordException():]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n24">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2081.698378378378" Y="805.25" Width="216.60324324324324" Height="140"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="LogIn" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ LogIn(UserRepository):]]></sys:String>
+									<sys:String><![CDATA[+ logIn(String, String): User]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.00457449754708078,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n25">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1779.596216216216" Y="893" Width="224" Height="172"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="LogInController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+									<sys:String><![CDATA[+ view: LogInView]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ LogInController(FrontController):]]></sys:String>
+									<sys:String><![CDATA[+ login(): void]]></sys:String>
+									<sys:String><![CDATA[+ logout(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.004424778761061954,0.5"/>
+				</data>
+			</port>
+			<port name="p1"/>
+		</node>
+		<node id="n26">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1386.6967567567567" Y="-577.75" Width="217.6064864864865" Height="156"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="LogInView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ LogInView():]]></sys:String>
+									<sys:String><![CDATA[+ showPasswordPrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showLogInSuccess(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showUsernamePrompt(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0,0.5000016039363836"/>
+				</data>
+			</port>
+		</node>
+		<node id="n27">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="995.5" Y="-109.25" Width="149" Height="124"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Main" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Main():]]></sys:String>
+									<sys:String><![CDATA[+ main(String[]): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n28">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-2066" Y="1066" Width="331" Height="300"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Market" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ itemsForSale: List<Merchandise>]]></sys:String>
+									<sys:String><![CDATA[+ listings: HashMap<UUID, String>]]></sys:String>
+									<sys:String><![CDATA[+ walletLibrary: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Market(UserRepository, ArtManager, WalletManager):]]></sys:String>
+									<sys:String><![CDATA[+ makeTradeWithArt(UUID, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ getNamesMerchandiseForSale(): List<String>]]></sys:String>
+									<sys:String><![CDATA[+ removeItem(Merchandise): void]]></sys:String>
+									<sys:String><![CDATA[+ checkItem(Merchandise): boolean]]></sys:String>
+									<sys:String><![CDATA[+ addArtToMarket(UUID): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getItemsForSale(): List<Merchandise>]]></sys:String>
+									<sys:String><![CDATA[+ makeTradeWithCash(UUID, UUID): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.9966887417218543"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.996996996996997,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n29">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1400.4178378378379" Y="1093.625" Width="390.1643243243243" Height="252"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="MarketController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ artLibrary: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ market: Market]]></sys:String>
+									<sys:String><![CDATA[+ view: MarketView]]></sys:String>
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ MarketController(FrontController, ArtManager, WalletManager ...):]]></sys:String>
+									<sys:String><![CDATA[+ getAllMerchandiseOnMarket(): List<Merchandise>]]></sys:String>
+									<sys:String><![CDATA[+ postMerchandise(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ makeArtForArtTrade(UUID, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ makeTradeWithWallet(UUID, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ viewMerchandise(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.003937007874015741"/>
+				</data>
+			</port>
+		</node>
+		<node id="n30">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="671" Y="-302.25" Width="277" Height="188"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="MarketView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ MarketView():]]></sys:String>
+									<sys:String><![CDATA[+ failAddToMarket(): void]]></sys:String>
+									<sys:String><![CDATA[+ showMarketListingHeader(): void]]></sys:String>
+									<sys:String><![CDATA[+ successAddToMarket(): void]]></sys:String>
+									<sys:String><![CDATA[+ showPaymentMethodPrompt(double): void]]></sys:String>
+									<sys:String><![CDATA[+ showMarketListings(List<String>): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.499999875615725,1.003030303030303"/>
+				</data>
+			</port>
+		</node>
+		<node id="n31">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-831.7464864864864" Y="803.5" Width="182.49297297297298" Height="172"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF4CAF50" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="interface" constraint="" className="Merchandise" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ getIsTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getOwner(): String]]></sys:String>
+									<sys:String><![CDATA[+ getNameOrTitle(): String]]></sys:String>
+									<sys:String><![CDATA[+ getId(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getTypeString(): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.49999856413409255,0.999996619933775"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.49999856413409255,0.999996619933775"/>
+				</data>
+			</port>
+		</node>
+		<node id="n32">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1268" Y="640.5" Width="401" Height="332"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="NavigationController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+									<sys:String><![CDATA[+ view: ActionView]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ NavigationController(FrontController):]]></sys:String>
+									<sys:String><![CDATA[+ profileActionSelect(): void]]></sys:String>
+									<sys:String><![CDATA[+ marketActionSelect(): void]]></sys:String>
+									<sys:String><![CDATA[+ mainActionSelect(): void]]></sys:String>
+									<sys:String><![CDATA[+ walletActionSelect(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ adminActionSelect(): void]]></sys:String>
+									<sys:String><![CDATA[+ createActionEntry(String, Runnable): Entry<String, Runnable>]]></sys:String>
+									<sys:String><![CDATA[+ walletSelect(): void]]></sys:String>
+									<sys:String><![CDATA[+ selectMerchandiseToPostToMarket(): void]]></sys:String>
+									<sys:String><![CDATA[+ selectArtFromWalletForTrade(UUID, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ selectMarketItemToBuy(List<Merchandise>): void]]></sys:String>
+									<sys:String><![CDATA[+ genericActionSelect(Map<Integer, Entry<String, Runnable>>): void]]></sys:String>
+									<sys:String><![CDATA[+ selectWalletToMakeTrade(UUID): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.002481389578163795,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n33">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2433" Y="-788.75" Width="382" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="NewPasswordIsTheSameAsOldPasswordException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ NewPasswordIsTheSameAsOldPasswordException():]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n34">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2114.9999999999995" Y="-688.75" Width="259" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="PasswordsDontMatchException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ PasswordsDontMatchException():]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n35">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1289.75" Y="448" Width="228" Height="156"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ProfileController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ view: ProfileView]]></sys:String>
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ProfileController(FrontController):]]></sys:String>
+									<sys:String><![CDATA[+ viewProfile(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.004347826086956497,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n36">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="561.77" Y="-96.25" Width="326.96" Height="124"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="ProfileView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ ProfileView():]]></sys:String>
+									<sys:String><![CDATA[+ showProfile(String, int, double, LocalDateTime): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n37">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-1291.993783783784" Y="840.75" Width="235.66486486486485" Height="204"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="PublicWalletRegistry" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ wallets: List<Wallet>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ PublicWalletRegistry():]]></sys:String>
+									<sys:String><![CDATA[+ showPublicWalletIDs(): List<UUID>]]></sys:String>
+									<sys:String><![CDATA[+ makeWalletPublic(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ makeWalletPrivate(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ getWallets(): List<Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ isWalletPublic(Wallet): boolean]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.9951456310679612"/>
+				</data>
+			</port>
+		</node>
+		<node id="n38">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="751.0783783783784" Y="2385.25" Width="290.84324324324325" Height="268"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="SerializedArt" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ artTitle: String]]></sys:String>
+									<sys:String><![CDATA[+ walletID: UUID]]></sys:String>
+									<sys:String><![CDATA[+ art: String]]></sys:String>
+									<sys:String><![CDATA[+ price: float]]></sys:String>
+									<sys:String><![CDATA[+ artID: UUID]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ SerializedArt(String, UUID, UUID, String, float):]]></sys:String>
+									<sys:String><![CDATA[+ getArtID(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getArtTitle(): String]]></sys:String>
+									<sys:String><![CDATA[+ getPrice(): float]]></sys:String>
+									<sys:String><![CDATA[+ getWalletID(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getArt(): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+		</node>
+		<node id="n39">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1404.3867567567568" Y="2000.75" Width="323.95027027027027" Height="268"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="SerializedWallet" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ walletName: String]]></sys:String>
+									<sys:String><![CDATA[+ ownerUsername: String]]></sys:String>
+									<sys:String><![CDATA[+ walletID: UUID]]></sys:String>
+									<sys:String><![CDATA[+ isTradeable: boolean]]></sys:String>
+									<sys:String><![CDATA[+ currency: double]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ SerializedWallet(String, String, String, String, String):]]></sys:String>
+									<sys:String><![CDATA[+ isTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getCurrency(): double]]></sys:String>
+									<sys:String><![CDATA[+ getWalletID(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getWalletName(): String]]></sys:String>
+									<sys:String><![CDATA[+ getOwnerUsername(): String]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+			<port name="p2"/>
+		</node>
+		<node id="n40">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-2011.4005405405405" Y="1446" Width="277.80108108108107" Height="204"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="TradingUtil" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ tradingTo: Wallet]]></sys:String>
+									<sys:String><![CDATA[+ tradingFrom: Wallet]]></sys:String>
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ TradingUtil(Wallet, Wallet, UserRepository):]]></sys:String>
+									<sys:String><![CDATA[+ makeTrade_Art_Money(Art): boolean]]></sys:String>
+									<sys:String><![CDATA[+ makeTrade_Wallet_Wallet(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ makeTrade_Art_Art(Art, Art): boolean]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9964260323936696,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n41">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="266" Y="1516" Width="163" Height="204"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Triplet&lt;T, U, V&gt;" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ third: V]]></sys:String>
+									<sys:String><![CDATA[+ first: T]]></sys:String>
+									<sys:String><![CDATA[+ second: U]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Triplet(T, U, V):]]></sys:String>
+									<sys:String><![CDATA[+ getSecond(): U]]></sys:String>
+									<sys:String><![CDATA[+ getThird(): V]]></sys:String>
+									<sys:String><![CDATA[+ getFirst(): T]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n42">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-882.7281081081081" Y="-219" Width="480.4562162162162" Height="476"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="User" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ isLoggedIn: boolean]]></sys:String>
+									<sys:String><![CDATA[+ password: String]]></sys:String>
+									<sys:String><![CDATA[+ events: List<Entry<LocalDateTime, String>>]]></sys:String>
+									<sys:String><![CDATA[+ username: String]]></sys:String>
+									<sys:String><![CDATA[+ wallets: List<Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ isAdmin: boolean]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ User(String, String, boolean):]]></sys:String>
+									<sys:String><![CDATA[+ addWallet(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ getEvents(String): List<Entry<LocalDateTime, String>>]]></sys:String>
+									<sys:String><![CDATA[+ getFirstWallet(): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ removeWallet(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ getPassword(): String]]></sys:String>
+									<sys:String><![CDATA[+ getIsLoggedIn(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ logEvent(String, LocalDateTime): void]]></sys:String>
+									<sys:String><![CDATA[+ logEvent(String): void]]></sys:String>
+									<sys:String><![CDATA[+ getEvents(LocalDateTime, LocalDateTime): List<Entry<LocalDateTime, String>>]]></sys:String>
+									<sys:String><![CDATA[+ validate(String): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getUsername(): String]]></sys:String>
+									<sys:String><![CDATA[+ setPassword(String): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getIsAdmin(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ setUsername(String): void]]></sys:String>
+									<sys:String><![CDATA[+ getWallets(): List<Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ setLoggedIn(boolean): void]]></sys:String>
+									<sys:String><![CDATA[+ getEvents(): List<Entry<LocalDateTime, String>>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.3336388697868535,1.0017786604184407"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.3336388697868535,1.0017786604184407"/>
+				</data>
+			</port>
+			<port name="p2"/>
+			<port name="p3"/>
+		</node>
+		<node id="n43">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2028.6627027027023" Y="-239.75" Width="238.6745945945946" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UserDoesNotExistException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UserDoesNotExistException(String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.499998020048544,0"/>
+				</data>
+			</port>
+		</node>
+		<node id="n44">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-1677.5854054054055" Y="-230" Width="392.1708108108108" Height="492"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UserFacade" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ user: User]]></sys:String>
+									<sys:String><![CDATA[+ userRepository: UserRepository]]></sys:String>
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ userCreator: CreateUser]]></sys:String>
+									<sys:String><![CDATA[+ userChanger: ChangeUser]]></sys:String>
+									<sys:String><![CDATA[+ logInner: LogIn]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UserFacade(User, UserRepository, WalletManager, ArtManager):]]></sys:String>
+									<sys:String><![CDATA[+ getWallets(): List<Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ changePassword(String, String): void]]></sys:String>
+									<sys:String><![CDATA[+ login(String, String): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getWalletById(UUID): WalletFacade]]></sys:String>
+									<sys:String><![CDATA[+ addWallet(String, boolean): void]]></sys:String>
+									<sys:String><![CDATA[+ getWalletManager(): WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ register(String, String): void]]></sys:String>
+									<sys:String><![CDATA[+ getUsername(): String]]></sys:String>
+									<sys:String><![CDATA[+ getEventsByType(String): List<Entry<LocalDateTime, String>>]]></sys:String>
+									<sys:String><![CDATA[+ getArtManager(): ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ createAdminFacade(): AdminFacade]]></sys:String>
+									<sys:String><![CDATA[+ getNumberOfWallets(): int]]></sys:String>
+									<sys:String><![CDATA[+ logOut(): void]]></sys:String>
+									<sys:String><![CDATA[+ getIsAdmin(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getTradeableWallets(): List<WalletFacade>]]></sys:String>
+									<sys:String><![CDATA[+ getTotalNetWorth(): double]]></sys:String>
+									<sys:String><![CDATA[+ getAllEvents(): List<Entry<LocalDateTime, String>>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,1.0017123287671232"/>
+				</data>
+			</port>
+			<port name="p1"/>
+			<port name="p2">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9974630287870806,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n45">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2081.698378378378" Y="-395.75" Width="216.60324324324324" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UserIsBannedException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UserIsBannedException(String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.49999866334311077,0"/>
+				</data>
+			</port>
+		</node>
+		<node id="n46">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2658.6513513513505" Y="-247.75" Width="245.6972972972973" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UserIsNotBannableException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UserIsNotBannableException(String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5000013580896747,0"/>
+				</data>
+			</port>
+		</node>
+		<node id="n47">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="914.1843243243245" Y="2120.5" Width="389.1610810810811" Height="220"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UserRepository" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ users: HashMap<String, User>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UserRepository():]]></sys:String>
+									<sys:String><![CDATA[+ getByUsername(String): Optional<User>]]></sys:String>
+									<sys:String><![CDATA[+ resetUserData(List<Entry<String, String>>, List<Triplet< ...): void]]></sys:String>
+									<sys:String><![CDATA[+ createUser(User): void]]></sys:String>
+									<sys:String><![CDATA[+ removeUser(User): void]]></sys:String>
+									<sys:String><![CDATA[+ getAllUsers(): List<User>]]></sys:String>
+									<sys:String><![CDATA[+ getAllUsersByType(boolean): List<User>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.0025564915539046384,0.5"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9974435084460953,0.5"/>
+				</data>
+			</port>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4"/>
+			<port name="p5"/>
+		</node>
+		<node id="n48">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2489" Y="-395.75" Width="270" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UsernameAlreadyExistsException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UsernameAlreadyExistsException(String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999991626957749,0.9999968969176612"/>
+				</data>
+			</port>
+		</node>
+		<node id="n49">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2311.6708108108105" Y="-479.75" Width="233.65837837837836" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="UsernameException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ UsernameException(String, String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1"/>
+				</data>
+			</port>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1"/>
+				</data>
+			</port>
+			<port name="p2">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1"/>
+				</data>
+			</port>
+			<port name="p3">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.4999985594839002,1"/>
+				</data>
+			</port>
+		</node>
+		<node id="n50">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1909.1362162162163" Y="1664.75" Width="229.6454054054054" Height="604"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="Wallet" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ publicAccess: boolean]]></sys:String>
+									<sys:String><![CDATA[+ netWorth: double]]></sys:String>
+									<sys:String><![CDATA[+ id: UUID]]></sys:String>
+									<sys:String><![CDATA[+ currency: double]]></sys:String>
+									<sys:String><![CDATA[+ walletName: String]]></sys:String>
+									<sys:String><![CDATA[+ arts: HashMap<UUID, Art>]]></sys:String>
+									<sys:String><![CDATA[+ owner: User]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ Wallet(User, String):]]></sys:String>
+									<sys:String><![CDATA[+ Wallet(User, String, UUID, double):]]></sys:String>
+									<sys:String><![CDATA[+ addArt(Art): void]]></sys:String>
+									<sys:String><![CDATA[+ getNetWorth(): double]]></sys:String>
+									<sys:String><![CDATA[+ setWalletName(String): void]]></sys:String>
+									<sys:String><![CDATA[+ isPublicAccess(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getId(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ getName(): String]]></sys:String>
+									<sys:String><![CDATA[+ getTypeString(): String]]></sys:String>
+									<sys:String><![CDATA[+ getOwnerObj(): User]]></sys:String>
+									<sys:String><![CDATA[+ getNameOrTitle(): String]]></sys:String>
+									<sys:String><![CDATA[+ setOwner(User): void]]></sys:String>
+									<sys:String><![CDATA[+ getIsTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getIsEmpty(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ calcNetWorth(): void]]></sys:String>
+									<sys:String><![CDATA[+ getCurrency(): double]]></sys:String>
+									<sys:String><![CDATA[+ getArts(): HashMap<UUID, Art>]]></sys:String>
+									<sys:String><![CDATA[+ containsArt(UUID): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getArt(UUID): Art]]></sys:String>
+									<sys:String><![CDATA[+ removeCurrency(double): void]]></sys:String>
+									<sys:String><![CDATA[+ getOwner(): String]]></sys:String>
+									<sys:String><![CDATA[+ addCurrency(double): void]]></sys:String>
+									<sys:String><![CDATA[+ setPublic(boolean): void]]></sys:String>
+									<sys:String><![CDATA[+ removeArt(Art): void]]></sys:String>
+									<sys:String><![CDATA[+ getAllArt(): HashMap<UUID, Art>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.49999889192795766,-0.0013550135501355014"/>
+				</data>
+			</port>
+			<port name="p1"/>
+			<port name="p2"/>
+			<port name="p3"/>
+			<port name="p4"/>
+		</node>
+		<node id="n51">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1797.5" Y="502.5" Width="227" Height="284"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="WalletController" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ view: WalletView]]></sys:String>
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ wallet: WalletFacade]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ frontController: FrontController]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ WalletController(FrontController):]]></sys:String>
+									<sys:String><![CDATA[+ retrieveWallet(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ viewLiquidity(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ mintArt(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ viewWalletArt(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ viewWalletWorth(UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ createWallet(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.004366812227074246,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n52">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="-1702" Y="1302" Width="318" Height="348"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="WalletFacade" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ artManager: ArtManager]]></sys:String>
+									<sys:String><![CDATA[+ walletManager: WalletManager]]></sys:String>
+									<sys:String><![CDATA[+ wallet: Wallet]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ WalletFacade(Wallet, WalletManager, ArtManager):]]></sys:String>
+									<sys:String><![CDATA[+ getCurrency(): double]]></sys:String>
+									<sys:String><![CDATA[+ getIsTradeable(): boolean]]></sys:String>
+									<sys:String><![CDATA[+ getId(): UUID]]></sys:String>
+									<sys:String><![CDATA[+ initializeWalletByID(String, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ getWalletArtTitles(): Map<UUID, String>]]></sys:String>
+									<sys:String><![CDATA[+ getNetWorth(): double]]></sys:String>
+									<sys:String><![CDATA[+ getWalletArtPrices(): Map<UUID, Float>]]></sys:String>
+									<sys:String><![CDATA[+ getName(): String]]></sys:String>
+									<sys:String><![CDATA[+ getTradeableArtNames(): HashMap<UUID, String>]]></sys:String>
+									<sys:String><![CDATA[+ getAllWalletArt(): HashMap<UUID, Art>]]></sys:String>
+									<sys:String><![CDATA[+ addArtToWallet(Art): void]]></sys:String>
+									<sys:String><![CDATA[+ getWalletArts(): Map<UUID, String>]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1"/>
+			<port name="p2">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.996875,0.5"/>
+				</data>
+			</port>
+			<port name="p3">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.996875,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n53">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="1340.6678378378379" Y="1518.75" Width="352.0410810810811" Height="380"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="WalletManager" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ registry: PublicWalletRegistry]]></sys:String>
+									<sys:String><![CDATA[+ wallets: Map<UUID, Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ userFinder: FindUser]]></sys:String>
+									<sys:String><![CDATA[+ DEFAULT_INIT_CURRENCY: double]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ WalletManager(UserRepository):]]></sys:String>
+									<sys:String><![CDATA[+ createWallet(User, String, boolean, UUID, double): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ createWallet(User): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ getUserWalletByID(String, UUID): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ makeWalletPublic(Wallet): void]]></sys:String>
+									<sys:String><![CDATA[+ getWalletById(UUID): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ getWalletByID(UUID): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ changeOwner(Wallet, String): void]]></sys:String>
+									<sys:String><![CDATA[+ retrievePublicWallets(): List<UUID>]]></sys:String>
+									<sys:String><![CDATA[+ createWallet(User, String, boolean): Wallet]]></sys:String>
+									<sys:String><![CDATA[+ getUserWallets(String): List<Wallet>]]></sys:String>
+									<sys:String><![CDATA[+ getUserWalletIDs(String): List<UUID>]]></sys:String>
+									<sys:String><![CDATA[+ transferWallet(String, String, UUID): void]]></sys:String>
+									<sys:String><![CDATA[+ makeWalletPrivate(Wallet): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.0026178010471203383"/>
+				</data>
+			</port>
+			<port name="p2"/>
+			<port name="p3">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9971754690248196,0.5"/>
+				</data>
+			</port>
+			<port name="p4"/>
+			<port name="p5"/>
+		</node>
+		<node id="n54">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="2119.9999999999995" Y="-888.75" Width="230" Height="108"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="WalletNotFoundException" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ WalletNotFoundException(String):]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+		</node>
+		<node id="n55">
+			<data key="d0">0</data>
+			<data key="d5">
+				<y:RectD X="192.84324324324325" Y="-364.25" Width="436.3135135135135" Height="268"/>
+			</data>
+			<data key="d7">
+				<uml:UMLNodeStyle fill="#FF607D8B" highlightFill="#FFA3F1BB">
+					<uml:UMLNodeStyle.model>
+						<uml:UMLClassModel stereotype="" constraint="" className="WalletView" attributesOpen="true" operationsOpen="true">
+							<uml:UMLClassModel.attributes>
+								<x:Array Type="sys:Object"/>
+							</uml:UMLClassModel.attributes>
+							<uml:UMLClassModel.operations>
+								<x:Array Type="sys:Object">
+									<sys:String><![CDATA[+ WalletView():]]></sys:String>
+									<sys:String><![CDATA[+ showPublicAccessPrompt(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showMintSuccess(String, float): void]]></sys:String>
+									<sys:String><![CDATA[+ showCreateWalletSuccess(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showArt(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showLiquidity(double): void]]></sys:String>
+									<sys:String><![CDATA[+ showWalletWorth(double): void]]></sys:String>
+									<sys:String><![CDATA[+ showSetPricePrompt(String): void]]></sys:String>
+									<sys:String><![CDATA[+ showWalletNamePrompt(): void]]></sys:String>
+									<sys:String><![CDATA[+ showWalletGallery(Map<UUID, String>, Map<UUID, String>, Map ...): void]]></sys:String>
+									<sys:String><![CDATA[+ showArtPrompt(): void]]></sys:String>
+								</x:Array>
+							</uml:UMLClassModel.operations>
+						</uml:UMLClassModel>
+					</uml:UMLNodeStyle.model>
+				</uml:UMLNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.30892310834504555,-0.0018166216619812819"/>
+				</data>
+			</port>
+		</node>
+		<node id="n56">
+			<data key="d0">1</data>
+			<data key="d5">
+				<y:RectD X="-2418.125" Y="-16.75" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n57">
+			<data key="d0">2</data>
+			<data key="d5">
+				<y:RectD X="-2260.25" Y="-16.75" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.03125,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n58">
+			<data key="d0">3</data>
+			<data key="d5">
+				<y:RectD X="-2418.125" Y="117.125" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n59">
+			<data key="d0">4</data>
+			<data key="d5">
+				<y:RectD X="-2260.25" Y="117.125" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0">
+				<data key="d16">
+					<y:FreeNodePortLocationModelParameter Ratio="0.03125,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n60">
+			<data key="d0">5</data>
+			<data key="d5">
+				<y:RectD X="-2418.125" Y="258.25" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n61">
+			<data key="d0">6</data>
+			<data key="d5">
+				<y:RectD X="-2260.25" Y="258.25" Width="30" Height="30"/>
+			</data>
+			<data key="d7">
+				<yjs:ShapeNodeStyle stroke="{y:GraphMLReference 1}" fill="{y:GraphMLReference 2}"/>
+			</data>
+			<port name="p0"/>
+		</node>
+		<edge id="e0" source="n1" target="n21" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="-4.152123521280146,-630.8304785441611"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 4}" smoothingLength="20" targetArrow="{y:GraphMLReference 5}" sourceArrow="{y:GraphMLReference 6}"/>
+			</data>
+		</edge>
+		<edge id="e1" source="n3" target="n44" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="-1474.7620841253215,501.6097063679291"/>
+					<y:Bend Location="-1481.6680664432438,501.6097063679291"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e2" source="n4" target="n42" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="-454.3669755343194,430.35124110901313"/>
+					<y:Bend Location="-719.4912074462479,430.35124110901313"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e3" source="n5" target="n21" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="1230.4501485175213,-510.535505376344"/>
+					<y:Bend Location="1068.953944392969,-510.535505376344"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e4" source="n12" target="n22" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="-801.4451148715731,489.6260267542265"/>
+					<y:Bend Location="-795.863326428288,489.6260267542265"/>
+					<y:Bend Location="-795.863326428288,451.75830782330195"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle smoothingLength="20">
+					<yjs:PolylineEdgeStyle.stroke>
+						<yjs:Stroke fill="#FF008200" dashStyle="Dash"/>
+					</yjs:PolylineEdgeStyle.stroke>
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF008200" fill="#FF008200"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF008200" fill="#FF008200"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e5" source="n12" target="n42" sourceport="p1" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="-785.3106739417605,516.2277434267309"/>
+					<y:Bend Location="-779.7288854984754,516.2277434267309"/>
+					<y:Bend Location="-779.7288854984754,499.17149205269266"/>
+					<y:Bend Location="-780.8629196305387,499.17149205269266"/>
+					<y:Bend Location="-780.8629196305387,430.8337623406543"/>
+					<y:Bend Location="-719.4912074462479,430.8337623406543"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e6" source="n26" target="n21" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="1452.0343440860217,-500.2095819588982"/>
+					<y:Bend Location="1452.0343440860217,-630.8304785441611"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e7" source="n30" target="n21" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="809.6759710522701,-396.535505376344"/>
+					<y:Bend Location="809.6760055067143,-396.535505376344"/>
+					<y:Bend Location="809.6760055067143,-630.3304785441611"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e8" source="n43" target="n49" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="2147.735078100602,-185.27311744091963"/>
+					<y:Bend Location="2428.8379999999993,-185.27311744091963"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e9" source="n45" target="n49" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="2189.997856917562,-268.774138781362"/>
+					<y:Bend Location="2428.8379999999993,-268.774138781362"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e10" source="n46" target="n49" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="2781.2316252329747,-185.27311744091963"/>
+					<y:Bend Location="2428.8379999999993,-185.27311744091963"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e11" source="n48" target="n49" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="2624.3506810035838,-268.774138781362"/>
+					<y:Bend Location="2428.8379999999993,-268.774138781362"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e12" source="n55" target="n21" sourceport="p0" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="332.2287741935485,-630.3304785441611"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="#FF000082" smoothingLength="20">
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF000082" fill="#FF000082"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e13" source="n42" target="n44" sourceport="p2" targetport="p2">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e14" source="n40" target="n28" sourceport="p0" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e15" source="n52" target="n28" sourceport="p0" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e16" source="n52" target="n40" sourceport="p1" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e17" source="n20" target="n2" sourceport="p0" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e18" source="n20" target="n18" sourceport="p1" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e19" source="n20" target="n32" sourceport="p2" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e20" source="n20" target="n35" sourceport="p3" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e21" source="n2" target="n11" sourceport="p1" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e22" source="n2" target="n15" sourceport="p2" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e23" source="n2" target="n19" sourceport="p3" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e24" source="n2" target="n13" sourceport="p4" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e25" source="n20" target="n29" sourceport="p5" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="1261.25,1014.5"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e26" source="n20" target="n25" sourceport="p6" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="1166.75,1003"/>
+					<y:Bend Location="1623.5836148676883,1014.5"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e27" source="n25" target="n24" sourceport="p1" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e28" source="n20" target="n51" sourceport="p7" targetport="p0">
+			<data key="d12">
+				<x:List>
+					<y:Bend Location="1248.5644907038295,622.25"/>
+					<y:Bend Location="1726.6046892070854,614.75"/>
+				</x:List>
+			</data>
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e29" source="n56" target="n57" sourceport="p0" targetport="p0">
+			<data key="d11">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 7}" Style="{y:GraphMLReference 8}">
+						<y:Label.Text>Inherits</y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 4}" smoothingLength="20" targetArrow="{y:GraphMLReference 5}" sourceArrow="{y:GraphMLReference 6}"/>
+			</data>
+		</edge>
+		<edge id="e30" source="n58" target="n59" sourceport="p0" targetport="p0">
+			<data key="d11">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 7}" Style="{y:GraphMLReference 8}">
+						<y:Label.Text>Implements</y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle smoothingLength="20">
+					<yjs:PolylineEdgeStyle.stroke>
+						<yjs:Stroke fill="#FF008200" dashStyle="Dash"/>
+					</yjs:PolylineEdgeStyle.stroke>
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow type="TRIANGLE" stroke="#FF008200" fill="#FF008200"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:PolylineEdgeStyle.sourceArrow>
+						<yjs:Arrow type="NONE" stroke="#FF008200" fill="#FF008200"/>
+					</yjs:PolylineEdgeStyle.sourceArrow>
+				</yjs:PolylineEdgeStyle>
+			</data>
+		</edge>
+		<edge id="e31" source="n61" target="n60" sourceport="p0" targetport="p0">
+			<data key="d11">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 7}" Style="{y:GraphMLReference 8}">
+						<y:Label.Text>Depends</y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d13">
+				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 9}" sourceArrow="{y:GraphMLReference 10}"/>
+			</data>
+		</edge>
+		<edge id="e32" source="n41" target="n16" sourceport="p0" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e33" source="n14" target="n16" sourceport="p1" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e34" source="n14" target="n17" sourceport="p2" targetport="p0">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e35" source="n47" target="n17" sourceport="p2" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e36" source="n50" target="n39" sourceport="p3" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e37" source="n50" target="n53" sourceport="p4" targetport="p4">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e38" source="n53" target="n17" sourceport="p5" targetport="p3">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e39" source="n10" target="n47" sourceport="p3" targetport="p3">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e40" source="n38" target="n47" sourceport="p0" targetport="p4">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e41" source="n39" target="n47" sourceport="p2" targetport="p5">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e42" source="n7" target="n38" sourceport="p5" targetport="p1">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+		<edge id="e43" source="n7" target="n10" sourceport="p6" targetport="p4">
+			<data key="d13">
+				<y:GraphMLReference ResourceKey="3"/>
+			</data>
+		</edge>
+	</graph>
+</graphml>
