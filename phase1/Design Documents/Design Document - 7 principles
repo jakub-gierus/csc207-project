@@ -1,0 +1,47 @@
+This document outlines the ways our application follows or may follow the 7 principles of universal design.
+
+1. Equitable Use
+This application does not, and is not capable of segregating or stigmatizing users. All features except for admin
+features are equally available for all, and the means of use is identical to all. The design could be more appealing,
+but we believe that the white on black console text has a certain charm when it comes to ASCII art.
+
+2. Flexibility in Use
+Our application as of phase 2 supports three different languages to the benefit of those who prefer Mandarin or Spanish.
+We intended to complete an android ui, and that would have created a whole new domain of choice in methods of use. Using
+left or right hand does not affect the enjoyment of our application. Because the application currently only supports
+keyboard input, the use does not need a high degree of precision to use our program, and in terms of accuracy if the
+user makes a mistake we allow them to try inputting again. Additionally, we designed our android UI to be as easy to use
+as possible, with buttons and text being large and easy to select. Pace is irrelevant due to the nature of our
+application.
+
+3. Simple and Intuitive Use
+We sought to make our program as simple and intuitive as possible. We made an effort to organize options and views in
+such a way that it fits the user's expectations. Changing username belongs in the profile options, viewing art requires
+you to go to your wallet menu.etc. We also cut as much complexity as possible, opting to keep the user interface as
+simple as possible. The usage of our program does not require much skill beyond the ability to read, and we attempt to
+give feed back after user actions, such as the special error messages on the PC client and the TOAST popups on android.
+
+4. Perceptible Information
+We attempted to make our program as legible as possible. We went as far as reasonably possible on the PC console client,
+choosing to reduce unnecessary elements as much as possible, and dividing the menus of different actions to increase
+legibility. All our options are numbered to simplify user input and giving directions. On our incomplete android client.
+Are buttons are large and contrasts strongly with the background, and each button is labelled to reduce confusion.
+Our program does not cater to those with visual impairment, in the future we could integrated a screen reader software
+to service those people.
+
+5. Tolerance for Error
+Our UI is arranged in such a way that individual users are unable to harm themselves. Additionally, elements are
+separated to reduce the likelihood of misinputting information. Due to the nature of our application there is no true
+harm or hazard that can arise from the usage of the application.
+
+6. Low Physical Effort
+We designed the UI to only require the most basic input from the user, this means that the user can operate the
+application in whatever way they are most comfortable with as long as they can use the keyboard and see the screen.
+We intended the android UI to further this principle, as it will allow the user to interact with the application simply
+by using their phones.
+
+7. Size and Space for Approach and Use.
+We arranged the UI with ease of use in mind. There is little clutter and all actions and components are immediately
+available for the user. Regardless of the user's body size, posture, or mobility. As long as the user is able to sit in
+front of a computer and use a keyboard, they are able to use our application. If we had gotten our android component to
+function as intended, the user would not even need to use a keyboard or sit.
